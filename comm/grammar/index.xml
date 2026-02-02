@@ -1,56 +1,56 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>grammar on Go 中文档集</title><link>https://before80.github.io/go_docs/comm/grammar/</link><description>Recent content in grammar on Go 中文档集</description><generator>Hugo</generator><language>zh-cn</language><lastBuildDate>Thu, 10 Oct 2024 15:07:50 +0800</lastBuildDate><atom:link href="https://before80.github.io/go_docs/comm/grammar/index.xml" rel="self" type="application/rss+xml"/><item><title>定义</title><link>https://before80.github.io/go_docs/comm/grammar/define/</link><pubDate>Fri, 06 Oct 2023 21:18:03 +0800</pubDate><guid>https://before80.github.io/go_docs/comm/grammar/define/</guid><description>&lt;h1 id="定义">定义&lt;a class="td-heading-self-link" href="#%e5%ae%9a%e4%b9%89" aria-label="Heading self-link">&lt;/a>&lt;/h1>
-&lt;h2 id="go">Go&lt;a class="td-heading-self-link" href="#go" aria-label="Heading self-link">&lt;/a>&lt;/h2>
-&lt;h2 id="c">C&lt;a class="td-heading-self-link" href="#c" aria-label="Heading self-link">&lt;/a>&lt;/h2>
-&lt;h2 id="c-1">C++&lt;a class="td-heading-self-link" href="#c-1" aria-label="Heading self-link">&lt;/a>&lt;/h2>
-&lt;h2 id="python">Python&lt;a class="td-heading-self-link" href="#python" aria-label="Heading self-link">&lt;/a>&lt;/h2>
-&lt;h2 id="php">PHP&lt;a class="td-heading-self-link" href="#php" aria-label="Heading self-link">&lt;/a>&lt;/h2>
-&lt;h2 id="ruby">Ruby&lt;a class="td-heading-self-link" href="#ruby" aria-label="Heading self-link">&lt;/a>&lt;/h2>
-&lt;h2 id="java">Java&lt;a class="td-heading-self-link" href="#java" aria-label="Heading self-link">&lt;/a>&lt;/h2>
-&lt;h2 id="javascript">JavaScript&lt;a class="td-heading-self-link" href="#javascript" aria-label="Heading self-link">&lt;/a>&lt;/h2>
-&lt;h2 id="typescript">TypeScript&lt;a class="td-heading-self-link" href="#typescript" aria-label="Heading self-link">&lt;/a>&lt;/h2>
-&lt;h2 id="c-2">C#&lt;a class="td-heading-self-link" href="#c-2" aria-label="Heading self-link">&lt;/a>&lt;/h2>
-&lt;h2 id="erlang">Erlang&lt;a class="td-heading-self-link" href="#erlang" aria-label="Heading self-link">&lt;/a>&lt;/h2></description></item><item><title>声明</title><link>https://before80.github.io/go_docs/comm/grammar/declare/</link><pubDate>Fri, 06 Oct 2023 21:17:55 +0800</pubDate><guid>https://before80.github.io/go_docs/comm/grammar/declare/</guid><description>&lt;h1 id="声明">声明&lt;a class="td-heading-self-link" href="#%e5%a3%b0%e6%98%8e" aria-label="Heading self-link">&lt;/a>&lt;/h1>
-&lt;h2 id="go">Go&lt;a class="td-heading-self-link" href="#go" aria-label="Heading self-link">&lt;/a>&lt;/h2>
-&lt;h2 id="c">C&lt;a class="td-heading-self-link" href="#c" aria-label="Heading self-link">&lt;/a>&lt;/h2>
-&lt;h2 id="c-1">C++&lt;a class="td-heading-self-link" href="#c-1" aria-label="Heading self-link">&lt;/a>&lt;/h2>
-&lt;h2 id="python">Python&lt;a class="td-heading-self-link" href="#python" aria-label="Heading self-link">&lt;/a>&lt;/h2>
-&lt;h2 id="php">PHP&lt;a class="td-heading-self-link" href="#php" aria-label="Heading self-link">&lt;/a>&lt;/h2>
-&lt;h2 id="ruby">Ruby&lt;a class="td-heading-self-link" href="#ruby" aria-label="Heading self-link">&lt;/a>&lt;/h2>
-&lt;h2 id="java">Java&lt;a class="td-heading-self-link" href="#java" aria-label="Heading self-link">&lt;/a>&lt;/h2>
-&lt;h2 id="javascript">JavaScript&lt;a class="td-heading-self-link" href="#javascript" aria-label="Heading self-link">&lt;/a>&lt;/h2>
-&lt;h2 id="typescript">TypeScript&lt;a class="td-heading-self-link" href="#typescript" aria-label="Heading self-link">&lt;/a>&lt;/h2>
-&lt;h2 id="c-2">C#&lt;a class="td-heading-self-link" href="#c-2" aria-label="Heading self-link">&lt;/a>&lt;/h2>
-&lt;h2 id="erlang">Erlang&lt;a class="td-heading-self-link" href="#erlang" aria-label="Heading self-link">&lt;/a>&lt;/h2></description></item><item><title>变量</title><link>https://before80.github.io/go_docs/comm/grammar/variable/</link><pubDate>Fri, 06 Oct 2023 21:17:45 +0800</pubDate><guid>https://before80.github.io/go_docs/comm/grammar/variable/</guid><description>&lt;h1 id="变量">变量&lt;a class="td-heading-self-link" href="#%e5%8f%98%e9%87%8f" aria-label="Heading self-link">&lt;/a>&lt;/h1>
-&lt;h2 id="go">Go&lt;a class="td-heading-self-link" href="#go" aria-label="Heading self-link">&lt;/a>&lt;/h2>
-&lt;h2 id="c">C&lt;a class="td-heading-self-link" href="#c" aria-label="Heading self-link">&lt;/a>&lt;/h2>
-&lt;h2 id="c-1">C++&lt;a class="td-heading-self-link" href="#c-1" aria-label="Heading self-link">&lt;/a>&lt;/h2>
-&lt;h2 id="python">Python&lt;a class="td-heading-self-link" href="#python" aria-label="Heading self-link">&lt;/a>&lt;/h2>
-&lt;h2 id="php">PHP&lt;a class="td-heading-self-link" href="#php" aria-label="Heading self-link">&lt;/a>&lt;/h2>
-&lt;h2 id="ruby">Ruby&lt;a class="td-heading-self-link" href="#ruby" aria-label="Heading self-link">&lt;/a>&lt;/h2>
-&lt;h2 id="java">Java&lt;a class="td-heading-self-link" href="#java" aria-label="Heading self-link">&lt;/a>&lt;/h2>
-&lt;h2 id="javascript">JavaScript&lt;a class="td-heading-self-link" href="#javascript" aria-label="Heading self-link">&lt;/a>&lt;/h2>
-&lt;h2 id="typescript">TypeScript&lt;a class="td-heading-self-link" href="#typescript" aria-label="Heading self-link">&lt;/a>&lt;/h2>
-&lt;h2 id="c-2">C#&lt;a class="td-heading-self-link" href="#c-2" aria-label="Heading self-link">&lt;/a>&lt;/h2>
-&lt;h2 id="erlang">Erlang&lt;a class="td-heading-self-link" href="#erlang" aria-label="Heading self-link">&lt;/a>&lt;/h2></description></item><item><title>常量</title><link>https://before80.github.io/go_docs/comm/grammar/const/</link><pubDate>Fri, 06 Oct 2023 21:17:30 +0800</pubDate><guid>https://before80.github.io/go_docs/comm/grammar/const/</guid><description>&lt;h1 id="常量">常量&lt;a class="td-heading-self-link" href="#%e5%b8%b8%e9%87%8f" aria-label="Heading self-link">&lt;/a>&lt;/h1>
-&lt;h2 id="go">Go&lt;a class="td-heading-self-link" href="#go" aria-label="Heading self-link">&lt;/a>&lt;/h2>
-&lt;h2 id="c">C&lt;a class="td-heading-self-link" href="#c" aria-label="Heading self-link">&lt;/a>&lt;/h2>
-&lt;h2 id="c-1">C++&lt;a class="td-heading-self-link" href="#c-1" aria-label="Heading self-link">&lt;/a>&lt;/h2>
-&lt;h2 id="python">Python&lt;a class="td-heading-self-link" href="#python" aria-label="Heading self-link">&lt;/a>&lt;/h2>
-&lt;h2 id="php">PHP&lt;a class="td-heading-self-link" href="#php" aria-label="Heading self-link">&lt;/a>&lt;/h2>
-&lt;h2 id="ruby">Ruby&lt;a class="td-heading-self-link" href="#ruby" aria-label="Heading self-link">&lt;/a>&lt;/h2>
-&lt;h2 id="java">Java&lt;a class="td-heading-self-link" href="#java" aria-label="Heading self-link">&lt;/a>&lt;/h2>
-&lt;h2 id="javascript">JavaScript&lt;a class="td-heading-self-link" href="#javascript" aria-label="Heading self-link">&lt;/a>&lt;/h2>
-&lt;h2 id="typescript">TypeScript&lt;a class="td-heading-self-link" href="#typescript" aria-label="Heading self-link">&lt;/a>&lt;/h2>
-&lt;h2 id="c-2">C#&lt;a class="td-heading-self-link" href="#c-2" aria-label="Heading self-link">&lt;/a>&lt;/h2>
-&lt;h2 id="erlang">Erlang&lt;a class="td-heading-self-link" href="#erlang" aria-label="Heading self-link">&lt;/a>&lt;/h2></description></item><item><title>类型</title><link>https://before80.github.io/go_docs/comm/grammar/type/</link><pubDate>Fri, 06 Oct 2023 21:17:22 +0800</pubDate><guid>https://before80.github.io/go_docs/comm/grammar/type/</guid><description>&lt;h1 id="类型">类型&lt;a class="td-heading-self-link" href="#%e7%b1%bb%e5%9e%8b" aria-label="Heading self-link">&lt;/a>&lt;/h1>
-&lt;h2 id="go">Go&lt;a class="td-heading-self-link" href="#go" aria-label="Heading self-link">&lt;/a>&lt;/h2>
-&lt;h2 id="c">C&lt;a class="td-heading-self-link" href="#c" aria-label="Heading self-link">&lt;/a>&lt;/h2>
-&lt;h2 id="c-1">C++&lt;a class="td-heading-self-link" href="#c-1" aria-label="Heading self-link">&lt;/a>&lt;/h2>
-&lt;h2 id="python">Python&lt;a class="td-heading-self-link" href="#python" aria-label="Heading self-link">&lt;/a>&lt;/h2>
-&lt;h2 id="php">PHP&lt;a class="td-heading-self-link" href="#php" aria-label="Heading self-link">&lt;/a>&lt;/h2>
-&lt;h2 id="ruby">Ruby&lt;a class="td-heading-self-link" href="#ruby" aria-label="Heading self-link">&lt;/a>&lt;/h2>
-&lt;h2 id="java">Java&lt;a class="td-heading-self-link" href="#java" aria-label="Heading self-link">&lt;/a>&lt;/h2>
-&lt;h2 id="javascript">JavaScript&lt;a class="td-heading-self-link" href="#javascript" aria-label="Heading self-link">&lt;/a>&lt;/h2>
-&lt;h2 id="typescript">TypeScript&lt;a class="td-heading-self-link" href="#typescript" aria-label="Heading self-link">&lt;/a>&lt;/h2>
-&lt;h2 id="c-2">C#&lt;a class="td-heading-self-link" href="#c-2" aria-label="Heading self-link">&lt;/a>&lt;/h2>
-&lt;h2 id="erlang">Erlang&lt;a class="td-heading-self-link" href="#erlang" aria-label="Heading self-link">&lt;/a>&lt;/h2></description></item></channel></rss>
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>grammar on Go 中文档集</title><link>https://before80.github.io/go_docs/comm/grammar/</link><description>Recent content in grammar on Go 中文档集</description><generator>Hugo</generator><language>zh-cn</language><lastBuildDate>Thu, 10 Oct 2024 15:07:50 +0800</lastBuildDate><atom:link href="https://before80.github.io/go_docs/comm/grammar/index.xml" rel="self" type="application/rss+xml"/><item><title>定义</title><link>https://before80.github.io/go_docs/comm/grammar/define/</link><pubDate>Fri, 06 Oct 2023 21:18:03 +0800</pubDate><guid>https://before80.github.io/go_docs/comm/grammar/define/</guid><description>&lt;h1 id="定义"&gt;定义&lt;/h1&gt;
+&lt;h2 id="go"&gt;Go&lt;/h2&gt;
+&lt;h2 id="c"&gt;C&lt;/h2&gt;
+&lt;h2 id="c-1"&gt;C++&lt;/h2&gt;
+&lt;h2 id="python"&gt;Python&lt;/h2&gt;
+&lt;h2 id="php"&gt;PHP&lt;/h2&gt;
+&lt;h2 id="ruby"&gt;Ruby&lt;/h2&gt;
+&lt;h2 id="java"&gt;Java&lt;/h2&gt;
+&lt;h2 id="javascript"&gt;JavaScript&lt;/h2&gt;
+&lt;h2 id="typescript"&gt;TypeScript&lt;/h2&gt;
+&lt;h2 id="c-2"&gt;C#&lt;/h2&gt;
+&lt;h2 id="erlang"&gt;Erlang&lt;/h2&gt;</description></item><item><title>声明</title><link>https://before80.github.io/go_docs/comm/grammar/declare/</link><pubDate>Fri, 06 Oct 2023 21:17:55 +0800</pubDate><guid>https://before80.github.io/go_docs/comm/grammar/declare/</guid><description>&lt;h1 id="声明"&gt;声明&lt;/h1&gt;
+&lt;h2 id="go"&gt;Go&lt;/h2&gt;
+&lt;h2 id="c"&gt;C&lt;/h2&gt;
+&lt;h2 id="c-1"&gt;C++&lt;/h2&gt;
+&lt;h2 id="python"&gt;Python&lt;/h2&gt;
+&lt;h2 id="php"&gt;PHP&lt;/h2&gt;
+&lt;h2 id="ruby"&gt;Ruby&lt;/h2&gt;
+&lt;h2 id="java"&gt;Java&lt;/h2&gt;
+&lt;h2 id="javascript"&gt;JavaScript&lt;/h2&gt;
+&lt;h2 id="typescript"&gt;TypeScript&lt;/h2&gt;
+&lt;h2 id="c-2"&gt;C#&lt;/h2&gt;
+&lt;h2 id="erlang"&gt;Erlang&lt;/h2&gt;</description></item><item><title>变量</title><link>https://before80.github.io/go_docs/comm/grammar/variable/</link><pubDate>Fri, 06 Oct 2023 21:17:45 +0800</pubDate><guid>https://before80.github.io/go_docs/comm/grammar/variable/</guid><description>&lt;h1 id="变量"&gt;变量&lt;/h1&gt;
+&lt;h2 id="go"&gt;Go&lt;/h2&gt;
+&lt;h2 id="c"&gt;C&lt;/h2&gt;
+&lt;h2 id="c-1"&gt;C++&lt;/h2&gt;
+&lt;h2 id="python"&gt;Python&lt;/h2&gt;
+&lt;h2 id="php"&gt;PHP&lt;/h2&gt;
+&lt;h2 id="ruby"&gt;Ruby&lt;/h2&gt;
+&lt;h2 id="java"&gt;Java&lt;/h2&gt;
+&lt;h2 id="javascript"&gt;JavaScript&lt;/h2&gt;
+&lt;h2 id="typescript"&gt;TypeScript&lt;/h2&gt;
+&lt;h2 id="c-2"&gt;C#&lt;/h2&gt;
+&lt;h2 id="erlang"&gt;Erlang&lt;/h2&gt;</description></item><item><title>常量</title><link>https://before80.github.io/go_docs/comm/grammar/const/</link><pubDate>Fri, 06 Oct 2023 21:17:30 +0800</pubDate><guid>https://before80.github.io/go_docs/comm/grammar/const/</guid><description>&lt;h1 id="常量"&gt;常量&lt;/h1&gt;
+&lt;h2 id="go"&gt;Go&lt;/h2&gt;
+&lt;h2 id="c"&gt;C&lt;/h2&gt;
+&lt;h2 id="c-1"&gt;C++&lt;/h2&gt;
+&lt;h2 id="python"&gt;Python&lt;/h2&gt;
+&lt;h2 id="php"&gt;PHP&lt;/h2&gt;
+&lt;h2 id="ruby"&gt;Ruby&lt;/h2&gt;
+&lt;h2 id="java"&gt;Java&lt;/h2&gt;
+&lt;h2 id="javascript"&gt;JavaScript&lt;/h2&gt;
+&lt;h2 id="typescript"&gt;TypeScript&lt;/h2&gt;
+&lt;h2 id="c-2"&gt;C#&lt;/h2&gt;
+&lt;h2 id="erlang"&gt;Erlang&lt;/h2&gt;</description></item><item><title>类型</title><link>https://before80.github.io/go_docs/comm/grammar/type/</link><pubDate>Fri, 06 Oct 2023 21:17:22 +0800</pubDate><guid>https://before80.github.io/go_docs/comm/grammar/type/</guid><description>&lt;h1 id="类型"&gt;类型&lt;/h1&gt;
+&lt;h2 id="go"&gt;Go&lt;/h2&gt;
+&lt;h2 id="c"&gt;C&lt;/h2&gt;
+&lt;h2 id="c-1"&gt;C++&lt;/h2&gt;
+&lt;h2 id="python"&gt;Python&lt;/h2&gt;
+&lt;h2 id="php"&gt;PHP&lt;/h2&gt;
+&lt;h2 id="ruby"&gt;Ruby&lt;/h2&gt;
+&lt;h2 id="java"&gt;Java&lt;/h2&gt;
+&lt;h2 id="javascript"&gt;JavaScript&lt;/h2&gt;
+&lt;h2 id="typescript"&gt;TypeScript&lt;/h2&gt;
+&lt;h2 id="c-2"&gt;C#&lt;/h2&gt;
+&lt;h2 id="erlang"&gt;Erlang&lt;/h2&gt;</description></item></channel></rss>

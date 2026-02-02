@@ -1,5 +1,5 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>对比 on Go 中文档集</title><link>https://before80.github.io/go_docs/comm/</link><description>Recent content in 对比 on Go 中文档集</description><generator>Hugo</generator><language>zh-cn</language><lastBuildDate>Thu, 10 Oct 2024 15:07:50 +0800</lastBuildDate><atom:link href="https://before80.github.io/go_docs/comm/index.xml" rel="self" type="application/rss+xml"/><item><title>Buy Me A Coffee</title><link>https://before80.github.io/go_docs/comm/coffee/</link><pubDate>Thu, 30 May 2024 22:28:58 +0800</pubDate><guid>https://before80.github.io/go_docs/comm/coffee/</guid><description>&lt;h2 id="咖啡自由">咖啡自由&lt;a class="td-heading-self-link" href="#%e5%92%96%e5%95%a1%e8%87%aa%e7%94%b1" aria-label="Heading self-link">&lt;/a>&lt;/h2>
-&lt;p>
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>对比 on Go 中文档集</title><link>https://before80.github.io/go_docs/comm/</link><description>Recent content in 对比 on Go 中文档集</description><generator>Hugo</generator><language>zh-cn</language><lastBuildDate>Thu, 10 Oct 2024 15:07:50 +0800</lastBuildDate><atom:link href="https://before80.github.io/go_docs/comm/index.xml" rel="self" type="application/rss+xml"/><item><title>Buy Me A Coffee</title><link>https://before80.github.io/go_docs/comm/coffee/</link><pubDate>Thu, 30 May 2024 22:28:58 +0800</pubDate><guid>https://before80.github.io/go_docs/comm/coffee/</guid><description>&lt;h2 id="咖啡自由"&gt;咖啡自由&lt;/h2&gt;
+&lt;p&gt;
  
  
  
@@ -13,12 +13,12 @@
  &lt;img src="https://before80.github.io/go_docs/comm/coffee_img/image-20240531000818365.png"
  alt="image-20240531000818365" data-cur-dir="comm" data-rg="/coffee_img/image-20240531000818365.png" data-rg1="coffee_img/image-20240531000818365.png" data-rel="/go_docs/coffee_img/image-20240531000818365.png" data-c4my="/go_docs"
  
- />
+ /&gt;
  
  
-&lt;/p>
-&lt;h2 id="一天的星巴克咖啡">一天的星巴克咖啡&lt;a class="td-heading-self-link" href="#%e4%b8%80%e5%a4%a9%e7%9a%84%e6%98%9f%e5%b7%b4%e5%85%8b%e5%92%96%e5%95%a1" aria-label="Heading self-link">&lt;/a>&lt;/h2>
-&lt;p>
+&lt;/p&gt;
+&lt;h2 id="一天的星巴克咖啡"&gt;一天的星巴克咖啡&lt;/h2&gt;
+&lt;p&gt;
  
  
  
@@ -32,12 +32,12 @@
  &lt;img src="https://before80.github.io/go_docs/comm/coffee_img/image-20240531001156698.png"
  alt="image-20240531001156698" data-cur-dir="comm" data-rg="/coffee_img/image-20240531001156698.png" data-rg1="coffee_img/image-20240531001156698.png" data-rel="/go_docs/coffee_img/image-20240531001156698.png" data-c4my="/go_docs"
  
- />
+ /&gt;
  
  
-&lt;/p>
-&lt;h2 id="两天的星巴克咖啡">两天的星巴克咖啡&lt;a class="td-heading-self-link" href="#%e4%b8%a4%e5%a4%a9%e7%9a%84%e6%98%9f%e5%b7%b4%e5%85%8b%e5%92%96%e5%95%a1" aria-label="Heading self-link">&lt;/a>&lt;/h2>
-&lt;p>
+&lt;/p&gt;
+&lt;h2 id="两天的星巴克咖啡"&gt;两天的星巴克咖啡&lt;/h2&gt;
+&lt;p&gt;
  
  
  
@@ -51,12 +51,12 @@
  &lt;img src="https://before80.github.io/go_docs/comm/coffee_img/image-20240531001139178.png"
  alt="image-20240531001139178" data-cur-dir="comm" data-rg="/coffee_img/image-20240531001139178.png" data-rg1="coffee_img/image-20240531001139178.png" data-rel="/go_docs/coffee_img/image-20240531001139178.png" data-c4my="/go_docs"
  
- />
+ /&gt;
  
  
-&lt;/p>
-&lt;h2 id="三天的星巴克咖啡">三天的星巴克咖啡&lt;a class="td-heading-self-link" href="#%e4%b8%89%e5%a4%a9%e7%9a%84%e6%98%9f%e5%b7%b4%e5%85%8b%e5%92%96%e5%95%a1" aria-label="Heading self-link">&lt;/a>&lt;/h2>
-&lt;p>
+&lt;/p&gt;
+&lt;h2 id="三天的星巴克咖啡"&gt;三天的星巴克咖啡&lt;/h2&gt;
+&lt;p&gt;
  
  
  
@@ -70,12 +70,12 @@
  &lt;img src="https://before80.github.io/go_docs/comm/coffee_img/image-20240531001111661.png"
  alt="image-20240531001111661" data-cur-dir="comm" data-rg="/coffee_img/image-20240531001111661.png" data-rg1="coffee_img/image-20240531001111661.png" data-rel="/go_docs/coffee_img/image-20240531001111661.png" data-c4my="/go_docs"
  
- />
+ /&gt;
  
  
-&lt;/p>
-&lt;h2 id="一周的星巴克咖啡">一周的星巴克咖啡&lt;a class="td-heading-self-link" href="#%e4%b8%80%e5%91%a8%e7%9a%84%e6%98%9f%e5%b7%b4%e5%85%8b%e5%92%96%e5%95%a1" aria-label="Heading self-link">&lt;/a>&lt;/h2>
-&lt;p>
+&lt;/p&gt;
+&lt;h2 id="一周的星巴克咖啡"&gt;一周的星巴克咖啡&lt;/h2&gt;
+&lt;p&gt;
  
  
  
@@ -89,12 +89,12 @@
  &lt;img src="https://before80.github.io/go_docs/comm/coffee_img/image-20240531001044716.png"
  alt="image-20240531001044716" data-cur-dir="comm" data-rg="/coffee_img/image-20240531001044716.png" data-rg1="coffee_img/image-20240531001044716.png" data-rel="/go_docs/coffee_img/image-20240531001044716.png" data-c4my="/go_docs"
  
- />
+ /&gt;
  
  
-&lt;/p>
-&lt;h2 id="两周的星巴克咖啡">两周的星巴克咖啡&lt;a class="td-heading-self-link" href="#%e4%b8%a4%e5%91%a8%e7%9a%84%e6%98%9f%e5%b7%b4%e5%85%8b%e5%92%96%e5%95%a1" aria-label="Heading self-link">&lt;/a>&lt;/h2>
-&lt;p>
+&lt;/p&gt;
+&lt;h2 id="两周的星巴克咖啡"&gt;两周的星巴克咖啡&lt;/h2&gt;
+&lt;p&gt;
  
  
  
@@ -108,12 +108,12 @@
  &lt;img src="https://before80.github.io/go_docs/comm/coffee_img/image-20240531001024877.png"
  alt="image-20240531001024877" data-cur-dir="comm" data-rg="/coffee_img/image-20240531001024877.png" data-rg1="coffee_img/image-20240531001024877.png" data-rel="/go_docs/coffee_img/image-20240531001024877.png" data-c4my="/go_docs"
  
- />
+ /&gt;
  
  
-&lt;/p>
-&lt;h2 id="一个月的星巴克咖啡">一个月的星巴克咖啡&lt;a class="td-heading-self-link" href="#%e4%b8%80%e4%b8%aa%e6%9c%88%e7%9a%84%e6%98%9f%e5%b7%b4%e5%85%8b%e5%92%96%e5%95%a1" aria-label="Heading self-link">&lt;/a>&lt;/h2>
-&lt;p>
+&lt;/p&gt;
+&lt;h2 id="一个月的星巴克咖啡"&gt;一个月的星巴克咖啡&lt;/h2&gt;
+&lt;p&gt;
  
  
  
@@ -127,12 +127,12 @@
  &lt;img src="https://before80.github.io/go_docs/comm/coffee_img/image-20240531001002497.png"
  alt="image-20240531001002497" data-cur-dir="comm" data-rg="/coffee_img/image-20240531001002497.png" data-rg1="coffee_img/image-20240531001002497.png" data-rel="/go_docs/coffee_img/image-20240531001002497.png" data-c4my="/go_docs"
  
- />
+ /&gt;
  
  
-&lt;/p>
-&lt;h2 id="半年的星巴克咖啡">半年的星巴克咖啡&lt;a class="td-heading-self-link" href="#%e5%8d%8a%e5%b9%b4%e7%9a%84%e6%98%9f%e5%b7%b4%e5%85%8b%e5%92%96%e5%95%a1" aria-label="Heading self-link">&lt;/a>&lt;/h2>
-&lt;p>
+&lt;/p&gt;
+&lt;h2 id="半年的星巴克咖啡"&gt;半年的星巴克咖啡&lt;/h2&gt;
+&lt;p&gt;
  
  
  
@@ -146,20 +146,58 @@
  &lt;img src="https://before80.github.io/go_docs/comm/coffee_img/image-20240531000922560.png"
  alt="image-20240531000922560" data-cur-dir="comm" data-rg="/coffee_img/image-20240531000922560.png" data-rg1="coffee_img/image-20240531000922560.png" data-rel="/go_docs/coffee_img/image-20240531000922560.png" data-c4my="/go_docs"
  
- />
+ /&gt;
  
  
-&lt;/p></description></item><item><title>安装、运行代码、卸载</title><link>https://before80.github.io/go_docs/comm/InstallAndRun/</link><pubDate>Fri, 06 Oct 2023 21:15:41 +0800</pubDate><guid>https://before80.github.io/go_docs/comm/InstallAndRun/</guid><description>&lt;h1 id="安装运行代码卸载">安装、运行代码、卸载&lt;a class="td-heading-self-link" href="#%e5%ae%89%e8%a3%85%e8%bf%90%e8%a1%8c%e4%bb%a3%e7%a0%81%e5%8d%b8%e8%bd%bd" aria-label="Heading self-link">&lt;/a>&lt;/h1>
-&lt;h2 id="go">Go&lt;a class="td-heading-self-link" href="#go" aria-label="Heading self-link">&lt;/a>&lt;/h2>
-&lt;h3 id="安装包来源">安装包来源&lt;a class="td-heading-self-link" href="#%e5%ae%89%e8%a3%85%e5%8c%85%e6%9d%a5%e6%ba%90" aria-label="Heading self-link">&lt;/a>&lt;/h3>
-&lt;ul>
-&lt;li>&lt;a href="https://go.dev/dl/">https://go.dev/dl/&lt;/a>&lt;/li>
-&lt;li>&lt;a href="https://mirrors.aliyun.com/golang/">https://mirrors.aliyun.com/golang/&lt;/a>&lt;/li>
-&lt;li>&lt;a href="https://github.com/golang/go/tags">https://github.com/golang/go/tags&lt;/a>&lt;/li>
-&lt;li>&lt;a href="https://golang.google.cn/dl/">https://golang.google.cn/dl/&lt;/a>&lt;/li>
-&lt;li>&lt;a href="https://studygolang.com/dl">https://studygolang.com/dl&lt;/a>&lt;/li>
-&lt;/ul>
-&lt;h3 id="安装">安装&lt;a class="td-heading-self-link" href="#%e5%ae%89%e8%a3%85" aria-label="Heading self-link">&lt;/a>&lt;/h3>
+&lt;/p&gt;
+&lt;h2 id="一年的星巴克咖啡"&gt;一年的星巴克咖啡&lt;/h2&gt;
+&lt;p&gt;
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ &lt;img src="https://before80.github.io/go_docs/comm/coffee_img/image-20240531000846705.png"
+ alt="image-20240531000846705" data-cur-dir="comm" data-rg="/coffee_img/image-20240531000846705.png" data-rg1="coffee_img/image-20240531000846705.png" data-rel="/go_docs/coffee_img/image-20240531000846705.png" data-c4my="/go_docs"
+ 
+ /&gt;
+ 
+ 
+&lt;/p&gt;
+&lt;h2 id="咖啡自由-1"&gt;咖啡自由&lt;/h2&gt;
+&lt;p&gt;
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ &lt;img src="https://before80.github.io/go_docs/comm/coffee_img/image-20240531000818365.png"
+ alt="image-20240531000818365" data-cur-dir="comm" data-rg="/coffee_img/image-20240531000818365.png" data-rg1="coffee_img/image-20240531000818365.png" data-rel="/go_docs/coffee_img/image-20240531000818365.png" data-c4my="/go_docs"
+ 
+ /&gt;
+ 
+ 
+&lt;/p&gt;</description></item><item><title>安装、运行代码、卸载</title><link>https://before80.github.io/go_docs/comm/InstallAndRun/</link><pubDate>Fri, 06 Oct 2023 21:15:41 +0800</pubDate><guid>https://before80.github.io/go_docs/comm/InstallAndRun/</guid><description>&lt;h1 id="安装运行代码卸载"&gt;安装、运行代码、卸载&lt;/h1&gt;
+&lt;h2 id="go"&gt;Go&lt;/h2&gt;
+&lt;h3 id="安装包来源"&gt;安装包来源&lt;/h3&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;a href="https://go.dev/dl/"&gt;https://go.dev/dl/&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href="https://mirrors.aliyun.com/golang/"&gt;https://mirrors.aliyun.com/golang/&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href="https://github.com/golang/go/tags"&gt;https://github.com/golang/go/tags&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href="https://golang.google.cn/dl/"&gt;https://golang.google.cn/dl/&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href="https://studygolang.com/dl"&gt;https://studygolang.com/dl&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h3 id="安装"&gt;安装&lt;/h3&gt;
 
 
 
@@ -168,31 +206,31 @@
 
 
 
-&lt;ul class="nav nav-tabs" id="tabs-0" role="tablist">
- &lt;li class="nav-item">
+&lt;ul class="nav nav-tabs" id="tabs-0" role="tablist"&gt;
+ &lt;li class="nav-item"&gt;
  &lt;button class="nav-link active"
  id="tabs-00-00-tab" data-bs-toggle="tab" data-bs-target="#tabs-00-00" role="tab"
- data-td-tp-persist="linux" aria-controls="tabs-00-00" aria-selected="true">
+ data-td-tp-persist="linux" aria-controls="tabs-00-00" aria-selected="true"&gt;
  Linux
- &lt;/button>
- &lt;/li>&lt;li class="nav-item">
+ &lt;/button&gt;
+ &lt;/li&gt;&lt;li class="nav-item"&gt;
  &lt;button class="nav-link"
  id="tabs-00-01-tab" data-bs-toggle="tab" data-bs-target="#tabs-00-01" role="tab"
- data-td-tp-persist="mac" aria-controls="tabs-00-01" aria-selected="false">
+ data-td-tp-persist="mac" aria-controls="tabs-00-01" aria-selected="false"&gt;
  Mac
- &lt;/button>
- &lt;/li>&lt;li class="nav-item">
+ &lt;/button&gt;
+ &lt;/li&gt;&lt;li class="nav-item"&gt;
  &lt;button class="nav-link"
  id="tabs-00-02-tab" data-bs-toggle="tab" data-bs-target="#tabs-00-02" role="tab"
- data-td-tp-persist="windows" aria-controls="tabs-00-02" aria-selected="false">
+ data-td-tp-persist="windows" aria-controls="tabs-00-02" aria-selected="false"&gt;
  Windows
- &lt;/button>
- &lt;/li>
-&lt;/ul>
+ &lt;/button&gt;
+ &lt;/li&gt;
+&lt;/ul&gt;
 
-&lt;div class="tab-content" id="tabs-0-content">
+&lt;div class="tab-content" id="tabs-0-content"&gt;
  &lt;div class="tab-body tab-pane fade show active"
- id="tabs-00-00" role="tabpanel" aria-labelled-by="tabs-00-00-tab" tabindex="0">
+ id="tabs-00-00" role="tabpanel" aria-labelled-by="tabs-00-00-tab" tabindex="0"&gt;
  
 
 CentOS：
@@ -261,9 +299,9 @@ go version
 
 
 
-> ​	若设置`GOPATH`环境变量的路径，在某一非root用户的家目录下，且下载的安装依赖项都位于该非root用户的`$HOME/gopath`，例如：`/home/lx/gopath`下，那么当切换至root用户（root用户也设置了相关的`GOPATH`环境变量）进行项目编译的使用，root用户是否需要再次从新下载相关依赖项？
->
-> 答案：不需要，因为所有路径对于root用户都是可见的。
+&gt; ​	若设置`GOPATH`环境变量的路径，在某一非root用户的家目录下，且下载的安装依赖项都位于该非root用户的`$HOME/gopath`，例如：`/home/lx/gopath`下，那么当切换至root用户（root用户也设置了相关的`GOPATH`环境变量）进行项目编译的使用，root用户是否需要再次从新下载相关依赖项？
+&gt;
+&gt; 答案：不需要，因为所有路径对于root用户都是可见的。
 
 Ubuntu：
 
@@ -273,25 +311,25 @@ Ubuntu：
 
 ![image-20231013095809879](InstallAndRun_img/image-20231013095809879.png)
 
-> ```bash
-> lx@lx-ub01:~/Desktop$ echo $PATH
-> /usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games:/snap/bin:/snap/bin
-> lx@lx-ub01:~/Desktop$ go version
-> go version go1.21.2 linux/amd64
-> ```
->
-> 这里你会好奇为什么PATH环境变量中没有go/bin等路径？你可以查看下snap或Snapcraft的原理。
->
-> snap的相关文章：
->
-> - [我就是我，原理不一样的snap](https://www.ubuntukylin.com/news/666-cn.html)
+&gt; ```bash
+&gt; lx@lx-ub01:~/Desktop$ echo $PATH
+&gt; /usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games:/snap/bin:/snap/bin
+&gt; lx@lx-ub01:~/Desktop$ go version
+&gt; go version go1.21.2 linux/amd64
+&gt; ```
+&gt;
+&gt; 这里你会好奇为什么PATH环境变量中没有go/bin等路径？你可以查看下snap或Snapcraft的原理。
+&gt;
+&gt; snap的相关文章：
+&gt;
+&gt; - [我就是我，原理不一样的snap](https://www.ubuntukylin.com/news/666-cn.html)
 
 （b）若是使用命令行安装go，则安装步骤和CentOS一样（不同的是配置文件名称不一样，Ubuntu为`/etc/bash.bashrc`和主目录中的`.bashrc`）。
 
 
- &lt;/div>
+ &lt;/div&gt;
  &lt;div class="tab-body tab-pane fade"
- id="tabs-00-01" role="tabpanel" aria-labelled-by="tabs-00-01-tab" tabindex="0">
+ id="tabs-00-01" role="tabpanel" aria-labelled-by="tabs-00-01-tab" tabindex="0"&gt;
  
 
 （a）
@@ -303,9 +341,9 @@ Ubuntu：
 （d）
 
 
- &lt;/div>
+ &lt;/div&gt;
  &lt;div class="tab-body tab-pane fade"
- id="tabs-00-02" role="tabpanel" aria-labelled-by="tabs-00-02-tab" tabindex="0">
+ id="tabs-00-02" role="tabpanel" aria-labelled-by="tabs-00-02-tab" tabindex="0"&gt;
  
 
 （a）下载`MSI`格式的安装包。例如：[https://mirrors.aliyun.com/golang/go1.21.2.windows-amd64.msi](https://mirrors.aliyun.com/golang/go1.21.2.windows-amd64.msi)
@@ -329,7 +367,7 @@ Ubuntu：
 （c）运行以下命令，查看go是否已经安装成功（若安装成功，该命令将返回go的相关版本号和架构类型）：
 
 ```bash
-C:\Users\zlongxiang>go version
+C:\Users\zlongxiang&gt;go version
 go version go1.21.2 windows/amd64
 ```
 
@@ -358,7 +396,7 @@ GOPROXY=https://goproxy.cn,direct
 （e）使用`go env` 命令查看go的相关环境变量：
 
 ```bash
-C:\Users\zlongxiang>go env
+C:\Users\zlongxiang&gt;go env
 set GO111MODULE=on
 set GOARCH=amd64
 set GOBIN=F:\GoPath\bin
@@ -402,8 +440,8 @@ set GOGCCFLAGS=-m64 -mthreads -Wl,--no-gc-sections -fmessage-length=0 -ffile-pre
 ```
 
 
- &lt;/div>
-&lt;/div>
+ &lt;/div&gt;
+&lt;/div&gt;
 
-&lt;h3 id="运行代码">运行代码&lt;a class="td-heading-self-link" href="#%e8%bf%90%e8%a1%8c%e4%bb%a3%e7%a0%81" aria-label="Heading self-link">&lt;/a>&lt;/h3>
-&lt;p>代码：&lt;/p></description></item></channel></rss>
+&lt;h3 id="运行代码"&gt;运行代码&lt;/h3&gt;
+&lt;p&gt;代码：&lt;/p&gt;</description></item></channel></rss>

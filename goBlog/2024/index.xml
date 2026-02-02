@@ -1,25 +1,28 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>2024 [18篇] on Go 中文档集</title><link>https://before80.github.io/go_docs/goBlog/2024/</link><description>Recent content in 2024 [18篇] on Go 中文档集</description><generator>Hugo</generator><language>zh-cn</language><lastBuildDate>Mon, 31 Mar 2025 16:15:12 +0800</lastBuildDate><atom:link href="https://before80.github.io/go_docs/goBlog/2024/index.xml" rel="self" type="application/rss+xml"/><item><title>2024 下半年 Go 开发者调查结果</title><link>https://before80.github.io/go_docs/goBlog/2024/GoDeveloperSurvey2024H2Results/</link><pubDate>Mon, 31 Mar 2025 13:43:10 +0800</pubDate><guid>https://before80.github.io/go_docs/goBlog/2024/GoDeveloperSurvey2024H2Results/</guid><description>&lt;blockquote>
-&lt;p>原文：&lt;a href="https://go.dev/blog/survey2024-h2-results">https://go.dev/blog/survey2024-h2-results&lt;/a>&lt;/p>&lt;/blockquote>
-&lt;h1 id="go-developer-survey-2024-h2-results----2024-下半年-go-开发者调查结果">Go Developer Survey 2024 H2 Results - 2024 下半年 Go 开发者调查结果&lt;a class="td-heading-self-link" href="#go-developer-survey-2024-h2-results----2024-%e4%b8%8b%e5%8d%8a%e5%b9%b4-go-%e5%bc%80%e5%8f%91%e8%80%85%e8%b0%83%e6%9f%a5%e7%bb%93%e6%9e%9c" aria-label="Heading self-link">&lt;/a>&lt;/h1>
-&lt;p>Alice Merrick&lt;/p>
-&lt;p>20 December 2024&lt;/p>
-&lt;p>2024 年 12 月 20 日&lt;/p>
-&lt;h2 id="背景--background">背景 Background&lt;a class="td-heading-self-link" href="#%e8%83%8c%e6%99%af--background" aria-label="Heading self-link">&lt;/a>&lt;/h2>
-&lt;p>Go was designed with a focus on developer experience, and we deeply value the feedback we receive through proposals, issues, and community interactions. However, these channels often represent the voices of our most experienced or engaged users, a small subset of the broader Go community. To ensure we’re serving developers of all skill levels, including those who may not have strong opinions on language design, we conduct this survey once or twice a year to gather systematic feedback and quantitative evidence. This inclusive approach allows us to hear from a wider range of Go developers, providing valuable insights into how Go is used across different contexts and experience levels. Your participation is critical in informing our decisions about language changes and resource allocation, ultimately shaping the future of Go. Thank you to everyone who contributed, and we strongly encourage your continued participation in future surveys. Your experience matters to us.&lt;/p></description></item><item><title>o Protobuf：全新的 Opaque API</title><link>https://before80.github.io/go_docs/goBlog/2024/GoProtobufTheNewOpaqueAPI/</link><pubDate>Mon, 31 Mar 2025 11:34:43 +0800</pubDate><guid>https://before80.github.io/go_docs/goBlog/2024/GoProtobufTheNewOpaqueAPI/</guid><description>&lt;blockquote>
-&lt;p>原文：&lt;a href="https://go.dev/blog/protobuf-opaque">https://go.dev/blog/protobuf-opaque&lt;/a>&lt;/p>&lt;/blockquote>
-&lt;h1 id="go-protobuf-the-new-opaque-api---go-protobuf全新的-opaque-api">Go Protobuf: The new Opaque API - Go Protobuf：全新的 Opaque API&lt;a class="td-heading-self-link" href="#go-protobuf-the-new-opaque-api---go-protobuf%e5%85%a8%e6%96%b0%e7%9a%84-opaque-api" aria-label="Heading self-link">&lt;/a>&lt;/h1>
-&lt;p>Michael Stapelberg&lt;br>
-16 December 2024&lt;/p>
-&lt;p>2024年12月16日&lt;/p>
-&lt;p>&lt;a href="https://en.wikipedia.org/wiki/Protocol_Buffers">Protocol Buffers (Protobuf)&lt;/a> is Google’s language-neutral data interchange format. See &lt;a href="https://protobuf.dev/">protobuf.dev&lt;/a>.&lt;/p>
-&lt;p>​	&lt;a href="https://en.wikipedia.org/wiki/Protocol_Buffers">Protocol Buffers（Protobuf）&lt;/a> 是 Google 的语言中立数据交换格式。详见 &lt;a href="https://protobuf.dev/">protobuf.dev&lt;/a>。&lt;/p></description></item><item><title>Go迎来15周年</title><link>https://before80.github.io/go_docs/goBlog/2024/GoTurns15/</link><pubDate>Mon, 31 Mar 2025 11:17:33 +0800</pubDate><guid>https://before80.github.io/go_docs/goBlog/2024/GoTurns15/</guid><description>&lt;blockquote>
-&lt;p>原文：&lt;a href="https://go.dev/blog/15years">https://go.dev/blog/15years&lt;/a>&lt;/p>&lt;/blockquote>
-&lt;h1 id="go-turns-15">Go Turns 15&lt;a class="td-heading-self-link" href="#go-turns-15" aria-label="Heading self-link">&lt;/a>&lt;/h1>
-&lt;p>Austin Clements, for the Go team&lt;/p>
-&lt;p>​	Go团队的Austin Clements&lt;/p>
-&lt;p>11 November 2024&lt;/p>
-&lt;p>​	2024年11月11日&lt;/p>
-&lt;p>
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>2024 [18篇] on Go 中文档集</title><link>https://before80.github.io/go_docs/goBlog/2024/</link><description>Recent content in 2024 [18篇] on Go 中文档集</description><generator>Hugo</generator><language>zh-cn</language><lastBuildDate>Mon, 31 Mar 2025 16:15:12 +0800</lastBuildDate><atom:link href="https://before80.github.io/go_docs/goBlog/2024/index.xml" rel="self" type="application/rss+xml"/><item><title>2024 下半年 Go 开发者调查结果</title><link>https://before80.github.io/go_docs/goBlog/2024/GoDeveloperSurvey2024H2Results/</link><pubDate>Mon, 31 Mar 2025 13:43:10 +0800</pubDate><guid>https://before80.github.io/go_docs/goBlog/2024/GoDeveloperSurvey2024H2Results/</guid><description>&lt;blockquote&gt;
+&lt;p&gt;原文：&lt;a href="https://go.dev/blog/survey2024-h2-results"&gt;https://go.dev/blog/survey2024-h2-results&lt;/a&gt;&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;h1 id="go-developer-survey-2024-h2-results----2024-下半年-go-开发者调查结果"&gt;Go Developer Survey 2024 H2 Results - 2024 下半年 Go 开发者调查结果&lt;/h1&gt;
+&lt;p&gt;Alice Merrick&lt;/p&gt;
+&lt;p&gt;20 December 2024&lt;/p&gt;
+&lt;p&gt;2024 年 12 月 20 日&lt;/p&gt;
+&lt;h2 id="背景--background"&gt;背景 Background&lt;/h2&gt;
+&lt;p&gt;Go was designed with a focus on developer experience, and we deeply value the feedback we receive through proposals, issues, and community interactions. However, these channels often represent the voices of our most experienced or engaged users, a small subset of the broader Go community. To ensure we’re serving developers of all skill levels, including those who may not have strong opinions on language design, we conduct this survey once or twice a year to gather systematic feedback and quantitative evidence. This inclusive approach allows us to hear from a wider range of Go developers, providing valuable insights into how Go is used across different contexts and experience levels. Your participation is critical in informing our decisions about language changes and resource allocation, ultimately shaping the future of Go. Thank you to everyone who contributed, and we strongly encourage your continued participation in future surveys. Your experience matters to us.&lt;/p&gt;</description></item><item><title>o Protobuf：全新的 Opaque API</title><link>https://before80.github.io/go_docs/goBlog/2024/GoProtobufTheNewOpaqueAPI/</link><pubDate>Mon, 31 Mar 2025 11:34:43 +0800</pubDate><guid>https://before80.github.io/go_docs/goBlog/2024/GoProtobufTheNewOpaqueAPI/</guid><description>&lt;blockquote&gt;
+&lt;p&gt;原文：&lt;a href="https://go.dev/blog/protobuf-opaque"&gt;https://go.dev/blog/protobuf-opaque&lt;/a&gt;&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;h1 id="go-protobuf-the-new-opaque-api---go-protobuf全新的-opaque-api"&gt;Go Protobuf: The new Opaque API - Go Protobuf：全新的 Opaque API&lt;/h1&gt;
+&lt;p&gt;Michael Stapelberg&lt;br&gt;
+16 December 2024&lt;/p&gt;
+&lt;p&gt;2024年12月16日&lt;/p&gt;
+&lt;p&gt;&lt;a href="https://en.wikipedia.org/wiki/Protocol_Buffers"&gt;Protocol Buffers (Protobuf)&lt;/a&gt; is Google’s language-neutral data interchange format. See &lt;a href="https://protobuf.dev/"&gt;protobuf.dev&lt;/a&gt;.&lt;/p&gt;
+&lt;p&gt;​	&lt;a href="https://en.wikipedia.org/wiki/Protocol_Buffers"&gt;Protocol Buffers（Protobuf）&lt;/a&gt; 是 Google 的语言中立数据交换格式。详见 &lt;a href="https://protobuf.dev/"&gt;protobuf.dev&lt;/a&gt;。&lt;/p&gt;</description></item><item><title>Go迎来15周年</title><link>https://before80.github.io/go_docs/goBlog/2024/GoTurns15/</link><pubDate>Mon, 31 Mar 2025 11:17:33 +0800</pubDate><guid>https://before80.github.io/go_docs/goBlog/2024/GoTurns15/</guid><description>&lt;blockquote&gt;
+&lt;p&gt;原文：&lt;a href="https://go.dev/blog/15years"&gt;https://go.dev/blog/15years&lt;/a&gt;&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;h1 id="go-turns-15"&gt;Go Turns 15&lt;/h1&gt;
+&lt;p&gt;Austin Clements, for the Go team&lt;/p&gt;
+&lt;p&gt;​	Go团队的Austin Clements&lt;/p&gt;
+&lt;p&gt;11 November 2024&lt;/p&gt;
+&lt;p&gt;​	2024年11月11日&lt;/p&gt;
+&lt;p&gt;
  
  
  
@@ -33,114 +36,130 @@
  &lt;img src="https://before80.github.io/go_docs/goBlog/2024/GoTurns15_img/fifteen.gif"
  alt="img" data-cur-dir="goBlog/2024" data-rg="/GoTurns15_img/fifteen.gif" data-rg1="GoTurns15_img/fifteen.gif" data-rel="/go_docs/GoTurns15_img/fifteen.gif" data-c4my="/go_docs"
  
- />
+ /&gt;
  
  
 
-&lt;em>Thanks to Renee French for drawing and animating the gopher doing the “15 puzzle”.&lt;/em>&lt;/p></description></item><item><title>名字（别名）中有什么？</title><link>https://before80.github.io/go_docs/goBlog/2024/WhatIsInAnAliasName/</link><pubDate>Thu, 10 Oct 2024 14:40:47 +0800</pubDate><guid>https://before80.github.io/go_docs/goBlog/2024/WhatIsInAnAliasName/</guid><description>&lt;h1 id="whats-in-an-alias-name---名字别名中有什么">What&amp;rsquo;s in an (Alias) Name? - 名字（别名）中有什么？&lt;a class="td-heading-self-link" href="#whats-in-an-alias-name---%e5%90%8d%e5%ad%97%e5%88%ab%e5%90%8d%e4%b8%ad%e6%9c%89%e4%bb%80%e4%b9%88" aria-label="Heading self-link">&lt;/a>&lt;/h1>
-&lt;blockquote>
-&lt;p>原文：&lt;a href="https://go.dev/blog/alias-names">https://go.dev/blog/alias-names&lt;/a>&lt;/p>&lt;/blockquote>
-&lt;p>Robert Griesemer
-17 September 2024&lt;/p>
-&lt;p>2024年9月17日&lt;/p>
-&lt;p>This post is about generic alias types, what they are, and why we need them.&lt;/p>
-&lt;p>​	这篇文章讨论了泛型别名类型，它们是什么，以及为什么我们需要它们。&lt;/p></description></item><item><title>在 Go 中构建基于LLM的应用程序</title><link>https://before80.github.io/go_docs/goBlog/2024/BuildingLLM-poweredApplicationsInGo/</link><pubDate>Thu, 10 Oct 2024 14:39:16 +0800</pubDate><guid>https://before80.github.io/go_docs/goBlog/2024/BuildingLLM-poweredApplicationsInGo/</guid><description>&lt;h1 id="building-llm-powered-applications-in-go---在-go-中构建基于llm的应用程序">Building LLM-powered applications in Go - 在 Go 中构建基于LLM的应用程序&lt;a class="td-heading-self-link" href="#building-llm-powered-applications-in-go---%e5%9c%a8-go-%e4%b8%ad%e6%9e%84%e5%bb%ba%e5%9f%ba%e4%ba%8ellm%e7%9a%84%e5%ba%94%e7%94%a8%e7%a8%8b%e5%ba%8f" aria-label="Heading self-link">&lt;/a>&lt;/h1>
-&lt;blockquote>
-&lt;p>原文：&lt;a href="https://go.dev/blog/llmpowered">https://go.dev/blog/llmpowered&lt;/a>&lt;/p>&lt;/blockquote>
-&lt;p>Eli Bendersky
-12 September 2024&lt;/p>
-&lt;p>2024年9月12日&lt;/p>
-&lt;p>As the capabilities of LLMs (Large Language Models) and adjacent tools like embedding models grew significantly over the past year, more and more developers are considering integrating LLMs into their applications.&lt;/p></description></item><item><title>分享你对 Go 开发的反馈 - 2</title><link>https://before80.github.io/go_docs/goBlog/2024/ShareYourFeedbackAboutDevelopingWithGo2/</link><pubDate>Thu, 10 Oct 2024 15:03:35 +0800</pubDate><guid>https://before80.github.io/go_docs/goBlog/2024/ShareYourFeedbackAboutDevelopingWithGo2/</guid><description>&lt;h1 id="share-your-feedback-about-developing-with-go---分享你对-go-开发的反馈">Share your feedback about developing with Go - 分享你对 Go 开发的反馈&lt;a class="td-heading-self-link" href="#share-your-feedback-about-developing-with-go---%e5%88%86%e4%ba%ab%e4%bd%a0%e5%af%b9-go-%e5%bc%80%e5%8f%91%e7%9a%84%e5%8f%8d%e9%a6%88" aria-label="Heading self-link">&lt;/a>&lt;/h1>
-&lt;blockquote>
-&lt;p>原文：&lt;a href="https://go.dev/blog/survey2024-h2">https://go.dev/blog/survey2024-h2&lt;/a>&lt;/p>&lt;/blockquote>
-&lt;p>Alice Merrick, for the Go team
-9 September 2024&lt;/p>
-&lt;p>Alice Merrick，代表 Go 团队
-2024年9月9日&lt;/p>
-&lt;p>We’re excited to announce that the biannual Go Developer Survey is now open! From today, &lt;strong>September 9th&lt;/strong>, until &lt;strong>September 23rd&lt;/strong>, we invite you to share your experiences, opinions, and insights about the Go programming language and its ecosystem.&lt;/p></description></item><item><title>Go 1.23及以后版本的遥测</title><link>https://before80.github.io/go_docs/goBlog/2024/TelemetryInGo1_23AndBeyond/</link><pubDate>Fri, 06 Sep 2024 12:20:29 +0800</pubDate><guid>https://before80.github.io/go_docs/goBlog/2024/TelemetryInGo1_23AndBeyond/</guid><description>&lt;h1 id="telemetry-in-go-123-and-beyond---go-123及以后版本的遥测">Telemetry in Go 1.23 and beyond - Go 1.23及以后版本的遥测&lt;a class="td-heading-self-link" href="#telemetry-in-go-123-and-beyond---go-123%e5%8f%8a%e4%bb%a5%e5%90%8e%e7%89%88%e6%9c%ac%e7%9a%84%e9%81%a5%e6%b5%8b" aria-label="Heading self-link">&lt;/a>&lt;/h1>
-&lt;blockquote>
-&lt;p>原文：&lt;a href="https://go.dev/blog/gotelemetry">https://go.dev/blog/gotelemetry&lt;/a>&lt;/p>&lt;/blockquote>
-&lt;p>Robert Findley
-3 September 2024&lt;/p>
-&lt;p>罗伯特·芬德利
-2024年9月3日&lt;/p>
-&lt;p>Go 1.23 provides a new way for you to help improve the Go toolchain. By enabling &lt;a href="https://go.dev/doc/go1.23#telemetry">telemetry uploading&lt;/a>, you can elect to share data about toolchain programs and their usage with the Go team. This data will help Go contributors fix bugs, avoid regressions, and make better decisions.&lt;/p></description></item><item><title>新的 unique 包</title><link>https://before80.github.io/go_docs/goBlog/2024/NewUniquePackage/</link><pubDate>Fri, 06 Sep 2024 12:19:59 +0800</pubDate><guid>https://before80.github.io/go_docs/goBlog/2024/NewUniquePackage/</guid><description>&lt;h1 id="new-unique-package---新的-unique-包">New unique package - 新的 unique 包&lt;a class="td-heading-self-link" href="#new-unique-package---%e6%96%b0%e7%9a%84-unique-%e5%8c%85" aria-label="Heading self-link">&lt;/a>&lt;/h1>
-&lt;blockquote>
-&lt;p>原文：&lt;a href="https://go.dev/blog/unique">https://go.dev/blog/unique&lt;/a>&lt;/p>&lt;/blockquote>
-&lt;p>Michael Knyszek
-27 August 2024&lt;/p>
-&lt;p>作者：Michael Knyszek
-日期：2024 年 8 月 27 日&lt;/p>
-&lt;p>The standard library of Go 1.23 now includes the &lt;a href="https://pkg.go.dev/unique">new &lt;code>unique&lt;/code> package&lt;/a>. The purpose behind this package is to enable the canonicalization of comparable values. In other words, this package lets you deduplicate values so that they point to a single, canonical, unique copy, while efficiently managing the canonical copies under the hood. You might be familiar with this concept already, called &lt;a href="https://en.wikipedia.org/wiki/Interning_(computer_science)">“interning”&lt;/a>. Let’s dive in to see how it works, and why it’s useful.&lt;/p></description></item><item><title>遍历函数类型</title><link>https://before80.github.io/go_docs/goBlog/2024/RangeOverFunctionTypes/</link><pubDate>Fri, 06 Sep 2024 12:19:40 +0800</pubDate><guid>https://before80.github.io/go_docs/goBlog/2024/RangeOverFunctionTypes/</guid><description>&lt;h1 id="range-over-function-types---遍历函数类型">Range Over Function Types - 遍历函数类型&lt;a class="td-heading-self-link" href="#range-over-function-types---%e9%81%8d%e5%8e%86%e5%87%bd%e6%95%b0%e7%b1%bb%e5%9e%8b" aria-label="Heading self-link">&lt;/a>&lt;/h1>
-&lt;blockquote>
-&lt;p>原文：&lt;a href="https://go.dev/blog/range-functions">https://go.dev/blog/range-functions&lt;/a>&lt;/p>&lt;/blockquote>
-&lt;p>Ian Lance Taylor
-20 August 2024&lt;/p>
-&lt;p>作者：Ian Lance Taylor
-日期：2024年8月20日&lt;/p>
-&lt;h2 id="简介-introduction">简介 Introduction&lt;a class="td-heading-self-link" href="#%e7%ae%80%e4%bb%8b-introduction" aria-label="Heading self-link">&lt;/a>&lt;/h2>
-&lt;p>This is the blog post version of my talk at GopherCon 2024.&lt;/p>
-&lt;p>​	这篇博客文章是我在 GopherCon 2024 上演讲的版本。&lt;/p></description></item><item><title>Go 1.23 发布！</title><link>https://before80.github.io/go_docs/goBlog/2024/Go1_23IsReleased/</link><pubDate>Mon, 19 Aug 2024 20:07:23 +0800</pubDate><guid>https://before80.github.io/go_docs/goBlog/2024/Go1_23IsReleased/</guid><description>&lt;h1 id="go-123-is-released">Go 1.23 is released&lt;a class="td-heading-self-link" href="#go-123-is-released" aria-label="Heading self-link">&lt;/a>&lt;/h1>
-&lt;blockquote>
-&lt;p>原文：&lt;a href="https://go.dev/blog/go1.23">https://go.dev/blog/go1.23&lt;/a>&lt;/p>&lt;/blockquote>
-&lt;p>Dmitri Shuralyov, on behalf of the Go team
-13 August 2024&lt;/p>
-&lt;p>代表 Go 团队，Dmitri Shuralyov
-2024年8月13日&lt;/p>
-&lt;p>Today the Go team is happy to release Go 1.23, which you can get by visiting the &lt;a href="https://go.dev/dl/">download page&lt;/a>.&lt;/p>
-&lt;p>​	今天，Go 团队很高兴发布 Go 1.23，你可以通过访问&lt;a href="https://go.dev/dl/">下载页面&lt;/a>获取它。&lt;/p></description></item><item><title>Go 1.22 中的安全随机性</title><link>https://before80.github.io/go_docs/goBlog/2024/SecureRandomnessinGo1_22/</link><pubDate>Thu, 30 May 2024 10:14:57 +0800</pubDate><guid>https://before80.github.io/go_docs/goBlog/2024/SecureRandomnessinGo1_22/</guid><description>&lt;blockquote>
-&lt;p>原文：&lt;a href="https://go.dev/blog/chacha8rand">https://go.dev/blog/chacha8rand&lt;/a>&lt;/p>&lt;/blockquote>
-&lt;h1 id="secure-randomness-in-go-122---go-122-中的安全随机性">Secure Randomness in Go 1.22 - Go 1.22 中的安全随机性&lt;a class="td-heading-self-link" href="#secure-randomness-in-go-122---go-122-%e4%b8%ad%e7%9a%84%e5%ae%89%e5%85%a8%e9%9a%8f%e6%9c%ba%e6%80%a7" aria-label="Heading self-link">&lt;/a>&lt;/h1>
-&lt;p>Russ Cox and Filippo Valsorda&lt;/p>
-&lt;p>​	Russ Cox 和 Filippo Valsorda
-2 May 2024&lt;/p>
-&lt;p>​	2024 年 5 月 2 日&lt;/p>
-&lt;p>Computers aren’t random. On the contrary, hardware designers work very hard to make sure computers run every program the same way every time. So when a program does need random numbers, that requires extra effort. Traditionally, computer scientists and programming languages have distinguished between two different kinds of random numbers: statistical and cryptographic randomness. In Go, those are provided by &lt;a href="https://go.dev/pkg/math/rand/">&lt;code>math/rand&lt;/code>&lt;/a> and &lt;a href="https://go.dev/pkg/crypto/rand">&lt;code>crypto/rand&lt;/code>&lt;/a>, respectively. This post is about how Go 1.22 brings the two closer together, by using a cryptographic random number source in &lt;code>math/rand&lt;/code> (as well as &lt;code>math/rand/v2&lt;/code>, as mentioned in our &lt;a href="https://go.dev/blog/randv2">previous post&lt;/a>). The result is better randomness and far less damage when developers accidentally use &lt;code>math/rand&lt;/code> instead of &lt;code>crypto/rand&lt;/code>.&lt;/p></description></item><item><title>使用 math/rand/v2 演变 Go 标准库</title><link>https://before80.github.io/go_docs/goBlog/2024/EvolvingtheGoStandardLibrarywithmath_randv2/</link><pubDate>Thu, 30 May 2024 10:14:27 +0800</pubDate><guid>https://before80.github.io/go_docs/goBlog/2024/EvolvingtheGoStandardLibrarywithmath_randv2/</guid><description>&lt;blockquote>
-&lt;p>原文：&lt;a href="https://go.dev/blog/randv2">https://go.dev/blog/randv2&lt;/a>&lt;/p>&lt;/blockquote>
-&lt;h1 id="evolving-the-go-standard-library-with-mathrandv2---使用-mathrandv2-演变-go-标准库">Evolving the Go Standard Library with math/rand/v2 - 使用 math/rand/v2 演变 Go 标准库&lt;a class="td-heading-self-link" href="#evolving-the-go-standard-library-with-mathrandv2---%e4%bd%bf%e7%94%a8-mathrandv2-%e6%bc%94%e5%8f%98-go-%e6%a0%87%e5%87%86%e5%ba%93" aria-label="Heading self-link">&lt;/a>&lt;/h1>
-&lt;p>Russ Cox
-1 May 2024&lt;/p>
-&lt;p>​	2024 年 5 月 1 日&lt;/p>
-&lt;p>Since Go 1 was &lt;a href="https://go.dev/blog/go1">released in March 2012&lt;/a>, changes to the standard library have been constrained by Go’s &lt;a href="https://go.dev/doc/go1compat">compatibility promise&lt;/a>. Overall, compatibility has been a boon for Go users, providing a stable base for production systems, documentation, tutorials, books, and more. Over time, however, we’ve realized mistakes in the original APIs that cannot be fixed compatibly; in other cases, best practices and convention have changed. We need a plan for making important, breaking changes too.&lt;/p></description></item><item><title>Go 开发者调查 2024 年上半年结果</title><link>https://before80.github.io/go_docs/goBlog/2024/GoDeveloperSurvey2024H1Results/</link><pubDate>Thu, 30 May 2024 10:13:24 +0800</pubDate><guid>https://before80.github.io/go_docs/goBlog/2024/GoDeveloperSurvey2024H1Results/</guid><description>&lt;blockquote>
-&lt;p>原文：&lt;a href="https://go.dev/blog/survey2024-h1-results">https://go.dev/blog/survey2024-h1-results&lt;/a>&lt;/p>&lt;/blockquote>
-&lt;h1 id="go-developer-survey-2024-h1-results---go-开发者调查-2024-年上半年结果">Go Developer Survey 2024 H1 Results - Go 开发者调查 2024 年上半年结果&lt;a class="td-heading-self-link" href="#go-developer-survey-2024-h1-results---go-%e5%bc%80%e5%8f%91%e8%80%85%e8%b0%83%e6%9f%a5-2024-%e5%b9%b4%e4%b8%8a%e5%8d%8a%e5%b9%b4%e7%bb%93%e6%9e%9c" aria-label="Heading self-link">&lt;/a>&lt;/h1>
-&lt;p>Alice Merrick and Todd Kulesza&lt;/p>
-&lt;p>​	爱丽丝·梅里克和托德·库莱扎
-9 April 2024&lt;/p>
-&lt;p>​	2024 年 4 月 9 日&lt;/p>
-&lt;h2 id="background-背景">Background 背景&lt;a class="td-heading-self-link" href="#background-%e8%83%8c%e6%99%af" aria-label="Heading self-link">&lt;/a>&lt;/h2>
-&lt;p>This post shares the results of our most recent Go Developer Survey, conducted in January and February 2024. Along with capturing sentiments and challenges around using Go and Go tooling, our primary focus areas for this survey were about how developers are starting to use Go (or other languages) for AI-related use cases, and particular challenges for those who are learning Go or looking to expand their Go skill set.&lt;/p></description></item><item><title>更强大的 Go 执行跟踪</title><link>https://before80.github.io/go_docs/goBlog/2024/MorePowerfulGoExecutionTraces/</link><pubDate>Fri, 29 Mar 2024 17:06:17 +0800</pubDate><guid>https://before80.github.io/go_docs/goBlog/2024/MorePowerfulGoExecutionTraces/</guid><description>&lt;blockquote>
-&lt;p>原文：&lt;a href="https://go.dev/blog/execution-traces-2024">https://go.dev/blog/execution-traces-2024&lt;/a>&lt;/p>&lt;/blockquote>
-&lt;h1 id="more-powerful-go-execution-traces-更强大的-go-执行跟踪">More powerful Go execution traces 更强大的 Go 执行跟踪&lt;a class="td-heading-self-link" href="#more-powerful-go-execution-traces-%e6%9b%b4%e5%bc%ba%e5%a4%a7%e7%9a%84-go-%e6%89%a7%e8%a1%8c%e8%b7%9f%e8%b8%aa" aria-label="Heading self-link">&lt;/a>&lt;/h1>
-&lt;p>Michael Knyszek&lt;/p>
-&lt;p>​	迈克尔·克尼塞克
-14 March 2024&lt;/p>
-&lt;p>The &lt;a href="https://go.dev/pkg/runtime/trace">runtime/trace&lt;/a> package contains a powerful tool for understanding and troubleshooting Go programs. The functionality within allows one to produce a trace of each goroutine’s execution over some time period. With the &lt;a href="https://go.dev/pkg/cmd/trace">&lt;code>go tool trace&lt;/code> command&lt;/a> (or the excellent open source &lt;a href="https://gotraceui.dev/">gotraceui tool&lt;/a>), one may then visualize and explore the data within these traces.&lt;/p></description></item><item><title>切片上可靠的泛型函数</title><link>https://before80.github.io/go_docs/goBlog/2024/RobustGenericFunctionsOnSlices/</link><pubDate>Fri, 29 Mar 2024 17:05:42 +0800</pubDate><guid>https://before80.github.io/go_docs/goBlog/2024/RobustGenericFunctionsOnSlices/</guid><description>&lt;blockquote>
-&lt;p>原文：&lt;a href="https://go.dev/blog/generic-slice-functions">https://go.dev/blog/generic-slice-functions&lt;/a>&lt;/p>&lt;/blockquote>
-&lt;h1 id="robust-generic-functions-on-slices-切片上可靠的泛型函数">Robust generic functions on slices 切片上可靠的泛型函数&lt;a class="td-heading-self-link" href="#robust-generic-functions-on-slices-%e5%88%87%e7%89%87%e4%b8%8a%e5%8f%af%e9%9d%a0%e7%9a%84%e6%b3%9b%e5%9e%8b%e5%87%bd%e6%95%b0" aria-label="Heading self-link">&lt;/a>&lt;/h1>
-&lt;p>Valentin Deleplace&lt;/p>
-&lt;p>​	瓦伦丁·德勒普拉斯
-22 February 2024&lt;/p>
-&lt;p>The &lt;a href="https://go.dev/pkg/slices">slices&lt;/a> package provides functions that work for slices of any type. In this blog post we’ll discuss how you can use these functions more effectively by understanding how slices are represented in memory and how that affects the garbage collector, and we’ll cover how we recently adjusted these functions to make them less surprising.&lt;/p></description></item><item><title>Go 1.22 的路由增强功能</title><link>https://before80.github.io/go_docs/goBlog/2024/RoutingEnhancementsForGo1_22/</link><pubDate>Thu, 22 Feb 2024 20:32:05 +0800</pubDate><guid>https://before80.github.io/go_docs/goBlog/2024/RoutingEnhancementsForGo1_22/</guid><description>&lt;blockquote>
-&lt;p>原文：&lt;a href="https://go.dev/blog/routing-enhancements">https://go.dev/blog/routing-enhancements&lt;/a>&lt;/p>&lt;/blockquote>
-&lt;h1 id="routing-enhancements-for-go-122---go-122-的路由增强功能">Routing Enhancements for Go 1.22 - Go 1.22 的路由增强功能&lt;a class="td-heading-self-link" href="#routing-enhancements-for-go-122---go-122-%e7%9a%84%e8%b7%af%e7%94%b1%e5%a2%9e%e5%bc%ba%e5%8a%9f%e8%83%bd" aria-label="Heading self-link">&lt;/a>&lt;/h1>
-&lt;p>Jonathan Amsterdam, on behalf of the Go team&lt;/p>
-&lt;p>​	Jonathan Amsterdam，代表 Go 团队&lt;/p>
-&lt;p>13 February 2024&lt;/p>
-&lt;p>​	2024 年 2 月 13 日&lt;/p>
-&lt;p>Go 1.22 brings two enhancements to the &lt;code>net/http&lt;/code> package’s router: method matching and wildcards. These features let you express common routes as patterns instead of Go code. Although they are simple to explain and use, it was a challenge to come up with the right rules for selecting the winning pattern when several match a request.&lt;/p></description></item><item><title>Go 1.22 发布！</title><link>https://before80.github.io/go_docs/goBlog/2024/Go1_22IsReleased/</link><pubDate>Thu, 22 Feb 2024 20:31:34 +0800</pubDate><guid>https://before80.github.io/go_docs/goBlog/2024/Go1_22IsReleased/</guid><description>&lt;blockquote>
-&lt;p>原文：&lt;a href="https://go.dev/blog/go1.22">https://go.dev/blog/go1.22&lt;/a>&lt;/p>&lt;/blockquote>
-&lt;h1 id="go-122-is-released---go-122-发布">Go 1.22 is released! - Go 1.22 发布！&lt;a class="td-heading-self-link" href="#go-122-is-released---go-122-%e5%8f%91%e5%b8%83" aria-label="Heading self-link">&lt;/a>&lt;/h1>
-&lt;p>Eli Bendersky, on behalf of the Go team&lt;/p>
-&lt;p>Eli Bendersky，代表 Go 团队&lt;/p>
-&lt;p>6 February 2024&lt;/p>
-&lt;p>2024 年 2 月 6 日&lt;/p>
-&lt;p>Today the Go team is thrilled to release Go 1.22, which you can get by visiting the &lt;a href="https://go.dev/dl/">download page&lt;/a>.&lt;/p>
-&lt;p>​	今天，Go 团队很高兴发布 Go 1.22，您可以访问下载页面获取该版本。&lt;/p></description></item><item><title>分享您对使用 Go 开发的反馈</title><link>https://before80.github.io/go_docs/goBlog/2024/ShareYourFeedbackAboutDevelopingWithGo/</link><pubDate>Thu, 22 Feb 2024 20:30:58 +0800</pubDate><guid>https://before80.github.io/go_docs/goBlog/2024/ShareYourFeedbackAboutDevelopingWithGo/</guid><description>&lt;blockquote>
-&lt;p>原文：&lt;a href="https://go.dev/blog/survey2024-h1">https://go.dev/blog/survey2024-h1&lt;/a>&lt;/p>&lt;/blockquote>
-&lt;h1 id="share-your-feedback-about-developing-with-go---分享您对使用-go-开发的反馈">Share your feedback about developing with Go - 分享您对使用 Go 开发的反馈&lt;a class="td-heading-self-link" href="#share-your-feedback-about-developing-with-go---%e5%88%86%e4%ba%ab%e6%82%a8%e5%af%b9%e4%bd%bf%e7%94%a8-go-%e5%bc%80%e5%8f%91%e7%9a%84%e5%8f%8d%e9%a6%88" aria-label="Heading self-link">&lt;/a>&lt;/h1>
-&lt;p>Alice Merrick, for the Go team&lt;/p>
-&lt;p>23 January 2024&lt;/p>
-&lt;p>2024 年 1 月 23 日&lt;/p>
-&lt;p>Happy New Year! &lt;a href="https://google.qualtrics.com/jfe/form/SV_083SVAUCji98YeO?s=b">The Go Developer Survey is now open&lt;/a>, and we want to hear from you!&lt;/p>
-&lt;p>​	新年快乐！Go 开发者调查现已开放，我们希望听到您的声音！&lt;/p></description></item></channel></rss>
+&lt;em&gt;Thanks to Renee French for drawing and animating the gopher doing the “15 puzzle”.&lt;/em&gt;&lt;/p&gt;</description></item><item><title>名字（别名）中有什么？</title><link>https://before80.github.io/go_docs/goBlog/2024/WhatIsInAnAliasName/</link><pubDate>Thu, 10 Oct 2024 14:40:47 +0800</pubDate><guid>https://before80.github.io/go_docs/goBlog/2024/WhatIsInAnAliasName/</guid><description>&lt;h1 id="whats-in-an-alias-name---名字别名中有什么"&gt;What&amp;rsquo;s in an (Alias) Name? - 名字（别名）中有什么？&lt;/h1&gt;
+&lt;blockquote&gt;
+&lt;p&gt;原文：&lt;a href="https://go.dev/blog/alias-names"&gt;https://go.dev/blog/alias-names&lt;/a&gt;&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;Robert Griesemer
+17 September 2024&lt;/p&gt;
+&lt;p&gt;2024年9月17日&lt;/p&gt;
+&lt;p&gt;This post is about generic alias types, what they are, and why we need them.&lt;/p&gt;
+&lt;p&gt;​	这篇文章讨论了泛型别名类型，它们是什么，以及为什么我们需要它们。&lt;/p&gt;</description></item><item><title>在 Go 中构建基于LLM的应用程序</title><link>https://before80.github.io/go_docs/goBlog/2024/BuildingLLM-poweredApplicationsInGo/</link><pubDate>Thu, 10 Oct 2024 14:39:16 +0800</pubDate><guid>https://before80.github.io/go_docs/goBlog/2024/BuildingLLM-poweredApplicationsInGo/</guid><description>&lt;h1 id="building-llm-powered-applications-in-go---在-go-中构建基于llm的应用程序"&gt;Building LLM-powered applications in Go - 在 Go 中构建基于LLM的应用程序&lt;/h1&gt;
+&lt;blockquote&gt;
+&lt;p&gt;原文：&lt;a href="https://go.dev/blog/llmpowered"&gt;https://go.dev/blog/llmpowered&lt;/a&gt;&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;Eli Bendersky
+12 September 2024&lt;/p&gt;
+&lt;p&gt;2024年9月12日&lt;/p&gt;
+&lt;p&gt;As the capabilities of LLMs (Large Language Models) and adjacent tools like embedding models grew significantly over the past year, more and more developers are considering integrating LLMs into their applications.&lt;/p&gt;
+&lt;p&gt;​	随着LLM（大型语言模型）及其相关工具（如嵌入模型）的能力在过去一年中显著提升，越来越多的开发人员开始考虑将LLM集成到他们的应用程序中。&lt;/p&gt;</description></item><item><title>分享你对 Go 开发的反馈 - 2</title><link>https://before80.github.io/go_docs/goBlog/2024/ShareYourFeedbackAboutDevelopingWithGo2/</link><pubDate>Thu, 10 Oct 2024 15:03:35 +0800</pubDate><guid>https://before80.github.io/go_docs/goBlog/2024/ShareYourFeedbackAboutDevelopingWithGo2/</guid><description>&lt;h1 id="share-your-feedback-about-developing-with-go---分享你对-go-开发的反馈"&gt;Share your feedback about developing with Go - 分享你对 Go 开发的反馈&lt;/h1&gt;
+&lt;blockquote&gt;
+&lt;p&gt;原文：&lt;a href="https://go.dev/blog/survey2024-h2"&gt;https://go.dev/blog/survey2024-h2&lt;/a&gt;&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;Alice Merrick, for the Go team
+9 September 2024&lt;/p&gt;
+&lt;p&gt;Alice Merrick，代表 Go 团队
+2024年9月9日&lt;/p&gt;
+&lt;p&gt;We’re excited to announce that the biannual Go Developer Survey is now open! From today, &lt;strong&gt;September 9th&lt;/strong&gt;, until &lt;strong&gt;September 23rd&lt;/strong&gt;, we invite you to share your experiences, opinions, and insights about the Go programming language and its ecosystem.&lt;/p&gt;</description></item><item><title>Go 1.23及以后版本的遥测</title><link>https://before80.github.io/go_docs/goBlog/2024/TelemetryInGo1_23AndBeyond/</link><pubDate>Fri, 06 Sep 2024 12:20:29 +0800</pubDate><guid>https://before80.github.io/go_docs/goBlog/2024/TelemetryInGo1_23AndBeyond/</guid><description>&lt;h1 id="telemetry-in-go-123-and-beyond---go-123及以后版本的遥测"&gt;Telemetry in Go 1.23 and beyond - Go 1.23及以后版本的遥测&lt;/h1&gt;
+&lt;blockquote&gt;
+&lt;p&gt;原文：&lt;a href="https://go.dev/blog/gotelemetry"&gt;https://go.dev/blog/gotelemetry&lt;/a&gt;&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;Robert Findley
+3 September 2024&lt;/p&gt;
+&lt;p&gt;罗伯特·芬德利
+2024年9月3日&lt;/p&gt;
+&lt;p&gt;Go 1.23 provides a new way for you to help improve the Go toolchain. By enabling &lt;a href="https://go.dev/doc/go1.23#telemetry"&gt;telemetry uploading&lt;/a&gt;, you can elect to share data about toolchain programs and their usage with the Go team. This data will help Go contributors fix bugs, avoid regressions, and make better decisions.&lt;/p&gt;</description></item><item><title>新的 unique 包</title><link>https://before80.github.io/go_docs/goBlog/2024/NewUniquePackage/</link><pubDate>Fri, 06 Sep 2024 12:19:59 +0800</pubDate><guid>https://before80.github.io/go_docs/goBlog/2024/NewUniquePackage/</guid><description>&lt;h1 id="new-unique-package---新的-unique-包"&gt;New unique package - 新的 unique 包&lt;/h1&gt;
+&lt;blockquote&gt;
+&lt;p&gt;原文：&lt;a href="https://go.dev/blog/unique"&gt;https://go.dev/blog/unique&lt;/a&gt;&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;Michael Knyszek
+27 August 2024&lt;/p&gt;
+&lt;p&gt;作者：Michael Knyszek
+日期：2024 年 8 月 27 日&lt;/p&gt;
+&lt;p&gt;The standard library of Go 1.23 now includes the &lt;a href="https://pkg.go.dev/unique"&gt;new &lt;code&gt;unique&lt;/code&gt; package&lt;/a&gt;. The purpose behind this package is to enable the canonicalization of comparable values. In other words, this package lets you deduplicate values so that they point to a single, canonical, unique copy, while efficiently managing the canonical copies under the hood. You might be familiar with this concept already, called &lt;a href="https://en.wikipedia.org/wiki/Interning_(computer_science)"&gt;“interning”&lt;/a&gt;. Let’s dive in to see how it works, and why it’s useful.&lt;/p&gt;</description></item><item><title>遍历函数类型</title><link>https://before80.github.io/go_docs/goBlog/2024/RangeOverFunctionTypes/</link><pubDate>Fri, 06 Sep 2024 12:19:40 +0800</pubDate><guid>https://before80.github.io/go_docs/goBlog/2024/RangeOverFunctionTypes/</guid><description>&lt;h1 id="range-over-function-types---遍历函数类型"&gt;Range Over Function Types - 遍历函数类型&lt;/h1&gt;
+&lt;blockquote&gt;
+&lt;p&gt;原文：&lt;a href="https://go.dev/blog/range-functions"&gt;https://go.dev/blog/range-functions&lt;/a&gt;&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;Ian Lance Taylor
+20 August 2024&lt;/p&gt;
+&lt;p&gt;作者：Ian Lance Taylor
+日期：2024年8月20日&lt;/p&gt;
+&lt;h2 id="简介-introduction"&gt;简介 Introduction&lt;/h2&gt;
+&lt;p&gt;This is the blog post version of my talk at GopherCon 2024.&lt;/p&gt;
+&lt;p&gt;​	这篇博客文章是我在 GopherCon 2024 上演讲的版本。&lt;/p&gt;</description></item><item><title>Go 1.23 发布！</title><link>https://before80.github.io/go_docs/goBlog/2024/Go1_23IsReleased/</link><pubDate>Mon, 19 Aug 2024 20:07:23 +0800</pubDate><guid>https://before80.github.io/go_docs/goBlog/2024/Go1_23IsReleased/</guid><description>&lt;h1 id="go-123-is-released"&gt;Go 1.23 is released&lt;/h1&gt;
+&lt;blockquote&gt;
+&lt;p&gt;原文：&lt;a href="https://go.dev/blog/go1.23"&gt;https://go.dev/blog/go1.23&lt;/a&gt;&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;Dmitri Shuralyov, on behalf of the Go team
+13 August 2024&lt;/p&gt;
+&lt;p&gt;代表 Go 团队，Dmitri Shuralyov
+2024年8月13日&lt;/p&gt;
+&lt;p&gt;Today the Go team is happy to release Go 1.23, which you can get by visiting the &lt;a href="https://go.dev/dl/"&gt;download page&lt;/a&gt;.&lt;/p&gt;
+&lt;p&gt;​	今天，Go 团队很高兴发布 Go 1.23，你可以通过访问&lt;a href="https://go.dev/dl/"&gt;下载页面&lt;/a&gt;获取它。&lt;/p&gt;</description></item><item><title>Go 1.22 中的安全随机性</title><link>https://before80.github.io/go_docs/goBlog/2024/SecureRandomnessinGo1_22/</link><pubDate>Thu, 30 May 2024 10:14:57 +0800</pubDate><guid>https://before80.github.io/go_docs/goBlog/2024/SecureRandomnessinGo1_22/</guid><description>&lt;blockquote&gt;
+&lt;p&gt;原文：&lt;a href="https://go.dev/blog/chacha8rand"&gt;https://go.dev/blog/chacha8rand&lt;/a&gt;&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;h1 id="secure-randomness-in-go-122---go-122-中的安全随机性"&gt;Secure Randomness in Go 1.22 - Go 1.22 中的安全随机性&lt;/h1&gt;
+&lt;p&gt;Russ Cox and Filippo Valsorda&lt;/p&gt;
+&lt;p&gt;​	Russ Cox 和 Filippo Valsorda
+2 May 2024&lt;/p&gt;
+&lt;p&gt;​	2024 年 5 月 2 日&lt;/p&gt;
+&lt;p&gt;Computers aren’t random. On the contrary, hardware designers work very hard to make sure computers run every program the same way every time. So when a program does need random numbers, that requires extra effort. Traditionally, computer scientists and programming languages have distinguished between two different kinds of random numbers: statistical and cryptographic randomness. In Go, those are provided by &lt;a href="https://go.dev/pkg/math/rand/"&gt;&lt;code&gt;math/rand&lt;/code&gt;&lt;/a&gt; and &lt;a href="https://go.dev/pkg/crypto/rand"&gt;&lt;code&gt;crypto/rand&lt;/code&gt;&lt;/a&gt;, respectively. This post is about how Go 1.22 brings the two closer together, by using a cryptographic random number source in &lt;code&gt;math/rand&lt;/code&gt; (as well as &lt;code&gt;math/rand/v2&lt;/code&gt;, as mentioned in our &lt;a href="https://go.dev/blog/randv2"&gt;previous post&lt;/a&gt;). The result is better randomness and far less damage when developers accidentally use &lt;code&gt;math/rand&lt;/code&gt; instead of &lt;code&gt;crypto/rand&lt;/code&gt;.&lt;/p&gt;</description></item><item><title>使用 math/rand/v2 演变 Go 标准库</title><link>https://before80.github.io/go_docs/goBlog/2024/EvolvingtheGoStandardLibrarywithmath_randv2/</link><pubDate>Thu, 30 May 2024 10:14:27 +0800</pubDate><guid>https://before80.github.io/go_docs/goBlog/2024/EvolvingtheGoStandardLibrarywithmath_randv2/</guid><description>&lt;blockquote&gt;
+&lt;p&gt;原文：&lt;a href="https://go.dev/blog/randv2"&gt;https://go.dev/blog/randv2&lt;/a&gt;&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;h1 id="evolving-the-go-standard-library-with-mathrandv2---使用-mathrandv2-演变-go-标准库"&gt;Evolving the Go Standard Library with math/rand/v2 - 使用 math/rand/v2 演变 Go 标准库&lt;/h1&gt;
+&lt;p&gt;Russ Cox
+1 May 2024&lt;/p&gt;
+&lt;p&gt;​	2024 年 5 月 1 日&lt;/p&gt;
+&lt;p&gt;Since Go 1 was &lt;a href="https://go.dev/blog/go1"&gt;released in March 2012&lt;/a&gt;, changes to the standard library have been constrained by Go’s &lt;a href="https://go.dev/doc/go1compat"&gt;compatibility promise&lt;/a&gt;. Overall, compatibility has been a boon for Go users, providing a stable base for production systems, documentation, tutorials, books, and more. Over time, however, we’ve realized mistakes in the original APIs that cannot be fixed compatibly; in other cases, best practices and convention have changed. We need a plan for making important, breaking changes too.&lt;/p&gt;</description></item><item><title>Go 开发者调查 2024 年上半年结果</title><link>https://before80.github.io/go_docs/goBlog/2024/GoDeveloperSurvey2024H1Results/</link><pubDate>Thu, 30 May 2024 10:13:24 +0800</pubDate><guid>https://before80.github.io/go_docs/goBlog/2024/GoDeveloperSurvey2024H1Results/</guid><description>&lt;blockquote&gt;
+&lt;p&gt;原文：&lt;a href="https://go.dev/blog/survey2024-h1-results"&gt;https://go.dev/blog/survey2024-h1-results&lt;/a&gt;&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;h1 id="go-developer-survey-2024-h1-results---go-开发者调查-2024-年上半年结果"&gt;Go Developer Survey 2024 H1 Results - Go 开发者调查 2024 年上半年结果&lt;/h1&gt;
+&lt;p&gt;Alice Merrick and Todd Kulesza&lt;/p&gt;
+&lt;p&gt;​	爱丽丝·梅里克和托德·库莱扎
+9 April 2024&lt;/p&gt;
+&lt;p&gt;​	2024 年 4 月 9 日&lt;/p&gt;
+&lt;h2 id="background-背景"&gt;Background 背景&lt;/h2&gt;
+&lt;p&gt;This post shares the results of our most recent Go Developer Survey, conducted in January and February 2024. Along with capturing sentiments and challenges around using Go and Go tooling, our primary focus areas for this survey were about how developers are starting to use Go (or other languages) for AI-related use cases, and particular challenges for those who are learning Go or looking to expand their Go skill set.&lt;/p&gt;</description></item><item><title>更强大的 Go 执行跟踪</title><link>https://before80.github.io/go_docs/goBlog/2024/MorePowerfulGoExecutionTraces/</link><pubDate>Fri, 29 Mar 2024 17:06:17 +0800</pubDate><guid>https://before80.github.io/go_docs/goBlog/2024/MorePowerfulGoExecutionTraces/</guid><description>&lt;blockquote&gt;
+&lt;p&gt;原文：&lt;a href="https://go.dev/blog/execution-traces-2024"&gt;https://go.dev/blog/execution-traces-2024&lt;/a&gt;&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;h1 id="more-powerful-go-execution-traces-更强大的-go-执行跟踪"&gt;More powerful Go execution traces 更强大的 Go 执行跟踪&lt;/h1&gt;
+&lt;p&gt;Michael Knyszek&lt;/p&gt;
+&lt;p&gt;​	迈克尔·克尼塞克
+14 March 2024&lt;/p&gt;
+&lt;p&gt;The &lt;a href="https://go.dev/pkg/runtime/trace"&gt;runtime/trace&lt;/a&gt; package contains a powerful tool for understanding and troubleshooting Go programs. The functionality within allows one to produce a trace of each goroutine’s execution over some time period. With the &lt;a href="https://go.dev/pkg/cmd/trace"&gt;&lt;code&gt;go tool trace&lt;/code&gt; command&lt;/a&gt; (or the excellent open source &lt;a href="https://gotraceui.dev/"&gt;gotraceui tool&lt;/a&gt;), one may then visualize and explore the data within these traces.&lt;/p&gt;</description></item><item><title>切片上可靠的泛型函数</title><link>https://before80.github.io/go_docs/goBlog/2024/RobustGenericFunctionsOnSlices/</link><pubDate>Fri, 29 Mar 2024 17:05:42 +0800</pubDate><guid>https://before80.github.io/go_docs/goBlog/2024/RobustGenericFunctionsOnSlices/</guid><description>&lt;blockquote&gt;
+&lt;p&gt;原文：&lt;a href="https://go.dev/blog/generic-slice-functions"&gt;https://go.dev/blog/generic-slice-functions&lt;/a&gt;&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;h1 id="robust-generic-functions-on-slices-切片上可靠的泛型函数"&gt;Robust generic functions on slices 切片上可靠的泛型函数&lt;/h1&gt;
+&lt;p&gt;Valentin Deleplace&lt;/p&gt;
+&lt;p&gt;​	瓦伦丁·德勒普拉斯
+22 February 2024&lt;/p&gt;
+&lt;p&gt;The &lt;a href="https://go.dev/pkg/slices"&gt;slices&lt;/a&gt; package provides functions that work for slices of any type. In this blog post we’ll discuss how you can use these functions more effectively by understanding how slices are represented in memory and how that affects the garbage collector, and we’ll cover how we recently adjusted these functions to make them less surprising.&lt;/p&gt;</description></item><item><title>Go 1.22 的路由增强功能</title><link>https://before80.github.io/go_docs/goBlog/2024/RoutingEnhancementsForGo1_22/</link><pubDate>Thu, 22 Feb 2024 20:32:05 +0800</pubDate><guid>https://before80.github.io/go_docs/goBlog/2024/RoutingEnhancementsForGo1_22/</guid><description>&lt;blockquote&gt;
+&lt;p&gt;原文：&lt;a href="https://go.dev/blog/routing-enhancements"&gt;https://go.dev/blog/routing-enhancements&lt;/a&gt;&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;h1 id="routing-enhancements-for-go-122---go-122-的路由增强功能"&gt;Routing Enhancements for Go 1.22 - Go 1.22 的路由增强功能&lt;/h1&gt;
+&lt;p&gt;Jonathan Amsterdam, on behalf of the Go team&lt;/p&gt;
+&lt;p&gt;​	Jonathan Amsterdam，代表 Go 团队&lt;/p&gt;
+&lt;p&gt;13 February 2024&lt;/p&gt;
+&lt;p&gt;​	2024 年 2 月 13 日&lt;/p&gt;
+&lt;p&gt;Go 1.22 brings two enhancements to the &lt;code&gt;net/http&lt;/code&gt; package’s router: method matching and wildcards. These features let you express common routes as patterns instead of Go code. Although they are simple to explain and use, it was a challenge to come up with the right rules for selecting the winning pattern when several match a request.&lt;/p&gt;</description></item><item><title>Go 1.22 发布！</title><link>https://before80.github.io/go_docs/goBlog/2024/Go1_22IsReleased/</link><pubDate>Thu, 22 Feb 2024 20:31:34 +0800</pubDate><guid>https://before80.github.io/go_docs/goBlog/2024/Go1_22IsReleased/</guid><description>&lt;blockquote&gt;
+&lt;p&gt;原文：&lt;a href="https://go.dev/blog/go1.22"&gt;https://go.dev/blog/go1.22&lt;/a&gt;&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;h1 id="go-122-is-released---go-122-发布"&gt;Go 1.22 is released! - Go 1.22 发布！&lt;/h1&gt;
+&lt;p&gt;Eli Bendersky, on behalf of the Go team&lt;/p&gt;
+&lt;p&gt;Eli Bendersky，代表 Go 团队&lt;/p&gt;
+&lt;p&gt;6 February 2024&lt;/p&gt;
+&lt;p&gt;2024 年 2 月 6 日&lt;/p&gt;
+&lt;p&gt;Today the Go team is thrilled to release Go 1.22, which you can get by visiting the &lt;a href="https://go.dev/dl/"&gt;download page&lt;/a&gt;.&lt;/p&gt;
+&lt;p&gt;​	今天，Go 团队很高兴发布 Go 1.22，您可以访问下载页面获取该版本。&lt;/p&gt;</description></item><item><title>分享您对使用 Go 开发的反馈</title><link>https://before80.github.io/go_docs/goBlog/2024/ShareYourFeedbackAboutDevelopingWithGo/</link><pubDate>Thu, 22 Feb 2024 20:30:58 +0800</pubDate><guid>https://before80.github.io/go_docs/goBlog/2024/ShareYourFeedbackAboutDevelopingWithGo/</guid><description>&lt;blockquote&gt;
+&lt;p&gt;原文：&lt;a href="https://go.dev/blog/survey2024-h1"&gt;https://go.dev/blog/survey2024-h1&lt;/a&gt;&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;h1 id="share-your-feedback-about-developing-with-go---分享您对使用-go-开发的反馈"&gt;Share your feedback about developing with Go - 分享您对使用 Go 开发的反馈&lt;/h1&gt;
+&lt;p&gt;Alice Merrick, for the Go team&lt;/p&gt;
+&lt;p&gt;23 January 2024&lt;/p&gt;
+&lt;p&gt;2024 年 1 月 23 日&lt;/p&gt;
+&lt;p&gt;Happy New Year! &lt;a href="https://google.qualtrics.com/jfe/form/SV_083SVAUCji98YeO?s=b"&gt;The Go Developer Survey is now open&lt;/a&gt;, and we want to hear from you!&lt;/p&gt;
+&lt;p&gt;​	新年快乐！Go 开发者调查现已开放，我们希望听到您的声音！&lt;/p&gt;</description></item></channel></rss>

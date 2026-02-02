@@ -1,15 +1,17 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>archive on Go 中文档集</title><link>https://before80.github.io/go_docs/stdLib/archive/</link><description>Recent content in archive on Go 中文档集</description><generator>Hugo</generator><language>zh-cn</language><lastBuildDate>Wed, 02 Apr 2025 16:27:58 +0800</lastBuildDate><atom:link href="https://before80.github.io/go_docs/stdLib/archive/index.xml" rel="self" type="application/rss+xml"/><item><title>tar</title><link>https://before80.github.io/go_docs/stdLib/archive/tar/</link><pubDate>Wed, 17 May 2023 09:59:21 +0800</pubDate><guid>https://before80.github.io/go_docs/stdLib/archive/tar/</guid><description>&lt;blockquote>
-&lt;p>原文：&lt;a href="https://pkg.go.dev/archive/tar@go1.24.2">https://pkg.go.dev/archive/tar@go1.24.2&lt;/a>&lt;/p>&lt;/blockquote>
-&lt;p>Package tar implements access to tar archives.&lt;/p>
-&lt;p>​	tar包实现对tar存档的访问。&lt;/p>
-&lt;p>Tape archives (tar) are a file format for storing a sequence of files that can be read and written in a streaming manner. This package aims to cover most variations of the format, including those produced by GNU and BSD tar tools.&lt;/p>
-&lt;p>​	磁带存档（tar）是一种用于以流式方式读取和写入的存储文件序列的文件格式。该软件包旨在涵盖该格式的大多数变体，包括由GNU和BSD tar工具生成的那些。&lt;/p></description></item><item><title>zip</title><link>https://before80.github.io/go_docs/stdLib/archive/zip/</link><pubDate>Wed, 17 May 2023 09:59:21 +0800</pubDate><guid>https://before80.github.io/go_docs/stdLib/archive/zip/</guid><description>&lt;blockquote>
-&lt;p>原文：&lt;a href="https://pkg.go.dev/archive/zip@go1.24.2">https://pkg.go.dev/archive/zip@go1.24.2&lt;/a>&lt;/p>&lt;/blockquote>
-&lt;p>Package zip provides support for reading and writing ZIP archives.&lt;/p>
-&lt;p>​	zip 包提供对 ZIP 存档的读写支持。&lt;/p>
-&lt;p>See the &lt;a href="https://www.pkware.com/appnote">ZIP specification&lt;/a> for details.&lt;/p>
-&lt;p>​	有关详细信息，请参阅 &lt;a href="https://www.pkware.com/appnote">ZIP 规范&lt;/a>。&lt;/p>
-&lt;p>This package does not support disk spanning.&lt;/p>
-&lt;p>​	此包不支持跨磁盘。&lt;/p>
-&lt;p>A note about ZIP64:&lt;/p>
-&lt;p>​	有关 ZIP64 的说明：&lt;/p></description></item></channel></rss>
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>archive on Go 中文档集</title><link>https://before80.github.io/go_docs/stdLib/archive/</link><description>Recent content in archive on Go 中文档集</description><generator>Hugo</generator><language>zh-cn</language><lastBuildDate>Wed, 02 Apr 2025 16:27:58 +0800</lastBuildDate><atom:link href="https://before80.github.io/go_docs/stdLib/archive/index.xml" rel="self" type="application/rss+xml"/><item><title>tar</title><link>https://before80.github.io/go_docs/stdLib/archive/tar/</link><pubDate>Wed, 17 May 2023 09:59:21 +0800</pubDate><guid>https://before80.github.io/go_docs/stdLib/archive/tar/</guid><description>&lt;blockquote&gt;
+&lt;p&gt;原文：&lt;a href="https://pkg.go.dev/archive/tar@go1.24.2"&gt;https://pkg.go.dev/archive/tar@go1.24.2&lt;/a&gt;&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;Package tar implements access to tar archives.&lt;/p&gt;
+&lt;p&gt;​	tar包实现对tar存档的访问。&lt;/p&gt;
+&lt;p&gt;Tape archives (tar) are a file format for storing a sequence of files that can be read and written in a streaming manner. This package aims to cover most variations of the format, including those produced by GNU and BSD tar tools.&lt;/p&gt;
+&lt;p&gt;​	磁带存档（tar）是一种用于以流式方式读取和写入的存储文件序列的文件格式。该软件包旨在涵盖该格式的大多数变体，包括由GNU和BSD tar工具生成的那些。&lt;/p&gt;</description></item><item><title>zip</title><link>https://before80.github.io/go_docs/stdLib/archive/zip/</link><pubDate>Wed, 17 May 2023 09:59:21 +0800</pubDate><guid>https://before80.github.io/go_docs/stdLib/archive/zip/</guid><description>&lt;blockquote&gt;
+&lt;p&gt;原文：&lt;a href="https://pkg.go.dev/archive/zip@go1.24.2"&gt;https://pkg.go.dev/archive/zip@go1.24.2&lt;/a&gt;&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;Package zip provides support for reading and writing ZIP archives.&lt;/p&gt;
+&lt;p&gt;​	zip 包提供对 ZIP 存档的读写支持。&lt;/p&gt;
+&lt;p&gt;See the &lt;a href="https://www.pkware.com/appnote"&gt;ZIP specification&lt;/a&gt; for details.&lt;/p&gt;
+&lt;p&gt;​	有关详细信息，请参阅 &lt;a href="https://www.pkware.com/appnote"&gt;ZIP 规范&lt;/a&gt;。&lt;/p&gt;
+&lt;p&gt;This package does not support disk spanning.&lt;/p&gt;
+&lt;p&gt;​	此包不支持跨磁盘。&lt;/p&gt;
+&lt;p&gt;A note about ZIP64:&lt;/p&gt;
+&lt;p&gt;​	有关 ZIP64 的说明：&lt;/p&gt;</description></item></channel></rss>

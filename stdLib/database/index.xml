@@ -1,7 +1,8 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>database on Go 中文档集</title><link>https://before80.github.io/go_docs/stdLib/database/</link><description>Recent content in database on Go 中文档集</description><generator>Hugo</generator><language>zh-cn</language><lastBuildDate>Wed, 02 Apr 2025 16:27:58 +0800</lastBuildDate><atom:link href="https://before80.github.io/go_docs/stdLib/database/index.xml" rel="self" type="application/rss+xml"/><item><title>sql</title><link>https://before80.github.io/go_docs/stdLib/database/sql/</link><pubDate>Wed, 17 May 2023 11:11:20 +0800</pubDate><guid>https://before80.github.io/go_docs/stdLib/database/sql/</guid><description>&lt;blockquote>
-&lt;p>原文：&lt;a href="https://pkg.go.dev/database/sql@go1.24.2">https://pkg.go.dev/database/sql@go1.24.2&lt;/a>&lt;/p>&lt;/blockquote>
-&lt;h2 id="关系图">关系图&lt;a class="td-heading-self-link" href="#%e5%85%b3%e7%b3%bb%e5%9b%be" aria-label="Heading self-link">&lt;/a>&lt;/h2>
-&lt;p>
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>database on Go 中文档集</title><link>https://before80.github.io/go_docs/stdLib/database/</link><description>Recent content in database on Go 中文档集</description><generator>Hugo</generator><language>zh-cn</language><lastBuildDate>Wed, 02 Apr 2025 16:27:58 +0800</lastBuildDate><atom:link href="https://before80.github.io/go_docs/stdLib/database/index.xml" rel="self" type="application/rss+xml"/><item><title>sql</title><link>https://before80.github.io/go_docs/stdLib/database/sql/</link><pubDate>Wed, 17 May 2023 11:11:20 +0800</pubDate><guid>https://before80.github.io/go_docs/stdLib/database/sql/</guid><description>&lt;blockquote&gt;
+&lt;p&gt;原文：&lt;a href="https://pkg.go.dev/database/sql@go1.24.2"&gt;https://pkg.go.dev/database/sql@go1.24.2&lt;/a&gt;&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;h2 id="关系图"&gt;关系图&lt;/h2&gt;
+&lt;p&gt;
  
  
  
@@ -15,16 +16,18 @@
  &lt;img src="https://before80.github.io/go_docs/stdLib/database/sql_img/sql_objects.png"
  alt="sql_objects" data-cur-dir="stdLib/database" data-rg="/sql_img/sql_objects.png" data-rg1="sql_img/sql_objects.png" data-rel="/go_docs/sql_img/sql_objects.png" data-c4my="/go_docs"
  
- />
+ /&gt;
  
  
-&lt;/p>
-&lt;p>Package sql provides a generic interface around SQL (or SQL-like) databases.&lt;/p>
-&lt;p>​	&lt;code>sql&lt;/code>包提供了一个围绕SQL(或类SQL)数据库的通用接口。&lt;/p>
-&lt;p>The sql package must be used in conjunction with a database driver. See &lt;a href="https://golang.org/s/sqldrivers">https://golang.org/s/sqldrivers&lt;/a> for a list of drivers.&lt;/p></description></item><item><title>sql/driver</title><link>https://before80.github.io/go_docs/stdLib/database/sql_driver/</link><pubDate>Wed, 17 May 2023 11:11:20 +0800</pubDate><guid>https://before80.github.io/go_docs/stdLib/database/sql_driver/</guid><description>&lt;blockquote>
-&lt;p>原文：&lt;a href="https://pkg.go.dev/database/sql/driver@go1.24.2">https://pkg.go.dev/database/sql/driver@go1.24.2&lt;/a>&lt;/p>&lt;/blockquote>
-&lt;p>Package driver defines interfaces to be implemented by database drivers as used by package sql.&lt;/p>
-&lt;p>​	&lt;code>driver&lt;/code>包定义了数据库驱动需要实现的接口，供&lt;code>sql&lt;/code>包使用。&lt;/p>
-&lt;p>Most code should use package sql.&lt;/p>
-&lt;p>​	大多数代码应该使用 &lt;code>sql&lt;/code> 包。&lt;/p>
-&lt;p>The driver interface has evolved over time. Drivers should implement Connector and DriverContext interfaces. The Connector.Connect and Driver.Open methods should never return ErrBadConn. ErrBadConn should only be returned from Validator, SessionResetter, or a query method if the connection is already in an invalid (e.g. closed) state.&lt;/p></description></item></channel></rss>
+&lt;/p&gt;
+&lt;p&gt;Package sql provides a generic interface around SQL (or SQL-like) databases.&lt;/p&gt;
+&lt;p&gt;​	&lt;code&gt;sql&lt;/code&gt;包提供了一个围绕SQL(或类SQL)数据库的通用接口。&lt;/p&gt;
+&lt;p&gt;The sql package must be used in conjunction with a database driver. See &lt;a href="https://golang.org/s/sqldrivers"&gt;https://golang.org/s/sqldrivers&lt;/a&gt; for a list of drivers.&lt;/p&gt;
+&lt;p&gt;​	sql包必须与数据库驱动程序一起使用。请参阅&lt;a href="https://golang.org/s/sqldrivers"&gt;https://golang.org/s/sqldrivers&lt;/a&gt;，获取驱动程序的列表。&lt;/p&gt;</description></item><item><title>sql/driver</title><link>https://before80.github.io/go_docs/stdLib/database/sql_driver/</link><pubDate>Wed, 17 May 2023 11:11:20 +0800</pubDate><guid>https://before80.github.io/go_docs/stdLib/database/sql_driver/</guid><description>&lt;blockquote&gt;
+&lt;p&gt;原文：&lt;a href="https://pkg.go.dev/database/sql/driver@go1.24.2"&gt;https://pkg.go.dev/database/sql/driver@go1.24.2&lt;/a&gt;&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;Package driver defines interfaces to be implemented by database drivers as used by package sql.&lt;/p&gt;
+&lt;p&gt;​	&lt;code&gt;driver&lt;/code&gt;包定义了数据库驱动需要实现的接口，供&lt;code&gt;sql&lt;/code&gt;包使用。&lt;/p&gt;
+&lt;p&gt;Most code should use package sql.&lt;/p&gt;
+&lt;p&gt;​	大多数代码应该使用 &lt;code&gt;sql&lt;/code&gt; 包。&lt;/p&gt;
+&lt;p&gt;The driver interface has evolved over time. Drivers should implement Connector and DriverContext interfaces. The Connector.Connect and Driver.Open methods should never return ErrBadConn. ErrBadConn should only be returned from Validator, SessionResetter, or a query method if the connection is already in an invalid (e.g. closed) state.&lt;/p&gt;</description></item></channel></rss>

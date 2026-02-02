@@ -1,170 +1,203 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>2011 [29篇] on Go 中文档集</title><link>https://before80.github.io/go_docs/goBlog/2011/</link><description>Recent content in 2011 [29篇] on Go 中文档集</description><generator>Hugo</generator><language>zh-cn</language><lastBuildDate>Thu, 10 Oct 2024 15:07:50 +0800</lastBuildDate><atom:link href="https://before80.github.io/go_docs/goBlog/2011/index.xml" rel="self" type="application/rss+xml"/><item><title>了解 Go 社区</title><link>https://before80.github.io/go_docs/goBlog/2011/GettingToKnowTheGoCommunity/</link><pubDate>Thu, 18 May 2023 17:03:08 +0800</pubDate><guid>https://before80.github.io/go_docs/goBlog/2011/GettingToKnowTheGoCommunity/</guid><description>&lt;h1 id="getting-to-know-the-go-community---了解-go-社区">Getting to know the Go community - 了解 Go 社区&lt;a class="td-heading-self-link" href="#getting-to-know-the-go-community---%e4%ba%86%e8%a7%a3-go-%e7%a4%be%e5%8c%ba" aria-label="Heading self-link">&lt;/a>&lt;/h1>
-&lt;blockquote>
-&lt;p>原文：&lt;a href="https://go.dev/blog/survey2011">https://go.dev/blog/survey2011&lt;/a>&lt;/p>&lt;/blockquote>
-&lt;p>Andrew Gerrand
-21 December 2011&lt;/p>
-&lt;p>Over the past couple of years Go has attracted a lot of users and contributors, and I’ve had a great time meeting and talking with many of you. However, for every Gopher I know there are dozens I know nothing about. In order to address this imbalance I’ve prepared a survey for Go users everywhere.&lt;/p></description></item><item><title>用 Go 构建StatHat</title><link>https://before80.github.io/go_docs/goBlog/2011/BuildingStatHatWithGo/</link><pubDate>Thu, 18 May 2023 17:03:08 +0800</pubDate><guid>https://before80.github.io/go_docs/goBlog/2011/BuildingStatHatWithGo/</guid><description>&lt;h1 id="building-stathat-with-go---用-go-构建stathat">Building StatHat with Go - 用 Go 构建StatHat&lt;a class="td-heading-self-link" href="#building-stathat-with-go---%e7%94%a8-go-%e6%9e%84%e5%bb%bastathat" aria-label="Heading self-link">&lt;/a>&lt;/h1>
-&lt;blockquote>
-&lt;p>原文：&lt;a href="https://go.dev/blog/stathat">https://go.dev/blog/stathat&lt;/a>&lt;/p>&lt;/blockquote>
-&lt;p>Patrick Crosby
-19 December 2011&lt;/p>
-&lt;h2 id="introduction-简介">Introduction 简介&lt;a class="td-heading-self-link" href="#introduction-%e7%ae%80%e4%bb%8b" aria-label="Heading self-link">&lt;/a>&lt;/h2>
-&lt;p>My name is Patrick Crosby and I’m the founder of a company called Numerotron. We recently released &lt;a href="http://www.stathat.com/">StatHat&lt;/a>. This post is about why we chose to develop StatHat in &lt;a href="https://go.dev/">Go&lt;/a>, including details about how we are using Go.&lt;/p></description></item><item><title>从0到 Go：24小时内在谷歌主页上发布</title><link>https://before80.github.io/go_docs/goBlog/2011/FromZeroToGoLaunchingOnTheGoogleHomepageIn24Hours/</link><pubDate>Thu, 18 May 2023 17:03:08 +0800</pubDate><guid>https://before80.github.io/go_docs/goBlog/2011/FromZeroToGoLaunchingOnTheGoogleHomepageIn24Hours/</guid><description>&lt;h1 id="from-zero-to-go-launching-on-the-google-homepage-in-24-hours---从0到-go24小时内在谷歌主页上发布">From zero to Go: launching on the Google homepage in 24 hours - 从0到 Go：24小时内在谷歌主页上发布&lt;a class="td-heading-self-link" href="#from-zero-to-go-launching-on-the-google-homepage-in-24-hours---%e4%bb%8e0%e5%88%b0-go24%e5%b0%8f%e6%97%b6%e5%86%85%e5%9c%a8%e8%b0%b7%e6%ad%8c%e4%b8%bb%e9%a1%b5%e4%b8%8a%e5%8f%91%e5%b8%83" aria-label="Heading self-link">&lt;/a>&lt;/h1>
-&lt;blockquote>
-&lt;p>原文：&lt;a href="https://go.dev/blog/turkey-doodle">https://go.dev/blog/turkey-doodle&lt;/a>&lt;/p>&lt;/blockquote>
-&lt;p>Reinaldo Aguiar
-13 December 2011&lt;/p>
-&lt;h2 id="introduction-简介">Introduction 简介&lt;a class="td-heading-self-link" href="#introduction-%e7%ae%80%e4%bb%8b" aria-label="Heading self-link">&lt;/a>&lt;/h2>
-&lt;p>&lt;em>This article was written by Reinaldo Aguiar, a software engineer from the Search team at Google. He shares his experience developing his first Go program and launching it to an audience of millions - all in one day!&lt;/em>&lt;/p></description></item><item><title>Go 编程语言两岁了</title><link>https://before80.github.io/go_docs/goBlog/2011/TheGoProgrammingLanguageTurnsTwo/</link><pubDate>Thu, 18 May 2023 17:03:08 +0800</pubDate><guid>https://before80.github.io/go_docs/goBlog/2011/TheGoProgrammingLanguageTurnsTwo/</guid><description>&lt;h1 id="the-go-programming-language-turns-two---go-编程语言两岁了">The Go Programming Language turns two - Go 编程语言两岁了&lt;a class="td-heading-self-link" href="#the-go-programming-language-turns-two---go-%e7%bc%96%e7%a8%8b%e8%af%ad%e8%a8%80%e4%b8%a4%e5%b2%81%e4%ba%86" aria-label="Heading self-link">&lt;/a>&lt;/h1>
-&lt;blockquote>
-&lt;p>原文：&lt;a href="https://go.dev/blog/2years">https://go.dev/blog/2years&lt;/a>&lt;/p>&lt;/blockquote>
-&lt;p>Andrew Gerrand
-10 November 2011&lt;/p>
-&lt;p>Two years ago a small team at Google went public with their fledgling project - the Go Programming Language. They presented a language spec, two compilers, a modest standard library, some novel tools, and plenty of accurate (albeit succinct) documentation. They watched with excitement as programmers around the world began to play with Go. The team continued to iterate and improve on what they had built, and were gradually joined by dozens - and then hundreds - of programmers from the open source community. The Go Authors went on to produce lots of libraries, new tools, and reams of &lt;a href="https://go.dev/doc/docs.html">documentation&lt;/a>. They celebrated a successful year in the public eye with a &lt;a href="https://blog.golang.org/2010/11/go-one-year-ago-today.html">blog post&lt;/a> last November that concluded &amp;ldquo;Go is certainly ready for production use, but there is still room for improvement. Our focus for the immediate future is making Go programs faster and more efficient in the context of high performance systems.&amp;rdquo;&lt;/p></description></item><item><title>编写可扩展的App Engine应用程序</title><link>https://before80.github.io/go_docs/goBlog/2011/WritingScalableAppEngineApplications/</link><pubDate>Thu, 18 May 2023 17:03:08 +0800</pubDate><guid>https://before80.github.io/go_docs/goBlog/2011/WritingScalableAppEngineApplications/</guid><description>&lt;h1 id="writing-scalable-app-engine-applications---编写可扩展的app-engine应用程序">Writing scalable App Engine applications - 编写可扩展的App Engine应用程序&lt;a class="td-heading-self-link" href="#writing-scalable-app-engine-applications---%e7%bc%96%e5%86%99%e5%8f%af%e6%89%a9%e5%b1%95%e7%9a%84app-engine%e5%ba%94%e7%94%a8%e7%a8%8b%e5%ba%8f" aria-label="Heading self-link">&lt;/a>&lt;/h1>
-&lt;blockquote>
-&lt;p>原文：&lt;a href="https://go.dev/blog/appengine-scalable">https://go.dev/blog/appengine-scalable&lt;/a>&lt;/p>&lt;/blockquote>
-&lt;p>David Symonds
-1 November 2011&lt;/p>
-&lt;p>Back in May, we &lt;a href="https://blog.golang.org/2011/05/go-and-google-app-engine.html">announced&lt;/a> the Go runtime for App Engine. Since then, we’ve opened it up for everyone to use, added many new APIs, and improved performance. We have been thrilled by all the interesting ways that people are using Go on App Engine. One of the key benefits of the Go runtime, apart from working in a fantastic language, is that it has high performance. Go applications compile to native code, with no interpreter or virtual machine getting between your program and the machine.&lt;/p></description></item><item><title>用GNU调试器调试 Go 程序</title><link>https://before80.github.io/go_docs/goBlog/2011/DebuggingGoProgramsWithTheGNUDebugger/</link><pubDate>Thu, 18 May 2023 17:03:08 +0800</pubDate><guid>https://before80.github.io/go_docs/goBlog/2011/DebuggingGoProgramsWithTheGNUDebugger/</guid><description>&lt;h1 id="debugging-go-programs-with-the-gnu-debugger---用gnu调试器调试-go-程序">Debugging Go programs with the GNU Debugger - 用GNU调试器调试 Go 程序&lt;a class="td-heading-self-link" href="#debugging-go-programs-with-the-gnu-debugger---%e7%94%a8gnu%e8%b0%83%e8%af%95%e5%99%a8%e8%b0%83%e8%af%95-go-%e7%a8%8b%e5%ba%8f" aria-label="Heading self-link">&lt;/a>&lt;/h1>
-&lt;blockquote>
-&lt;p>原文：&lt;a href="https://go.dev/blog/debug-gdb">https://go.dev/blog/debug-gdb&lt;/a>&lt;/p>&lt;/blockquote>
-&lt;p>Andrew Gerrand
-30 October 2011&lt;/p>
-&lt;p>Last year we &lt;a href="https://blog.golang.org/2010/11/debugging-go-code-status-report.html">reported&lt;/a> that Go’s &lt;a href="https://go.dev/cmd/gc/">gc&lt;/a>/&lt;a href="https://go.dev/cmd/6l/">ld&lt;/a> toolchain produces DWARFv3 debugging information that can be read by the GNU Debugger (GDB). Since then, work has continued steadily on improving support for debugging Go code with GDB. Among the improvements are the ability to inspect goroutines and to print native Go data types, including structs, slices, strings, maps, interfaces, and channels.&lt;/p></description></item><item><title>Go App Engine SDK 1.5.5 released</title><link>https://before80.github.io/go_docs/goBlog/2011/GoAppEngineSDK1_5_5Released/</link><pubDate>Thu, 18 May 2023 17:03:08 +0800</pubDate><guid>https://before80.github.io/go_docs/goBlog/2011/GoAppEngineSDK1_5_5Released/</guid><description>&lt;h1 id="go-app-engine-sdk-155-released">Go App Engine SDK 1.5.5 released&lt;a class="td-heading-self-link" href="#go-app-engine-sdk-155-released" aria-label="Heading self-link">&lt;/a>&lt;/h1>
-&lt;blockquote>
-&lt;p>原文：&lt;a href="https://go.dev/blog/appengine-155">https://go.dev/blog/appengine-155&lt;/a>&lt;/p>&lt;/blockquote>
-&lt;p>Andrew Gerrand
-11 October 2011&lt;/p>
-&lt;p>Today we released version 1.5.5 the Go App Engine SDK. You can download it from the &lt;a href="http://code.google.com/appengine/downloads.html">App Engine downloads page&lt;/a>.&lt;/p>
-&lt;p>今天我们发布了1.5.5版本的Go App Engine SDK。您可以从App Engine的下载页面下载它。&lt;/p></description></item><item><title>Go 的第一版的预览</title><link>https://before80.github.io/go_docs/goBlog/2011/APreviewOfGoVersion1/</link><pubDate>Thu, 18 May 2023 17:03:08 +0800</pubDate><guid>https://before80.github.io/go_docs/goBlog/2011/APreviewOfGoVersion1/</guid><description>&lt;h1 id="a-preview-of-go-version-1---go-的第一版的预览">A preview of Go version 1 - Go 的第一版的预览&lt;a class="td-heading-self-link" href="#a-preview-of-go-version-1---go-%e7%9a%84%e7%ac%ac%e4%b8%80%e7%89%88%e7%9a%84%e9%a2%84%e8%a7%88" aria-label="Heading self-link">&lt;/a>&lt;/h1>
-&lt;blockquote>
-&lt;p>原文：&lt;a href="https://go.dev/blog/go1-preview">https://go.dev/blog/go1-preview&lt;/a>&lt;/p>&lt;/blockquote>
-&lt;p>Russ Cox
-5 October 2011&lt;/p>
-&lt;p>We want to be able to provide a stable base for people using Go. People should be able to write Go programs and expect that they will continue to compile and run without change, on a timescale of years. Similarly, people should be able to write books about Go, be able to say which version of Go the book is describing, and have that version number still be meaningful much later. None of these properties is true for Go today.&lt;/p></description></item><item><title>从您的浏览器中学习 go</title><link>https://before80.github.io/go_docs/goBlog/2011/LearnGoFromYourBrowser/</link><pubDate>Thu, 18 May 2023 17:03:08 +0800</pubDate><guid>https://before80.github.io/go_docs/goBlog/2011/LearnGoFromYourBrowser/</guid><description>&lt;h1 id="learn-go-from-your-browser---从您的浏览器中学习-go">Learn Go from your browser - 从您的浏览器中学习 go&lt;a class="td-heading-self-link" href="#learn-go-from-your-browser---%e4%bb%8e%e6%82%a8%e7%9a%84%e6%b5%8f%e8%a7%88%e5%99%a8%e4%b8%ad%e5%ad%a6%e4%b9%a0-go" aria-label="Heading self-link">&lt;/a>&lt;/h1>
-&lt;blockquote>
-&lt;p>原文：&lt;a href="https://go.dev/blog/tour">https://go.dev/blog/tour&lt;/a>&lt;/p>&lt;/blockquote>
-&lt;p>Andrew Gerrand
-4 October 2011&lt;/p>
-&lt;p>We are excited to announce &lt;a href="https://go.dev/tour/">A Tour of Go&lt;/a>, a guided tour of the Go programming language you can run from your browser.&lt;/p>
-&lt;p>我们很高兴地宣布 &amp;ldquo;Go之旅&amp;rdquo;，这是一个可以在浏览器中运行的Go编程语言的导游。&lt;/p></description></item><item><title>Go 的image/draw包</title><link>https://before80.github.io/go_docs/goBlog/2011/TheGoImagedrawPackage/</link><pubDate>Thu, 18 May 2023 17:03:08 +0800</pubDate><guid>https://before80.github.io/go_docs/goBlog/2011/TheGoImagedrawPackage/</guid><description>&lt;h1 id="the-go-imagedraw-package---go-的imagedraw包">The Go image/draw package - Go 的image/draw包&lt;a class="td-heading-self-link" href="#the-go-imagedraw-package---go-%e7%9a%84imagedraw%e5%8c%85" aria-label="Heading self-link">&lt;/a>&lt;/h1>
-&lt;blockquote>
-&lt;p>原文：&lt;a href="https://go.dev/blog/image-draw">https://go.dev/blog/image-draw&lt;/a>&lt;/p>&lt;/blockquote>
-&lt;p>Nigel Tao
-29 September 2011&lt;/p>
-&lt;h2 id="introduction-简介">Introduction 简介&lt;a class="td-heading-self-link" href="#introduction-%e7%ae%80%e4%bb%8b" aria-label="Heading self-link">&lt;/a>&lt;/h2>
-&lt;p>&lt;a href="https://go.dev/pkg/image/draw/">Package image/draw&lt;/a> defines only one operation: drawing a source image onto a destination image, through an optional mask image. This one operation is surprisingly versatile and can perform a number of common image manipulation tasks elegantly and efficiently.&lt;/p></description></item><item><title>Go 的image包</title><link>https://before80.github.io/go_docs/goBlog/2011/TheGoImagePackage/</link><pubDate>Thu, 18 May 2023 17:03:08 +0800</pubDate><guid>https://before80.github.io/go_docs/goBlog/2011/TheGoImagePackage/</guid><description>&lt;h1 id="the-go-image-package---go-的image包">The Go image package - Go 的image包&lt;a class="td-heading-self-link" href="#the-go-image-package---go-%e7%9a%84image%e5%8c%85" aria-label="Heading self-link">&lt;/a>&lt;/h1>
-&lt;blockquote>
-&lt;p>原文：&lt;a href="https://go.dev/blog/image">https://go.dev/blog/image&lt;/a>&lt;/p>&lt;/blockquote>
-&lt;p>Nigel Tao
-21 September 2011&lt;/p>
-&lt;h2 id="introduction-简介">Introduction 简介&lt;a class="td-heading-self-link" href="#introduction-%e7%ae%80%e4%bb%8b" aria-label="Heading self-link">&lt;/a>&lt;/h2>
-&lt;p>The &lt;a href="https://go.dev/pkg/image/">image&lt;/a> and &lt;a href="https://go.dev/pkg/image/color/">image/color&lt;/a> packages define a number of types: &lt;code>color.Color&lt;/code> and &lt;code>color.Model&lt;/code> describe colors, &lt;code>image.Point&lt;/code> and &lt;code>image.Rectangle&lt;/code> describe basic 2-D geometry, and &lt;code>image.Image&lt;/code> brings the two concepts together to represent a rectangular grid of colors. A &lt;a href="https://go.dev/doc/articles/image_draw.html">separate article&lt;/a> covers image composition with the &lt;a href="https://go.dev/pkg/image/draw/">image/draw&lt;/a> package.&lt;/p></description></item><item><title>反射法则</title><link>https://before80.github.io/go_docs/goBlog/2011/TheLawsOfReflection/</link><pubDate>Thu, 18 May 2023 17:03:08 +0800</pubDate><guid>https://before80.github.io/go_docs/goBlog/2011/TheLawsOfReflection/</guid><description>&lt;h1 id="the-laws-of-reflection---反射法则">The Laws of Reflection - 反射法则&lt;a class="td-heading-self-link" href="#the-laws-of-reflection---%e5%8f%8d%e5%b0%84%e6%b3%95%e5%88%99" aria-label="Heading self-link">&lt;/a>&lt;/h1>
-&lt;blockquote>
-&lt;p>原文：&lt;a href="https://go.dev/blog/laws-of-reflection">https://go.dev/blog/laws-of-reflection&lt;/a>&lt;/p>&lt;/blockquote>
-&lt;p>Rob Pike
-6 September 2011&lt;/p>
-&lt;p>罗布·派克 2011年9月6日&lt;/p>
-&lt;h2 id="简介-introduction">简介 Introduction&lt;a class="td-heading-self-link" href="#%e7%ae%80%e4%bb%8b-introduction" aria-label="Heading self-link">&lt;/a>&lt;/h2>
-&lt;p>Reflection in computing is the ability of a program to examine its own structure, particularly through types; it’s a form of metaprogramming. It’s also a great source of confusion.&lt;/p></description></item><item><title>两场 Go 讲座： Go 中的词汇扫描 和 Cuddle：一个App Engine Demo</title><link>https://before80.github.io/go_docs/goBlog/2011/TwoGoTalksLexicalScanningInGoAndCuddleAnAppEngineDemo/</link><pubDate>Thu, 18 May 2023 17:03:08 +0800</pubDate><guid>https://before80.github.io/go_docs/goBlog/2011/TwoGoTalksLexicalScanningInGoAndCuddleAnAppEngineDemo/</guid><description>&lt;h1 id="two-go-talks-lexical-scanning-in-go-and-cuddle-an-app-engine-demo---两场-go-讲座-go-中的词汇扫描-和-cuddle一个app-engine-demo">Two Go Talks: &amp;ldquo;Lexical Scanning in Go&amp;rdquo; and &amp;ldquo;Cuddle: an App Engine Demo&amp;rdquo; - 两场 Go 讲座： Go 中的词汇扫描 和 Cuddle：一个App Engine Demo&lt;a class="td-heading-self-link" href="#two-go-talks-lexical-scanning-in-go-and-cuddle-an-app-engine-demo---%e4%b8%a4%e5%9c%ba-go-%e8%ae%b2%e5%ba%a7-go-%e4%b8%ad%e7%9a%84%e8%af%8d%e6%b1%87%e6%89%ab%e6%8f%8f-%e5%92%8c-cuddle%e4%b8%80%e4%b8%aaapp-engine-demo" aria-label="Heading self-link">&lt;/a>&lt;/h1>
-&lt;blockquote>
-&lt;p>原文：&lt;a href="https://go.dev/blog/sydney-gtug">https://go.dev/blog/sydney-gtug&lt;/a>&lt;/p>&lt;/blockquote>
-&lt;p>Andrew Gerrand
-1 September 2011&lt;/p>
-&lt;p>On Tuesday night Rob Pike and Andrew Gerrand each presented at the &lt;a href="http://www.sydney-gtug.org/">Sydney Google Technology User Group&lt;/a>.&lt;/p>
-&lt;p>周二晚上，Rob Pike和Andrew Gerrand分别在悉尼谷歌技术用户组发表演讲。&lt;/p></description></item><item><title>Go for App Engine is now generally available</title><link>https://before80.github.io/go_docs/goBlog/2011/GoForAppEngineIsNowGenerallyAvailable/</link><pubDate>Thu, 18 May 2023 17:03:08 +0800</pubDate><guid>https://before80.github.io/go_docs/goBlog/2011/GoForAppEngineIsNowGenerallyAvailable/</guid><description>&lt;h1 id="go-for-app-engine-is-now-generally-available">Go for App Engine is now generally available&lt;a class="td-heading-self-link" href="#go-for-app-engine-is-now-generally-available" aria-label="Heading self-link">&lt;/a>&lt;/h1>
-&lt;blockquote>
-&lt;p>原文：&lt;a href="https://go.dev/blog/appengine-ga">https://go.dev/blog/appengine-ga&lt;/a>&lt;/p>&lt;/blockquote>
-&lt;p>Andrew Gerrand
-21 July 2011&lt;/p>
-&lt;p>The Go and App Engine teams are excited to announce that the Go runtime for App Engine is now generally available. This means you can take that Go app you’ve been working on (or meaning to work on) and deploy it to App Engine right now with the new &lt;a href="http://code.google.com/appengine/downloads.html">1.5.2 SDK&lt;/a>.&lt;/p></description></item><item><title>错误处理和 go</title><link>https://before80.github.io/go_docs/goBlog/2011/ErrorHandlingAndGo/</link><pubDate>Thu, 18 May 2023 17:03:08 +0800</pubDate><guid>https://before80.github.io/go_docs/goBlog/2011/ErrorHandlingAndGo/</guid><description>&lt;h1 id="error-handling-and-go---错误处理和-go">Error handling and Go - 错误处理和 go&lt;a class="td-heading-self-link" href="#error-handling-and-go---%e9%94%99%e8%af%af%e5%a4%84%e7%90%86%e5%92%8c-go" aria-label="Heading self-link">&lt;/a>&lt;/h1>
-&lt;blockquote>
-&lt;p>原文：&lt;a href="https://go.dev/blog/error-handling-and-go">https://go.dev/blog/error-handling-and-go&lt;/a>&lt;/p>&lt;/blockquote>
-&lt;p>Andrew Gerrand
-12 July 2011&lt;/p>
-&lt;h2 id="introduction-简介">Introduction 简介&lt;a class="td-heading-self-link" href="#introduction-%e7%ae%80%e4%bb%8b" aria-label="Heading self-link">&lt;/a>&lt;/h2>
-&lt;p>If you have written any Go code you have probably encountered the built-in &lt;code>error&lt;/code> type. Go code uses &lt;code>error&lt;/code> values to indicate an abnormal state. For example, the &lt;code>os.Open&lt;/code> function returns a non-nil &lt;code>error&lt;/code> value when it fails to open a file.&lt;/p></description></item><item><title>Go 的一等函数</title><link>https://before80.github.io/go_docs/goBlog/2011/FirstClassFunctionsInGo/</link><pubDate>Thu, 18 May 2023 17:03:08 +0800</pubDate><guid>https://before80.github.io/go_docs/goBlog/2011/FirstClassFunctionsInGo/</guid><description>&lt;h1 id="first-class-functions-in-go---go-的一等函数">First Class Functions in Go - Go 的一等函数&lt;a class="td-heading-self-link" href="#first-class-functions-in-go---go-%e7%9a%84%e4%b8%80%e7%ad%89%e5%87%bd%e6%95%b0" aria-label="Heading self-link">&lt;/a>&lt;/h1>
-&lt;blockquote>
-&lt;p>原文：&lt;a href="https://go.dev/blog/functions-codewalk">https://go.dev/blog/functions-codewalk&lt;/a>&lt;/p>&lt;/blockquote>
-&lt;p>Andrew Gerrand
-30 June 2011&lt;/p>
-&lt;p>2011年6月30日&lt;/p>
-&lt;p>Programmers new to Go are often surprised by its support for function types, functions as values, and closures. The &lt;a href="https://go.dev/doc/codewalk/functions/">First Class Functions in Go&lt;/a> code walk demonstrates these features with a simulation of the dice game &lt;a href="http://en.wikipedia.org/wiki/Pig_(dice)">Pig&lt;/a>. It is a pretty program that uses the language to great effect, and a fun read for Go beginners and veterans alike.&lt;/p></description></item><item><title>分析 Go 程序</title><link>https://before80.github.io/go_docs/goBlog/2011/ProfilingGoPrograms/</link><pubDate>Thu, 18 May 2023 17:03:08 +0800</pubDate><guid>https://before80.github.io/go_docs/goBlog/2011/ProfilingGoPrograms/</guid><description>&lt;h1 id="profiling-go-programs---分析-go--程序">Profiling Go Programs - 分析 Go 程序&lt;a class="td-heading-self-link" href="#profiling-go-programs---%e5%88%86%e6%9e%90-go--%e7%a8%8b%e5%ba%8f" aria-label="Heading self-link">&lt;/a>&lt;/h1>
-&lt;p>Russ Cox, July 2011; updated by Shenghou Ma, May 2013
-24 June 2011&lt;/p>
-&lt;p>Russ Cox，2011年7月；Shenghou Ma更新，2013年5月 2011年6月24日&lt;/p>
-&lt;p>At Scala Days 2011, Robert Hundt presented a paper titled &lt;a href="http://research.google.com/pubs/pub37122.html">Loop Recognition in C++/Java/Go/Scala.&lt;/a> The paper implemented a specific loop finding algorithm, such as you might use in a flow analysis pass of a compiler, in C++, Go, Java, Scala, and then used those programs to draw conclusions about typical performance concerns in these languages. The Go program presented in that paper runs quite slowly, making it an excellent opportunity to demonstrate how to use Go’s profiling tools to take a slow program and make it faster.&lt;/p></description></item><item><title>聚焦外部 Go 库</title><link>https://before80.github.io/go_docs/goBlog/2011/SpotlightOnExternalGoLibraries/</link><pubDate>Thu, 18 May 2023 17:03:08 +0800</pubDate><guid>https://before80.github.io/go_docs/goBlog/2011/SpotlightOnExternalGoLibraries/</guid><description>&lt;h1 id="spotlight-on-external-go-libraries---聚焦外部-go-库">Spotlight on external Go libraries - 聚焦外部 Go 库&lt;a class="td-heading-self-link" href="#spotlight-on-external-go-libraries---%e8%81%9a%e7%84%a6%e5%a4%96%e9%83%a8-go-%e5%ba%93" aria-label="Heading self-link">&lt;/a>&lt;/h1>
-&lt;blockquote>
-&lt;p>原文：&lt;a href="https://go.dev/blog/external-libraries">https://go.dev/blog/external-libraries&lt;/a>&lt;/p>&lt;/blockquote>
-&lt;p>Andrew Gerrand
-3 June 2011&lt;/p>
-&lt;p>While the Go authors have been working hard at improving Go’s standard library, the greater community has created a growing ecosystem of external libraries. In this post we look at some popular Go libraries and how they can be used.&lt;/p>
-&lt;p>当Go作者一直在努力改进Go的标准库时，更大的社区已经创造了一个不断增长的外部库的生态系统。在这篇文章中，我们将介绍一些流行的 Go 库以及如何使用它们。&lt;/p></description></item><item><title>GIF解码器：Go 接口的练习</title><link>https://before80.github.io/go_docs/goBlog/2011/AGIFDecoderAnExerciseInGoInterfaces/</link><pubDate>Thu, 18 May 2023 17:03:08 +0800</pubDate><guid>https://before80.github.io/go_docs/goBlog/2011/AGIFDecoderAnExerciseInGoInterfaces/</guid><description>&lt;h1 id="a-gif-decoder-an-exercise-in-go-interfaces---gif解码器go-接口的练习">A GIF decoder: an exercise in Go interfaces - GIF解码器：Go 接口的练习&lt;a class="td-heading-self-link" href="#a-gif-decoder-an-exercise-in-go-interfaces---gif%e8%a7%a3%e7%a0%81%e5%99%a8go-%e6%8e%a5%e5%8f%a3%e7%9a%84%e7%bb%83%e4%b9%a0" aria-label="Heading self-link">&lt;/a>&lt;/h1>
-&lt;blockquote>
-&lt;p>原文：&lt;a href="https://go.dev/blog/gif-decoder">https://go.dev/blog/gif-decoder&lt;/a>&lt;/p>&lt;/blockquote>
-&lt;p>Rob Pike
-25 May 2011&lt;/p>
-&lt;h2 id="introduction-简介">Introduction 简介&lt;a class="td-heading-self-link" href="#introduction-%e7%ae%80%e4%bb%8b" aria-label="Heading self-link">&lt;/a>&lt;/h2>
-&lt;p>At the Google I/O conference in San Francisco on May 10, 2011, we announced that the Go language is now available on Google App Engine. Go is the first language to be made available on App Engine that compiles directly to machine code, which makes it a good choice for CPU-intensive tasks such as image manipulation.&lt;/p></description></item><item><title>谷歌2011年I/O大会上的 Go：视频</title><link>https://before80.github.io/go_docs/goBlog/2011/GoAtGoogleIO2011Videos/</link><pubDate>Thu, 18 May 2023 17:03:08 +0800</pubDate><guid>https://before80.github.io/go_docs/goBlog/2011/GoAtGoogleIO2011Videos/</guid><description>&lt;h1 id="go-at-google-io-2011-videos---谷歌2011年io大会上的-go视频">Go at Google I/O 2011: videos - 谷歌2011年I/O大会上的 go：视频&lt;a class="td-heading-self-link" href="#go-at-google-io-2011-videos---%e8%b0%b7%e6%ad%8c2011%e5%b9%b4io%e5%a4%a7%e4%bc%9a%e4%b8%8a%e7%9a%84-go%e8%a7%86%e9%a2%91" aria-label="Heading self-link">&lt;/a>&lt;/h1>
-&lt;blockquote>
-&lt;p>原文：&lt;a href="https://go.dev/blog/io2011">https://go.dev/blog/io2011&lt;/a>&lt;/p>&lt;/blockquote>
-&lt;p>Andrew Gerrand
-23 May 2011&lt;/p>
-&lt;h2 id="introduction-简介">Introduction 简介&lt;a class="td-heading-self-link" href="#introduction-%e7%ae%80%e4%bb%8b" aria-label="Heading self-link">&lt;/a>&lt;/h2>
-&lt;p>The Go team had a great time at Google I/O 2011. It was a pleasure to meet so many programmers who share our enthusiasm for Go, and to share our work of the past few months. For those of you that couldn’t be there in person, you can now watch videos of our two Go presentations on YouTube.&lt;/p></description></item><item><title>Go 和 Google App Engine</title><link>https://before80.github.io/go_docs/goBlog/2011/GoAndGoogleAppEngine/</link><pubDate>Thu, 18 May 2023 17:03:08 +0800</pubDate><guid>https://before80.github.io/go_docs/goBlog/2011/GoAndGoogleAppEngine/</guid><description>&lt;h1 id="go-and-google-app-engine---go-和-google-app-engine">Go and Google App Engine - Go 和 Google App Engine&lt;a class="td-heading-self-link" href="#go-and-google-app-engine---go-%e5%92%8c-google-app-engine" aria-label="Heading self-link">&lt;/a>&lt;/h1>
-&lt;blockquote>
-&lt;p>原文：&lt;a href="https://go.dev/blog/appengine">https://go.dev/blog/appengine&lt;/a>&lt;/p>&lt;/blockquote>
-&lt;p>David Symonds, Nigel Tao, and Andrew Gerrand
-10 May 2011&lt;/p>
-&lt;p>Google’s App Engine provides a reliable, scalable, easy way to build and deploy applications for the web. Over a hundred thousand apps are hosted at appspot.com and custom domains using the App Engine infrastructure. Originally written for Python apps, in 2009 the system added a Java runtime. And today, at Google I/O, we’re thrilled to announce that Go will be next. It’s marked as an experimental App Engine feature for now, because it’s early days, but both the App Engine and Go teams are very excited about this milestone.&lt;/p></description></item><item><title>Heroku 上的 go</title><link>https://before80.github.io/go_docs/goBlog/2011/GoAtHeroku/</link><pubDate>Thu, 18 May 2023 17:03:08 +0800</pubDate><guid>https://before80.github.io/go_docs/goBlog/2011/GoAtHeroku/</guid><description>&lt;h1 id="go-at-heroku---heroku-上的-go">Go at Heroku - Heroku 上的 go&lt;a class="td-heading-self-link" href="#go-at-heroku---heroku-%e4%b8%8a%e7%9a%84-go" aria-label="Heading self-link">&lt;/a>&lt;/h1>
-&lt;blockquote>
-&lt;p>原文：&lt;a href="https://go.dev/blog/heroku">https://go.dev/blog/heroku&lt;/a>&lt;/p>&lt;/blockquote>
-&lt;p>Keith Rarick and Blake Mizerany
-21 April 2011&lt;/p>
-&lt;p>&lt;em>This week’s blog post is written by&lt;/em> &lt;a href="http://xph.us/">&lt;em>Keith Rarick&lt;/em>&lt;/a> &lt;em>and&lt;/em> &lt;a href="http://itsbonus.heroku.com/">&lt;em>Blake Mizerany&lt;/em>&lt;/a>, &lt;em>systems engineers at&lt;/em> &lt;a href="http://www.heroku.com/">Heroku&lt;/a>. &lt;em>In their own words, they &amp;ldquo;eat, drink, and sleep distributed systems.&amp;rdquo; Here they discuss their experiences using Go.&lt;/em>&lt;/p>
-&lt;p>本周的博文是由Heroku的系统工程师Keith Rarick和Blake Mizerany撰写的。用他们自己的话说，他们 &amp;ldquo;吃喝拉撒睡都是分布式系统&amp;rdquo;。在这里，他们讨论了他们使用Go的经验。&lt;/p></description></item><item><title>介绍一下 gofix</title><link>https://before80.github.io/go_docs/goBlog/2011/IntroducingGofix/</link><pubDate>Thu, 18 May 2023 17:03:08 +0800</pubDate><guid>https://before80.github.io/go_docs/goBlog/2011/IntroducingGofix/</guid><description>&lt;h1 id="introducing-gofix---介绍一下-gofix">Introducing Gofix - 介绍一下 gofix&lt;a class="td-heading-self-link" href="#introducing-gofix---%e4%bb%8b%e7%bb%8d%e4%b8%80%e4%b8%8b-gofix" aria-label="Heading self-link">&lt;/a>&lt;/h1>
-&lt;blockquote>
-&lt;p>原文：&lt;a href="https://go.dev/blog/introducing-gofix">https://go.dev/blog/introducing-gofix&lt;/a>&lt;/p>&lt;/blockquote>
-&lt;p>Russ Cox
-15 April 2011&lt;/p>
-&lt;p>The next Go release will include significant API changes in several fundamental Go packages. Code that &lt;a href="http://codereview.appspot.com/4239076">implements an HTTP server handler&lt;/a>, &lt;a href="http://codereview.appspot.com/4244055">calls &lt;code>net.Dial&lt;/code>&lt;/a>, &lt;a href="http://codereview.appspot.com/4357052">calls &lt;code>os.Open&lt;/code>&lt;/a>, or &lt;a href="http://codereview.appspot.com/4281055">uses the reflect package&lt;/a> will not build unless it is updated to use the new APIs. Now that our releases are &lt;a href="https://blog.golang.org/2011/03/go-becomes-more-stable.html">more stable and less frequent&lt;/a>, this will be a common situation. Each of these API changes happened in a different weekly snapshot and might have been manageable on its own; together, however, they represent a significant amount of manual effort to update existing code.&lt;/p></description></item><item><title>godoc：文档化 Go 代码</title><link>https://before80.github.io/go_docs/goBlog/2011/GodocDocumentingGoCode/</link><pubDate>Thu, 18 May 2023 17:03:08 +0800</pubDate><guid>https://before80.github.io/go_docs/goBlog/2011/GodocDocumentingGoCode/</guid><description>&lt;h1 id="godoc-documenting-go-code---godoc文档化-go-代码">Godoc: documenting Go code - godoc：文档化 Go 代码&lt;a class="td-heading-self-link" href="#godoc-documenting-go-code---godoc%e6%96%87%e6%a1%a3%e5%8c%96-go-%e4%bb%a3%e7%a0%81" aria-label="Heading self-link">&lt;/a>&lt;/h1>
-&lt;blockquote>
-&lt;p>原文：&lt;a href="https://go.dev/blog/godoc">https://go.dev/blog/godoc&lt;/a>&lt;/p>&lt;/blockquote>
-&lt;p>Andrew Gerrand
-31 March 2011&lt;/p>
-&lt;p>[&lt;em>&lt;strong>Note, June 2022&lt;/strong>: For updated guidelines about documenting Go code, see &amp;ldquo;&lt;a href="https://go.dev/doc/comment">Go Doc Comments&lt;/a>.&amp;rdquo;&lt;/em>]&lt;/p>
-&lt;p>[注，2022年6月：关于记录Go代码的最新指南，请参见 &amp;ldquo;Go文档注释&amp;rdquo;。］&lt;/p></description></item><item><title>海量数据</title><link>https://before80.github.io/go_docs/goBlog/2011/GobsOfData/</link><pubDate>Thu, 18 May 2023 17:03:08 +0800</pubDate><guid>https://before80.github.io/go_docs/goBlog/2011/GobsOfData/</guid><description>&lt;h1 id="gobs-of-data---海量数据">Gobs of data - 海量数据&lt;a class="td-heading-self-link" href="#gobs-of-data---%e6%b5%b7%e9%87%8f%e6%95%b0%e6%8d%ae" aria-label="Heading self-link">&lt;/a>&lt;/h1>
-&lt;blockquote>
-&lt;p>原文：&lt;a href="https://go.dev/blog/gob">https://go.dev/blog/gob&lt;/a>&lt;/p>&lt;/blockquote>
-&lt;p>Rob Pike
-24 March 2011&lt;/p>
-&lt;p>2011年3月24日&lt;/p>
-&lt;h2 id="简介">简介&lt;a class="td-heading-self-link" href="#%e7%ae%80%e4%bb%8b" aria-label="Heading self-link">&lt;/a>&lt;/h2>
-&lt;p>​	要在网络上传输数据结构或将其存储在文件中，必须将其编码，然后再解码。当然有许多编码可用：&lt;a href="http://www.json.org/">JSON&lt;/a>、&lt;a href="http://www.w3.org/XML/">XML&lt;/a>、Google的&lt;a href="http://code.google.com/p/protobuf">协议缓冲区&lt;/a>等等。现在，Go的&lt;a href="https://go.dev/pkg/encoding/gob/">gob&lt;/a>包提供了另一种编码。&lt;/p></description></item><item><title>C? Go? Cgo!</title><link>https://before80.github.io/go_docs/goBlog/2011/CGoCgo/</link><pubDate>Thu, 18 May 2023 17:03:08 +0800</pubDate><guid>https://before80.github.io/go_docs/goBlog/2011/CGoCgo/</guid><description>&lt;h1 id="c-go-cgo">C? Go? Cgo!&lt;a class="td-heading-self-link" href="#c-go-cgo" aria-label="Heading self-link">&lt;/a>&lt;/h1>
-&lt;blockquote>
-&lt;p>原文：&lt;a href="https://go.dev/blog/cgo">https://go.dev/blog/cgo&lt;/a>&lt;/p>&lt;/blockquote>
-&lt;p>Andrew Gerrand
-17 March 2011&lt;/p>
-&lt;p>2011年3月17日&lt;/p>
-&lt;h2 id="简介">简介&lt;a class="td-heading-self-link" href="#%e7%ae%80%e4%bb%8b" aria-label="Heading self-link">&lt;/a>&lt;/h2>
-&lt;p>​	Cgo 允许 Go 包调用 C 代码。通过在 Go 源文件中加入一些特殊特性，cgo 就能输出 Go 和 C 文件，并将它们合并成一个单独的 Go 包。&lt;/p></description></item><item><title>Go 变得更加稳定</title><link>https://before80.github.io/go_docs/goBlog/2011/GoBecomesMoreStable/</link><pubDate>Thu, 18 May 2023 17:03:08 +0800</pubDate><guid>https://before80.github.io/go_docs/goBlog/2011/GoBecomesMoreStable/</guid><description>&lt;h1 id="go-becomes-more-stable---go-变得更加稳定">Go becomes more stable - Go 变得更加稳定&lt;a class="td-heading-self-link" href="#go-becomes-more-stable---go-%e5%8f%98%e5%be%97%e6%9b%b4%e5%8a%a0%e7%a8%b3%e5%ae%9a" aria-label="Heading self-link">&lt;/a>&lt;/h1>
-&lt;blockquote>
-&lt;p>原文：&lt;a href="https://go.dev/blog/stable-releases">https://go.dev/blog/stable-releases&lt;/a>&lt;/p>&lt;/blockquote>
-&lt;p>Andrew Gerrand
-16 March 2011&lt;/p>
-&lt;p>2011年3月16日&lt;/p>
-&lt;p>​	Go 项目进展迅速。随着我们对 Go 的了解越来越深入，我们不得不改变我们的工具、库甚至是语言本身。我们允许不兼容的变化，这样我们就能从我们的错误中吸取教训，而不是永远留下它们。我们相信在 Go 发展的这个阶段，灵活性对于项目的发展以及最终的生命周期至关重要。&lt;/p></description></item><item><title>JSON 和 go</title><link>https://before80.github.io/go_docs/goBlog/2011/JSONAndGo/</link><pubDate>Thu, 18 May 2023 17:03:08 +0800</pubDate><guid>https://before80.github.io/go_docs/goBlog/2011/JSONAndGo/</guid><description>&lt;h1 id="json-and-go---json-和-go">JSON and Go - JSON 和 go&lt;a class="td-heading-self-link" href="#json-and-go---json-%e5%92%8c-go" aria-label="Heading self-link">&lt;/a>&lt;/h1>
-&lt;blockquote>
-&lt;p>原文：&lt;a href="https://go.dev/blog/json">https://go.dev/blog/json&lt;/a>&lt;/p>&lt;/blockquote>
-&lt;p>Andrew Gerrand
-25 January 2011&lt;/p>
-&lt;p>2011年1月25日&lt;/p>
-&lt;h2 id="介绍">介绍&lt;a class="td-heading-self-link" href="#%e4%bb%8b%e7%bb%8d" aria-label="Heading self-link">&lt;/a>&lt;/h2>
-&lt;p>​	JSON（JavaScript 对象表示法）是一种简单的数据交换格式。语法上类似于 JavaScript 中的对象和列表。它通常用于 Web 后端与运行在浏览器中的 JavaScript 程序之间的通信，但它在许多其他地方也被使用。它的主页 &lt;a href="http://json.org/">json.org&lt;/a> 提供了一个非常清晰和简明的标准定义。&lt;/p></description></item><item><title>Go 切片：用法和内部机制</title><link>https://before80.github.io/go_docs/goBlog/2011/GoSlicesUsageAndInternals/</link><pubDate>Thu, 18 May 2023 17:03:08 +0800</pubDate><guid>https://before80.github.io/go_docs/goBlog/2011/GoSlicesUsageAndInternals/</guid><description>&lt;h1 id="go-slices-usage-and-internals---go-切片用法和内部机制">Go Slices: usage and internals - Go 切片：用法和内部机制&lt;a class="td-heading-self-link" href="#go-slices-usage-and-internals---go-%e5%88%87%e7%89%87%e7%94%a8%e6%b3%95%e5%92%8c%e5%86%85%e9%83%a8%e6%9c%ba%e5%88%b6" aria-label="Heading self-link">&lt;/a>&lt;/h1>
-&lt;blockquote>
-&lt;p>原文：&lt;a href="https://go.dev/blog/slices-intro">https://go.dev/blog/slices-intro&lt;/a>&lt;/p>&lt;/blockquote>
-&lt;p>Andrew Gerrand
-5 January 2011&lt;/p>
-&lt;p>2011年1月5日&lt;/p>
-&lt;h2 id="简介">简介&lt;a class="td-heading-self-link" href="#%e7%ae%80%e4%bb%8b" aria-label="Heading self-link">&lt;/a>&lt;/h2>
-&lt;p>​	Go的切片类型提供了一种方便和高效的方式来处理有类型数据的序列。切片类似于其他语言中的数组，但具有一些不寻常的属性。本文将介绍切片是什么以及如何使用它们。&lt;/p></description></item></channel></rss>
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>2011 [29篇] on Go 中文档集</title><link>https://before80.github.io/go_docs/goBlog/2011/</link><description>Recent content in 2011 [29篇] on Go 中文档集</description><generator>Hugo</generator><language>zh-cn</language><lastBuildDate>Thu, 10 Oct 2024 15:07:50 +0800</lastBuildDate><atom:link href="https://before80.github.io/go_docs/goBlog/2011/index.xml" rel="self" type="application/rss+xml"/><item><title>了解 Go 社区</title><link>https://before80.github.io/go_docs/goBlog/2011/GettingToKnowTheGoCommunity/</link><pubDate>Thu, 18 May 2023 17:03:08 +0800</pubDate><guid>https://before80.github.io/go_docs/goBlog/2011/GettingToKnowTheGoCommunity/</guid><description>&lt;h1 id="getting-to-know-the-go-community---了解-go-社区"&gt;Getting to know the Go community - 了解 Go 社区&lt;/h1&gt;
+&lt;blockquote&gt;
+&lt;p&gt;原文：&lt;a href="https://go.dev/blog/survey2011"&gt;https://go.dev/blog/survey2011&lt;/a&gt;&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;Andrew Gerrand
+21 December 2011&lt;/p&gt;
+&lt;p&gt;Over the past couple of years Go has attracted a lot of users and contributors, and I’ve had a great time meeting and talking with many of you. However, for every Gopher I know there are dozens I know nothing about. In order to address this imbalance I’ve prepared a survey for Go users everywhere.&lt;/p&gt;</description></item><item><title>用 Go 构建StatHat</title><link>https://before80.github.io/go_docs/goBlog/2011/BuildingStatHatWithGo/</link><pubDate>Thu, 18 May 2023 17:03:08 +0800</pubDate><guid>https://before80.github.io/go_docs/goBlog/2011/BuildingStatHatWithGo/</guid><description>&lt;h1 id="building-stathat-with-go---用-go-构建stathat"&gt;Building StatHat with Go - 用 Go 构建StatHat&lt;/h1&gt;
+&lt;blockquote&gt;
+&lt;p&gt;原文：&lt;a href="https://go.dev/blog/stathat"&gt;https://go.dev/blog/stathat&lt;/a&gt;&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;Patrick Crosby
+19 December 2011&lt;/p&gt;
+&lt;h2 id="introduction-简介"&gt;Introduction 简介&lt;/h2&gt;
+&lt;p&gt;My name is Patrick Crosby and I’m the founder of a company called Numerotron. We recently released &lt;a href="http://www.stathat.com/"&gt;StatHat&lt;/a&gt;. This post is about why we chose to develop StatHat in &lt;a href="https://go.dev/"&gt;Go&lt;/a&gt;, including details about how we are using Go.&lt;/p&gt;
+&lt;p&gt;我叫Patrick Crosby，是一家名为Numerotron的公司的创始人。我们最近发布了StatHat。这篇文章是关于我们为什么选择用Go开发StatHat，包括我们如何使用Go的细节。&lt;/p&gt;</description></item><item><title>从0到 Go：24小时内在谷歌主页上发布</title><link>https://before80.github.io/go_docs/goBlog/2011/FromZeroToGoLaunchingOnTheGoogleHomepageIn24Hours/</link><pubDate>Thu, 18 May 2023 17:03:08 +0800</pubDate><guid>https://before80.github.io/go_docs/goBlog/2011/FromZeroToGoLaunchingOnTheGoogleHomepageIn24Hours/</guid><description>&lt;h1 id="from-zero-to-go-launching-on-the-google-homepage-in-24-hours---从0到-go24小时内在谷歌主页上发布"&gt;From zero to Go: launching on the Google homepage in 24 hours - 从0到 Go：24小时内在谷歌主页上发布&lt;/h1&gt;
+&lt;blockquote&gt;
+&lt;p&gt;原文：&lt;a href="https://go.dev/blog/turkey-doodle"&gt;https://go.dev/blog/turkey-doodle&lt;/a&gt;&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;Reinaldo Aguiar
+13 December 2011&lt;/p&gt;
+&lt;h2 id="introduction-简介"&gt;Introduction 简介&lt;/h2&gt;
+&lt;p&gt;&lt;em&gt;This article was written by Reinaldo Aguiar, a software engineer from the Search team at Google. He shares his experience developing his first Go program and launching it to an audience of millions - all in one day!&lt;/em&gt;&lt;/p&gt;</description></item><item><title>Go 编程语言两岁了</title><link>https://before80.github.io/go_docs/goBlog/2011/TheGoProgrammingLanguageTurnsTwo/</link><pubDate>Thu, 18 May 2023 17:03:08 +0800</pubDate><guid>https://before80.github.io/go_docs/goBlog/2011/TheGoProgrammingLanguageTurnsTwo/</guid><description>&lt;h1 id="the-go-programming-language-turns-two---go-编程语言两岁了"&gt;The Go Programming Language turns two - Go 编程语言两岁了&lt;/h1&gt;
+&lt;blockquote&gt;
+&lt;p&gt;原文：&lt;a href="https://go.dev/blog/2years"&gt;https://go.dev/blog/2years&lt;/a&gt;&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;Andrew Gerrand
+10 November 2011&lt;/p&gt;
+&lt;p&gt;Two years ago a small team at Google went public with their fledgling project - the Go Programming Language. They presented a language spec, two compilers, a modest standard library, some novel tools, and plenty of accurate (albeit succinct) documentation. They watched with excitement as programmers around the world began to play with Go. The team continued to iterate and improve on what they had built, and were gradually joined by dozens - and then hundreds - of programmers from the open source community. The Go Authors went on to produce lots of libraries, new tools, and reams of &lt;a href="https://go.dev/doc/docs.html"&gt;documentation&lt;/a&gt;. They celebrated a successful year in the public eye with a &lt;a href="https://blog.golang.org/2010/11/go-one-year-ago-today.html"&gt;blog post&lt;/a&gt; last November that concluded &amp;ldquo;Go is certainly ready for production use, but there is still room for improvement. Our focus for the immediate future is making Go programs faster and more efficient in the context of high performance systems.&amp;rdquo;&lt;/p&gt;</description></item><item><title>编写可扩展的App Engine应用程序</title><link>https://before80.github.io/go_docs/goBlog/2011/WritingScalableAppEngineApplications/</link><pubDate>Thu, 18 May 2023 17:03:08 +0800</pubDate><guid>https://before80.github.io/go_docs/goBlog/2011/WritingScalableAppEngineApplications/</guid><description>&lt;h1 id="writing-scalable-app-engine-applications---编写可扩展的app-engine应用程序"&gt;Writing scalable App Engine applications - 编写可扩展的App Engine应用程序&lt;/h1&gt;
+&lt;blockquote&gt;
+&lt;p&gt;原文：&lt;a href="https://go.dev/blog/appengine-scalable"&gt;https://go.dev/blog/appengine-scalable&lt;/a&gt;&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;David Symonds
+1 November 2011&lt;/p&gt;
+&lt;p&gt;Back in May, we &lt;a href="https://blog.golang.org/2011/05/go-and-google-app-engine.html"&gt;announced&lt;/a&gt; the Go runtime for App Engine. Since then, we’ve opened it up for everyone to use, added many new APIs, and improved performance. We have been thrilled by all the interesting ways that people are using Go on App Engine. One of the key benefits of the Go runtime, apart from working in a fantastic language, is that it has high performance. Go applications compile to native code, with no interpreter or virtual machine getting between your program and the machine.&lt;/p&gt;</description></item><item><title>用GNU调试器调试 Go 程序</title><link>https://before80.github.io/go_docs/goBlog/2011/DebuggingGoProgramsWithTheGNUDebugger/</link><pubDate>Thu, 18 May 2023 17:03:08 +0800</pubDate><guid>https://before80.github.io/go_docs/goBlog/2011/DebuggingGoProgramsWithTheGNUDebugger/</guid><description>&lt;h1 id="debugging-go-programs-with-the-gnu-debugger---用gnu调试器调试-go-程序"&gt;Debugging Go programs with the GNU Debugger - 用GNU调试器调试 Go 程序&lt;/h1&gt;
+&lt;blockquote&gt;
+&lt;p&gt;原文：&lt;a href="https://go.dev/blog/debug-gdb"&gt;https://go.dev/blog/debug-gdb&lt;/a&gt;&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;Andrew Gerrand
+30 October 2011&lt;/p&gt;
+&lt;p&gt;Last year we &lt;a href="https://blog.golang.org/2010/11/debugging-go-code-status-report.html"&gt;reported&lt;/a&gt; that Go’s &lt;a href="https://go.dev/cmd/gc/"&gt;gc&lt;/a&gt;/&lt;a href="https://go.dev/cmd/6l/"&gt;ld&lt;/a&gt; toolchain produces DWARFv3 debugging information that can be read by the GNU Debugger (GDB). Since then, work has continued steadily on improving support for debugging Go code with GDB. Among the improvements are the ability to inspect goroutines and to print native Go data types, including structs, slices, strings, maps, interfaces, and channels.&lt;/p&gt;</description></item><item><title>Go App Engine SDK 1.5.5 released</title><link>https://before80.github.io/go_docs/goBlog/2011/GoAppEngineSDK1_5_5Released/</link><pubDate>Thu, 18 May 2023 17:03:08 +0800</pubDate><guid>https://before80.github.io/go_docs/goBlog/2011/GoAppEngineSDK1_5_5Released/</guid><description>&lt;h1 id="go-app-engine-sdk-155-released"&gt;Go App Engine SDK 1.5.5 released&lt;/h1&gt;
+&lt;blockquote&gt;
+&lt;p&gt;原文：&lt;a href="https://go.dev/blog/appengine-155"&gt;https://go.dev/blog/appengine-155&lt;/a&gt;&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;Andrew Gerrand
+11 October 2011&lt;/p&gt;
+&lt;p&gt;Today we released version 1.5.5 the Go App Engine SDK. You can download it from the &lt;a href="http://code.google.com/appengine/downloads.html"&gt;App Engine downloads page&lt;/a&gt;.&lt;/p&gt;
+&lt;p&gt;今天我们发布了1.5.5版本的Go App Engine SDK。您可以从App Engine的下载页面下载它。&lt;/p&gt;</description></item><item><title>Go 的第一版的预览</title><link>https://before80.github.io/go_docs/goBlog/2011/APreviewOfGoVersion1/</link><pubDate>Thu, 18 May 2023 17:03:08 +0800</pubDate><guid>https://before80.github.io/go_docs/goBlog/2011/APreviewOfGoVersion1/</guid><description>&lt;h1 id="a-preview-of-go-version-1---go-的第一版的预览"&gt;A preview of Go version 1 - Go 的第一版的预览&lt;/h1&gt;
+&lt;blockquote&gt;
+&lt;p&gt;原文：&lt;a href="https://go.dev/blog/go1-preview"&gt;https://go.dev/blog/go1-preview&lt;/a&gt;&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;Russ Cox
+5 October 2011&lt;/p&gt;
+&lt;p&gt;We want to be able to provide a stable base for people using Go. People should be able to write Go programs and expect that they will continue to compile and run without change, on a timescale of years. Similarly, people should be able to write books about Go, be able to say which version of Go the book is describing, and have that version number still be meaningful much later. None of these properties is true for Go today.&lt;/p&gt;</description></item><item><title>从您的浏览器中学习 go</title><link>https://before80.github.io/go_docs/goBlog/2011/LearnGoFromYourBrowser/</link><pubDate>Thu, 18 May 2023 17:03:08 +0800</pubDate><guid>https://before80.github.io/go_docs/goBlog/2011/LearnGoFromYourBrowser/</guid><description>&lt;h1 id="learn-go-from-your-browser---从您的浏览器中学习-go"&gt;Learn Go from your browser - 从您的浏览器中学习 go&lt;/h1&gt;
+&lt;blockquote&gt;
+&lt;p&gt;原文：&lt;a href="https://go.dev/blog/tour"&gt;https://go.dev/blog/tour&lt;/a&gt;&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;Andrew Gerrand
+4 October 2011&lt;/p&gt;
+&lt;p&gt;We are excited to announce &lt;a href="https://go.dev/tour/"&gt;A Tour of Go&lt;/a&gt;, a guided tour of the Go programming language you can run from your browser.&lt;/p&gt;
+&lt;p&gt;我们很高兴地宣布 &amp;ldquo;Go之旅&amp;rdquo;，这是一个可以在浏览器中运行的Go编程语言的导游。&lt;/p&gt;</description></item><item><title>Go 的image/draw包</title><link>https://before80.github.io/go_docs/goBlog/2011/TheGoImagedrawPackage/</link><pubDate>Thu, 18 May 2023 17:03:08 +0800</pubDate><guid>https://before80.github.io/go_docs/goBlog/2011/TheGoImagedrawPackage/</guid><description>&lt;h1 id="the-go-imagedraw-package---go-的imagedraw包"&gt;The Go image/draw package - Go 的image/draw包&lt;/h1&gt;
+&lt;blockquote&gt;
+&lt;p&gt;原文：&lt;a href="https://go.dev/blog/image-draw"&gt;https://go.dev/blog/image-draw&lt;/a&gt;&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;Nigel Tao
+29 September 2011&lt;/p&gt;
+&lt;h2 id="introduction-简介"&gt;Introduction 简介&lt;/h2&gt;
+&lt;p&gt;&lt;a href="https://go.dev/pkg/image/draw/"&gt;Package image/draw&lt;/a&gt; defines only one operation: drawing a source image onto a destination image, through an optional mask image. This one operation is surprisingly versatile and can perform a number of common image manipulation tasks elegantly and efficiently.&lt;/p&gt;
+&lt;p&gt;包image/draw只定义了一个操作：通过一个可选的遮罩图像，将源图像绘制到目标图像上。这一个操作出乎意料的通用性，可以优雅而有效地执行许多常见的图像处理任务。&lt;/p&gt;</description></item><item><title>Go 的image包</title><link>https://before80.github.io/go_docs/goBlog/2011/TheGoImagePackage/</link><pubDate>Thu, 18 May 2023 17:03:08 +0800</pubDate><guid>https://before80.github.io/go_docs/goBlog/2011/TheGoImagePackage/</guid><description>&lt;h1 id="the-go-image-package---go-的image包"&gt;The Go image package - Go 的image包&lt;/h1&gt;
+&lt;blockquote&gt;
+&lt;p&gt;原文：&lt;a href="https://go.dev/blog/image"&gt;https://go.dev/blog/image&lt;/a&gt;&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;Nigel Tao
+21 September 2011&lt;/p&gt;
+&lt;h2 id="introduction-简介"&gt;Introduction 简介&lt;/h2&gt;
+&lt;p&gt;The &lt;a href="https://go.dev/pkg/image/"&gt;image&lt;/a&gt; and &lt;a href="https://go.dev/pkg/image/color/"&gt;image/color&lt;/a&gt; packages define a number of types: &lt;code&gt;color.Color&lt;/code&gt; and &lt;code&gt;color.Model&lt;/code&gt; describe colors, &lt;code&gt;image.Point&lt;/code&gt; and &lt;code&gt;image.Rectangle&lt;/code&gt; describe basic 2-D geometry, and &lt;code&gt;image.Image&lt;/code&gt; brings the two concepts together to represent a rectangular grid of colors. A &lt;a href="https://go.dev/doc/articles/image_draw.html"&gt;separate article&lt;/a&gt; covers image composition with the &lt;a href="https://go.dev/pkg/image/draw/"&gt;image/draw&lt;/a&gt; package.&lt;/p&gt;
+&lt;p&gt;image和image/color包定义了许多类型：color.Color和color.Model描述了颜色，image.Point和image.Rectangle描述了基本的二维几何图形，image.Image将这两个概念结合起来，表示一个矩形的颜色网格。另一篇文章介绍了用image/draw包进行的图像合成。&lt;/p&gt;</description></item><item><title>反射法则</title><link>https://before80.github.io/go_docs/goBlog/2011/TheLawsOfReflection/</link><pubDate>Thu, 18 May 2023 17:03:08 +0800</pubDate><guid>https://before80.github.io/go_docs/goBlog/2011/TheLawsOfReflection/</guid><description>&lt;h1 id="the-laws-of-reflection---反射法则"&gt;The Laws of Reflection - 反射法则&lt;/h1&gt;
+&lt;blockquote&gt;
+&lt;p&gt;原文：&lt;a href="https://go.dev/blog/laws-of-reflection"&gt;https://go.dev/blog/laws-of-reflection&lt;/a&gt;&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;Rob Pike
+6 September 2011&lt;/p&gt;
+&lt;p&gt;罗布·派克 2011年9月6日&lt;/p&gt;
+&lt;h2 id="简介-introduction"&gt;简介 Introduction&lt;/h2&gt;
+&lt;p&gt;Reflection in computing is the ability of a program to examine its own structure, particularly through types; it’s a form of metaprogramming. It’s also a great source of confusion.&lt;/p&gt;
+&lt;p&gt;​	在计算机中，反射是程序通过类型等方式检查自身结构的能力，它是元编程的一种形式。它也是一个常常引起混淆的概念。&lt;/p&gt;</description></item><item><title>两场 Go 讲座： Go 中的词汇扫描 和 Cuddle：一个App Engine Demo</title><link>https://before80.github.io/go_docs/goBlog/2011/TwoGoTalksLexicalScanningInGoAndCuddleAnAppEngineDemo/</link><pubDate>Thu, 18 May 2023 17:03:08 +0800</pubDate><guid>https://before80.github.io/go_docs/goBlog/2011/TwoGoTalksLexicalScanningInGoAndCuddleAnAppEngineDemo/</guid><description>&lt;h1 id="two-go-talks-lexical-scanning-in-go-and-cuddle-an-app-engine-demo---两场-go-讲座-go-中的词汇扫描-和-cuddle一个app-engine-demo"&gt;Two Go Talks: &amp;ldquo;Lexical Scanning in Go&amp;rdquo; and &amp;ldquo;Cuddle: an App Engine Demo&amp;rdquo; - 两场 Go 讲座： Go 中的词汇扫描 和 Cuddle：一个App Engine Demo&lt;/h1&gt;
+&lt;blockquote&gt;
+&lt;p&gt;原文：&lt;a href="https://go.dev/blog/sydney-gtug"&gt;https://go.dev/blog/sydney-gtug&lt;/a&gt;&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;Andrew Gerrand
+1 September 2011&lt;/p&gt;
+&lt;p&gt;On Tuesday night Rob Pike and Andrew Gerrand each presented at the &lt;a href="http://www.sydney-gtug.org/"&gt;Sydney Google Technology User Group&lt;/a&gt;.&lt;/p&gt;
+&lt;p&gt;周二晚上，Rob Pike和Andrew Gerrand分别在悉尼谷歌技术用户组发表演讲。&lt;/p&gt;</description></item><item><title>Go for App Engine is now generally available</title><link>https://before80.github.io/go_docs/goBlog/2011/GoForAppEngineIsNowGenerallyAvailable/</link><pubDate>Thu, 18 May 2023 17:03:08 +0800</pubDate><guid>https://before80.github.io/go_docs/goBlog/2011/GoForAppEngineIsNowGenerallyAvailable/</guid><description>&lt;h1 id="go-for-app-engine-is-now-generally-available"&gt;Go for App Engine is now generally available&lt;/h1&gt;
+&lt;blockquote&gt;
+&lt;p&gt;原文：&lt;a href="https://go.dev/blog/appengine-ga"&gt;https://go.dev/blog/appengine-ga&lt;/a&gt;&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;Andrew Gerrand
+21 July 2011&lt;/p&gt;
+&lt;p&gt;The Go and App Engine teams are excited to announce that the Go runtime for App Engine is now generally available. This means you can take that Go app you’ve been working on (or meaning to work on) and deploy it to App Engine right now with the new &lt;a href="http://code.google.com/appengine/downloads.html"&gt;1.5.2 SDK&lt;/a&gt;.&lt;/p&gt;</description></item><item><title>错误处理和 go</title><link>https://before80.github.io/go_docs/goBlog/2011/ErrorHandlingAndGo/</link><pubDate>Thu, 18 May 2023 17:03:08 +0800</pubDate><guid>https://before80.github.io/go_docs/goBlog/2011/ErrorHandlingAndGo/</guid><description>&lt;h1 id="error-handling-and-go---错误处理和-go"&gt;Error handling and Go - 错误处理和 go&lt;/h1&gt;
+&lt;blockquote&gt;
+&lt;p&gt;原文：&lt;a href="https://go.dev/blog/error-handling-and-go"&gt;https://go.dev/blog/error-handling-and-go&lt;/a&gt;&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;Andrew Gerrand
+12 July 2011&lt;/p&gt;
+&lt;h2 id="introduction-简介"&gt;Introduction 简介&lt;/h2&gt;
+&lt;p&gt;If you have written any Go code you have probably encountered the built-in &lt;code&gt;error&lt;/code&gt; type. Go code uses &lt;code&gt;error&lt;/code&gt; values to indicate an abnormal state. For example, the &lt;code&gt;os.Open&lt;/code&gt; function returns a non-nil &lt;code&gt;error&lt;/code&gt; value when it fails to open a file.&lt;/p&gt;
+&lt;p&gt;如果您写过任何Go代码，您可能遇到过内置的错误类型。Go代码使用错误值来表示异常的状态。例如，os.Open 函数在打开一个文件失败时返回一个非零的错误值。&lt;/p&gt;</description></item><item><title>Go 的一等函数</title><link>https://before80.github.io/go_docs/goBlog/2011/FirstClassFunctionsInGo/</link><pubDate>Thu, 18 May 2023 17:03:08 +0800</pubDate><guid>https://before80.github.io/go_docs/goBlog/2011/FirstClassFunctionsInGo/</guid><description>&lt;h1 id="first-class-functions-in-go---go-的一等函数"&gt;First Class Functions in Go - Go 的一等函数&lt;/h1&gt;
+&lt;blockquote&gt;
+&lt;p&gt;原文：&lt;a href="https://go.dev/blog/functions-codewalk"&gt;https://go.dev/blog/functions-codewalk&lt;/a&gt;&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;Andrew Gerrand
+30 June 2011&lt;/p&gt;
+&lt;p&gt;2011年6月30日&lt;/p&gt;
+&lt;p&gt;Programmers new to Go are often surprised by its support for function types, functions as values, and closures. The &lt;a href="https://go.dev/doc/codewalk/functions/"&gt;First Class Functions in Go&lt;/a&gt; code walk demonstrates these features with a simulation of the dice game &lt;a href="http://en.wikipedia.org/wiki/Pig_(dice)"&gt;Pig&lt;/a&gt;. It is a pretty program that uses the language to great effect, and a fun read for Go beginners and veterans alike.&lt;/p&gt;</description></item><item><title>分析 Go 程序</title><link>https://before80.github.io/go_docs/goBlog/2011/ProfilingGoPrograms/</link><pubDate>Thu, 18 May 2023 17:03:08 +0800</pubDate><guid>https://before80.github.io/go_docs/goBlog/2011/ProfilingGoPrograms/</guid><description>&lt;h1 id="profiling-go-programs---分析-go--程序"&gt;Profiling Go Programs - 分析 Go 程序&lt;/h1&gt;
+&lt;p&gt;Russ Cox, July 2011; updated by Shenghou Ma, May 2013
+24 June 2011&lt;/p&gt;
+&lt;p&gt;Russ Cox，2011年7月；Shenghou Ma更新，2013年5月 2011年6月24日&lt;/p&gt;
+&lt;p&gt;At Scala Days 2011, Robert Hundt presented a paper titled &lt;a href="http://research.google.com/pubs/pub37122.html"&gt;Loop Recognition in C++/Java/Go/Scala.&lt;/a&gt; The paper implemented a specific loop finding algorithm, such as you might use in a flow analysis pass of a compiler, in C++, Go, Java, Scala, and then used those programs to draw conclusions about typical performance concerns in these languages. The Go program presented in that paper runs quite slowly, making it an excellent opportunity to demonstrate how to use Go’s profiling tools to take a slow program and make it faster.&lt;/p&gt;</description></item><item><title>聚焦外部 Go 库</title><link>https://before80.github.io/go_docs/goBlog/2011/SpotlightOnExternalGoLibraries/</link><pubDate>Thu, 18 May 2023 17:03:08 +0800</pubDate><guid>https://before80.github.io/go_docs/goBlog/2011/SpotlightOnExternalGoLibraries/</guid><description>&lt;h1 id="spotlight-on-external-go-libraries---聚焦外部-go-库"&gt;Spotlight on external Go libraries - 聚焦外部 Go 库&lt;/h1&gt;
+&lt;blockquote&gt;
+&lt;p&gt;原文：&lt;a href="https://go.dev/blog/external-libraries"&gt;https://go.dev/blog/external-libraries&lt;/a&gt;&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;Andrew Gerrand
+3 June 2011&lt;/p&gt;
+&lt;p&gt;While the Go authors have been working hard at improving Go’s standard library, the greater community has created a growing ecosystem of external libraries. In this post we look at some popular Go libraries and how they can be used.&lt;/p&gt;
+&lt;p&gt;当Go作者一直在努力改进Go的标准库时，更大的社区已经创造了一个不断增长的外部库的生态系统。在这篇文章中，我们将介绍一些流行的 Go 库以及如何使用它们。&lt;/p&gt;</description></item><item><title>GIF解码器：Go 接口的练习</title><link>https://before80.github.io/go_docs/goBlog/2011/AGIFDecoderAnExerciseInGoInterfaces/</link><pubDate>Thu, 18 May 2023 17:03:08 +0800</pubDate><guid>https://before80.github.io/go_docs/goBlog/2011/AGIFDecoderAnExerciseInGoInterfaces/</guid><description>&lt;h1 id="a-gif-decoder-an-exercise-in-go-interfaces---gif解码器go-接口的练习"&gt;A GIF decoder: an exercise in Go interfaces - GIF解码器：Go 接口的练习&lt;/h1&gt;
+&lt;blockquote&gt;
+&lt;p&gt;原文：&lt;a href="https://go.dev/blog/gif-decoder"&gt;https://go.dev/blog/gif-decoder&lt;/a&gt;&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;Rob Pike
+25 May 2011&lt;/p&gt;
+&lt;h2 id="introduction-简介"&gt;Introduction 简介&lt;/h2&gt;
+&lt;p&gt;At the Google I/O conference in San Francisco on May 10, 2011, we announced that the Go language is now available on Google App Engine. Go is the first language to be made available on App Engine that compiles directly to machine code, which makes it a good choice for CPU-intensive tasks such as image manipulation.&lt;/p&gt;</description></item><item><title>谷歌2011年I/O大会上的 Go：视频</title><link>https://before80.github.io/go_docs/goBlog/2011/GoAtGoogleIO2011Videos/</link><pubDate>Thu, 18 May 2023 17:03:08 +0800</pubDate><guid>https://before80.github.io/go_docs/goBlog/2011/GoAtGoogleIO2011Videos/</guid><description>&lt;h1 id="go-at-google-io-2011-videos---谷歌2011年io大会上的-go视频"&gt;Go at Google I/O 2011: videos - 谷歌2011年I/O大会上的 go：视频&lt;/h1&gt;
+&lt;blockquote&gt;
+&lt;p&gt;原文：&lt;a href="https://go.dev/blog/io2011"&gt;https://go.dev/blog/io2011&lt;/a&gt;&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;Andrew Gerrand
+23 May 2011&lt;/p&gt;
+&lt;h2 id="introduction-简介"&gt;Introduction 简介&lt;/h2&gt;
+&lt;p&gt;The Go team had a great time at Google I/O 2011. It was a pleasure to meet so many programmers who share our enthusiasm for Go, and to share our work of the past few months. For those of you that couldn’t be there in person, you can now watch videos of our two Go presentations on YouTube.&lt;/p&gt;</description></item><item><title>Go 和 Google App Engine</title><link>https://before80.github.io/go_docs/goBlog/2011/GoAndGoogleAppEngine/</link><pubDate>Thu, 18 May 2023 17:03:08 +0800</pubDate><guid>https://before80.github.io/go_docs/goBlog/2011/GoAndGoogleAppEngine/</guid><description>&lt;h1 id="go-and-google-app-engine---go-和-google-app-engine"&gt;Go and Google App Engine - Go 和 Google App Engine&lt;/h1&gt;
+&lt;blockquote&gt;
+&lt;p&gt;原文：&lt;a href="https://go.dev/blog/appengine"&gt;https://go.dev/blog/appengine&lt;/a&gt;&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;David Symonds, Nigel Tao, and Andrew Gerrand
+10 May 2011&lt;/p&gt;
+&lt;p&gt;Google’s App Engine provides a reliable, scalable, easy way to build and deploy applications for the web. Over a hundred thousand apps are hosted at appspot.com and custom domains using the App Engine infrastructure. Originally written for Python apps, in 2009 the system added a Java runtime. And today, at Google I/O, we’re thrilled to announce that Go will be next. It’s marked as an experimental App Engine feature for now, because it’s early days, but both the App Engine and Go teams are very excited about this milestone.&lt;/p&gt;</description></item><item><title>Heroku 上的 go</title><link>https://before80.github.io/go_docs/goBlog/2011/GoAtHeroku/</link><pubDate>Thu, 18 May 2023 17:03:08 +0800</pubDate><guid>https://before80.github.io/go_docs/goBlog/2011/GoAtHeroku/</guid><description>&lt;h1 id="go-at-heroku---heroku-上的-go"&gt;Go at Heroku - Heroku 上的 go&lt;/h1&gt;
+&lt;blockquote&gt;
+&lt;p&gt;原文：&lt;a href="https://go.dev/blog/heroku"&gt;https://go.dev/blog/heroku&lt;/a&gt;&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;Keith Rarick and Blake Mizerany
+21 April 2011&lt;/p&gt;
+&lt;p&gt;&lt;em&gt;This week’s blog post is written by&lt;/em&gt; &lt;a href="http://xph.us/"&gt;&lt;em&gt;Keith Rarick&lt;/em&gt;&lt;/a&gt; &lt;em&gt;and&lt;/em&gt; &lt;a href="http://itsbonus.heroku.com/"&gt;&lt;em&gt;Blake Mizerany&lt;/em&gt;&lt;/a&gt;, &lt;em&gt;systems engineers at&lt;/em&gt; &lt;a href="http://www.heroku.com/"&gt;Heroku&lt;/a&gt;. &lt;em&gt;In their own words, they &amp;ldquo;eat, drink, and sleep distributed systems.&amp;rdquo; Here they discuss their experiences using Go.&lt;/em&gt;&lt;/p&gt;
+&lt;p&gt;本周的博文是由Heroku的系统工程师Keith Rarick和Blake Mizerany撰写的。用他们自己的话说，他们 &amp;ldquo;吃喝拉撒睡都是分布式系统&amp;rdquo;。在这里，他们讨论了他们使用Go的经验。&lt;/p&gt;</description></item><item><title>介绍一下 gofix</title><link>https://before80.github.io/go_docs/goBlog/2011/IntroducingGofix/</link><pubDate>Thu, 18 May 2023 17:03:08 +0800</pubDate><guid>https://before80.github.io/go_docs/goBlog/2011/IntroducingGofix/</guid><description>&lt;h1 id="introducing-gofix---介绍一下-gofix"&gt;Introducing Gofix - 介绍一下 gofix&lt;/h1&gt;
+&lt;blockquote&gt;
+&lt;p&gt;原文：&lt;a href="https://go.dev/blog/introducing-gofix"&gt;https://go.dev/blog/introducing-gofix&lt;/a&gt;&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;Russ Cox
+15 April 2011&lt;/p&gt;
+&lt;p&gt;The next Go release will include significant API changes in several fundamental Go packages. Code that &lt;a href="http://codereview.appspot.com/4239076"&gt;implements an HTTP server handler&lt;/a&gt;, &lt;a href="http://codereview.appspot.com/4244055"&gt;calls &lt;code&gt;net.Dial&lt;/code&gt;&lt;/a&gt;, &lt;a href="http://codereview.appspot.com/4357052"&gt;calls &lt;code&gt;os.Open&lt;/code&gt;&lt;/a&gt;, or &lt;a href="http://codereview.appspot.com/4281055"&gt;uses the reflect package&lt;/a&gt; will not build unless it is updated to use the new APIs. Now that our releases are &lt;a href="https://blog.golang.org/2011/03/go-becomes-more-stable.html"&gt;more stable and less frequent&lt;/a&gt;, this will be a common situation. Each of these API changes happened in a different weekly snapshot and might have been manageable on its own; together, however, they represent a significant amount of manual effort to update existing code.&lt;/p&gt;</description></item><item><title>godoc：文档化 Go 代码</title><link>https://before80.github.io/go_docs/goBlog/2011/GodocDocumentingGoCode/</link><pubDate>Thu, 18 May 2023 17:03:08 +0800</pubDate><guid>https://before80.github.io/go_docs/goBlog/2011/GodocDocumentingGoCode/</guid><description>&lt;h1 id="godoc-documenting-go-code---godoc文档化-go-代码"&gt;Godoc: documenting Go code - godoc：文档化 Go 代码&lt;/h1&gt;
+&lt;blockquote&gt;
+&lt;p&gt;原文：&lt;a href="https://go.dev/blog/godoc"&gt;https://go.dev/blog/godoc&lt;/a&gt;&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;Andrew Gerrand
+31 March 2011&lt;/p&gt;
+&lt;p&gt;[&lt;em&gt;&lt;strong&gt;Note, June 2022&lt;/strong&gt;: For updated guidelines about documenting Go code, see &amp;ldquo;&lt;a href="https://go.dev/doc/comment"&gt;Go Doc Comments&lt;/a&gt;.&amp;rdquo;&lt;/em&gt;]&lt;/p&gt;
+&lt;p&gt;[注，2022年6月：关于记录Go代码的最新指南，请参见 &amp;ldquo;Go文档注释&amp;rdquo;。］&lt;/p&gt;</description></item><item><title>海量数据</title><link>https://before80.github.io/go_docs/goBlog/2011/GobsOfData/</link><pubDate>Thu, 18 May 2023 17:03:08 +0800</pubDate><guid>https://before80.github.io/go_docs/goBlog/2011/GobsOfData/</guid><description>&lt;h1 id="gobs-of-data---海量数据"&gt;Gobs of data - 海量数据&lt;/h1&gt;
+&lt;blockquote&gt;
+&lt;p&gt;原文：&lt;a href="https://go.dev/blog/gob"&gt;https://go.dev/blog/gob&lt;/a&gt;&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;Rob Pike
+24 March 2011&lt;/p&gt;
+&lt;p&gt;2011年3月24日&lt;/p&gt;
+&lt;h2 id="简介"&gt;简介&lt;/h2&gt;
+&lt;p&gt;​	要在网络上传输数据结构或将其存储在文件中，必须将其编码，然后再解码。当然有许多编码可用：&lt;a href="http://www.json.org/"&gt;JSON&lt;/a&gt;、&lt;a href="http://www.w3.org/XML/"&gt;XML&lt;/a&gt;、Google的&lt;a href="http://code.google.com/p/protobuf"&gt;协议缓冲区&lt;/a&gt;等等。现在，Go的&lt;a href="https://go.dev/pkg/encoding/gob/"&gt;gob&lt;/a&gt;包提供了另一种编码。&lt;/p&gt;</description></item><item><title>C? Go? Cgo!</title><link>https://before80.github.io/go_docs/goBlog/2011/CGoCgo/</link><pubDate>Thu, 18 May 2023 17:03:08 +0800</pubDate><guid>https://before80.github.io/go_docs/goBlog/2011/CGoCgo/</guid><description>&lt;h1 id="c-go-cgo"&gt;C? Go? Cgo!&lt;/h1&gt;
+&lt;blockquote&gt;
+&lt;p&gt;原文：&lt;a href="https://go.dev/blog/cgo"&gt;https://go.dev/blog/cgo&lt;/a&gt;&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;Andrew Gerrand
+17 March 2011&lt;/p&gt;
+&lt;p&gt;2011年3月17日&lt;/p&gt;
+&lt;h2 id="简介"&gt;简介&lt;/h2&gt;
+&lt;p&gt;​	Cgo 允许 Go 包调用 C 代码。通过在 Go 源文件中加入一些特殊特性，cgo 就能输出 Go 和 C 文件，并将它们合并成一个单独的 Go 包。&lt;/p&gt;</description></item><item><title>Go 变得更加稳定</title><link>https://before80.github.io/go_docs/goBlog/2011/GoBecomesMoreStable/</link><pubDate>Thu, 18 May 2023 17:03:08 +0800</pubDate><guid>https://before80.github.io/go_docs/goBlog/2011/GoBecomesMoreStable/</guid><description>&lt;h1 id="go-becomes-more-stable---go-变得更加稳定"&gt;Go becomes more stable - Go 变得更加稳定&lt;/h1&gt;
+&lt;blockquote&gt;
+&lt;p&gt;原文：&lt;a href="https://go.dev/blog/stable-releases"&gt;https://go.dev/blog/stable-releases&lt;/a&gt;&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;Andrew Gerrand
+16 March 2011&lt;/p&gt;
+&lt;p&gt;2011年3月16日&lt;/p&gt;
+&lt;p&gt;​	Go 项目进展迅速。随着我们对 Go 的了解越来越深入，我们不得不改变我们的工具、库甚至是语言本身。我们允许不兼容的变化，这样我们就能从我们的错误中吸取教训，而不是永远留下它们。我们相信在 Go 发展的这个阶段，灵活性对于项目的发展以及最终的生命周期至关重要。&lt;/p&gt;</description></item><item><title>JSON 和 go</title><link>https://before80.github.io/go_docs/goBlog/2011/JSONAndGo/</link><pubDate>Thu, 18 May 2023 17:03:08 +0800</pubDate><guid>https://before80.github.io/go_docs/goBlog/2011/JSONAndGo/</guid><description>&lt;h1 id="json-and-go---json-和-go"&gt;JSON and Go - JSON 和 go&lt;/h1&gt;
+&lt;blockquote&gt;
+&lt;p&gt;原文：&lt;a href="https://go.dev/blog/json"&gt;https://go.dev/blog/json&lt;/a&gt;&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;Andrew Gerrand
+25 January 2011&lt;/p&gt;
+&lt;p&gt;2011年1月25日&lt;/p&gt;
+&lt;h2 id="介绍"&gt;介绍&lt;/h2&gt;
+&lt;p&gt;​	JSON（JavaScript 对象表示法）是一种简单的数据交换格式。语法上类似于 JavaScript 中的对象和列表。它通常用于 Web 后端与运行在浏览器中的 JavaScript 程序之间的通信，但它在许多其他地方也被使用。它的主页 &lt;a href="http://json.org/"&gt;json.org&lt;/a&gt; 提供了一个非常清晰和简明的标准定义。&lt;/p&gt;</description></item><item><title>Go 切片：用法和内部机制</title><link>https://before80.github.io/go_docs/goBlog/2011/GoSlicesUsageAndInternals/</link><pubDate>Thu, 18 May 2023 17:03:08 +0800</pubDate><guid>https://before80.github.io/go_docs/goBlog/2011/GoSlicesUsageAndInternals/</guid><description>&lt;h1 id="go-slices-usage-and-internals---go-切片用法和内部机制"&gt;Go Slices: usage and internals - Go 切片：用法和内部机制&lt;/h1&gt;
+&lt;blockquote&gt;
+&lt;p&gt;原文：&lt;a href="https://go.dev/blog/slices-intro"&gt;https://go.dev/blog/slices-intro&lt;/a&gt;&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;Andrew Gerrand
+5 January 2011&lt;/p&gt;
+&lt;p&gt;2011年1月5日&lt;/p&gt;
+&lt;h2 id="简介"&gt;简介&lt;/h2&gt;
+&lt;p&gt;​	Go的切片类型提供了一种方便和高效的方式来处理有类型数据的序列。切片类似于其他语言中的数组，但具有一些不寻常的属性。本文将介绍切片是什么以及如何使用它们。&lt;/p&gt;</description></item></channel></rss>

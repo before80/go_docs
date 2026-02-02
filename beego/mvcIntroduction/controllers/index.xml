@@ -1,72 +1,98 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>控制器 on Go 中文档集</title><link>https://before80.github.io/go_docs/beego/mvcIntroduction/controllers/</link><description>Recent content in 控制器 on Go 中文档集</description><generator>Hugo</generator><language>zh-cn</language><lastBuildDate>Thu, 10 Oct 2024 15:07:50 +0800</lastBuildDate><atom:link href="https://before80.github.io/go_docs/beego/mvcIntroduction/controllers/index.xml" rel="self" type="application/rss+xml"/><item><title>配置</title><link>https://before80.github.io/go_docs/beego/mvcIntroduction/controllers/configuration/</link><pubDate>Sun, 04 Feb 2024 09:55:24 +0800</pubDate><guid>https://before80.github.io/go_docs/beego/mvcIntroduction/controllers/configuration/</guid><description>&lt;blockquote>
-&lt;p>原文：&lt;a href="https://before80.github.io/go_docs/beego/mvcIntroduction/controllers/configuration/">https://beego.wiki/docs/mvc/controller/config/&lt;/a>&lt;/p>&lt;/blockquote>
-&lt;h1 id="configuration-配置">Configuration 配置&lt;a class="td-heading-self-link" href="#configuration-%e9%85%8d%e7%bd%ae" aria-label="Heading self-link">&lt;/a>&lt;/h1>
-&lt;h2 id="configuration-配置-1">Configuration 配置&lt;a class="td-heading-self-link" href="#configuration-%e9%85%8d%e7%bd%ae-1" aria-label="Heading self-link">&lt;/a>&lt;/h2>
-&lt;p>By default the Beego configuration file uses the INI format. Other supported formats include XML, JSON, and YAML.&lt;/p>
-&lt;p>​	默认情况下，Beego 配置文件使用 INI 格式。其他支持的格式包括 XML、JSON 和 YAML。&lt;/p></description></item><item><title>路由</title><link>https://before80.github.io/go_docs/beego/mvcIntroduction/controllers/routing/</link><pubDate>Sun, 04 Feb 2024 09:56:45 +0800</pubDate><guid>https://before80.github.io/go_docs/beego/mvcIntroduction/controllers/routing/</guid><description>&lt;blockquote>
-&lt;p>原文：&lt;a href="https://before80.github.io/go_docs/beego/mvcIntroduction/controllers/routing/">https://beego.wiki/docs/mvc/controller/router/&lt;/a>&lt;/p>&lt;/blockquote>
-&lt;h1 id="routing-路由">Routing 路由&lt;a class="td-heading-self-link" href="#routing-%e8%b7%af%e7%94%b1" aria-label="Heading self-link">&lt;/a>&lt;/h1>
-&lt;h2 id="routing-路由-1">Routing 路由&lt;a class="td-heading-self-link" href="#routing-%e8%b7%af%e7%94%b1-1" aria-label="Heading self-link">&lt;/a>&lt;/h2>
-&lt;p>This chapter will cover the three types of routers incorporated into Beego.&lt;/p>
-&lt;p>​	本章将介绍 Beego 中包含的三种类型的路由器。&lt;/p>
-&lt;h2 id="basic-router-基本路由器">Basic router 基本路由器&lt;a class="td-heading-self-link" href="#basic-router-%e5%9f%ba%e6%9c%ac%e8%b7%af%e7%94%b1%e5%99%a8" aria-label="Heading self-link">&lt;/a>&lt;/h2>
-&lt;p>Beego supports a RESTful function router. This basic router includes the URI and closure functions.&lt;/p></description></item><item><title>控制器函数</title><link>https://before80.github.io/go_docs/beego/mvcIntroduction/controllers/controllerFuncs/</link><pubDate>Sun, 04 Feb 2024 09:57:05 +0800</pubDate><guid>https://before80.github.io/go_docs/beego/mvcIntroduction/controllers/controllerFuncs/</guid><description>&lt;blockquote>
-&lt;p>原文：&lt;a href="https://before80.github.io/go_docs/beego/mvcIntroduction/controllers/controllerFuncs/">https://beego.wiki/docs/mvc/controller/controller/&lt;/a>&lt;/p>&lt;/blockquote>
-&lt;h1 id="controller-funcs-控制器函数">Controller funcs 控制器函数&lt;a class="td-heading-self-link" href="#controller-funcs-%e6%8e%a7%e5%88%b6%e5%99%a8%e5%87%bd%e6%95%b0" aria-label="Heading self-link">&lt;/a>&lt;/h1>
-&lt;h2 id="introduction-to-controller-控制器简介">Introduction to controller 控制器简介&lt;a class="td-heading-self-link" href="#introduction-to-controller-%e6%8e%a7%e5%88%b6%e5%99%a8%e7%ae%80%e4%bb%8b" aria-label="Heading self-link">&lt;/a>&lt;/h2>
-&lt;blockquote>
-&lt;p>Note: From version 1.6: &lt;code>this.ServeJson()&lt;/code> has been changed to &lt;code>this.ServeJSON()&lt;/code> and &lt;code>this.TplNames&lt;/code> has been changed to &lt;code>this.TplName&lt;/code>&lt;/p>
-&lt;p>​	注意：从 1.6 版本开始： &lt;code>this.ServeJson()&lt;/code> 已更改为 &lt;code>this.ServeJSON()&lt;/code> ， &lt;code>this.TplNames&lt;/code> 已更改为 &lt;code>this.TplName&lt;/code>&lt;/p>&lt;/blockquote>
-&lt;p>Beego’s controller needs to be embeded as &lt;code>beego.Controller&lt;/code>:&lt;/p></description></item><item><title>请求参数</title><link>https://before80.github.io/go_docs/beego/mvcIntroduction/controllers/requestParameters/</link><pubDate>Sun, 04 Feb 2024 09:57:22 +0800</pubDate><guid>https://before80.github.io/go_docs/beego/mvcIntroduction/controllers/requestParameters/</guid><description>&lt;blockquote>
-&lt;p>原文：&lt;a href="https://before80.github.io/go_docs/beego/mvcIntroduction/controllers/requestParameters/">https://beego.wiki/docs/mvc/controller/params/&lt;/a>&lt;/p>&lt;/blockquote>
-&lt;h1 id="request-parameters-请求参数">Request parameters 请求参数&lt;a class="td-heading-self-link" href="#request-parameters-%e8%af%b7%e6%b1%82%e5%8f%82%e6%95%b0" aria-label="Heading self-link">&lt;/a>&lt;/h1>
-&lt;h2 id="accept-parameters-接受参数">Accept parameters 接受参数&lt;a class="td-heading-self-link" href="#accept-parameters-%e6%8e%a5%e5%8f%97%e5%8f%82%e6%95%b0" aria-label="Heading self-link">&lt;/a>&lt;/h2>
-&lt;p>Beego will automatically parse data passed by user from GET, POST and other methods. This data can be accessed using:&lt;/p>
-&lt;p>​	Beego 会自动解析用户通过 GET、POST 和其他方法传递的数据。可以使用以下方法访问这些数据：&lt;/p></description></item><item><title>XSRF 过滤</title><link>https://before80.github.io/go_docs/beego/mvcIntroduction/controllers/xfrfFiltering/</link><pubDate>Sun, 04 Feb 2024 09:57:42 +0800</pubDate><guid>https://before80.github.io/go_docs/beego/mvcIntroduction/controllers/xfrfFiltering/</guid><description>&lt;blockquote>
-&lt;p>原文：&lt;a href="https://before80.github.io/go_docs/beego/mvcIntroduction/controllers/xfrfFiltering/">https://beego.wiki/docs/mvc/controller/xsrf/&lt;/a>&lt;/p>&lt;/blockquote>
-&lt;h1 id="xsrf-filtering---xsrf-过滤">XSRF filtering - XSRF 过滤&lt;a class="td-heading-self-link" href="#xsrf-filtering---xsrf-%e8%bf%87%e6%bb%a4" aria-label="Heading self-link">&lt;/a>&lt;/h1>
-&lt;h2 id="cross-site-request-forgery-跨站请求伪造">Cross-Site Request Forgery 跨站请求伪造&lt;a class="td-heading-self-link" href="#cross-site-request-forgery-%e8%b7%a8%e7%ab%99%e8%af%b7%e6%b1%82%e4%bc%aa%e9%80%a0" aria-label="Heading self-link">&lt;/a>&lt;/h2>
-&lt;p>XSRF, &lt;a href="http://en.wikipedia.org/wiki/Cross-site_request_forgery">Cross-Site Request Forgery&lt;/a>, is an important security concern for web development. Beego has built in XSRF protection which assigns each user a randomized cookie that is used to verify requests. XSRF protection can be activated by setting &lt;code>EnableXSRF = true&lt;/code> in the configuration file:&lt;/p></description></item><item><title>过滤器</title><link>https://before80.github.io/go_docs/beego/mvcIntroduction/controllers/filters/</link><pubDate>Sun, 04 Feb 2024 09:57:22 +0800</pubDate><guid>https://before80.github.io/go_docs/beego/mvcIntroduction/controllers/filters/</guid><description>&lt;blockquote>
-&lt;p>原文：&lt;a href="https://before80.github.io/go_docs/beego/mvcIntroduction/controllers/filters/">https://beego.wiki/docs/mvc/controller/filter/&lt;/a>&lt;/p>&lt;/blockquote>
-&lt;h1 id="filters-过滤器">Filters 过滤器&lt;a class="td-heading-self-link" href="#filters-%e8%bf%87%e6%bb%a4%e5%99%a8" aria-label="Heading self-link">&lt;/a>&lt;/h1>
-&lt;h2 id="filters-过滤器-1">Filters 过滤器&lt;a class="td-heading-self-link" href="#filters-%e8%bf%87%e6%bb%a4%e5%99%a8-1" aria-label="Heading self-link">&lt;/a>&lt;/h2>
-&lt;p>Beego supports custom filter middlewares. E.g.: user authentication and force redirection.&lt;/p>
-&lt;p>​	Beego 支持自定义过滤器中间件。例如：用户认证和强制重定向。&lt;/p>
-&lt;h2 id="activating-filters-激活过滤器">Activating Filters 激活过滤器&lt;a class="td-heading-self-link" href="#activating-filters-%e6%bf%80%e6%b4%bb%e8%bf%87%e6%bb%a4%e5%99%a8" aria-label="Heading self-link">&lt;/a>&lt;/h2>
-&lt;p>Before filters can be used, filters must be activated.&lt;/p></description></item><item><title>会话控制</title><link>https://before80.github.io/go_docs/beego/mvcIntroduction/controllers/sessionControl/</link><pubDate>Sun, 04 Feb 2024 09:57:58 +0800</pubDate><guid>https://before80.github.io/go_docs/beego/mvcIntroduction/controllers/sessionControl/</guid><description>&lt;blockquote>
-&lt;p>原文：&lt;a href="https://before80.github.io/go_docs/beego/mvcIntroduction/controllers/sessionControl/">https://beego.wiki/docs/mvc/controller/session/&lt;/a>&lt;/p>&lt;/blockquote>
-&lt;h1 id="session-control-会话控制">Session control 会话控制&lt;a class="td-heading-self-link" href="#session-control-%e4%bc%9a%e8%af%9d%e6%8e%a7%e5%88%b6" aria-label="Heading self-link">&lt;/a>&lt;/h1>
-&lt;h2 id="session-control-会话控制-1">Session control 会话控制&lt;a class="td-heading-self-link" href="#session-control-%e4%bc%9a%e8%af%9d%e6%8e%a7%e5%88%b6-1" aria-label="Heading self-link">&lt;/a>&lt;/h2>
-&lt;p>Beego has a built-in session module that supports memory, file, mysql, redis, couchbase, memcache and postgres as the save provider. Other providers can be implemented according to the interface.&lt;/p>
-&lt;p>​	Beego 具有一个内建的会话模块，支持内存、文件、数据库、redis、couchbase、memcache 和 postgre 作为保存方式。其他方式可以根据接口来定。&lt;/p></description></item><item><title>flashMessages</title><link>https://before80.github.io/go_docs/beego/mvcIntroduction/controllers/flashMessages/</link><pubDate>Sun, 04 Feb 2024 09:58:15 +0800</pubDate><guid>https://before80.github.io/go_docs/beego/mvcIntroduction/controllers/flashMessages/</guid><description>&lt;blockquote>
-&lt;p>原文：&lt;a href="https://before80.github.io/go_docs/beego/mvcIntroduction/controllers/flashMessages/">https://beego.wiki/docs/mvc/controller/flash/&lt;/a>&lt;/p>&lt;/blockquote>
-&lt;h1 id="flash-messages-闪存消息">Flash messages 闪存消息&lt;a class="td-heading-self-link" href="#flash-messages-%e9%97%aa%e5%ad%98%e6%b6%88%e6%81%af" aria-label="Heading self-link">&lt;/a>&lt;/h1>
-&lt;h2 id="flash-messages-闪存消息-1">Flash Messages 闪存消息&lt;a class="td-heading-self-link" href="#flash-messages-%e9%97%aa%e5%ad%98%e6%b6%88%e6%81%af-1" aria-label="Heading self-link">&lt;/a>&lt;/h2>
-&lt;p>Flash messages are not related to Adobe/Macromedia Flash. They are temporary messages between two logic blocks. All flash messages will be cleared after the very next logic block. They are normally used to send notes and error messages. Their use is suited for the &lt;a href="http://en.wikipedia.org/wiki/Post/Redirect/Get">Post/Redirect/Get&lt;/a> model. For example:&lt;/p></description></item><item><title>URL 构建</title><link>https://before80.github.io/go_docs/beego/mvcIntroduction/controllers/urlBuilding/</link><pubDate>Sun, 04 Feb 2024 09:58:26 +0800</pubDate><guid>https://before80.github.io/go_docs/beego/mvcIntroduction/controllers/urlBuilding/</guid><description>&lt;blockquote>
-&lt;p>原文：&lt;a href="https://before80.github.io/go_docs/beego/mvcIntroduction/controllers/urlBuilding/">https://beego.wiki/docs/mvc/controller/urlbuilding/&lt;/a>&lt;/p>&lt;/blockquote>
-&lt;h1 id="url-building---url-构建">URL Building - URL 构建&lt;a class="td-heading-self-link" href="#url-building---url-%e6%9e%84%e5%bb%ba" aria-label="Heading self-link">&lt;/a>&lt;/h1>
-&lt;h2 id="url-building-url-构建">URL Building URL 构建&lt;a class="td-heading-self-link" href="#url-building-url-%e6%9e%84%e5%bb%ba" aria-label="Heading self-link">&lt;/a>&lt;/h2>
-&lt;p>If it can match URLs, can Beego also generate them? Of course it can. To build a URL to a specific function you can use the URLFor() function. It accepts the name of the function of Controller as first argument and a number of keyword arguments, each corresponding to the variable part of the URL rule. Unknown variable parts are appended to the URL as query parameters. Here are some examples:&lt;/p></description></item><item><title>responseFormats</title><link>https://before80.github.io/go_docs/beego/mvcIntroduction/controllers/responseFormats/</link><pubDate>Sun, 04 Feb 2024 09:58:40 +0800</pubDate><guid>https://before80.github.io/go_docs/beego/mvcIntroduction/controllers/responseFormats/</guid><description>&lt;blockquote>
-&lt;p>原文：&lt;a href="https://before80.github.io/go_docs/beego/mvcIntroduction/controllers/responseFormats/">https://beego.wiki/docs/mvc/controller/jsonxml/&lt;/a>&lt;/p>&lt;/blockquote>
-&lt;h1 id="response-formats-响应格式">Response formats 响应格式&lt;a class="td-heading-self-link" href="#response-formats-%e5%93%8d%e5%ba%94%e6%a0%bc%e5%bc%8f" aria-label="Heading self-link">&lt;/a>&lt;/h1>
-&lt;h2 id="json-xml-jsonp-and-yaml-jsonxmljsonp-和-yaml">JSON, XML, JSONP and YAML JSON、XML、JSONP 和 YAML&lt;a class="td-heading-self-link" href="#json-xml-jsonp-and-yaml-jsonxmljsonp-%e5%92%8c-yaml" aria-label="Heading self-link">&lt;/a>&lt;/h2>
-&lt;p>Beego is also designed for the creation of API applications. When we build an API application, we often need to respond with JSON or XML. Beego provides a simple approach:&lt;/p>
-&lt;p>​	Beego 还设计用于创建 API 应用程序。当我们构建 API 应用程序时，我们经常需要使用 JSON 或 XML 来响应。Beego 提供了一种简单的方法：&lt;/p></description></item><item><title>formValidation</title><link>https://before80.github.io/go_docs/beego/mvcIntroduction/controllers/formValidation/</link><pubDate>Sun, 04 Feb 2024 09:58:57 +0800</pubDate><guid>https://before80.github.io/go_docs/beego/mvcIntroduction/controllers/formValidation/</guid><description>&lt;blockquote>
-&lt;p>原文：&lt;a href="https://before80.github.io/go_docs/beego/mvcIntroduction/controllers/formValidation/">https://beego.wiki/docs/mvc/controller/validation/&lt;/a>&lt;/p>&lt;/blockquote>
-&lt;h1 id="form-validation-表单验证">Form validation 表单验证&lt;a class="td-heading-self-link" href="#form-validation-%e8%a1%a8%e5%8d%95%e9%aa%8c%e8%af%81" aria-label="Heading self-link">&lt;/a>&lt;/h1>
-&lt;h2 id="form-validation-表单验证-1">Form validation 表单验证&lt;a class="td-heading-self-link" href="#form-validation-%e8%a1%a8%e5%8d%95%e9%aa%8c%e8%af%81-1" aria-label="Heading self-link">&lt;/a>&lt;/h2>
-&lt;p>The Form validation module is used for data validation and error collection.&lt;/p>
-&lt;p>​	表单验证模块用于数据验证和错误收集。&lt;/p>
-&lt;h2 id="installing-and-testing-安装和测试">Installing and testing 安装和测试&lt;a class="td-heading-self-link" href="#installing-and-testing-%e5%ae%89%e8%a3%85%e5%92%8c%e6%b5%8b%e8%af%95" aria-label="Heading self-link">&lt;/a>&lt;/h2>
-&lt;p>Installing:&lt;/p>
-&lt;p>​	安装：&lt;/p></description></item><item><title>errorHanding</title><link>https://before80.github.io/go_docs/beego/mvcIntroduction/controllers/errorHanding/</link><pubDate>Sun, 04 Feb 2024 09:59:10 +0800</pubDate><guid>https://before80.github.io/go_docs/beego/mvcIntroduction/controllers/errorHanding/</guid><description>&lt;blockquote>
-&lt;p>原文：&lt;a href="https://before80.github.io/go_docs/beego/mvcIntroduction/controllers/errorHanding/">https://beego.wiki/docs/mvc/controller/errors/&lt;/a>&lt;/p>&lt;/blockquote>
-&lt;h1 id="error-handling-错误处理">Error Handling 错误处理&lt;a class="td-heading-self-link" href="#error-handling-%e9%94%99%e8%af%af%e5%a4%84%e7%90%86" aria-label="Heading self-link">&lt;/a>&lt;/h1>
-&lt;h2 id="error-handling-错误处理-1">Error Handling 错误处理&lt;a class="td-heading-self-link" href="#error-handling-%e9%94%99%e8%af%af%e5%a4%84%e7%90%86-1" aria-label="Heading self-link">&lt;/a>&lt;/h2>
-&lt;p>In web development, we need to be able to redirect pages and handle errors. Beego uses &lt;code>Redirect&lt;/code> for page redirection and error handling:&lt;/p>
-&lt;p>​	在 Web 开发中，我们需要能够重定向页面并处理错误。Beego 使用 &lt;code>Redirect&lt;/code> 进行页面重定向和错误处理：&lt;/p></description></item><item><title>日志记录</title><link>https://before80.github.io/go_docs/beego/mvcIntroduction/controllers/logging/</link><pubDate>Sun, 04 Feb 2024 09:59:20 +0800</pubDate><guid>https://before80.github.io/go_docs/beego/mvcIntroduction/controllers/logging/</guid><description>&lt;blockquote>
-&lt;p>原文：&lt;a href="https://before80.github.io/go_docs/beego/mvcIntroduction/controllers/logging/">https://beego.wiki/docs/mvc/controller/logs/&lt;/a>&lt;/p>&lt;/blockquote>
-&lt;h1 id="logging-日志记录">Logging 日志记录&lt;a class="td-heading-self-link" href="#logging-%e6%97%a5%e5%bf%97%e8%ae%b0%e5%bd%95" aria-label="Heading self-link">&lt;/a>&lt;/h1>
-&lt;h2 id="logging-日志记录-1">Logging 日志记录&lt;a class="td-heading-self-link" href="#logging-%e6%97%a5%e5%bf%97%e8%ae%b0%e5%bd%95-1" aria-label="Heading self-link">&lt;/a>&lt;/h2>
-&lt;p>This part was removed in Beego 2.0, and please use &lt;a href="https://before80.github.io/go_docs/beego/modules/logs/">logs module&lt;/a>&lt;/p>
-&lt;p>​	此部分在 Beego 2.0 中已移除，请使用日志模块&lt;/p></description></item></channel></rss>
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>控制器 on Go 中文档集</title><link>https://before80.github.io/go_docs/beego/mvcIntroduction/controllers/</link><description>Recent content in 控制器 on Go 中文档集</description><generator>Hugo</generator><language>zh-cn</language><lastBuildDate>Thu, 10 Oct 2024 15:07:50 +0800</lastBuildDate><atom:link href="https://before80.github.io/go_docs/beego/mvcIntroduction/controllers/index.xml" rel="self" type="application/rss+xml"/><item><title>配置</title><link>https://before80.github.io/go_docs/beego/mvcIntroduction/controllers/configuration/</link><pubDate>Sun, 04 Feb 2024 09:55:24 +0800</pubDate><guid>https://before80.github.io/go_docs/beego/mvcIntroduction/controllers/configuration/</guid><description>&lt;blockquote&gt;
+&lt;p&gt;原文：&lt;a href="https://before80.github.io/go_docs/beego/mvcIntroduction/controllers/configuration/"&gt;https://beego.wiki/docs/mvc/controller/config/&lt;/a&gt;&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;h1 id="configuration-配置"&gt;Configuration 配置&lt;/h1&gt;
+&lt;h2 id="configuration-配置-1"&gt;Configuration 配置&lt;/h2&gt;
+&lt;p&gt;By default the Beego configuration file uses the INI format. Other supported formats include XML, JSON, and YAML.&lt;/p&gt;
+&lt;p&gt;​	默认情况下，Beego 配置文件使用 INI 格式。其他支持的格式包括 XML、JSON 和 YAML。&lt;/p&gt;
+&lt;h2 id="default-configurations-parsing-默认配置解析"&gt;Default configurations parsing 默认配置解析&lt;/h2&gt;
+&lt;p&gt;Beego will parse the &lt;code&gt;conf/app.conf&lt;/code&gt; file by default.&lt;/p&gt;</description></item><item><title>路由</title><link>https://before80.github.io/go_docs/beego/mvcIntroduction/controllers/routing/</link><pubDate>Sun, 04 Feb 2024 09:56:45 +0800</pubDate><guid>https://before80.github.io/go_docs/beego/mvcIntroduction/controllers/routing/</guid><description>&lt;blockquote&gt;
+&lt;p&gt;原文：&lt;a href="https://before80.github.io/go_docs/beego/mvcIntroduction/controllers/routing/"&gt;https://beego.wiki/docs/mvc/controller/router/&lt;/a&gt;&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;h1 id="routing-路由"&gt;Routing 路由&lt;/h1&gt;
+&lt;h2 id="routing-路由-1"&gt;Routing 路由&lt;/h2&gt;
+&lt;p&gt;This chapter will cover the three types of routers incorporated into Beego.&lt;/p&gt;
+&lt;p&gt;​	本章将介绍 Beego 中包含的三种类型的路由器。&lt;/p&gt;
+&lt;h2 id="basic-router-基本路由器"&gt;Basic router 基本路由器&lt;/h2&gt;
+&lt;p&gt;Beego supports a RESTful function router. This basic router includes the URI and closure functions.&lt;/p&gt;
+&lt;p&gt;​	Beego 支持 RESTful 函数路由器。此基本路由器包括 URI 和闭包函数。&lt;/p&gt;</description></item><item><title>控制器函数</title><link>https://before80.github.io/go_docs/beego/mvcIntroduction/controllers/controllerFuncs/</link><pubDate>Sun, 04 Feb 2024 09:57:05 +0800</pubDate><guid>https://before80.github.io/go_docs/beego/mvcIntroduction/controllers/controllerFuncs/</guid><description>&lt;blockquote&gt;
+&lt;p&gt;原文：&lt;a href="https://before80.github.io/go_docs/beego/mvcIntroduction/controllers/controllerFuncs/"&gt;https://beego.wiki/docs/mvc/controller/controller/&lt;/a&gt;&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;h1 id="controller-funcs-控制器函数"&gt;Controller funcs 控制器函数&lt;/h1&gt;
+&lt;h2 id="introduction-to-controller-控制器简介"&gt;Introduction to controller 控制器简介&lt;/h2&gt;
+&lt;blockquote&gt;
+&lt;p&gt;Note: From version 1.6: &lt;code&gt;this.ServeJson()&lt;/code&gt; has been changed to &lt;code&gt;this.ServeJSON()&lt;/code&gt; and &lt;code&gt;this.TplNames&lt;/code&gt; has been changed to &lt;code&gt;this.TplName&lt;/code&gt;&lt;/p&gt;
+&lt;p&gt;​	注意：从 1.6 版本开始： &lt;code&gt;this.ServeJson()&lt;/code&gt; 已更改为 &lt;code&gt;this.ServeJSON()&lt;/code&gt; ， &lt;code&gt;this.TplNames&lt;/code&gt; 已更改为 &lt;code&gt;this.TplName&lt;/code&gt;&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;Beego’s controller needs to be embeded as &lt;code&gt;beego.Controller&lt;/code&gt;:&lt;/p&gt;</description></item><item><title>请求参数</title><link>https://before80.github.io/go_docs/beego/mvcIntroduction/controllers/requestParameters/</link><pubDate>Sun, 04 Feb 2024 09:57:22 +0800</pubDate><guid>https://before80.github.io/go_docs/beego/mvcIntroduction/controllers/requestParameters/</guid><description>&lt;blockquote&gt;
+&lt;p&gt;原文：&lt;a href="https://before80.github.io/go_docs/beego/mvcIntroduction/controllers/requestParameters/"&gt;https://beego.wiki/docs/mvc/controller/params/&lt;/a&gt;&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;h1 id="request-parameters-请求参数"&gt;Request parameters 请求参数&lt;/h1&gt;
+&lt;h2 id="accept-parameters-接受参数"&gt;Accept parameters 接受参数&lt;/h2&gt;
+&lt;p&gt;Beego will automatically parse data passed by user from GET, POST and other methods. This data can be accessed using:&lt;/p&gt;
+&lt;p&gt;​	Beego 会自动解析用户通过 GET、POST 和其他方法传递的数据。可以使用以下方法访问这些数据：&lt;/p&gt;</description></item><item><title>XSRF 过滤</title><link>https://before80.github.io/go_docs/beego/mvcIntroduction/controllers/xfrfFiltering/</link><pubDate>Sun, 04 Feb 2024 09:57:42 +0800</pubDate><guid>https://before80.github.io/go_docs/beego/mvcIntroduction/controllers/xfrfFiltering/</guid><description>&lt;blockquote&gt;
+&lt;p&gt;原文：&lt;a href="https://before80.github.io/go_docs/beego/mvcIntroduction/controllers/xfrfFiltering/"&gt;https://beego.wiki/docs/mvc/controller/xsrf/&lt;/a&gt;&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;h1 id="xsrf-filtering---xsrf-过滤"&gt;XSRF filtering - XSRF 过滤&lt;/h1&gt;
+&lt;h2 id="cross-site-request-forgery-跨站请求伪造"&gt;Cross-Site Request Forgery 跨站请求伪造&lt;/h2&gt;
+&lt;p&gt;XSRF, &lt;a href="http://en.wikipedia.org/wiki/Cross-site_request_forgery"&gt;Cross-Site Request Forgery&lt;/a&gt;, is an important security concern for web development. Beego has built in XSRF protection which assigns each user a randomized cookie that is used to verify requests. XSRF protection can be activated by setting &lt;code&gt;EnableXSRF = true&lt;/code&gt; in the configuration file:&lt;/p&gt;
+&lt;p&gt;​	XSRF（跨站请求伪造）是 Web 开发中一个重要的安全问题。Beego 内置了 XSRF 保护，它为每个用户分配一个随机 cookie，用于验证请求。XSRF 保护可以通过在配置文件中设置 &lt;code&gt;EnableXSRF = true&lt;/code&gt; 来激活：&lt;/p&gt;</description></item><item><title>过滤器</title><link>https://before80.github.io/go_docs/beego/mvcIntroduction/controllers/filters/</link><pubDate>Sun, 04 Feb 2024 09:57:22 +0800</pubDate><guid>https://before80.github.io/go_docs/beego/mvcIntroduction/controllers/filters/</guid><description>&lt;blockquote&gt;
+&lt;p&gt;原文：&lt;a href="https://before80.github.io/go_docs/beego/mvcIntroduction/controllers/filters/"&gt;https://beego.wiki/docs/mvc/controller/filter/&lt;/a&gt;&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;h1 id="filters-过滤器"&gt;Filters 过滤器&lt;/h1&gt;
+&lt;h2 id="filters-过滤器-1"&gt;Filters 过滤器&lt;/h2&gt;
+&lt;p&gt;Beego supports custom filter middlewares. E.g.: user authentication and force redirection.&lt;/p&gt;
+&lt;p&gt;​	Beego 支持自定义过滤器中间件。例如：用户认证和强制重定向。&lt;/p&gt;
+&lt;h2 id="activating-filters-激活过滤器"&gt;Activating Filters 激活过滤器&lt;/h2&gt;
+&lt;p&gt;Before filters can be used, filters must be activated.&lt;/p&gt;
+&lt;p&gt;​	在使用过滤器之前，必须先激活过滤器。&lt;/p&gt;</description></item><item><title>会话控制</title><link>https://before80.github.io/go_docs/beego/mvcIntroduction/controllers/sessionControl/</link><pubDate>Sun, 04 Feb 2024 09:57:58 +0800</pubDate><guid>https://before80.github.io/go_docs/beego/mvcIntroduction/controllers/sessionControl/</guid><description>&lt;blockquote&gt;
+&lt;p&gt;原文：&lt;a href="https://before80.github.io/go_docs/beego/mvcIntroduction/controllers/sessionControl/"&gt;https://beego.wiki/docs/mvc/controller/session/&lt;/a&gt;&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;h1 id="session-control-会话控制"&gt;Session control 会话控制&lt;/h1&gt;
+&lt;h2 id="session-control-会话控制-1"&gt;Session control 会话控制&lt;/h2&gt;
+&lt;p&gt;Beego has a built-in session module that supports memory, file, mysql, redis, couchbase, memcache and postgres as the save provider. Other providers can be implemented according to the interface.&lt;/p&gt;
+&lt;p&gt;​	Beego 具有一个内建的会话模块，支持内存、文件、数据库、redis、couchbase、memcache 和 postgre 作为保存方式。其他方式可以根据接口来定。&lt;/p&gt;</description></item><item><title>flashMessages</title><link>https://before80.github.io/go_docs/beego/mvcIntroduction/controllers/flashMessages/</link><pubDate>Sun, 04 Feb 2024 09:58:15 +0800</pubDate><guid>https://before80.github.io/go_docs/beego/mvcIntroduction/controllers/flashMessages/</guid><description>&lt;blockquote&gt;
+&lt;p&gt;原文：&lt;a href="https://before80.github.io/go_docs/beego/mvcIntroduction/controllers/flashMessages/"&gt;https://beego.wiki/docs/mvc/controller/flash/&lt;/a&gt;&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;h1 id="flash-messages-闪存消息"&gt;Flash messages 闪存消息&lt;/h1&gt;
+&lt;h2 id="flash-messages-闪存消息-1"&gt;Flash Messages 闪存消息&lt;/h2&gt;
+&lt;p&gt;Flash messages are not related to Adobe/Macromedia Flash. They are temporary messages between two logic blocks. All flash messages will be cleared after the very next logic block. They are normally used to send notes and error messages. Their use is suited for the &lt;a href="http://en.wikipedia.org/wiki/Post/Redirect/Get"&gt;Post/Redirect/Get&lt;/a&gt; model. For example:&lt;/p&gt;
+&lt;p&gt;​	闪存消息与 Adobe/Macromedia Flash 无关。它们是两个逻辑块之间的临时消息。所有闪存消息将在下一个逻辑块之后被清除。它们通常用于发送注释和错误消息。它们的使用适用于 Post/Redirect/Get 模型。例如：&lt;/p&gt;</description></item><item><title>URL 构建</title><link>https://before80.github.io/go_docs/beego/mvcIntroduction/controllers/urlBuilding/</link><pubDate>Sun, 04 Feb 2024 09:58:26 +0800</pubDate><guid>https://before80.github.io/go_docs/beego/mvcIntroduction/controllers/urlBuilding/</guid><description>&lt;blockquote&gt;
+&lt;p&gt;原文：&lt;a href="https://before80.github.io/go_docs/beego/mvcIntroduction/controllers/urlBuilding/"&gt;https://beego.wiki/docs/mvc/controller/urlbuilding/&lt;/a&gt;&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;h1 id="url-building---url-构建"&gt;URL Building - URL 构建&lt;/h1&gt;
+&lt;h2 id="url-building-url-构建"&gt;URL Building URL 构建&lt;/h2&gt;
+&lt;p&gt;If it can match URLs, can Beego also generate them? Of course it can. To build a URL to a specific function you can use the URLFor() function. It accepts the name of the function of Controller as first argument and a number of keyword arguments, each corresponding to the variable part of the URL rule. Unknown variable parts are appended to the URL as query parameters. Here are some examples:&lt;/p&gt;</description></item><item><title>responseFormats</title><link>https://before80.github.io/go_docs/beego/mvcIntroduction/controllers/responseFormats/</link><pubDate>Sun, 04 Feb 2024 09:58:40 +0800</pubDate><guid>https://before80.github.io/go_docs/beego/mvcIntroduction/controllers/responseFormats/</guid><description>&lt;blockquote&gt;
+&lt;p&gt;原文：&lt;a href="https://before80.github.io/go_docs/beego/mvcIntroduction/controllers/responseFormats/"&gt;https://beego.wiki/docs/mvc/controller/jsonxml/&lt;/a&gt;&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;h1 id="response-formats-响应格式"&gt;Response formats 响应格式&lt;/h1&gt;
+&lt;h2 id="json-xml-jsonp-and-yaml-jsonxmljsonp-和-yaml"&gt;JSON, XML, JSONP and YAML JSON、XML、JSONP 和 YAML&lt;/h2&gt;
+&lt;p&gt;Beego is also designed for the creation of API applications. When we build an API application, we often need to respond with JSON or XML. Beego provides a simple approach:&lt;/p&gt;
+&lt;p&gt;​	Beego 还设计用于创建 API 应用程序。当我们构建 API 应用程序时，我们经常需要使用 JSON 或 XML 来响应。Beego 提供了一种简单的方法：&lt;/p&gt;</description></item><item><title>formValidation</title><link>https://before80.github.io/go_docs/beego/mvcIntroduction/controllers/formValidation/</link><pubDate>Sun, 04 Feb 2024 09:58:57 +0800</pubDate><guid>https://before80.github.io/go_docs/beego/mvcIntroduction/controllers/formValidation/</guid><description>&lt;blockquote&gt;
+&lt;p&gt;原文：&lt;a href="https://before80.github.io/go_docs/beego/mvcIntroduction/controllers/formValidation/"&gt;https://beego.wiki/docs/mvc/controller/validation/&lt;/a&gt;&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;h1 id="form-validation-表单验证"&gt;Form validation 表单验证&lt;/h1&gt;
+&lt;h2 id="form-validation-表单验证-1"&gt;Form validation 表单验证&lt;/h2&gt;
+&lt;p&gt;The Form validation module is used for data validation and error collection.&lt;/p&gt;
+&lt;p&gt;​	表单验证模块用于数据验证和错误收集。&lt;/p&gt;
+&lt;h2 id="installing-and-testing-安装和测试"&gt;Installing and testing 安装和测试&lt;/h2&gt;
+&lt;p&gt;Installing:&lt;/p&gt;
+&lt;p&gt;​	安装：&lt;/p&gt;
+&lt;pre tabindex="0"&gt;&lt;code&gt;go get github.com/beego/beego/v2/core/validation
+&lt;/code&gt;&lt;/pre&gt;&lt;p&gt;Testing:&lt;/p&gt;
+&lt;p&gt;​	测试：&lt;/p&gt;
+&lt;pre tabindex="0"&gt;&lt;code&gt;go test github.com/beego/beego/v2/core/validation
+&lt;/code&gt;&lt;/pre&gt;&lt;h2 id="localization-本地化"&gt;Localization 本地化&lt;/h2&gt;
+&lt;p&gt;In order to localize validation error messages, one might use &lt;code&gt;SetDefaultMessage&lt;/code&gt; function of the &lt;code&gt;validation&lt;/code&gt; package.&lt;/p&gt;</description></item><item><title>errorHanding</title><link>https://before80.github.io/go_docs/beego/mvcIntroduction/controllers/errorHanding/</link><pubDate>Sun, 04 Feb 2024 09:59:10 +0800</pubDate><guid>https://before80.github.io/go_docs/beego/mvcIntroduction/controllers/errorHanding/</guid><description>&lt;blockquote&gt;
+&lt;p&gt;原文：&lt;a href="https://before80.github.io/go_docs/beego/mvcIntroduction/controllers/errorHanding/"&gt;https://beego.wiki/docs/mvc/controller/errors/&lt;/a&gt;&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;h1 id="error-handling-错误处理"&gt;Error Handling 错误处理&lt;/h1&gt;
+&lt;h2 id="error-handling-错误处理-1"&gt;Error Handling 错误处理&lt;/h2&gt;
+&lt;p&gt;In web development, we need to be able to redirect pages and handle errors. Beego uses &lt;code&gt;Redirect&lt;/code&gt; for page redirection and error handling:&lt;/p&gt;
+&lt;p&gt;​	在 Web 开发中，我们需要能够重定向页面并处理错误。Beego 使用 &lt;code&gt;Redirect&lt;/code&gt; 进行页面重定向和错误处理：&lt;/p&gt;</description></item><item><title>日志记录</title><link>https://before80.github.io/go_docs/beego/mvcIntroduction/controllers/logging/</link><pubDate>Sun, 04 Feb 2024 09:59:20 +0800</pubDate><guid>https://before80.github.io/go_docs/beego/mvcIntroduction/controllers/logging/</guid><description>&lt;blockquote&gt;
+&lt;p&gt;原文：&lt;a href="https://before80.github.io/go_docs/beego/mvcIntroduction/controllers/logging/"&gt;https://beego.wiki/docs/mvc/controller/logs/&lt;/a&gt;&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;h1 id="logging-日志记录"&gt;Logging 日志记录&lt;/h1&gt;
+&lt;h2 id="logging-日志记录-1"&gt;Logging 日志记录&lt;/h2&gt;
+&lt;p&gt;This part was removed in Beego 2.0, and please use &lt;a href="https://before80.github.io/go_docs/beego/modules/logs/"&gt;logs module&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;​	此部分在 Beego 2.0 中已移除，请使用日志模块&lt;/p&gt;</description></item></channel></rss>

@@ -1,121 +1,144 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>API on Go 中文档集</title><link>https://before80.github.io/go_docs/fiber/API/</link><description>Recent content in API on Go 中文档集</description><generator>Hugo</generator><language>zh-cn</language><lastBuildDate>Thu, 10 Oct 2024 15:07:50 +0800</lastBuildDate><atom:link href="https://before80.github.io/go_docs/fiber/API/index.xml" rel="self" type="application/rss+xml"/><item><title>Fiber</title><link>https://before80.github.io/go_docs/fiber/API/Fiber/</link><pubDate>Mon, 05 Feb 2024 09:14:15 +0800</pubDate><guid>https://before80.github.io/go_docs/fiber/API/Fiber/</guid><description>&lt;blockquote>
-&lt;p>原文： &lt;a href="https://before80.github.io/go_docs/fiber/API/Fiber/">https://docs.gofiber.io/api/fiber&lt;/a>&lt;/p>&lt;/blockquote>
-&lt;h1 id="-fiber">📦 Fiber&lt;a class="td-heading-self-link" href="#-fiber" aria-label="Heading self-link">&lt;/a>&lt;/h1>
-&lt;h2 id="new-新">New 新&lt;a class="td-heading-self-link" href="#new-%e6%96%b0" aria-label="Heading self-link">&lt;/a>&lt;/h2>
-&lt;p>This method creates a new &lt;strong>App&lt;/strong> named instance. You can pass optional &lt;a href="https://docs.gofiber.io/api/fiber/#config">config &lt;/a>when creating a new instance.&lt;/p>
-&lt;p>​	此方法创建一个名为实例的新应用。您可以在创建新实例时传递可选配置。&lt;/p>
-&lt;p>Signature
-签名&lt;/p>
-&lt;div class="highlight">&lt;div style="color:#b0c4de;background-color:#282c34;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">
-&lt;table style="border-spacing:0;padding:0;margin:0;border:0;">&lt;tr>&lt;td style="vertical-align:top;padding:0;margin:0;border:0;">
-&lt;pre tabindex="0" style="color:#b0c4de;background-color:#282c34;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code>&lt;span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#58626f">1
-&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
-&lt;td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
-&lt;pre tabindex="0" style="color:#b0c4de;background-color:#282c34;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-go" data-lang="go">&lt;span style="display:flex;">&lt;span>&lt;span style="color:#76a9f9">func&lt;/span> &lt;span style="color:#00b1f7">New&lt;/span>&lt;span style="color:#abb2bf">(&lt;/span>&lt;span style="color:#aa89ea">config&lt;/span> &lt;span style="color:#54b1c7">...&lt;/span>&lt;span style="color:#aa89ea">Config&lt;/span>&lt;span style="color:#abb2bf">)&lt;/span> &lt;span style="color:#54b1c7">*&lt;/span>&lt;span style="color:#aa89ea">App&lt;/span>
-&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
-&lt;/div>
-&lt;/div>&lt;p>Example
-示例&lt;/p></description></item><item><title>App</title><link>https://before80.github.io/go_docs/fiber/API/App/</link><pubDate>Mon, 05 Feb 2024 09:14:15 +0800</pubDate><guid>https://before80.github.io/go_docs/fiber/API/App/</guid><description>&lt;blockquote>
-&lt;p>原文： &lt;a href="https://before80.github.io/go_docs/fiber/API/App/">https://docs.gofiber.io/api/app&lt;/a>&lt;/p>&lt;/blockquote>
-&lt;h1 id="-app">🚀 App&lt;a class="td-heading-self-link" href="#-app" aria-label="Heading self-link">&lt;/a>&lt;/h1>
-&lt;h2 id="static-静态">Static 静态&lt;a class="td-heading-self-link" href="#static-%e9%9d%99%e6%80%81" aria-label="Heading self-link">&lt;/a>&lt;/h2>
-&lt;p>Use the &lt;strong>Static&lt;/strong> method to serve static files such as &lt;strong>images&lt;/strong>, &lt;strong>CSS,&lt;/strong> and &lt;strong>JavaScript&lt;/strong>.&lt;/p>
-&lt;p>​	使用 Static 方法来提供静态文件，例如图像、CSS 和 JavaScript。&lt;/p>
-&lt;p>INFO
-信息&lt;/p>
-&lt;p>By default, &lt;strong>Static&lt;/strong> will serve &lt;code>index.html&lt;/code> files in response to a request on a directory.&lt;/p></description></item><item><title>Ctx</title><link>https://before80.github.io/go_docs/fiber/API/Ctx/</link><pubDate>Mon, 05 Feb 2024 09:14:15 +0800</pubDate><guid>https://before80.github.io/go_docs/fiber/API/Ctx/</guid><description>&lt;blockquote>
-&lt;p>原文： &lt;a href="https://before80.github.io/go_docs/fiber/API/Ctx/">https://docs.gofiber.io/api/ctx&lt;/a>&lt;/p>&lt;/blockquote>
-&lt;h1 id="-ctx">🧠 Ctx&lt;a class="td-heading-self-link" href="#-ctx" aria-label="Heading self-link">&lt;/a>&lt;/h1>
-&lt;h2 id="accepts">Accepts&lt;a class="td-heading-self-link" href="#accepts" aria-label="Heading self-link">&lt;/a>&lt;/h2>
-&lt;p>Checks, if the specified &lt;strong>extensions&lt;/strong> or &lt;strong>content&lt;/strong> &lt;strong>types&lt;/strong> are acceptable.&lt;/p>
-&lt;p>​	检查指定的扩展名或内容类型是否可接受。&lt;/p>
-&lt;p>INFO
-信息&lt;/p>
-&lt;p>Based on the request’s &lt;a href="https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/Accept">Accept&lt;/a> HTTP header.&lt;/p>
-&lt;p>​	基于请求的 Accept HTTP 头。&lt;/p>
-&lt;p>Signature
-签名&lt;/p>
-&lt;div class="highlight">&lt;div style="color:#b0c4de;background-color:#282c34;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">
-&lt;table style="border-spacing:0;padding:0;margin:0;border:0;">&lt;tr>&lt;td style="vertical-align:top;padding:0;margin:0;border:0;">
-&lt;pre tabindex="0" style="color:#b0c4de;background-color:#282c34;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code>&lt;span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#58626f">1
-&lt;/span>&lt;span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#58626f">2
-&lt;/span>&lt;span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#58626f">3
-&lt;/span>&lt;span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#58626f">4
-&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
-&lt;td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
-&lt;pre tabindex="0" style="color:#b0c4de;background-color:#282c34;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-go" data-lang="go">&lt;span style="display:flex;">&lt;span>&lt;span style="color:#76a9f9">func&lt;/span> &lt;span style="color:#abb2bf">(&lt;/span>&lt;span style="color:#aa89ea">c&lt;/span> &lt;span style="color:#54b1c7">*&lt;/span>&lt;span style="color:#aa89ea">Ctx&lt;/span>&lt;span style="color:#abb2bf">)&lt;/span> &lt;span style="color:#00b1f7">Accepts&lt;/span>&lt;span style="color:#abb2bf">(&lt;/span>&lt;span style="color:#aa89ea">offers&lt;/span> &lt;span style="color:#54b1c7">...&lt;/span>&lt;span style="color:#e5c07b">string&lt;/span>&lt;span style="color:#abb2bf">)&lt;/span> &lt;span style="color:#e5c07b">string&lt;/span>
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#76a9f9">func&lt;/span> &lt;span style="color:#abb2bf">(&lt;/span>&lt;span style="color:#aa89ea">c&lt;/span> &lt;span style="color:#54b1c7">*&lt;/span>&lt;span style="color:#aa89ea">Ctx&lt;/span>&lt;span style="color:#abb2bf">)&lt;/span> &lt;span style="color:#00b1f7">AcceptsCharsets&lt;/span>&lt;span style="color:#abb2bf">(&lt;/span>&lt;span style="color:#aa89ea">offers&lt;/span> &lt;span style="color:#54b1c7">...&lt;/span>&lt;span style="color:#e5c07b">string&lt;/span>&lt;span style="color:#abb2bf">)&lt;/span> &lt;span style="color:#e5c07b">string&lt;/span>
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#76a9f9">func&lt;/span> &lt;span style="color:#abb2bf">(&lt;/span>&lt;span style="color:#aa89ea">c&lt;/span> &lt;span style="color:#54b1c7">*&lt;/span>&lt;span style="color:#aa89ea">Ctx&lt;/span>&lt;span style="color:#abb2bf">)&lt;/span> &lt;span style="color:#00b1f7">AcceptsEncodings&lt;/span>&lt;span style="color:#abb2bf">(&lt;/span>&lt;span style="color:#aa89ea">offers&lt;/span> &lt;span style="color:#54b1c7">...&lt;/span>&lt;span style="color:#e5c07b">string&lt;/span>&lt;span style="color:#abb2bf">)&lt;/span> &lt;span style="color:#e5c07b">string&lt;/span>
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#76a9f9">func&lt;/span> &lt;span style="color:#abb2bf">(&lt;/span>&lt;span style="color:#aa89ea">c&lt;/span> &lt;span style="color:#54b1c7">*&lt;/span>&lt;span style="color:#aa89ea">Ctx&lt;/span>&lt;span style="color:#abb2bf">)&lt;/span> &lt;span style="color:#00b1f7">AcceptsLanguages&lt;/span>&lt;span style="color:#abb2bf">(&lt;/span>&lt;span style="color:#aa89ea">offers&lt;/span> &lt;span style="color:#54b1c7">...&lt;/span>&lt;span style="color:#e5c07b">string&lt;/span>&lt;span style="color:#abb2bf">)&lt;/span> &lt;span style="color:#e5c07b">string&lt;/span>
-&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
-&lt;/div>
-&lt;/div>&lt;p>Example
-示例&lt;/p></description></item><item><title>常量</title><link>https://before80.github.io/go_docs/fiber/API/Constants/</link><pubDate>Mon, 05 Feb 2024 09:14:15 +0800</pubDate><guid>https://before80.github.io/go_docs/fiber/API/Constants/</guid><description>&lt;blockquote>
-&lt;p>原文： &lt;a href="https://before80.github.io/go_docs/fiber/API/Constants/">https://docs.gofiber.io/api/constants&lt;/a>&lt;/p>&lt;/blockquote>
-&lt;h1 id="-constants--常量">📋 Constants 常量&lt;a class="td-heading-self-link" href="#-constants--%e5%b8%b8%e9%87%8f" aria-label="Heading self-link">&lt;/a>&lt;/h1>
-&lt;p>HTTP methods were copied from net/http.&lt;/p>
-&lt;p>​	HTTP 方法从 net/http 复制。&lt;/p>
-&lt;div class="highlight">&lt;div style="color:#b0c4de;background-color:#282c34;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">
-&lt;table style="border-spacing:0;padding:0;margin:0;border:0;">&lt;tr>&lt;td style="vertical-align:top;padding:0;margin:0;border:0;">
-&lt;pre tabindex="0" style="color:#b0c4de;background-color:#282c34;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code>&lt;span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#58626f"> 1
-&lt;/span>&lt;span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#58626f"> 2
-&lt;/span>&lt;span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#58626f"> 3
-&lt;/span>&lt;span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#58626f"> 4
-&lt;/span>&lt;span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#58626f"> 5
-&lt;/span>&lt;span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#58626f"> 6
-&lt;/span>&lt;span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#58626f"> 7
-&lt;/span>&lt;span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#58626f"> 8
-&lt;/span>&lt;span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#58626f"> 9
-&lt;/span>&lt;span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#58626f">10
-&lt;/span>&lt;span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#58626f">11
-&lt;/span>&lt;span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#58626f">12
-&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
-&lt;td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
-&lt;pre tabindex="0" style="color:#b0c4de;background-color:#282c34;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-go" data-lang="go">&lt;span style="display:flex;">&lt;span>&lt;span style="color:#76a9f9">const&lt;/span> &lt;span style="color:#abb2bf">(&lt;/span>
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#aa89ea">MethodGet&lt;/span> &lt;span style="color:#abb2bf">=&lt;/span> &lt;span style="color:#98c379">&amp;#34;GET&amp;#34;&lt;/span> &lt;span style="color:#8a93a5;font-style:italic">// RFC 7231, 4.3.1&lt;/span>
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#aa89ea">MethodHead&lt;/span> &lt;span style="color:#abb2bf">=&lt;/span> &lt;span style="color:#98c379">&amp;#34;HEAD&amp;#34;&lt;/span> &lt;span style="color:#8a93a5;font-style:italic">// RFC 7231, 4.3.2&lt;/span>
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#aa89ea">MethodPost&lt;/span> &lt;span style="color:#abb2bf">=&lt;/span> &lt;span style="color:#98c379">&amp;#34;POST&amp;#34;&lt;/span> &lt;span style="color:#8a93a5;font-style:italic">// RFC 7231, 4.3.3&lt;/span>
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#aa89ea">MethodPut&lt;/span> &lt;span style="color:#abb2bf">=&lt;/span> &lt;span style="color:#98c379">&amp;#34;PUT&amp;#34;&lt;/span> &lt;span style="color:#8a93a5;font-style:italic">// RFC 7231, 4.3.4&lt;/span>
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#aa89ea">MethodPatch&lt;/span> &lt;span style="color:#abb2bf">=&lt;/span> &lt;span style="color:#98c379">&amp;#34;PATCH&amp;#34;&lt;/span> &lt;span style="color:#8a93a5;font-style:italic">// RFC 5789&lt;/span>
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#aa89ea">MethodDelete&lt;/span> &lt;span style="color:#abb2bf">=&lt;/span> &lt;span style="color:#98c379">&amp;#34;DELETE&amp;#34;&lt;/span> &lt;span style="color:#8a93a5;font-style:italic">// RFC 7231, 4.3.5&lt;/span>
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#aa89ea">MethodConnect&lt;/span> &lt;span style="color:#abb2bf">=&lt;/span> &lt;span style="color:#98c379">&amp;#34;CONNECT&amp;#34;&lt;/span> &lt;span style="color:#8a93a5;font-style:italic">// RFC 7231, 4.3.6&lt;/span>
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#aa89ea">MethodOptions&lt;/span> &lt;span style="color:#abb2bf">=&lt;/span> &lt;span style="color:#98c379">&amp;#34;OPTIONS&amp;#34;&lt;/span> &lt;span style="color:#8a93a5;font-style:italic">// RFC 7231, 4.3.7&lt;/span>
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#aa89ea">MethodTrace&lt;/span> &lt;span style="color:#abb2bf">=&lt;/span> &lt;span style="color:#98c379">&amp;#34;TRACE&amp;#34;&lt;/span> &lt;span style="color:#8a93a5;font-style:italic">// RFC 7231, 4.3.8&lt;/span>
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#aa89ea">methodUse&lt;/span> &lt;span style="color:#abb2bf">=&lt;/span> &lt;span style="color:#98c379">&amp;#34;USE&amp;#34;&lt;/span>
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#abb2bf">)&lt;/span>
-&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
-&lt;/div>
-&lt;/div>&lt;p>MIME types that are commonly used&lt;/p></description></item><item><title>Client</title><link>https://before80.github.io/go_docs/fiber/API/Client/</link><pubDate>Mon, 05 Feb 2024 09:14:15 +0800</pubDate><guid>https://before80.github.io/go_docs/fiber/API/Client/</guid><description>&lt;blockquote>
-&lt;p>原文： &lt;a href="https://before80.github.io/go_docs/fiber/API/Client/">https://docs.gofiber.io/api/client&lt;/a>&lt;/p>&lt;/blockquote>
-&lt;h1 id="-client">🌎 Client&lt;a class="td-heading-self-link" href="#-client" aria-label="Heading self-link">&lt;/a>&lt;/h1>
-&lt;h2 id="start-request-开始请求">Start request 开始请求&lt;a class="td-heading-self-link" href="#start-request-%e5%bc%80%e5%a7%8b%e8%af%b7%e6%b1%82" aria-label="Heading self-link">&lt;/a>&lt;/h2>
-&lt;p>Start a http request with http method and url.
-使用 http 方法和 url 启动 http 请求。&lt;/p>
-&lt;p>Signatures
-签名&lt;/p>
-&lt;div class="highlight">&lt;div style="color:#b0c4de;background-color:#282c34;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">
-&lt;table style="border-spacing:0;padding:0;margin:0;border:0;">&lt;tr>&lt;td style="vertical-align:top;padding:0;margin:0;border:0;">
-&lt;pre tabindex="0" style="color:#b0c4de;background-color:#282c34;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code>&lt;span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#58626f">1
-&lt;/span>&lt;span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#58626f">2
-&lt;/span>&lt;span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#58626f">3
-&lt;/span>&lt;span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#58626f">4
-&lt;/span>&lt;span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#58626f">5
-&lt;/span>&lt;span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#58626f">6
-&lt;/span>&lt;span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#58626f">7
-&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
-&lt;td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
-&lt;pre tabindex="0" style="color:#b0c4de;background-color:#282c34;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-go" data-lang="go">&lt;span style="display:flex;">&lt;span>&lt;span style="color:#8a93a5;font-style:italic">// Client http methods&lt;/span>
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#76a9f9">func&lt;/span> &lt;span style="color:#abb2bf">(&lt;/span>&lt;span style="color:#aa89ea">c&lt;/span> &lt;span style="color:#54b1c7">*&lt;/span>&lt;span style="color:#aa89ea">Client&lt;/span>&lt;span style="color:#abb2bf">)&lt;/span> &lt;span style="color:#00b1f7">Get&lt;/span>&lt;span style="color:#abb2bf">(&lt;/span>&lt;span style="color:#aa89ea">url&lt;/span> &lt;span style="color:#e5c07b">string&lt;/span>&lt;span style="color:#abb2bf">)&lt;/span> &lt;span style="color:#54b1c7">*&lt;/span>&lt;span style="color:#aa89ea">Agent&lt;/span>
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#76a9f9">func&lt;/span> &lt;span style="color:#abb2bf">(&lt;/span>&lt;span style="color:#aa89ea">c&lt;/span> &lt;span style="color:#54b1c7">*&lt;/span>&lt;span style="color:#aa89ea">Client&lt;/span>&lt;span style="color:#abb2bf">)&lt;/span> &lt;span style="color:#00b1f7">Head&lt;/span>&lt;span style="color:#abb2bf">(&lt;/span>&lt;span style="color:#aa89ea">url&lt;/span> &lt;span style="color:#e5c07b">string&lt;/span>&lt;span style="color:#abb2bf">)&lt;/span> &lt;span style="color:#54b1c7">*&lt;/span>&lt;span style="color:#aa89ea">Agent&lt;/span>
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#76a9f9">func&lt;/span> &lt;span style="color:#abb2bf">(&lt;/span>&lt;span style="color:#aa89ea">c&lt;/span> &lt;span style="color:#54b1c7">*&lt;/span>&lt;span style="color:#aa89ea">Client&lt;/span>&lt;span style="color:#abb2bf">)&lt;/span> &lt;span style="color:#00b1f7">Post&lt;/span>&lt;span style="color:#abb2bf">(&lt;/span>&lt;span style="color:#aa89ea">url&lt;/span> &lt;span style="color:#e5c07b">string&lt;/span>&lt;span style="color:#abb2bf">)&lt;/span> &lt;span style="color:#54b1c7">*&lt;/span>&lt;span style="color:#aa89ea">Agent&lt;/span>
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#76a9f9">func&lt;/span> &lt;span style="color:#abb2bf">(&lt;/span>&lt;span style="color:#aa89ea">c&lt;/span> &lt;span style="color:#54b1c7">*&lt;/span>&lt;span style="color:#aa89ea">Client&lt;/span>&lt;span style="color:#abb2bf">)&lt;/span> &lt;span style="color:#00b1f7">Put&lt;/span>&lt;span style="color:#abb2bf">(&lt;/span>&lt;span style="color:#aa89ea">url&lt;/span> &lt;span style="color:#e5c07b">string&lt;/span>&lt;span style="color:#abb2bf">)&lt;/span> &lt;span style="color:#54b1c7">*&lt;/span>&lt;span style="color:#aa89ea">Agent&lt;/span>
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#76a9f9">func&lt;/span> &lt;span style="color:#abb2bf">(&lt;/span>&lt;span style="color:#aa89ea">c&lt;/span> &lt;span style="color:#54b1c7">*&lt;/span>&lt;span style="color:#aa89ea">Client&lt;/span>&lt;span style="color:#abb2bf">)&lt;/span> &lt;span style="color:#00b1f7">Patch&lt;/span>&lt;span style="color:#abb2bf">(&lt;/span>&lt;span style="color:#aa89ea">url&lt;/span> &lt;span style="color:#e5c07b">string&lt;/span>&lt;span style="color:#abb2bf">)&lt;/span> &lt;span style="color:#54b1c7">*&lt;/span>&lt;span style="color:#aa89ea">Agent&lt;/span>
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#76a9f9">func&lt;/span> &lt;span style="color:#abb2bf">(&lt;/span>&lt;span style="color:#aa89ea">c&lt;/span> &lt;span style="color:#54b1c7">*&lt;/span>&lt;span style="color:#aa89ea">Client&lt;/span>&lt;span style="color:#abb2bf">)&lt;/span> &lt;span style="color:#00b1f7">Delete&lt;/span>&lt;span style="color:#abb2bf">(&lt;/span>&lt;span style="color:#aa89ea">url&lt;/span> &lt;span style="color:#e5c07b">string&lt;/span>&lt;span style="color:#abb2bf">)&lt;/span> &lt;span style="color:#54b1c7">*&lt;/span>&lt;span style="color:#aa89ea">Agent&lt;/span>
-&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
-&lt;/div>
-&lt;/div>&lt;p>Here we present a brief example demonstrating the simulation of a proxy using our &lt;code>*fiber.Agent&lt;/code> methods.
-这里我们提供了一个简短的示例，演示如何使用我们的 &lt;code>*fiber.Agent&lt;/code> 方法模拟代理。&lt;/p></description></item><item><title>Log</title><link>https://before80.github.io/go_docs/fiber/API/Log/</link><pubDate>Mon, 05 Feb 2024 09:14:15 +0800</pubDate><guid>https://before80.github.io/go_docs/fiber/API/Log/</guid><description>&lt;blockquote>
-&lt;p>原文： &lt;a href="https://before80.github.io/go_docs/fiber/API/Log/">https://docs.gofiber.io/api/log&lt;/a>&lt;/p>&lt;/blockquote>
-&lt;h1 id="-log">📃 Log&lt;a class="td-heading-self-link" href="#-log" aria-label="Heading self-link">&lt;/a>&lt;/h1>
-&lt;p>We can use logs to observe program behavior, diagnose problems, or configure corresponding alarms. And defining a well structured log can improve search efficiency and facilitate handling of problems.&lt;/p>
-&lt;p>​	我们可以使用日志来观察程序行为、诊断问题或配置相应的告警。并且定义一个结构良好的日志可以提高搜索效率，方便问题的处理。&lt;/p></description></item></channel></rss>
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>API on Go 中文档集</title><link>https://before80.github.io/go_docs/fiber/API/</link><description>Recent content in API on Go 中文档集</description><generator>Hugo</generator><language>zh-cn</language><lastBuildDate>Thu, 10 Oct 2024 15:07:50 +0800</lastBuildDate><atom:link href="https://before80.github.io/go_docs/fiber/API/index.xml" rel="self" type="application/rss+xml"/><item><title>Fiber</title><link>https://before80.github.io/go_docs/fiber/API/Fiber/</link><pubDate>Mon, 05 Feb 2024 09:14:15 +0800</pubDate><guid>https://before80.github.io/go_docs/fiber/API/Fiber/</guid><description>&lt;blockquote&gt;
+&lt;p&gt;原文： &lt;a href="https://before80.github.io/go_docs/fiber/API/Fiber/"&gt;https://docs.gofiber.io/api/fiber&lt;/a&gt;&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;h1 id="-fiber"&gt;📦 Fiber&lt;/h1&gt;
+&lt;h2 id="new-新"&gt;New 新&lt;/h2&gt;
+&lt;p&gt;This method creates a new &lt;strong&gt;App&lt;/strong&gt; named instance. You can pass optional &lt;a href="https://docs.gofiber.io/api/fiber/#config"&gt;config &lt;/a&gt;when creating a new instance.&lt;/p&gt;
+&lt;p&gt;​	此方法创建一个名为实例的新应用。您可以在创建新实例时传递可选配置。&lt;/p&gt;
+&lt;p&gt;Signature
+签名&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;div style="color:#b0c4de;background-color:#282c34;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"&gt;
+&lt;table style="border-spacing:0;padding:0;margin:0;border:0;"&gt;&lt;tr&gt;&lt;td style="vertical-align:top;padding:0;margin:0;border:0;"&gt;
+&lt;pre tabindex="0" style="color:#b0c4de;background-color:#282c34;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"&gt;&lt;code&gt;&lt;span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#58626f"&gt;1
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
+&lt;td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%"&gt;
+&lt;pre tabindex="0" style="color:#b0c4de;background-color:#282c34;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"&gt;&lt;code class="language-go" data-lang="go"&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;&lt;span style="color:#76a9f9"&gt;func&lt;/span&gt; &lt;span style="color:#00b1f7"&gt;New&lt;/span&gt;&lt;span style="color:#abb2bf"&gt;(&lt;/span&gt;&lt;span style="color:#aa89ea"&gt;config&lt;/span&gt; &lt;span style="color:#54b1c7"&gt;...&lt;/span&gt;&lt;span style="color:#aa89ea"&gt;Config&lt;/span&gt;&lt;span style="color:#abb2bf"&gt;)&lt;/span&gt; &lt;span style="color:#54b1c7"&gt;*&lt;/span&gt;&lt;span style="color:#aa89ea"&gt;App&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+&lt;/div&gt;
+&lt;/div&gt;&lt;p&gt;Example
+示例&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;div style="color:#b0c4de;background-color:#282c34;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"&gt;
+&lt;table style="border-spacing:0;padding:0;margin:0;border:0;"&gt;&lt;tr&gt;&lt;td style="vertical-align:top;padding:0;margin:0;border:0;"&gt;
+&lt;pre tabindex="0" style="color:#b0c4de;background-color:#282c34;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"&gt;&lt;code&gt;&lt;span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#58626f"&gt;1
+&lt;/span&gt;&lt;span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#58626f"&gt;2
+&lt;/span&gt;&lt;span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#58626f"&gt;3
+&lt;/span&gt;&lt;span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#58626f"&gt;4
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
+&lt;td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%"&gt;
+&lt;pre tabindex="0" style="color:#b0c4de;background-color:#282c34;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"&gt;&lt;code class="language-go" data-lang="go"&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;&lt;span style="color:#8a93a5;font-style:italic"&gt;// Default config&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;&lt;span style="color:#aa89ea"&gt;app&lt;/span&gt; &lt;span style="color:#54b1c7"&gt;:=&lt;/span&gt; &lt;span style="color:#aa89ea"&gt;fiber&lt;/span&gt;&lt;span style="color:#abb2bf"&gt;.&lt;/span&gt;&lt;span style="color:#00b1f7"&gt;New&lt;/span&gt;&lt;span style="color:#abb2bf"&gt;()&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;&lt;span style="color:#8a93a5;font-style:italic"&gt;// ...&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+&lt;/div&gt;
+&lt;/div&gt;&lt;h2 id="config-配置"&gt;Config 配置&lt;/h2&gt;
+&lt;p&gt;You can pass an optional Config when creating a new Fiber instance.&lt;/p&gt;</description></item><item><title>App</title><link>https://before80.github.io/go_docs/fiber/API/App/</link><pubDate>Mon, 05 Feb 2024 09:14:15 +0800</pubDate><guid>https://before80.github.io/go_docs/fiber/API/App/</guid><description>&lt;blockquote&gt;
+&lt;p&gt;原文： &lt;a href="https://before80.github.io/go_docs/fiber/API/App/"&gt;https://docs.gofiber.io/api/app&lt;/a&gt;&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;h1 id="-app"&gt;🚀 App&lt;/h1&gt;
+&lt;h2 id="static-静态"&gt;Static 静态&lt;/h2&gt;
+&lt;p&gt;Use the &lt;strong&gt;Static&lt;/strong&gt; method to serve static files such as &lt;strong&gt;images&lt;/strong&gt;, &lt;strong&gt;CSS,&lt;/strong&gt; and &lt;strong&gt;JavaScript&lt;/strong&gt;.&lt;/p&gt;
+&lt;p&gt;​	使用 Static 方法来提供静态文件，例如图像、CSS 和 JavaScript。&lt;/p&gt;
+&lt;p&gt;INFO
+信息&lt;/p&gt;
+&lt;p&gt;By default, &lt;strong&gt;Static&lt;/strong&gt; will serve &lt;code&gt;index.html&lt;/code&gt; files in response to a request on a directory.&lt;/p&gt;
+&lt;p&gt;​	默认情况下，Static 将在响应目录上的请求时提供 &lt;code&gt;index.html&lt;/code&gt; 文件。&lt;/p&gt;</description></item><item><title>Ctx</title><link>https://before80.github.io/go_docs/fiber/API/Ctx/</link><pubDate>Mon, 05 Feb 2024 09:14:15 +0800</pubDate><guid>https://before80.github.io/go_docs/fiber/API/Ctx/</guid><description>&lt;blockquote&gt;
+&lt;p&gt;原文： &lt;a href="https://before80.github.io/go_docs/fiber/API/Ctx/"&gt;https://docs.gofiber.io/api/ctx&lt;/a&gt;&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;h1 id="-ctx"&gt;🧠 Ctx&lt;/h1&gt;
+&lt;h2 id="accepts"&gt;Accepts&lt;/h2&gt;
+&lt;p&gt;Checks, if the specified &lt;strong&gt;extensions&lt;/strong&gt; or &lt;strong&gt;content&lt;/strong&gt; &lt;strong&gt;types&lt;/strong&gt; are acceptable.&lt;/p&gt;
+&lt;p&gt;​	检查指定的扩展名或内容类型是否可接受。&lt;/p&gt;
+&lt;p&gt;INFO
+信息&lt;/p&gt;
+&lt;p&gt;Based on the request’s &lt;a href="https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/Accept"&gt;Accept&lt;/a&gt; HTTP header.&lt;/p&gt;
+&lt;p&gt;​	基于请求的 Accept HTTP 头。&lt;/p&gt;
+&lt;p&gt;Signature
+签名&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;div style="color:#b0c4de;background-color:#282c34;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"&gt;
+&lt;table style="border-spacing:0;padding:0;margin:0;border:0;"&gt;&lt;tr&gt;&lt;td style="vertical-align:top;padding:0;margin:0;border:0;"&gt;
+&lt;pre tabindex="0" style="color:#b0c4de;background-color:#282c34;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"&gt;&lt;code&gt;&lt;span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#58626f"&gt;1
+&lt;/span&gt;&lt;span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#58626f"&gt;2
+&lt;/span&gt;&lt;span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#58626f"&gt;3
+&lt;/span&gt;&lt;span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#58626f"&gt;4
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
+&lt;td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%"&gt;
+&lt;pre tabindex="0" style="color:#b0c4de;background-color:#282c34;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"&gt;&lt;code class="language-go" data-lang="go"&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;&lt;span style="color:#76a9f9"&gt;func&lt;/span&gt; &lt;span style="color:#abb2bf"&gt;(&lt;/span&gt;&lt;span style="color:#aa89ea"&gt;c&lt;/span&gt; &lt;span style="color:#54b1c7"&gt;*&lt;/span&gt;&lt;span style="color:#aa89ea"&gt;Ctx&lt;/span&gt;&lt;span style="color:#abb2bf"&gt;)&lt;/span&gt; &lt;span style="color:#00b1f7"&gt;Accepts&lt;/span&gt;&lt;span style="color:#abb2bf"&gt;(&lt;/span&gt;&lt;span style="color:#aa89ea"&gt;offers&lt;/span&gt; &lt;span style="color:#54b1c7"&gt;...&lt;/span&gt;&lt;span style="color:#e5c07b"&gt;string&lt;/span&gt;&lt;span style="color:#abb2bf"&gt;)&lt;/span&gt; &lt;span style="color:#e5c07b"&gt;string&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;&lt;span style="color:#76a9f9"&gt;func&lt;/span&gt; &lt;span style="color:#abb2bf"&gt;(&lt;/span&gt;&lt;span style="color:#aa89ea"&gt;c&lt;/span&gt; &lt;span style="color:#54b1c7"&gt;*&lt;/span&gt;&lt;span style="color:#aa89ea"&gt;Ctx&lt;/span&gt;&lt;span style="color:#abb2bf"&gt;)&lt;/span&gt; &lt;span style="color:#00b1f7"&gt;AcceptsCharsets&lt;/span&gt;&lt;span style="color:#abb2bf"&gt;(&lt;/span&gt;&lt;span style="color:#aa89ea"&gt;offers&lt;/span&gt; &lt;span style="color:#54b1c7"&gt;...&lt;/span&gt;&lt;span style="color:#e5c07b"&gt;string&lt;/span&gt;&lt;span style="color:#abb2bf"&gt;)&lt;/span&gt; &lt;span style="color:#e5c07b"&gt;string&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;&lt;span style="color:#76a9f9"&gt;func&lt;/span&gt; &lt;span style="color:#abb2bf"&gt;(&lt;/span&gt;&lt;span style="color:#aa89ea"&gt;c&lt;/span&gt; &lt;span style="color:#54b1c7"&gt;*&lt;/span&gt;&lt;span style="color:#aa89ea"&gt;Ctx&lt;/span&gt;&lt;span style="color:#abb2bf"&gt;)&lt;/span&gt; &lt;span style="color:#00b1f7"&gt;AcceptsEncodings&lt;/span&gt;&lt;span style="color:#abb2bf"&gt;(&lt;/span&gt;&lt;span style="color:#aa89ea"&gt;offers&lt;/span&gt; &lt;span style="color:#54b1c7"&gt;...&lt;/span&gt;&lt;span style="color:#e5c07b"&gt;string&lt;/span&gt;&lt;span style="color:#abb2bf"&gt;)&lt;/span&gt; &lt;span style="color:#e5c07b"&gt;string&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;&lt;span style="color:#76a9f9"&gt;func&lt;/span&gt; &lt;span style="color:#abb2bf"&gt;(&lt;/span&gt;&lt;span style="color:#aa89ea"&gt;c&lt;/span&gt; &lt;span style="color:#54b1c7"&gt;*&lt;/span&gt;&lt;span style="color:#aa89ea"&gt;Ctx&lt;/span&gt;&lt;span style="color:#abb2bf"&gt;)&lt;/span&gt; &lt;span style="color:#00b1f7"&gt;AcceptsLanguages&lt;/span&gt;&lt;span style="color:#abb2bf"&gt;(&lt;/span&gt;&lt;span style="color:#aa89ea"&gt;offers&lt;/span&gt; &lt;span style="color:#54b1c7"&gt;...&lt;/span&gt;&lt;span style="color:#e5c07b"&gt;string&lt;/span&gt;&lt;span style="color:#abb2bf"&gt;)&lt;/span&gt; &lt;span style="color:#e5c07b"&gt;string&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+&lt;/div&gt;
+&lt;/div&gt;&lt;p&gt;Example
+示例&lt;/p&gt;</description></item><item><title>常量</title><link>https://before80.github.io/go_docs/fiber/API/Constants/</link><pubDate>Mon, 05 Feb 2024 09:14:15 +0800</pubDate><guid>https://before80.github.io/go_docs/fiber/API/Constants/</guid><description>&lt;blockquote&gt;
+&lt;p&gt;原文： &lt;a href="https://before80.github.io/go_docs/fiber/API/Constants/"&gt;https://docs.gofiber.io/api/constants&lt;/a&gt;&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;h1 id="-constants--常量"&gt;📋 Constants 常量&lt;/h1&gt;
+&lt;p&gt;HTTP methods were copied from net/http.&lt;/p&gt;
+&lt;p&gt;​	HTTP 方法从 net/http 复制。&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;div style="color:#b0c4de;background-color:#282c34;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"&gt;
+&lt;table style="border-spacing:0;padding:0;margin:0;border:0;"&gt;&lt;tr&gt;&lt;td style="vertical-align:top;padding:0;margin:0;border:0;"&gt;
+&lt;pre tabindex="0" style="color:#b0c4de;background-color:#282c34;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"&gt;&lt;code&gt;&lt;span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#58626f"&gt; 1
+&lt;/span&gt;&lt;span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#58626f"&gt; 2
+&lt;/span&gt;&lt;span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#58626f"&gt; 3
+&lt;/span&gt;&lt;span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#58626f"&gt; 4
+&lt;/span&gt;&lt;span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#58626f"&gt; 5
+&lt;/span&gt;&lt;span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#58626f"&gt; 6
+&lt;/span&gt;&lt;span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#58626f"&gt; 7
+&lt;/span&gt;&lt;span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#58626f"&gt; 8
+&lt;/span&gt;&lt;span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#58626f"&gt; 9
+&lt;/span&gt;&lt;span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#58626f"&gt;10
+&lt;/span&gt;&lt;span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#58626f"&gt;11
+&lt;/span&gt;&lt;span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#58626f"&gt;12
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
+&lt;td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%"&gt;
+&lt;pre tabindex="0" style="color:#b0c4de;background-color:#282c34;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"&gt;&lt;code class="language-go" data-lang="go"&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;&lt;span style="color:#76a9f9"&gt;const&lt;/span&gt; &lt;span style="color:#abb2bf"&gt;(&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; &lt;span style="color:#aa89ea"&gt;MethodGet&lt;/span&gt; &lt;span style="color:#abb2bf"&gt;=&lt;/span&gt; &lt;span style="color:#98c379"&gt;&amp;#34;GET&amp;#34;&lt;/span&gt; &lt;span style="color:#8a93a5;font-style:italic"&gt;// RFC 7231, 4.3.1&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; &lt;span style="color:#aa89ea"&gt;MethodHead&lt;/span&gt; &lt;span style="color:#abb2bf"&gt;=&lt;/span&gt; &lt;span style="color:#98c379"&gt;&amp;#34;HEAD&amp;#34;&lt;/span&gt; &lt;span style="color:#8a93a5;font-style:italic"&gt;// RFC 7231, 4.3.2&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; &lt;span style="color:#aa89ea"&gt;MethodPost&lt;/span&gt; &lt;span style="color:#abb2bf"&gt;=&lt;/span&gt; &lt;span style="color:#98c379"&gt;&amp;#34;POST&amp;#34;&lt;/span&gt; &lt;span style="color:#8a93a5;font-style:italic"&gt;// RFC 7231, 4.3.3&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; &lt;span style="color:#aa89ea"&gt;MethodPut&lt;/span&gt; &lt;span style="color:#abb2bf"&gt;=&lt;/span&gt; &lt;span style="color:#98c379"&gt;&amp;#34;PUT&amp;#34;&lt;/span&gt; &lt;span style="color:#8a93a5;font-style:italic"&gt;// RFC 7231, 4.3.4&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; &lt;span style="color:#aa89ea"&gt;MethodPatch&lt;/span&gt; &lt;span style="color:#abb2bf"&gt;=&lt;/span&gt; &lt;span style="color:#98c379"&gt;&amp;#34;PATCH&amp;#34;&lt;/span&gt; &lt;span style="color:#8a93a5;font-style:italic"&gt;// RFC 5789&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; &lt;span style="color:#aa89ea"&gt;MethodDelete&lt;/span&gt; &lt;span style="color:#abb2bf"&gt;=&lt;/span&gt; &lt;span style="color:#98c379"&gt;&amp;#34;DELETE&amp;#34;&lt;/span&gt; &lt;span style="color:#8a93a5;font-style:italic"&gt;// RFC 7231, 4.3.5&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; &lt;span style="color:#aa89ea"&gt;MethodConnect&lt;/span&gt; &lt;span style="color:#abb2bf"&gt;=&lt;/span&gt; &lt;span style="color:#98c379"&gt;&amp;#34;CONNECT&amp;#34;&lt;/span&gt; &lt;span style="color:#8a93a5;font-style:italic"&gt;// RFC 7231, 4.3.6&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; &lt;span style="color:#aa89ea"&gt;MethodOptions&lt;/span&gt; &lt;span style="color:#abb2bf"&gt;=&lt;/span&gt; &lt;span style="color:#98c379"&gt;&amp;#34;OPTIONS&amp;#34;&lt;/span&gt; &lt;span style="color:#8a93a5;font-style:italic"&gt;// RFC 7231, 4.3.7&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; &lt;span style="color:#aa89ea"&gt;MethodTrace&lt;/span&gt; &lt;span style="color:#abb2bf"&gt;=&lt;/span&gt; &lt;span style="color:#98c379"&gt;&amp;#34;TRACE&amp;#34;&lt;/span&gt; &lt;span style="color:#8a93a5;font-style:italic"&gt;// RFC 7231, 4.3.8&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; &lt;span style="color:#aa89ea"&gt;methodUse&lt;/span&gt; &lt;span style="color:#abb2bf"&gt;=&lt;/span&gt; &lt;span style="color:#98c379"&gt;&amp;#34;USE&amp;#34;&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;&lt;span style="color:#abb2bf"&gt;)&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+&lt;/div&gt;
+&lt;/div&gt;&lt;p&gt;MIME types that are commonly used&lt;/p&gt;</description></item><item><title>Client</title><link>https://before80.github.io/go_docs/fiber/API/Client/</link><pubDate>Mon, 05 Feb 2024 09:14:15 +0800</pubDate><guid>https://before80.github.io/go_docs/fiber/API/Client/</guid><description>&lt;blockquote&gt;
+&lt;p&gt;原文： &lt;a href="https://before80.github.io/go_docs/fiber/API/Client/"&gt;https://docs.gofiber.io/api/client&lt;/a&gt;&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;h1 id="-client"&gt;🌎 Client&lt;/h1&gt;
+&lt;h2 id="start-request-开始请求"&gt;Start request 开始请求&lt;/h2&gt;
+&lt;p&gt;Start a http request with http method and url.
+使用 http 方法和 url 启动 http 请求。&lt;/p&gt;
+&lt;p&gt;Signatures
+签名&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;div style="color:#b0c4de;background-color:#282c34;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"&gt;
+&lt;table style="border-spacing:0;padding:0;margin:0;border:0;"&gt;&lt;tr&gt;&lt;td style="vertical-align:top;padding:0;margin:0;border:0;"&gt;
+&lt;pre tabindex="0" style="color:#b0c4de;background-color:#282c34;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"&gt;&lt;code&gt;&lt;span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#58626f"&gt;1
+&lt;/span&gt;&lt;span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#58626f"&gt;2
+&lt;/span&gt;&lt;span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#58626f"&gt;3
+&lt;/span&gt;&lt;span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#58626f"&gt;4
+&lt;/span&gt;&lt;span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#58626f"&gt;5
+&lt;/span&gt;&lt;span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#58626f"&gt;6
+&lt;/span&gt;&lt;span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#58626f"&gt;7
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
+&lt;td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%"&gt;
+&lt;pre tabindex="0" style="color:#b0c4de;background-color:#282c34;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"&gt;&lt;code class="language-go" data-lang="go"&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;&lt;span style="color:#8a93a5;font-style:italic"&gt;// Client http methods&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;&lt;span style="color:#76a9f9"&gt;func&lt;/span&gt; &lt;span style="color:#abb2bf"&gt;(&lt;/span&gt;&lt;span style="color:#aa89ea"&gt;c&lt;/span&gt; &lt;span style="color:#54b1c7"&gt;*&lt;/span&gt;&lt;span style="color:#aa89ea"&gt;Client&lt;/span&gt;&lt;span style="color:#abb2bf"&gt;)&lt;/span&gt; &lt;span style="color:#00b1f7"&gt;Get&lt;/span&gt;&lt;span style="color:#abb2bf"&gt;(&lt;/span&gt;&lt;span style="color:#aa89ea"&gt;url&lt;/span&gt; &lt;span style="color:#e5c07b"&gt;string&lt;/span&gt;&lt;span style="color:#abb2bf"&gt;)&lt;/span&gt; &lt;span style="color:#54b1c7"&gt;*&lt;/span&gt;&lt;span style="color:#aa89ea"&gt;Agent&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;&lt;span style="color:#76a9f9"&gt;func&lt;/span&gt; &lt;span style="color:#abb2bf"&gt;(&lt;/span&gt;&lt;span style="color:#aa89ea"&gt;c&lt;/span&gt; &lt;span style="color:#54b1c7"&gt;*&lt;/span&gt;&lt;span style="color:#aa89ea"&gt;Client&lt;/span&gt;&lt;span style="color:#abb2bf"&gt;)&lt;/span&gt; &lt;span style="color:#00b1f7"&gt;Head&lt;/span&gt;&lt;span style="color:#abb2bf"&gt;(&lt;/span&gt;&lt;span style="color:#aa89ea"&gt;url&lt;/span&gt; &lt;span style="color:#e5c07b"&gt;string&lt;/span&gt;&lt;span style="color:#abb2bf"&gt;)&lt;/span&gt; &lt;span style="color:#54b1c7"&gt;*&lt;/span&gt;&lt;span style="color:#aa89ea"&gt;Agent&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;&lt;span style="color:#76a9f9"&gt;func&lt;/span&gt; &lt;span style="color:#abb2bf"&gt;(&lt;/span&gt;&lt;span style="color:#aa89ea"&gt;c&lt;/span&gt; &lt;span style="color:#54b1c7"&gt;*&lt;/span&gt;&lt;span style="color:#aa89ea"&gt;Client&lt;/span&gt;&lt;span style="color:#abb2bf"&gt;)&lt;/span&gt; &lt;span style="color:#00b1f7"&gt;Post&lt;/span&gt;&lt;span style="color:#abb2bf"&gt;(&lt;/span&gt;&lt;span style="color:#aa89ea"&gt;url&lt;/span&gt; &lt;span style="color:#e5c07b"&gt;string&lt;/span&gt;&lt;span style="color:#abb2bf"&gt;)&lt;/span&gt; &lt;span style="color:#54b1c7"&gt;*&lt;/span&gt;&lt;span style="color:#aa89ea"&gt;Agent&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;&lt;span style="color:#76a9f9"&gt;func&lt;/span&gt; &lt;span style="color:#abb2bf"&gt;(&lt;/span&gt;&lt;span style="color:#aa89ea"&gt;c&lt;/span&gt; &lt;span style="color:#54b1c7"&gt;*&lt;/span&gt;&lt;span style="color:#aa89ea"&gt;Client&lt;/span&gt;&lt;span style="color:#abb2bf"&gt;)&lt;/span&gt; &lt;span style="color:#00b1f7"&gt;Put&lt;/span&gt;&lt;span style="color:#abb2bf"&gt;(&lt;/span&gt;&lt;span style="color:#aa89ea"&gt;url&lt;/span&gt; &lt;span style="color:#e5c07b"&gt;string&lt;/span&gt;&lt;span style="color:#abb2bf"&gt;)&lt;/span&gt; &lt;span style="color:#54b1c7"&gt;*&lt;/span&gt;&lt;span style="color:#aa89ea"&gt;Agent&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;&lt;span style="color:#76a9f9"&gt;func&lt;/span&gt; &lt;span style="color:#abb2bf"&gt;(&lt;/span&gt;&lt;span style="color:#aa89ea"&gt;c&lt;/span&gt; &lt;span style="color:#54b1c7"&gt;*&lt;/span&gt;&lt;span style="color:#aa89ea"&gt;Client&lt;/span&gt;&lt;span style="color:#abb2bf"&gt;)&lt;/span&gt; &lt;span style="color:#00b1f7"&gt;Patch&lt;/span&gt;&lt;span style="color:#abb2bf"&gt;(&lt;/span&gt;&lt;span style="color:#aa89ea"&gt;url&lt;/span&gt; &lt;span style="color:#e5c07b"&gt;string&lt;/span&gt;&lt;span style="color:#abb2bf"&gt;)&lt;/span&gt; &lt;span style="color:#54b1c7"&gt;*&lt;/span&gt;&lt;span style="color:#aa89ea"&gt;Agent&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;&lt;span style="color:#76a9f9"&gt;func&lt;/span&gt; &lt;span style="color:#abb2bf"&gt;(&lt;/span&gt;&lt;span style="color:#aa89ea"&gt;c&lt;/span&gt; &lt;span style="color:#54b1c7"&gt;*&lt;/span&gt;&lt;span style="color:#aa89ea"&gt;Client&lt;/span&gt;&lt;span style="color:#abb2bf"&gt;)&lt;/span&gt; &lt;span style="color:#00b1f7"&gt;Delete&lt;/span&gt;&lt;span style="color:#abb2bf"&gt;(&lt;/span&gt;&lt;span style="color:#aa89ea"&gt;url&lt;/span&gt; &lt;span style="color:#e5c07b"&gt;string&lt;/span&gt;&lt;span style="color:#abb2bf"&gt;)&lt;/span&gt; &lt;span style="color:#54b1c7"&gt;*&lt;/span&gt;&lt;span style="color:#aa89ea"&gt;Agent&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+&lt;/div&gt;
+&lt;/div&gt;&lt;p&gt;Here we present a brief example demonstrating the simulation of a proxy using our &lt;code&gt;*fiber.Agent&lt;/code&gt; methods.
+这里我们提供了一个简短的示例，演示如何使用我们的 &lt;code&gt;*fiber.Agent&lt;/code&gt; 方法模拟代理。&lt;/p&gt;</description></item><item><title>Log</title><link>https://before80.github.io/go_docs/fiber/API/Log/</link><pubDate>Mon, 05 Feb 2024 09:14:15 +0800</pubDate><guid>https://before80.github.io/go_docs/fiber/API/Log/</guid><description>&lt;blockquote&gt;
+&lt;p&gt;原文： &lt;a href="https://before80.github.io/go_docs/fiber/API/Log/"&gt;https://docs.gofiber.io/api/log&lt;/a&gt;&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;h1 id="-log"&gt;📃 Log&lt;/h1&gt;
+&lt;p&gt;We can use logs to observe program behavior, diagnose problems, or configure corresponding alarms. And defining a well structured log can improve search efficiency and facilitate handling of problems.&lt;/p&gt;
+&lt;p&gt;​	我们可以使用日志来观察程序行为、诊断问题或配置相应的告警。并且定义一个结构良好的日志可以提高搜索效率，方便问题的处理。&lt;/p&gt;</description></item></channel></rss>

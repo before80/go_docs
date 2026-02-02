@@ -1,136 +1,151 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>开始入门 on Go 中文档集</title><link>https://before80.github.io/go_docs/docs/GettingStarted/</link><description>Recent content in 开始入门 on Go 中文档集</description><generator>Hugo</generator><language>zh-cn</language><lastBuildDate>Fri, 18 Oct 2024 22:21:15 +0800</lastBuildDate><atom:link href="https://before80.github.io/go_docs/docs/GettingStarted/index.xml" rel="self" type="application/rss+xml"/><item><title>下载并安装 Go</title><link>https://before80.github.io/go_docs/docs/GettingStarted/InstallingGo/</link><pubDate>Thu, 18 May 2023 16:35:08 +0800</pubDate><guid>https://before80.github.io/go_docs/docs/GettingStarted/InstallingGo/</guid><description>&lt;h1 id="download-and-install-下载并安装">Download and install 下载并安装&lt;a class="td-heading-self-link" href="#download-and-install-%e4%b8%8b%e8%bd%bd%e5%b9%b6%e5%ae%89%e8%a3%85" aria-label="Heading self-link">&lt;/a>&lt;/h1>
-&lt;blockquote>
-&lt;p>原文：&lt;a href="https://go.dev/doc/install">https://go.dev/doc/install&lt;/a>&lt;/p>&lt;/blockquote>
-&lt;p>按照这里描述的步骤，快速下载并安装Go。&lt;/p>
-&lt;p>对于其他有关安装的内容，您可能会感兴趣&lt;/p>
-&lt;ul>
-&lt;li>&lt;a href="../ManagingGoInstallations">管理 Go 的安装&lt;/a> —— 如何安装多个版本和卸载。&lt;/li>
-&lt;li>&lt;a href="../InstallingGoFromSource">从源码安装Go&lt;/a> —— 如何检出源码，在自己的机器上构建它们，并运行它们。&lt;/li>
-&lt;/ul>
-&lt;h2 id="1-go-download">1. Go download.&lt;a class="td-heading-self-link" href="#1-go-download" aria-label="Heading self-link">&lt;/a>&lt;/h2>
-&lt;p>点击下面的按钮，下载Go的安装程序。&lt;/p></description></item><item><title>管理 Go 安装</title><link>https://before80.github.io/go_docs/docs/GettingStarted/ManagingGoInstallations/</link><pubDate>Thu, 18 May 2023 16:35:08 +0800</pubDate><guid>https://before80.github.io/go_docs/docs/GettingStarted/ManagingGoInstallations/</guid><description>&lt;h1 id="managing-go-installations---管理-go-安装">Managing Go installations - 管理 Go 安装&lt;a class="td-heading-self-link" href="#managing-go-installations---%e7%ae%a1%e7%90%86-go-%e5%ae%89%e8%a3%85" aria-label="Heading self-link">&lt;/a>&lt;/h1>
-&lt;blockquote>
-&lt;p>原文：&lt;a href="https://go.dev/doc/manage-install">https://go.dev/doc/manage-install&lt;/a>&lt;/p>&lt;/blockquote>
-&lt;p>​	本主题介绍如何在同一台计算机上&lt;code>安装多个版本的 Go&lt;/code>，以及&lt;code>如何卸载 Go&lt;/code>。&lt;/p>
-&lt;p>对于其他关于安装的内容，您可能感兴趣：&lt;/p>
-&lt;ul>
-&lt;li>&lt;a href="../InstallingGo">下载并安装&lt;/a> —— 安装和运行的最简单方法。&lt;/li>
-&lt;li>&lt;a href="../InstallingGoFromSource">从源码安装Go&lt;/a> —— 如何检出源码，在自己的机器上构建它们，并运行它们。&lt;/li>
-&lt;/ul>
-&lt;h2 id="安装多个-go-版本">安装多个 Go 版本&lt;a class="td-heading-self-link" href="#%e5%ae%89%e8%a3%85%e5%a4%9a%e4%b8%aa-go-%e7%89%88%e6%9c%ac" aria-label="Heading self-link">&lt;/a>&lt;/h2>
-&lt;p>​	您可以在同一台机器上安装多个 Go 版本。例如，您可能想在多个 Go 版本上测试您的代码。有关可以通过这种方式安装的版本的列表，请参见&lt;a href="https://go.dev/dl/">下载页面&lt;/a>。&lt;/p></description></item><item><title>从源码安装 Go</title><link>https://before80.github.io/go_docs/docs/GettingStarted/InstallingGoFromSource/</link><pubDate>Thu, 18 May 2023 16:35:08 +0800</pubDate><guid>https://before80.github.io/go_docs/docs/GettingStarted/InstallingGoFromSource/</guid><description>&lt;h1 id="installing-go-from-source---从源码安装-go">Installing Go from source - 从源码安装 Go&lt;a class="td-heading-self-link" href="#installing-go-from-source---%e4%bb%8e%e6%ba%90%e7%a0%81%e5%ae%89%e8%a3%85-go" aria-label="Heading self-link">&lt;/a>&lt;/h1>
-&lt;blockquote>
-&lt;p>原文：&lt;a href="https://go.dev/doc/install/source">https://go.dev/doc/install/source&lt;/a>&lt;/p>&lt;/blockquote>
-&lt;p>本主题描述了如何从源代码构建和运行 Go。要使用安装程序进行安装，请参阅&lt;a href="../InstallingGo">下载和安装&lt;/a>。&lt;/p>
-&lt;h2 id="简介">简介&lt;a class="td-heading-self-link" href="#%e7%ae%80%e4%bb%8b" aria-label="Heading self-link">&lt;/a>&lt;/h2>
-&lt;p>​	Go 是一个开源项目，采用 &lt;a href="https://go.dev/LICENSE">BSD 风格的许可证&lt;/a>下发布。本文档介绍了如何检出源代码，在自己的机器上构建并运行它们。&lt;/p></description></item><item><title>Setting up and using gccgo</title><link>https://before80.github.io/go_docs/docs/GettingStarted/SettingUpAndUsingGccgo/</link><pubDate>Thu, 18 May 2023 16:35:08 +0800</pubDate><guid>https://before80.github.io/go_docs/docs/GettingStarted/SettingUpAndUsingGccgo/</guid><description>&lt;h1 id="setting-up-and-using-gccgo">Setting up and using gccgo&lt;a class="td-heading-self-link" href="#setting-up-and-using-gccgo" aria-label="Heading self-link">&lt;/a>&lt;/h1>
-&lt;blockquote>
-&lt;p>原文：&lt;a href="https://go.dev/doc/install/gccgo">https://go.dev/doc/install/gccgo&lt;/a>&lt;/p>&lt;/blockquote>
-&lt;p>​	本文介绍了如何使用&lt;code>gccgo&lt;/code>，这是Go语言的编译器。&lt;code>gccgo&lt;/code>编译器是广泛使用的GNU编译器&lt;code>GCC&lt;/code>的一个新前端。尽管前端本身采用BSD风格的许可证，但&lt;code>gccgo&lt;/code>通常作为&lt;code>GCC&lt;/code>的一部分使用，然后由&lt;a href="https://www.gnu.org/licenses/gpl.html">GNU通用公共许可证&lt;/a>涵盖（该许可证涵盖&lt;code>gccgo&lt;/code>本身作为&lt;code>GCC&lt;/code>的一部分；它不包括由&lt;code>gccgo&lt;/code>生成的代码）。&lt;/p></description></item><item><title>教程</title><link>https://before80.github.io/go_docs/docs/GettingStarted/Tutorials/</link><pubDate>Thu, 18 May 2023 16:35:08 +0800</pubDate><guid>https://before80.github.io/go_docs/docs/GettingStarted/Tutorials/</guid><description>&lt;h1 id="tutorials---教程">Tutorials - 教程&lt;a class="td-heading-self-link" href="#tutorials---%e6%95%99%e7%a8%8b" aria-label="Heading self-link">&lt;/a>&lt;/h1>
-&lt;blockquote>
-&lt;p>原文：&lt;a href="https://go.dev/doc/tutorial/">https://go.dev/doc/tutorial/&lt;/a>&lt;/p>&lt;/blockquote>
-&lt;p>如果您对Go的某个部分感到陌生，可以看看下面链接的教程。&lt;/p>
-&lt;p>如果您还没有安装Go，请看&lt;a href="../InstallingGo">下载和安装&lt;/a>。&lt;/p>
-&lt;table>
- &lt;thead>
- &lt;tr>
- &lt;th>Tutorial &lt;strong>教程&lt;/strong>&lt;/th>
- &lt;th>Description &lt;strong>描述&lt;/strong>&lt;/th>
- &lt;/tr>
- &lt;/thead>
- &lt;tbody>
- &lt;tr>
- &lt;td>&lt;a href="../TutorialGetStartedWithGo">Getting started&lt;/a>&lt;/td>
- &lt;td>用 Go 说 &amp;ldquo;Hello, World&amp;rdquo;。&lt;/td>
- &lt;/tr>
- &lt;tr>
- &lt;td>&lt;a href="../TutorialCreateAGoModule">Create a module&lt;/a>&lt;/td>
- &lt;td>由多部分组成的教程，从Go的角度介绍了常见的编程语言特性。&lt;/td>
- &lt;/tr>
- &lt;tr>
- &lt;td>&lt;a href="../TutorialGettingStartedWithMulti-moduleWorkspaces">Getting started with multi-module workspaces&lt;/a>&lt;/td>
- &lt;td>介绍在 Go 中创建和使用多模块工作区的基础知识。多模块工作区对于跨多个模块进行更改非常有用。&lt;/td>
- &lt;/tr>
- &lt;tr>
- &lt;td>&lt;a href="../TutorialAccessingArelationalDatabase">Accessing a relational database&lt;/a>&lt;/td>
- &lt;td>介绍使用标准库访问数据库的基础知识。&lt;/td>
- &lt;/tr>
- &lt;tr>
- &lt;td>&lt;a href="../TutorialDevelopingARESTfulAPIWithGoAndGin">Developing a RESTful API with Go and Gin&lt;/a>&lt;/td>
- &lt;td>介绍用&lt;code>Go&lt;/code>和 &lt;code>Gin &lt;/code>Web 框架编写&lt;code>RESTful&lt;/code>Web服务&lt;code>API&lt;/code>的基本知识。&lt;/td>
- &lt;/tr>
- &lt;tr>
- &lt;td>&lt;a href="../TutorialGettingStartedWithGenerics">Getting started with generics&lt;/a>&lt;/td>
- &lt;td>介绍 Go 中泛型的基础知识。使用泛型，您可以声明和使用函数或类型，这些函数或类型被写成可以与调用代码提供的任何一组类型一起工作。&lt;/td>
- &lt;/tr>
- &lt;tr>
- &lt;td>&lt;a href="../TutorialGettingStartedWithFuzzing">Getting started with fuzzing&lt;/a>&lt;/td>
- &lt;td>介绍 Go 中 &lt;code>Fuzzing&lt;/code> 的基本知识。&lt;code>Fuzzing&lt;/code> 可以为您的测试生成输入，可以捕捉您可能遗漏的边缘情况和安全问题。&lt;/td>
- &lt;/tr>
- &lt;tr>
- &lt;td>&lt;a href="../../GoTour/UsingTheTour/welcome">A Tour of Go&lt;/a>&lt;/td>
- &lt;td>Go的交互式介绍：基本语法和数据结构；方法和接口；以及Go的并发原语。&lt;/td>
- &lt;/tr>
- &lt;/tbody>
-&lt;/table></description></item><item><title>教程：开始使用 Go</title><link>https://before80.github.io/go_docs/docs/GettingStarted/TutorialGetStartedWithGo/</link><pubDate>Thu, 18 May 2023 16:35:08 +0800</pubDate><guid>https://before80.github.io/go_docs/docs/GettingStarted/TutorialGetStartedWithGo/</guid><description>&lt;h1 id="tutorial-get-started-with-go---教程开始使用-go">Tutorial: Get started with Go - 教程：开始使用 Go&lt;a class="td-heading-self-link" href="#tutorial-get-started-with-go---%e6%95%99%e7%a8%8b%e5%bc%80%e5%a7%8b%e4%bd%bf%e7%94%a8-go" aria-label="Heading self-link">&lt;/a>&lt;/h1>
-&lt;blockquote>
-&lt;p>原文：&lt;a href="https://go.dev/doc/tutorial/getting-started">https://go.dev/doc/tutorial/getting-started&lt;/a>&lt;/p>&lt;/blockquote>
-&lt;p>​	在本教程中，您将获得Go编程的简要介绍。在这一过程中，您将：&lt;/p>
-&lt;ul>
-&lt;li>安装Go（如果您还没有安装）。&lt;/li>
-&lt;li>编写一些简单的 &amp;ldquo;Hello, world &amp;ldquo;代码。&lt;/li>
-&lt;li>使用&lt;code>go&lt;/code>命令来运行您的代码。&lt;/li>
-&lt;li>使用&lt;code>Go包的发现工具&lt;/code>来寻找可以在自己的代码中使用的包。&lt;/li>
-&lt;li>调用外部模块的函数。&lt;/li>
-&lt;/ul>
-&lt;blockquote>
-&lt;p>注意：关于其他教程，请参见&lt;a href="../Tutorials">Tutorials&lt;/a>。&lt;/p></description></item><item><title>教程：创建一个 Go 模块</title><link>https://before80.github.io/go_docs/docs/GettingStarted/TutorialCreateAGoModule/</link><pubDate>Thu, 18 May 2023 16:35:08 +0800</pubDate><guid>https://before80.github.io/go_docs/docs/GettingStarted/TutorialCreateAGoModule/</guid><description>&lt;h1 id="tutorial-create-a-go-module---教程创建一个-go-模块">Tutorial: Create a Go module - 教程：创建一个 Go 模块&lt;a class="td-heading-self-link" href="#tutorial-create-a-go-module---%e6%95%99%e7%a8%8b%e5%88%9b%e5%bb%ba%e4%b8%80%e4%b8%aa-go-%e6%a8%a1%e5%9d%97" aria-label="Heading self-link">&lt;/a>&lt;/h1>
-&lt;blockquote>
-&lt;p>原文：&lt;a href="https://go.dev/doc/tutorial/create-module.html">https://go.dev/doc/tutorial/create-module.html&lt;/a>&lt;/p>&lt;/blockquote>
-&lt;p>​	这是教程的第一部分，介绍了Go语言的一些基本特性。如果您刚开始使用Go，请务必看一下&lt;a href="../TutorialGetStartedWithGo">Tutorial: Get started with Go&lt;/a>，其中介绍了&lt;code>go&lt;/code>命令、Go模块和非常简单的Go代码。&lt;/p></description></item><item><title>教程：开始使用多模块工作区</title><link>https://before80.github.io/go_docs/docs/GettingStarted/TutorialGettingStartedWithMulti-moduleWorkspaces/</link><pubDate>Thu, 18 May 2023 16:35:08 +0800</pubDate><guid>https://before80.github.io/go_docs/docs/GettingStarted/TutorialGettingStartedWithMulti-moduleWorkspaces/</guid><description>&lt;h1 id="tutorial-getting-started-with-multi-module-workspaces---教程开始使用多模块工作区">Tutorial: Getting started with multi-module workspaces - 教程：开始使用多模块工作区&lt;a class="td-heading-self-link" href="#tutorial-getting-started-with-multi-module-workspaces---%e6%95%99%e7%a8%8b%e5%bc%80%e5%a7%8b%e4%bd%bf%e7%94%a8%e5%a4%9a%e6%a8%a1%e5%9d%97%e5%b7%a5%e4%bd%9c%e5%8c%ba" aria-label="Heading self-link">&lt;/a>&lt;/h1>
-&lt;blockquote>
-&lt;p>原文：&lt;a href="https://go.dev/doc/tutorial/workspaces.html">https://go.dev/doc/tutorial/workspaces.html&lt;/a>&lt;/p>&lt;/blockquote>
-&lt;p>​	本教程介绍了Go中多模块工作区的基本知识。通过多模块工作区，您可以告诉Go命令您同时在多个模块中编写代码，并在这些模块中轻松构建和运行代码。&lt;/p></description></item><item><title>教程：访问关系型数据库</title><link>https://before80.github.io/go_docs/docs/GettingStarted/TutorialAccessingARelationalDatabase/</link><pubDate>Thu, 18 May 2023 16:35:08 +0800</pubDate><guid>https://before80.github.io/go_docs/docs/GettingStarted/TutorialAccessingARelationalDatabase/</guid><description>&lt;h1 id="tutorial-accessing-a-relational-database---教程访问关系型数据库">Tutorial: Accessing a relational database - 教程：访问关系型数据库&lt;a class="td-heading-self-link" href="#tutorial-accessing-a-relational-database---%e6%95%99%e7%a8%8b%e8%ae%bf%e9%97%ae%e5%85%b3%e7%b3%bb%e5%9e%8b%e6%95%b0%e6%8d%ae%e5%ba%93" aria-label="Heading self-link">&lt;/a>&lt;/h1>
-&lt;blockquote>
-&lt;p>原文：&lt;a href="https://go.dev/doc/tutorial/database-access">https://go.dev/doc/tutorial/database-access&lt;/a>&lt;/p>&lt;/blockquote>
-&lt;p>​	本教程介绍了用Go和其标准库中的&lt;code>database/sql&lt;/code>包访问关系数据库的基本知识。&lt;/p>
-&lt;p>​	如果您对Go及其工具有基本的了解，那么您将从本教程中获益匪浅。如果这是您第一次接触Go，请参阅&lt;a href="../TutorialGetStartedWithGo">教程：开始使用go Tutorial: Get started with Go&lt;/a> 的快速介绍。&lt;/p></description></item><item><title>教程：用 Go 和Gin开发一个RESTful API</title><link>https://before80.github.io/go_docs/docs/GettingStarted/TutorialDevelopingARESTfulAPIWithGoAndGin/</link><pubDate>Thu, 18 May 2023 16:35:08 +0800</pubDate><guid>https://before80.github.io/go_docs/docs/GettingStarted/TutorialDevelopingARESTfulAPIWithGoAndGin/</guid><description>&lt;h1 id="tutorial-developing-a-restful-api-with-go-and-gin---教程用-go-和gin开发一个restful-api">Tutorial: Developing a RESTful API with Go and Gin - 教程：用 Go 和Gin开发一个RESTful API&lt;a class="td-heading-self-link" href="#tutorial-developing-a-restful-api-with-go-and-gin---%e6%95%99%e7%a8%8b%e7%94%a8-go-%e5%92%8cgin%e5%bc%80%e5%8f%91%e4%b8%80%e4%b8%aarestful-api" aria-label="Heading self-link">&lt;/a>&lt;/h1>
-&lt;blockquote>
-&lt;p>原文：&lt;a href="https://go.dev/doc/tutorial/web-service-gin">https://go.dev/doc/tutorial/web-service-gin&lt;/a>&lt;/p>&lt;/blockquote>
-&lt;p>​	本教程介绍了用Go和&lt;a href="https://before80.github.io/go_docs/thirdPkg/gin/gin/">Gin Web 框架&lt;/a>（Gin）编写RESTful Web服务API的基础知识。&lt;/p></description></item><item><title>教程：开始使用泛型</title><link>https://before80.github.io/go_docs/docs/GettingStarted/TutorialGettingStartedWithGenerics/</link><pubDate>Thu, 18 May 2023 16:35:08 +0800</pubDate><guid>https://before80.github.io/go_docs/docs/GettingStarted/TutorialGettingStartedWithGenerics/</guid><description>&lt;h1 id="tutorial-getting-started-with-generics---教程开始使用泛型">Tutorial: Getting started with generics - 教程：开始使用泛型&lt;a class="td-heading-self-link" href="#tutorial-getting-started-with-generics---%e6%95%99%e7%a8%8b%e5%bc%80%e5%a7%8b%e4%bd%bf%e7%94%a8%e6%b3%9b%e5%9e%8b" aria-label="Heading self-link">&lt;/a>&lt;/h1>
-&lt;blockquote>
-&lt;p>原文：&lt;a href="https://go.dev/doc/tutorial/generics">https://go.dev/doc/tutorial/generics&lt;/a>&lt;/p>&lt;/blockquote>
-&lt;p>​	本教程介绍Go中泛型的基本知识。通过泛型，您可以声明和使用函数或类型，这些函数或类型是为了使用调用代码提供的任何类型集而编写的。&lt;/p></description></item><item><title>教程：fuzzing 入门</title><link>https://before80.github.io/go_docs/docs/GettingStarted/TutorialGettingStartedWithFuzzing/</link><pubDate>Thu, 18 May 2023 16:35:08 +0800</pubDate><guid>https://before80.github.io/go_docs/docs/GettingStarted/TutorialGettingStartedWithFuzzing/</guid><description>&lt;h1 id="tutorial-getting-started-with-fuzzing---教程fuzzing-入门">Tutorial: Getting started with fuzzing - 教程：fuzzing 入门&lt;a class="td-heading-self-link" href="#tutorial-getting-started-with-fuzzing---%e6%95%99%e7%a8%8bfuzzing-%e5%85%a5%e9%97%a8" aria-label="Heading self-link">&lt;/a>&lt;/h1>
-&lt;blockquote>
-&lt;p>原文：&lt;a href="https://go.dev/doc/tutorial/fuzz">https://go.dev/doc/tutorial/fuzz&lt;/a>&lt;/p>&lt;/blockquote>
-&lt;p>​	本教程介绍了Go中的模糊测试的基本知识。通过模糊测试，针对您的测试运行随机数据，试图找到漏洞或导致崩溃的输入。通过fuzzing可以发现的一些漏洞的例子有：&lt;code>SQL注入&lt;/code>、&lt;code>缓冲区溢出&lt;/code>、&lt;code>拒绝服务&lt;/code>和&lt;code>跨站脚本攻击&lt;/code>。&lt;/p></description></item><item><title>编写 Web 应用程序</title><link>https://before80.github.io/go_docs/docs/GettingStarted/WritingWebApplications/</link><pubDate>Thu, 18 May 2023 16:35:08 +0800</pubDate><guid>https://before80.github.io/go_docs/docs/GettingStarted/WritingWebApplications/</guid><description>&lt;h1 id="writing-web-applications---编写-web-应用程序">Writing Web Applications - 编写 Web 应用程序&lt;a class="td-heading-self-link" href="#writing-web-applications---%e7%bc%96%e5%86%99-web-%e5%ba%94%e7%94%a8%e7%a8%8b%e5%ba%8f" aria-label="Heading self-link">&lt;/a>&lt;/h1>
-&lt;blockquote>
-&lt;p>原文：&lt;a href="https://go.dev/doc/articles/wiki/">https://go.dev/doc/articles/wiki/&lt;/a>&lt;/p>&lt;/blockquote>
-&lt;h2 id="简介">简介&lt;a class="td-heading-self-link" href="#%e7%ae%80%e4%bb%8b" aria-label="Heading self-link">&lt;/a>&lt;/h2>
-&lt;p>本教程中涉及的内容：&lt;/p>
-&lt;ul>
-&lt;li>用加载和保存方法创建一个数据结构&lt;/li>
-&lt;li>使用&lt;code>net/http&lt;/code>包来构建Web应用程序&lt;/li>
-&lt;li>使用&lt;code>html/template&lt;/code>包来处理HTML模板&lt;/li>
-&lt;li>使用&lt;code>regexp&lt;/code>包来验证用户的输入&lt;/li>
-&lt;li>使用闭包&lt;/li>
-&lt;/ul>
-&lt;p>前提知识：&lt;/p></description></item><item><title>如何编写 Go 代码</title><link>https://before80.github.io/go_docs/docs/GettingStarted/HowToWriteGoCode/</link><pubDate>Thu, 18 May 2023 16:35:08 +0800</pubDate><guid>https://before80.github.io/go_docs/docs/GettingStarted/HowToWriteGoCode/</guid><description>&lt;h1 id="how-to-write-go-code---如何编写-go-代码">How to Write Go Code - 如何编写 Go 代码&lt;a class="td-heading-self-link" href="#how-to-write-go-code---%e5%a6%82%e4%bd%95%e7%bc%96%e5%86%99-go-%e4%bb%a3%e7%a0%81" aria-label="Heading self-link">&lt;/a>&lt;/h1>
-&lt;blockquote>
-&lt;p>原文：&lt;a href="https://go.dev/doc/code">https://go.dev/doc/code&lt;/a>&lt;/p>&lt;/blockquote>
-&lt;h2 id="简介">简介&lt;a class="td-heading-self-link" href="#%e7%ae%80%e4%bb%8b" aria-label="Heading self-link">&lt;/a>&lt;/h2>
-&lt;p>​	本文档演示了在模块中开发一个简单的Go包，并介绍了&lt;a href="https://before80.github.io/go_docs/cmd/go/">go tool&lt;/a>，这是获取、构建和安装Go模块、包和命令的标准方式。&lt;/p></description></item><item><title>如何编写 Go 代码（使用GOPATH）</title><link>https://before80.github.io/go_docs/docs/GettingStarted/HowToWriteGoCodeWithGOPATH/</link><pubDate>Thu, 18 May 2023 16:35:08 +0800</pubDate><guid>https://before80.github.io/go_docs/docs/GettingStarted/HowToWriteGoCodeWithGOPATH/</guid><description>&lt;h1 id="how-to-write-go-code-with-gopath---如何编写-go-代码使用gopath">How to Write Go Code (with GOPATH) - 如何编写 Go 代码（使用GOPATH）&lt;a class="td-heading-self-link" href="#how-to-write-go-code-with-gopath---%e5%a6%82%e4%bd%95%e7%bc%96%e5%86%99-go-%e4%bb%a3%e7%a0%81%e4%bd%bf%e7%94%a8gopath" aria-label="Heading self-link">&lt;/a>&lt;/h1>
-&lt;blockquote>
-&lt;p>原文：&lt;a href="https://go.dev/doc/gopath_code">https://go.dev/doc/gopath_code&lt;/a>&lt;/p>&lt;/blockquote>
-&lt;h2 id="简介">简介&lt;a class="td-heading-self-link" href="#%e7%ae%80%e4%bb%8b" aria-label="Heading self-link">&lt;/a>&lt;/h2>
-&lt;p>​	如果您是Go的新手，请看最近的&lt;a href="../HowToWriteGoCode">How to Write Go Code&lt;/a>。&lt;/p>
-&lt;p>​	本文演示了一个简单的 Go 包的开发，并介绍了 &lt;a href="https://before80.github.io/go_docs/cmd/go/">go tool&lt;/a>，这是获取、构建和安装 Go 包和命令的标准方法。&lt;/p></description></item><item><title/><link>https://before80.github.io/go_docs/docs/GettingStarted/codes/gowiki/edit/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://before80.github.io/go_docs/docs/GettingStarted/codes/gowiki/edit/</guid><description>&lt;h1>Editing {{.Title}}&lt;/h1>
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>开始入门 on Go 中文档集</title><link>https://before80.github.io/go_docs/docs/GettingStarted/</link><description>Recent content in 开始入门 on Go 中文档集</description><generator>Hugo</generator><language>zh-cn</language><lastBuildDate>Fri, 18 Oct 2024 22:21:15 +0800</lastBuildDate><atom:link href="https://before80.github.io/go_docs/docs/GettingStarted/index.xml" rel="self" type="application/rss+xml"/><item><title>下载并安装 Go</title><link>https://before80.github.io/go_docs/docs/GettingStarted/InstallingGo/</link><pubDate>Thu, 18 May 2023 16:35:08 +0800</pubDate><guid>https://before80.github.io/go_docs/docs/GettingStarted/InstallingGo/</guid><description>&lt;h1 id="download-and-install-下载并安装"&gt;Download and install 下载并安装&lt;/h1&gt;
+&lt;blockquote&gt;
+&lt;p&gt;原文：&lt;a href="https://go.dev/doc/install"&gt;https://go.dev/doc/install&lt;/a&gt;&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;按照这里描述的步骤，快速下载并安装Go。&lt;/p&gt;
+&lt;p&gt;对于其他有关安装的内容，您可能会感兴趣&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;a href="../ManagingGoInstallations"&gt;管理 Go 的安装&lt;/a&gt; —— 如何安装多个版本和卸载。&lt;/li&gt;
+&lt;li&gt;&lt;a href="../InstallingGoFromSource"&gt;从源码安装Go&lt;/a&gt; —— 如何检出源码，在自己的机器上构建它们，并运行它们。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2 id="1-go-download"&gt;1. Go download.&lt;/h2&gt;
+&lt;p&gt;点击下面的按钮，下载Go的安装程序。&lt;/p&gt;</description></item><item><title>管理 Go 安装</title><link>https://before80.github.io/go_docs/docs/GettingStarted/ManagingGoInstallations/</link><pubDate>Thu, 18 May 2023 16:35:08 +0800</pubDate><guid>https://before80.github.io/go_docs/docs/GettingStarted/ManagingGoInstallations/</guid><description>&lt;h1 id="managing-go-installations---管理-go-安装"&gt;Managing Go installations - 管理 Go 安装&lt;/h1&gt;
+&lt;blockquote&gt;
+&lt;p&gt;原文：&lt;a href="https://go.dev/doc/manage-install"&gt;https://go.dev/doc/manage-install&lt;/a&gt;&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;​	本主题介绍如何在同一台计算机上&lt;code&gt;安装多个版本的 Go&lt;/code&gt;，以及&lt;code&gt;如何卸载 Go&lt;/code&gt;。&lt;/p&gt;
+&lt;p&gt;对于其他关于安装的内容，您可能感兴趣：&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;a href="../InstallingGo"&gt;下载并安装&lt;/a&gt; —— 安装和运行的最简单方法。&lt;/li&gt;
+&lt;li&gt;&lt;a href="../InstallingGoFromSource"&gt;从源码安装Go&lt;/a&gt; —— 如何检出源码，在自己的机器上构建它们，并运行它们。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2 id="安装多个-go-版本"&gt;安装多个 Go 版本&lt;/h2&gt;
+&lt;p&gt;​	您可以在同一台机器上安装多个 Go 版本。例如，您可能想在多个 Go 版本上测试您的代码。有关可以通过这种方式安装的版本的列表，请参见&lt;a href="https://go.dev/dl/"&gt;下载页面&lt;/a&gt;。&lt;/p&gt;</description></item><item><title>从源码安装 Go</title><link>https://before80.github.io/go_docs/docs/GettingStarted/InstallingGoFromSource/</link><pubDate>Thu, 18 May 2023 16:35:08 +0800</pubDate><guid>https://before80.github.io/go_docs/docs/GettingStarted/InstallingGoFromSource/</guid><description>&lt;h1 id="installing-go-from-source---从源码安装-go"&gt;Installing Go from source - 从源码安装 Go&lt;/h1&gt;
+&lt;blockquote&gt;
+&lt;p&gt;原文：&lt;a href="https://go.dev/doc/install/source"&gt;https://go.dev/doc/install/source&lt;/a&gt;&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;本主题描述了如何从源代码构建和运行 Go。要使用安装程序进行安装，请参阅&lt;a href="../InstallingGo"&gt;下载和安装&lt;/a&gt;。&lt;/p&gt;
+&lt;h2 id="简介"&gt;简介&lt;/h2&gt;
+&lt;p&gt;​	Go 是一个开源项目，采用 &lt;a href="https://go.dev/LICENSE"&gt;BSD 风格的许可证&lt;/a&gt;下发布。本文档介绍了如何检出源代码，在自己的机器上构建并运行它们。&lt;/p&gt;</description></item><item><title>Setting up and using gccgo</title><link>https://before80.github.io/go_docs/docs/GettingStarted/SettingUpAndUsingGccgo/</link><pubDate>Thu, 18 May 2023 16:35:08 +0800</pubDate><guid>https://before80.github.io/go_docs/docs/GettingStarted/SettingUpAndUsingGccgo/</guid><description>&lt;h1 id="setting-up-and-using-gccgo"&gt;Setting up and using gccgo&lt;/h1&gt;
+&lt;blockquote&gt;
+&lt;p&gt;原文：&lt;a href="https://go.dev/doc/install/gccgo"&gt;https://go.dev/doc/install/gccgo&lt;/a&gt;&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;​	本文介绍了如何使用&lt;code&gt;gccgo&lt;/code&gt;，这是Go语言的编译器。&lt;code&gt;gccgo&lt;/code&gt;编译器是广泛使用的GNU编译器&lt;code&gt;GCC&lt;/code&gt;的一个新前端。尽管前端本身采用BSD风格的许可证，但&lt;code&gt;gccgo&lt;/code&gt;通常作为&lt;code&gt;GCC&lt;/code&gt;的一部分使用，然后由&lt;a href="https://www.gnu.org/licenses/gpl.html"&gt;GNU通用公共许可证&lt;/a&gt;涵盖（该许可证涵盖&lt;code&gt;gccgo&lt;/code&gt;本身作为&lt;code&gt;GCC&lt;/code&gt;的一部分；它不包括由&lt;code&gt;gccgo&lt;/code&gt;生成的代码）。&lt;/p&gt;</description></item><item><title>教程</title><link>https://before80.github.io/go_docs/docs/GettingStarted/Tutorials/</link><pubDate>Thu, 18 May 2023 16:35:08 +0800</pubDate><guid>https://before80.github.io/go_docs/docs/GettingStarted/Tutorials/</guid><description>&lt;h1 id="tutorials---教程"&gt;Tutorials - 教程&lt;/h1&gt;
+&lt;blockquote&gt;
+&lt;p&gt;原文：&lt;a href="https://go.dev/doc/tutorial/"&gt;https://go.dev/doc/tutorial/&lt;/a&gt;&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;如果您对Go的某个部分感到陌生，可以看看下面链接的教程。&lt;/p&gt;
+&lt;p&gt;如果您还没有安装Go，请看&lt;a href="../InstallingGo"&gt;下载和安装&lt;/a&gt;。&lt;/p&gt;
+&lt;table&gt;
+ &lt;thead&gt;
+ &lt;tr&gt;
+ &lt;th&gt;Tutorial &lt;strong&gt;教程&lt;/strong&gt;&lt;/th&gt;
+ &lt;th&gt;Description &lt;strong&gt;描述&lt;/strong&gt;&lt;/th&gt;
+ &lt;/tr&gt;
+ &lt;/thead&gt;
+ &lt;tbody&gt;
+ &lt;tr&gt;
+ &lt;td&gt;&lt;a href="../TutorialGetStartedWithGo"&gt;Getting started&lt;/a&gt;&lt;/td&gt;
+ &lt;td&gt;用 Go 说 &amp;ldquo;Hello, World&amp;rdquo;。&lt;/td&gt;
+ &lt;/tr&gt;
+ &lt;tr&gt;
+ &lt;td&gt;&lt;a href="../TutorialCreateAGoModule"&gt;Create a module&lt;/a&gt;&lt;/td&gt;
+ &lt;td&gt;由多部分组成的教程，从Go的角度介绍了常见的编程语言特性。&lt;/td&gt;
+ &lt;/tr&gt;
+ &lt;tr&gt;
+ &lt;td&gt;&lt;a href="../TutorialGettingStartedWithMulti-moduleWorkspaces"&gt;Getting started with multi-module workspaces&lt;/a&gt;&lt;/td&gt;
+ &lt;td&gt;介绍在 Go 中创建和使用多模块工作区的基础知识。多模块工作区对于跨多个模块进行更改非常有用。&lt;/td&gt;
+ &lt;/tr&gt;
+ &lt;tr&gt;
+ &lt;td&gt;&lt;a href="../TutorialAccessingArelationalDatabase"&gt;Accessing a relational database&lt;/a&gt;&lt;/td&gt;
+ &lt;td&gt;介绍使用标准库访问数据库的基础知识。&lt;/td&gt;
+ &lt;/tr&gt;
+ &lt;tr&gt;
+ &lt;td&gt;&lt;a href="../TutorialDevelopingARESTfulAPIWithGoAndGin"&gt;Developing a RESTful API with Go and Gin&lt;/a&gt;&lt;/td&gt;
+ &lt;td&gt;介绍用&lt;code&gt;Go&lt;/code&gt;和 &lt;code&gt;Gin &lt;/code&gt;Web 框架编写&lt;code&gt;RESTful&lt;/code&gt;Web服务&lt;code&gt;API&lt;/code&gt;的基本知识。&lt;/td&gt;
+ &lt;/tr&gt;
+ &lt;tr&gt;
+ &lt;td&gt;&lt;a href="../TutorialGettingStartedWithGenerics"&gt;Getting started with generics&lt;/a&gt;&lt;/td&gt;
+ &lt;td&gt;介绍 Go 中泛型的基础知识。使用泛型，您可以声明和使用函数或类型，这些函数或类型被写成可以与调用代码提供的任何一组类型一起工作。&lt;/td&gt;
+ &lt;/tr&gt;
+ &lt;tr&gt;
+ &lt;td&gt;&lt;a href="../TutorialGettingStartedWithFuzzing"&gt;Getting started with fuzzing&lt;/a&gt;&lt;/td&gt;
+ &lt;td&gt;介绍 Go 中 &lt;code&gt;Fuzzing&lt;/code&gt; 的基本知识。&lt;code&gt;Fuzzing&lt;/code&gt; 可以为您的测试生成输入，可以捕捉您可能遗漏的边缘情况和安全问题。&lt;/td&gt;
+ &lt;/tr&gt;
+ &lt;tr&gt;
+ &lt;td&gt;&lt;a href="../../GoTour/UsingTheTour/welcome"&gt;A Tour of Go&lt;/a&gt;&lt;/td&gt;
+ &lt;td&gt;Go的交互式介绍：基本语法和数据结构；方法和接口；以及Go的并发原语。&lt;/td&gt;
+ &lt;/tr&gt;
+ &lt;/tbody&gt;
+&lt;/table&gt;</description></item><item><title>教程：开始使用 Go</title><link>https://before80.github.io/go_docs/docs/GettingStarted/TutorialGetStartedWithGo/</link><pubDate>Thu, 18 May 2023 16:35:08 +0800</pubDate><guid>https://before80.github.io/go_docs/docs/GettingStarted/TutorialGetStartedWithGo/</guid><description>&lt;h1 id="tutorial-get-started-with-go---教程开始使用-go"&gt;Tutorial: Get started with Go - 教程：开始使用 Go&lt;/h1&gt;
+&lt;blockquote&gt;
+&lt;p&gt;原文：&lt;a href="https://go.dev/doc/tutorial/getting-started"&gt;https://go.dev/doc/tutorial/getting-started&lt;/a&gt;&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;​	在本教程中，您将获得Go编程的简要介绍。在这一过程中，您将：&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;安装Go（如果您还没有安装）。&lt;/li&gt;
+&lt;li&gt;编写一些简单的 &amp;ldquo;Hello, world &amp;ldquo;代码。&lt;/li&gt;
+&lt;li&gt;使用&lt;code&gt;go&lt;/code&gt;命令来运行您的代码。&lt;/li&gt;
+&lt;li&gt;使用&lt;code&gt;Go包的发现工具&lt;/code&gt;来寻找可以在自己的代码中使用的包。&lt;/li&gt;
+&lt;li&gt;调用外部模块的函数。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;blockquote&gt;
+&lt;p&gt;注意：关于其他教程，请参见&lt;a href="../Tutorials"&gt;Tutorials&lt;/a&gt;。&lt;/p&gt;</description></item><item><title>教程：创建一个 Go 模块</title><link>https://before80.github.io/go_docs/docs/GettingStarted/TutorialCreateAGoModule/</link><pubDate>Thu, 18 May 2023 16:35:08 +0800</pubDate><guid>https://before80.github.io/go_docs/docs/GettingStarted/TutorialCreateAGoModule/</guid><description>&lt;h1 id="tutorial-create-a-go-module---教程创建一个-go-模块"&gt;Tutorial: Create a Go module - 教程：创建一个 Go 模块&lt;/h1&gt;
+&lt;blockquote&gt;
+&lt;p&gt;原文：&lt;a href="https://go.dev/doc/tutorial/create-module.html"&gt;https://go.dev/doc/tutorial/create-module.html&lt;/a&gt;&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;​	这是教程的第一部分，介绍了Go语言的一些基本特性。如果您刚开始使用Go，请务必看一下&lt;a href="../TutorialGetStartedWithGo"&gt;Tutorial: Get started with Go&lt;/a&gt;，其中介绍了&lt;code&gt;go&lt;/code&gt;命令、Go模块和非常简单的Go代码。&lt;/p&gt;</description></item><item><title>教程：开始使用多模块工作区</title><link>https://before80.github.io/go_docs/docs/GettingStarted/TutorialGettingStartedWithMulti-moduleWorkspaces/</link><pubDate>Thu, 18 May 2023 16:35:08 +0800</pubDate><guid>https://before80.github.io/go_docs/docs/GettingStarted/TutorialGettingStartedWithMulti-moduleWorkspaces/</guid><description>&lt;h1 id="tutorial-getting-started-with-multi-module-workspaces---教程开始使用多模块工作区"&gt;Tutorial: Getting started with multi-module workspaces - 教程：开始使用多模块工作区&lt;/h1&gt;
+&lt;blockquote&gt;
+&lt;p&gt;原文：&lt;a href="https://go.dev/doc/tutorial/workspaces.html"&gt;https://go.dev/doc/tutorial/workspaces.html&lt;/a&gt;&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;​	本教程介绍了Go中多模块工作区的基本知识。通过多模块工作区，您可以告诉Go命令您同时在多个模块中编写代码，并在这些模块中轻松构建和运行代码。&lt;/p&gt;</description></item><item><title>教程：访问关系型数据库</title><link>https://before80.github.io/go_docs/docs/GettingStarted/TutorialAccessingARelationalDatabase/</link><pubDate>Thu, 18 May 2023 16:35:08 +0800</pubDate><guid>https://before80.github.io/go_docs/docs/GettingStarted/TutorialAccessingARelationalDatabase/</guid><description>&lt;h1 id="tutorial-accessing-a-relational-database---教程访问关系型数据库"&gt;Tutorial: Accessing a relational database - 教程：访问关系型数据库&lt;/h1&gt;
+&lt;blockquote&gt;
+&lt;p&gt;原文：&lt;a href="https://go.dev/doc/tutorial/database-access"&gt;https://go.dev/doc/tutorial/database-access&lt;/a&gt;&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;​	本教程介绍了用Go和其标准库中的&lt;code&gt;database/sql&lt;/code&gt;包访问关系数据库的基本知识。&lt;/p&gt;
+&lt;p&gt;​	如果您对Go及其工具有基本的了解，那么您将从本教程中获益匪浅。如果这是您第一次接触Go，请参阅&lt;a href="../TutorialGetStartedWithGo"&gt;教程：开始使用go Tutorial: Get started with Go&lt;/a&gt; 的快速介绍。&lt;/p&gt;</description></item><item><title>教程：用 Go 和Gin开发一个RESTful API</title><link>https://before80.github.io/go_docs/docs/GettingStarted/TutorialDevelopingARESTfulAPIWithGoAndGin/</link><pubDate>Thu, 18 May 2023 16:35:08 +0800</pubDate><guid>https://before80.github.io/go_docs/docs/GettingStarted/TutorialDevelopingARESTfulAPIWithGoAndGin/</guid><description>&lt;h1 id="tutorial-developing-a-restful-api-with-go-and-gin---教程用-go-和gin开发一个restful-api"&gt;Tutorial: Developing a RESTful API with Go and Gin - 教程：用 Go 和Gin开发一个RESTful API&lt;/h1&gt;
+&lt;blockquote&gt;
+&lt;p&gt;原文：&lt;a href="https://go.dev/doc/tutorial/web-service-gin"&gt;https://go.dev/doc/tutorial/web-service-gin&lt;/a&gt;&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;​	本教程介绍了用Go和&lt;a href="https://before80.github.io/go_docs/thirdPkg/gin/gin/"&gt;Gin Web 框架&lt;/a&gt;（Gin）编写RESTful Web服务API的基础知识。&lt;/p&gt;</description></item><item><title>教程：开始使用泛型</title><link>https://before80.github.io/go_docs/docs/GettingStarted/TutorialGettingStartedWithGenerics/</link><pubDate>Thu, 18 May 2023 16:35:08 +0800</pubDate><guid>https://before80.github.io/go_docs/docs/GettingStarted/TutorialGettingStartedWithGenerics/</guid><description>&lt;h1 id="tutorial-getting-started-with-generics---教程开始使用泛型"&gt;Tutorial: Getting started with generics - 教程：开始使用泛型&lt;/h1&gt;
+&lt;blockquote&gt;
+&lt;p&gt;原文：&lt;a href="https://go.dev/doc/tutorial/generics"&gt;https://go.dev/doc/tutorial/generics&lt;/a&gt;&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;​	本教程介绍Go中泛型的基本知识。通过泛型，您可以声明和使用函数或类型，这些函数或类型是为了使用调用代码提供的任何类型集而编写的。&lt;/p&gt;</description></item><item><title>教程：fuzzing 入门</title><link>https://before80.github.io/go_docs/docs/GettingStarted/TutorialGettingStartedWithFuzzing/</link><pubDate>Thu, 18 May 2023 16:35:08 +0800</pubDate><guid>https://before80.github.io/go_docs/docs/GettingStarted/TutorialGettingStartedWithFuzzing/</guid><description>&lt;h1 id="tutorial-getting-started-with-fuzzing---教程fuzzing-入门"&gt;Tutorial: Getting started with fuzzing - 教程：fuzzing 入门&lt;/h1&gt;
+&lt;blockquote&gt;
+&lt;p&gt;原文：&lt;a href="https://go.dev/doc/tutorial/fuzz"&gt;https://go.dev/doc/tutorial/fuzz&lt;/a&gt;&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;​	本教程介绍了Go中的模糊测试的基本知识。通过模糊测试，针对您的测试运行随机数据，试图找到漏洞或导致崩溃的输入。通过fuzzing可以发现的一些漏洞的例子有：&lt;code&gt;SQL注入&lt;/code&gt;、&lt;code&gt;缓冲区溢出&lt;/code&gt;、&lt;code&gt;拒绝服务&lt;/code&gt;和&lt;code&gt;跨站脚本攻击&lt;/code&gt;。&lt;/p&gt;</description></item><item><title>编写 Web 应用程序</title><link>https://before80.github.io/go_docs/docs/GettingStarted/WritingWebApplications/</link><pubDate>Thu, 18 May 2023 16:35:08 +0800</pubDate><guid>https://before80.github.io/go_docs/docs/GettingStarted/WritingWebApplications/</guid><description>&lt;h1 id="writing-web-applications---编写-web-应用程序"&gt;Writing Web Applications - 编写 Web 应用程序&lt;/h1&gt;
+&lt;blockquote&gt;
+&lt;p&gt;原文：&lt;a href="https://go.dev/doc/articles/wiki/"&gt;https://go.dev/doc/articles/wiki/&lt;/a&gt;&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;h2 id="简介"&gt;简介&lt;/h2&gt;
+&lt;p&gt;本教程中涉及的内容：&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;用加载和保存方法创建一个数据结构&lt;/li&gt;
+&lt;li&gt;使用&lt;code&gt;net/http&lt;/code&gt;包来构建Web应用程序&lt;/li&gt;
+&lt;li&gt;使用&lt;code&gt;html/template&lt;/code&gt;包来处理HTML模板&lt;/li&gt;
+&lt;li&gt;使用&lt;code&gt;regexp&lt;/code&gt;包来验证用户的输入&lt;/li&gt;
+&lt;li&gt;使用闭包&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;前提知识：&lt;/p&gt;</description></item><item><title>如何编写 Go 代码</title><link>https://before80.github.io/go_docs/docs/GettingStarted/HowToWriteGoCode/</link><pubDate>Thu, 18 May 2023 16:35:08 +0800</pubDate><guid>https://before80.github.io/go_docs/docs/GettingStarted/HowToWriteGoCode/</guid><description>&lt;h1 id="how-to-write-go-code---如何编写-go-代码"&gt;How to Write Go Code - 如何编写 Go 代码&lt;/h1&gt;
+&lt;blockquote&gt;
+&lt;p&gt;原文：&lt;a href="https://go.dev/doc/code"&gt;https://go.dev/doc/code&lt;/a&gt;&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;h2 id="简介"&gt;简介&lt;/h2&gt;
+&lt;p&gt;​	本文档演示了在模块中开发一个简单的Go包，并介绍了&lt;a href="https://before80.github.io/go_docs/cmd/go/"&gt;go tool&lt;/a&gt;，这是获取、构建和安装Go模块、包和命令的标准方式。&lt;/p&gt;</description></item><item><title>如何编写 Go 代码（使用GOPATH）</title><link>https://before80.github.io/go_docs/docs/GettingStarted/HowToWriteGoCodeWithGOPATH/</link><pubDate>Thu, 18 May 2023 16:35:08 +0800</pubDate><guid>https://before80.github.io/go_docs/docs/GettingStarted/HowToWriteGoCodeWithGOPATH/</guid><description>&lt;h1 id="how-to-write-go-code-with-gopath---如何编写-go-代码使用gopath"&gt;How to Write Go Code (with GOPATH) - 如何编写 Go 代码（使用GOPATH）&lt;/h1&gt;
+&lt;blockquote&gt;
+&lt;p&gt;原文：&lt;a href="https://go.dev/doc/gopath_code"&gt;https://go.dev/doc/gopath_code&lt;/a&gt;&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;h2 id="简介"&gt;简介&lt;/h2&gt;
+&lt;p&gt;​	如果您是Go的新手，请看最近的&lt;a href="../HowToWriteGoCode"&gt;How to Write Go Code&lt;/a&gt;。&lt;/p&gt;
+&lt;p&gt;​	本文演示了一个简单的 Go 包的开发，并介绍了 &lt;a href="https://before80.github.io/go_docs/cmd/go/"&gt;go tool&lt;/a&gt;，这是获取、构建和安装 Go 包和命令的标准方法。&lt;/p&gt;</description></item><item><title/><link>https://before80.github.io/go_docs/docs/GettingStarted/codes/gowiki/edit/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://before80.github.io/go_docs/docs/GettingStarted/codes/gowiki/edit/</guid><description>&lt;h1&gt;Editing {{.Title}}&lt;/h1&gt;
 
-&lt;form action="https://before80.github.io/go_docs/save/{{.Title}}" method="POST">
- &lt;div>&lt;textarea name="body" rows="20" cols="80">{{printf "%s" .Body}}&lt;/textarea>&lt;/div>
- &lt;div>&lt;input type="submit" value="Save">&lt;/div>
-&lt;/form></description></item><item><title/><link>https://before80.github.io/go_docs/docs/GettingStarted/codes/gowiki/view/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://before80.github.io/go_docs/docs/GettingStarted/codes/gowiki/view/</guid><description>&lt;h1>{{.Title}}&lt;/h1>
+&lt;form action="https://before80.github.io/go_docs/save/{{.Title}}" method="POST"&gt;
+ &lt;div&gt;&lt;textarea name="body" rows="20" cols="80"&gt;{{printf "%s" .Body}}&lt;/textarea&gt;&lt;/div&gt;
+ &lt;div&gt;&lt;input type="submit" value="Save"&gt;&lt;/div&gt;
+&lt;/form&gt;</description></item><item><title/><link>https://before80.github.io/go_docs/docs/GettingStarted/codes/gowiki/view/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://before80.github.io/go_docs/docs/GettingStarted/codes/gowiki/view/</guid><description>&lt;h1&gt;{{.Title}}&lt;/h1&gt;
 
-&lt;p>[&lt;a href="https://before80.github.io/go_docs/edit/{{.Title}}">edit&lt;/a>]&lt;/p>
+&lt;p&gt;[&lt;a href="https://before80.github.io/go_docs/edit/{{.Title}}"&gt;edit&lt;/a&gt;]&lt;/p&gt;
 
-&lt;div>{{printf "%s" .Body}}&lt;/div></description></item></channel></rss>
+&lt;div&gt;{{printf "%s" .Body}}&lt;/div&gt;</description></item></channel></rss>

@@ -1,14 +1,15 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>用法 on Go 中文档集</title><link>https://before80.github.io/go_docs/delve/usage/</link><description>Recent content in 用法 on Go 中文档集</description><generator>Hugo</generator><language>zh-cn</language><lastBuildDate>Fri, 13 Dec 2024 20:21:31 +0800</lastBuildDate><atom:link href="https://before80.github.io/go_docs/delve/usage/index.xml" rel="self" type="application/rss+xml"/><item><title>dlv_version</title><link>https://before80.github.io/go_docs/delve/usage/dlv_version/</link><pubDate>Mon, 09 Dec 2024 08:06:54 +0800</pubDate><guid>https://before80.github.io/go_docs/delve/usage/dlv_version/</guid><description>&lt;blockquote>
-&lt;p>原文：&lt;a href="https://github.com/go-delve/delve/blob/master/Documentation/usage/dlv_version.md">https://github.com/go-delve/delve/blob/master/Documentation/usage/dlv_version.md&lt;/a>&lt;/p>
-&lt;p>收录该文档时间： &lt;code>2024-12-09T08:06:54+08:00&lt;/code>&lt;/p>&lt;/blockquote>
-&lt;h2 id="dlv-version">dlv version&lt;a class="td-heading-self-link" href="#dlv-version" aria-label="Heading self-link">&lt;/a>&lt;/h2>
-&lt;p>Prints version.&lt;/p>
-&lt;p>​	显示版本信息。&lt;/p>
-&lt;pre tabindex="0">&lt;code>dlv version [flags]
-&lt;/code>&lt;/pre>&lt;h3 id="options">Options&lt;a class="td-heading-self-link" href="#options" aria-label="Heading self-link">&lt;/a>&lt;/h3>
-&lt;pre tabindex="0">&lt;code> -h, --help help for version
-&lt;/code>&lt;/pre>&lt;h3 id="从父命令继承的选项-options-inherited-from-parent-commands">从父命令继承的选项 Options inherited from parent commands&lt;a class="td-heading-self-link" href="#%e4%bb%8e%e7%88%b6%e5%91%bd%e4%bb%a4%e7%bb%a7%e6%89%bf%e7%9a%84%e9%80%89%e9%a1%b9-options-inherited-from-parent-commands" aria-label="Heading self-link">&lt;/a>&lt;/h3>
-&lt;pre tabindex="0">&lt;code> --accept-multiclient Allows a headless server to accept multiple client connections via JSON-RPC or DAP.
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>用法 on Go 中文档集</title><link>https://before80.github.io/go_docs/delve/usage/</link><description>Recent content in 用法 on Go 中文档集</description><generator>Hugo</generator><language>zh-cn</language><lastBuildDate>Fri, 13 Dec 2024 20:21:31 +0800</lastBuildDate><atom:link href="https://before80.github.io/go_docs/delve/usage/index.xml" rel="self" type="application/rss+xml"/><item><title>dlv_version</title><link>https://before80.github.io/go_docs/delve/usage/dlv_version/</link><pubDate>Mon, 09 Dec 2024 08:06:54 +0800</pubDate><guid>https://before80.github.io/go_docs/delve/usage/dlv_version/</guid><description>&lt;blockquote&gt;
+&lt;p&gt;原文：&lt;a href="https://github.com/go-delve/delve/blob/master/Documentation/usage/dlv_version.md"&gt;https://github.com/go-delve/delve/blob/master/Documentation/usage/dlv_version.md&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;收录该文档时间： &lt;code&gt;2024-12-09T08:06:54+08:00&lt;/code&gt;&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;h2 id="dlv-version"&gt;dlv version&lt;/h2&gt;
+&lt;p&gt;Prints version.&lt;/p&gt;
+&lt;p&gt;​	显示版本信息。&lt;/p&gt;
+&lt;pre tabindex="0"&gt;&lt;code&gt;dlv version [flags]
+&lt;/code&gt;&lt;/pre&gt;&lt;h3 id="options"&gt;Options&lt;/h3&gt;
+&lt;pre tabindex="0"&gt;&lt;code&gt; -h, --help help for version
+&lt;/code&gt;&lt;/pre&gt;&lt;h3 id="从父命令继承的选项-options-inherited-from-parent-commands"&gt;从父命令继承的选项 Options inherited from parent commands&lt;/h3&gt;
+&lt;pre tabindex="0"&gt;&lt;code&gt; --accept-multiclient Allows a headless server to accept multiple client connections via JSON-RPC or DAP.
  									允许在无头服务器模式下通过 JSON-RPC 或 DAP 接受多个客户端连接。
  									
  --allow-non-terminal-interactive Allows interactive sessions of Delve that don&amp;#39;t have a terminal as stdin, stdout and stderr
@@ -54,41 +55,44 @@
  											
  --wd string Working directory for running the program.
  									运行程序的工作目录。
-&lt;/code>&lt;/pre>&lt;h3 id="see-also">SEE ALSO&lt;a class="td-heading-self-link" href="#see-also" aria-label="Heading self-link">&lt;/a>&lt;/h3>
-&lt;ul>
-&lt;li>&lt;a href="https://github.com/go-delve/delve/blob/master/Documentation/usage/dlv.md">dlv&lt;/a> - Delve is a debugger for the Go programming language.
-&lt;ul>
-&lt;li>&lt;a href="https://github.com/go-delve/delve/blob/master/Documentation/usage/dlv.md">dlv&lt;/a> - Delve 是 Go 编程语言的调试器。&lt;/li>
-&lt;/ul>
-&lt;/li>
-&lt;/ul></description></item><item><title>dlv_trace</title><link>https://before80.github.io/go_docs/delve/usage/dlv_trace/</link><pubDate>Mon, 09 Dec 2024 08:06:45 +0800</pubDate><guid>https://before80.github.io/go_docs/delve/usage/dlv_trace/</guid><description>&lt;blockquote>
-&lt;p>原文：&lt;a href="https://github.com/go-delve/delve/blob/master/Documentation/usage/dlv_trace.md">https://github.com/go-delve/delve/blob/master/Documentation/usage/dlv_trace.md&lt;/a>&lt;/p>
-&lt;p>收录该文档时间： &lt;code>2024-12-09T08:06:45+08:00&lt;/code>&lt;/p>&lt;/blockquote>
-&lt;h2 id="dlv-trace">dlv trace&lt;a class="td-heading-self-link" href="#dlv-trace" aria-label="Heading self-link">&lt;/a>&lt;/h2>
-&lt;p>Compile and begin tracing program.&lt;/p>
-&lt;p>​	编译并开始跟踪程序。&lt;/p>
-&lt;h3 id="synopsis">Synopsis&lt;a class="td-heading-self-link" href="#synopsis" aria-label="Heading self-link">&lt;/a>&lt;/h3>
-&lt;p>Trace program execution.&lt;/p>
-&lt;p>​	跟踪程序的执行。&lt;/p>
-&lt;p>The trace sub command will set a tracepoint on every function matching the provided regular expression and output information when tracepoint is hit. This is useful if you do not want to begin an entire debug session, but merely want to know what functions your process is executing.&lt;/p></description></item><item><title>dlv_test</title><link>https://before80.github.io/go_docs/delve/usage/dlv_test/</link><pubDate>Mon, 09 Dec 2024 08:06:34 +0800</pubDate><guid>https://before80.github.io/go_docs/delve/usage/dlv_test/</guid><description>&lt;blockquote>
-&lt;p>原文：&lt;a href="https://github.com/go-delve/delve/blob/master/Documentation/usage/dlv_test.md">https://github.com/go-delve/delve/blob/master/Documentation/usage/dlv_test.md&lt;/a>&lt;/p>
-&lt;p>收录该文档时间： &lt;code>2024-12-09T08:06:34+08:00&lt;/code>&lt;/p>&lt;/blockquote>
-&lt;h2 id="dlv-test">dlv test&lt;a class="td-heading-self-link" href="#dlv-test" aria-label="Heading self-link">&lt;/a>&lt;/h2>
-&lt;p>Compile test binary and begin debugging program.&lt;/p>
-&lt;p>​	编译测试二进制文件并开始调试程序。&lt;/p>
-&lt;h3 id="synopsis">Synopsis&lt;a class="td-heading-self-link" href="#synopsis" aria-label="Heading self-link">&lt;/a>&lt;/h3>
-&lt;p>Compiles a test binary with optimizations disabled and begins a new debug session.&lt;/p>
-&lt;p>​	编译一个没有优化的测试二进制文件，并开始一个新的调试会话。&lt;/p></description></item><item><title>dlv_run</title><link>https://before80.github.io/go_docs/delve/usage/dlv_run/</link><pubDate>Mon, 09 Dec 2024 08:06:27 +0800</pubDate><guid>https://before80.github.io/go_docs/delve/usage/dlv_run/</guid><description>&lt;blockquote>
-&lt;p>原文：&lt;a href="https://github.com/go-delve/delve/blob/master/Documentation/usage/dlv_run.md">https://github.com/go-delve/delve/blob/master/Documentation/usage/dlv_run.md&lt;/a>&lt;/p>
-&lt;p>收录该文档时间： &lt;code>2024-12-09T08:06:27+08:00&lt;/code>&lt;/p>&lt;/blockquote>
-&lt;h2 id="dlv-run">dlv run&lt;a class="td-heading-self-link" href="#dlv-run" aria-label="Heading self-link">&lt;/a>&lt;/h2>
-&lt;p>Deprecated command. Use &amp;lsquo;debug&amp;rsquo; instead.&lt;/p>
-&lt;p>​	已弃用的命令。请改用 &lt;code>debug&lt;/code> 命令。&lt;/p>
-&lt;pre tabindex="0">&lt;code>dlv run [flags]
-&lt;/code>&lt;/pre>&lt;h3 id="options">Options&lt;a class="td-heading-self-link" href="#options" aria-label="Heading self-link">&lt;/a>&lt;/h3>
-&lt;pre tabindex="0">&lt;code> -h, --help help for run
-&lt;/code>&lt;/pre>&lt;h3 id="options-inherited-from-parent-commands">Options inherited from parent commands&lt;a class="td-heading-self-link" href="#options-inherited-from-parent-commands" aria-label="Heading self-link">&lt;/a>&lt;/h3>
-&lt;pre tabindex="0">&lt;code> --accept-multiclient Allows a headless server to accept multiple client connections via JSON-RPC or DAP.
+&lt;/code&gt;&lt;/pre&gt;&lt;h3 id="see-also"&gt;SEE ALSO&lt;/h3&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;a href="https://github.com/go-delve/delve/blob/master/Documentation/usage/dlv.md"&gt;dlv&lt;/a&gt; - Delve is a debugger for the Go programming language.
+&lt;ul&gt;
+&lt;li&gt;&lt;a href="https://github.com/go-delve/delve/blob/master/Documentation/usage/dlv.md"&gt;dlv&lt;/a&gt; - Delve 是 Go 编程语言的调试器。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;/ul&gt;</description></item><item><title>dlv_trace</title><link>https://before80.github.io/go_docs/delve/usage/dlv_trace/</link><pubDate>Mon, 09 Dec 2024 08:06:45 +0800</pubDate><guid>https://before80.github.io/go_docs/delve/usage/dlv_trace/</guid><description>&lt;blockquote&gt;
+&lt;p&gt;原文：&lt;a href="https://github.com/go-delve/delve/blob/master/Documentation/usage/dlv_trace.md"&gt;https://github.com/go-delve/delve/blob/master/Documentation/usage/dlv_trace.md&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;收录该文档时间： &lt;code&gt;2024-12-09T08:06:45+08:00&lt;/code&gt;&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;h2 id="dlv-trace"&gt;dlv trace&lt;/h2&gt;
+&lt;p&gt;Compile and begin tracing program.&lt;/p&gt;
+&lt;p&gt;​	编译并开始跟踪程序。&lt;/p&gt;
+&lt;h3 id="synopsis"&gt;Synopsis&lt;/h3&gt;
+&lt;p&gt;Trace program execution.&lt;/p&gt;
+&lt;p&gt;​	跟踪程序的执行。&lt;/p&gt;
+&lt;p&gt;The trace sub command will set a tracepoint on every function matching the provided regular expression and output information when tracepoint is hit. This is useful if you do not want to begin an entire debug session, but merely want to know what functions your process is executing.&lt;/p&gt;</description></item><item><title>dlv_test</title><link>https://before80.github.io/go_docs/delve/usage/dlv_test/</link><pubDate>Mon, 09 Dec 2024 08:06:34 +0800</pubDate><guid>https://before80.github.io/go_docs/delve/usage/dlv_test/</guid><description>&lt;blockquote&gt;
+&lt;p&gt;原文：&lt;a href="https://github.com/go-delve/delve/blob/master/Documentation/usage/dlv_test.md"&gt;https://github.com/go-delve/delve/blob/master/Documentation/usage/dlv_test.md&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;收录该文档时间： &lt;code&gt;2024-12-09T08:06:34+08:00&lt;/code&gt;&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;h2 id="dlv-test"&gt;dlv test&lt;/h2&gt;
+&lt;p&gt;Compile test binary and begin debugging program.&lt;/p&gt;
+&lt;p&gt;​	编译测试二进制文件并开始调试程序。&lt;/p&gt;
+&lt;h3 id="synopsis"&gt;Synopsis&lt;/h3&gt;
+&lt;p&gt;Compiles a test binary with optimizations disabled and begins a new debug session.&lt;/p&gt;
+&lt;p&gt;​	编译一个没有优化的测试二进制文件，并开始一个新的调试会话。&lt;/p&gt;</description></item><item><title>dlv_run</title><link>https://before80.github.io/go_docs/delve/usage/dlv_run/</link><pubDate>Mon, 09 Dec 2024 08:06:27 +0800</pubDate><guid>https://before80.github.io/go_docs/delve/usage/dlv_run/</guid><description>&lt;blockquote&gt;
+&lt;p&gt;原文：&lt;a href="https://github.com/go-delve/delve/blob/master/Documentation/usage/dlv_run.md"&gt;https://github.com/go-delve/delve/blob/master/Documentation/usage/dlv_run.md&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;收录该文档时间： &lt;code&gt;2024-12-09T08:06:27+08:00&lt;/code&gt;&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;h2 id="dlv-run"&gt;dlv run&lt;/h2&gt;
+&lt;p&gt;Deprecated command. Use &amp;lsquo;debug&amp;rsquo; instead.&lt;/p&gt;
+&lt;p&gt;​	已弃用的命令。请改用 &lt;code&gt;debug&lt;/code&gt; 命令。&lt;/p&gt;
+&lt;pre tabindex="0"&gt;&lt;code&gt;dlv run [flags]
+&lt;/code&gt;&lt;/pre&gt;&lt;h3 id="options"&gt;Options&lt;/h3&gt;
+&lt;pre tabindex="0"&gt;&lt;code&gt; -h, --help help for run
+&lt;/code&gt;&lt;/pre&gt;&lt;h3 id="options-inherited-from-parent-commands"&gt;Options inherited from parent commands&lt;/h3&gt;
+&lt;pre tabindex="0"&gt;&lt;code&gt; --accept-multiclient Allows a headless server to accept multiple client connections via JSON-RPC or DAP.
  									允许无头服务器通过 JSON-RPC 或 DAP 接受多个客户端连接。
  
  --allow-non-terminal-interactive Allows interactive sessions of Delve that don&amp;#39;t have a terminal as stdin, stdout and stderr
@@ -135,86 +139,96 @@
  											
  --wd string Working directory for running the program.
  									运行程序的工作目录。
-&lt;/code>&lt;/pre>&lt;h3 id="see-also">SEE ALSO&lt;a class="td-heading-self-link" href="#see-also" aria-label="Heading self-link">&lt;/a>&lt;/h3>
-&lt;ul>
-&lt;li>&lt;a href="https://github.com/go-delve/delve/blob/master/Documentation/usage/dlv.md">dlv&lt;/a> - Delve is a debugger for the Go programming language.
-&lt;ul>
-&lt;li>&lt;a href="https://github.com/go-delve/delve/blob/master/Documentation/usage/dlv.md">dlv&lt;/a> - Delve 是 Go 编程语言的调试器。&lt;/li>
-&lt;/ul>
-&lt;/li>
-&lt;/ul></description></item><item><title>dlv_relay</title><link>https://before80.github.io/go_docs/delve/usage/dlv_relay/</link><pubDate>Mon, 09 Dec 2024 08:06:19 +0800</pubDate><guid>https://before80.github.io/go_docs/delve/usage/dlv_relay/</guid><description>&lt;blockquote>
-&lt;p>原文：&lt;a href="https://github.com/go-delve/delve/blob/master/Documentation/usage/dlv_replay.md">https://github.com/go-delve/delve/blob/master/Documentation/usage/dlv_replay.md&lt;/a>&lt;/p>
-&lt;p>收录该文档时间： &lt;code>2024-12-09T08:06:19+08:00&lt;/code>&lt;/p>&lt;/blockquote>
-&lt;h2 id="dlv-replay">dlv replay&lt;a class="td-heading-self-link" href="#dlv-replay" aria-label="Heading self-link">&lt;/a>&lt;/h2>
-&lt;p>Replays a rr trace.&lt;/p>
-&lt;p>​	回放 rr 跟踪。&lt;/p>
-&lt;h3 id="synopsis">Synopsis&lt;a class="td-heading-self-link" href="#synopsis" aria-label="Heading self-link">&lt;/a>&lt;/h3>
-&lt;p>The replay command will open a trace generated by mozilla rr. Mozilla rr must be installed: &lt;a href="https://github.com/mozilla/rr">https://github.com/mozilla/rr&lt;/a>&lt;/p>
-&lt;p>​	&lt;code>replay&lt;/code> 命令将打开由 Mozilla rr 生成的跟踪文件。必须安装 Mozilla rr：https://github.com/mozilla/rr&lt;/p></description></item><item><title>dlv_redirect</title><link>https://before80.github.io/go_docs/delve/usage/dlv_redirect/</link><pubDate>Mon, 09 Dec 2024 08:06:10 +0800</pubDate><guid>https://before80.github.io/go_docs/delve/usage/dlv_redirect/</guid><description>&lt;blockquote>
-&lt;p>原文：&lt;a href="https://github.com/go-delve/delve/blob/master/Documentation/usage/dlv_redirect.md">https://github.com/go-delve/delve/blob/master/Documentation/usage/dlv_redirect.md&lt;/a>&lt;/p>
-&lt;p>收录该文档时间： &lt;code>2024-12-09T08:06:10+08:00&lt;/code>&lt;/p>&lt;/blockquote>
-&lt;h2 id="dlv-redirect">dlv redirect&lt;a class="td-heading-self-link" href="#dlv-redirect" aria-label="Heading self-link">&lt;/a>&lt;/h2>
-&lt;p>Help about file redirection.&lt;/p>
-&lt;p>​	关于文件重定向的帮助信息。&lt;/p>
-&lt;h3 id="synopsis">Synopsis&lt;a class="td-heading-self-link" href="#synopsis" aria-label="Heading self-link">&lt;/a>&lt;/h3>
-&lt;p>The standard file descriptors of the target process can be controlled using the &amp;lsquo;-r&amp;rsquo; and &amp;lsquo;&amp;ndash;tty&amp;rsquo; arguments.&lt;/p>
-&lt;p>​	可以使用 &lt;code>-r&lt;/code> 和 &lt;code>--tty&lt;/code> 参数控制目标进程的标准文件描述符。&lt;/p></description></item><item><title>dlv_log</title><link>https://before80.github.io/go_docs/delve/usage/dlv_log/</link><pubDate>Mon, 09 Dec 2024 08:06:01 +0800</pubDate><guid>https://before80.github.io/go_docs/delve/usage/dlv_log/</guid><description>&lt;blockquote>
-&lt;p>原文：&lt;a href="https://github.com/go-delve/delve/blob/master/Documentation/usage/dlv_log.md">https://github.com/go-delve/delve/blob/master/Documentation/usage/dlv_log.md&lt;/a>&lt;/p>
-&lt;p>收录该文档时间： &lt;code>2024-12-09T08:06:01+08:00&lt;/code>&lt;/p>&lt;/blockquote>
-&lt;h2 id="dlv-log">dlv log&lt;a class="td-heading-self-link" href="#dlv-log" aria-label="Heading self-link">&lt;/a>&lt;/h2>
-&lt;p>Help about logging flags.&lt;/p>
-&lt;p>​	关于日志记录标志的帮助信息。&lt;/p>
-&lt;h3 id="synopsis">Synopsis&lt;a class="td-heading-self-link" href="#synopsis" aria-label="Heading self-link">&lt;/a>&lt;/h3>
-&lt;p>Logging can be enabled by specifying the &amp;ndash;log flag and using the &amp;ndash;log-output flag to select which components should produce logs.&lt;/p>
-&lt;p>​	可以通过指定 &lt;code>--log&lt;/code> 标志并使用 &lt;code>--log-output&lt;/code> 标志选择哪些组件应生成日志来启用日志记录。&lt;/p></description></item><item><title>dlv_exec</title><link>https://before80.github.io/go_docs/delve/usage/dlv_exec/</link><pubDate>Mon, 09 Dec 2024 08:05:52 +0800</pubDate><guid>https://before80.github.io/go_docs/delve/usage/dlv_exec/</guid><description>&lt;blockquote>
-&lt;p>原文：&lt;a href="https://github.com/go-delve/delve/blob/master/Documentation/usage/dlv_exec.md">https://github.com/go-delve/delve/blob/master/Documentation/usage/dlv_exec.md&lt;/a>&lt;/p>
-&lt;p>收录该文档时间： &lt;code>2024-12-09T08:05:52+08:00&lt;/code>&lt;/p>&lt;/blockquote>
-&lt;h2 id="dlv-exec">dlv exec&lt;a class="td-heading-self-link" href="#dlv-exec" aria-label="Heading self-link">&lt;/a>&lt;/h2>
-&lt;p>Execute a precompiled binary, and begin a debug session.&lt;/p>
-&lt;p>​	执行预编译的二进制文件并开始调试会话。&lt;/p>
-&lt;h3 id="synopsis">Synopsis&lt;a class="td-heading-self-link" href="#synopsis" aria-label="Heading self-link">&lt;/a>&lt;/h3>
-&lt;p>This command will cause Delve to exec the binary and immediately attach to it to begin a new debug session. Please note that if the binary was not compiled with optimizations disabled, it may be difficult to properly debug it. Please consider compiling debugging binaries with -gcflags=&amp;ldquo;all=-N -l&amp;rdquo; on Go 1.10 or later, -gcflags=&amp;quot;-N -l&amp;quot; on earlier versions of Go.&lt;/p></description></item><item><title>dlv_debug</title><link>https://before80.github.io/go_docs/delve/usage/dlv_debug/</link><pubDate>Mon, 09 Dec 2024 08:05:43 +0800</pubDate><guid>https://before80.github.io/go_docs/delve/usage/dlv_debug/</guid><description>&lt;blockquote>
-&lt;p>原文：&lt;a href="https://github.com/go-delve/delve/blob/master/Documentation/usage/dlv_debug.md">https://github.com/go-delve/delve/blob/master/Documentation/usage/dlv_debug.md&lt;/a>&lt;/p>
-&lt;p>收录该文档时间： &lt;code>2024-12-09T08:05:43+08:00&lt;/code>&lt;/p>&lt;/blockquote>
-&lt;h2 id="dlv-debug">dlv debug&lt;a class="td-heading-self-link" href="#dlv-debug" aria-label="Heading self-link">&lt;/a>&lt;/h2>
-&lt;p>Compile and begin debugging main package in current directory, or the package specified.&lt;/p>
-&lt;p>​	编译并开始调试当前目录中的主包，或者指定的包。&lt;/p>
-&lt;h3 id="synopsis">Synopsis&lt;a class="td-heading-self-link" href="#synopsis" aria-label="Heading self-link">&lt;/a>&lt;/h3>
-&lt;p>Compiles your program with optimizations disabled, starts and attaches to it.&lt;/p>
-&lt;p>​	该命令会禁用优化编译您的程序，并启动并附加到它。&lt;/p></description></item><item><title>dlv_dap</title><link>https://before80.github.io/go_docs/delve/usage/dlv_dap/</link><pubDate>Mon, 09 Dec 2024 08:05:37 +0800</pubDate><guid>https://before80.github.io/go_docs/delve/usage/dlv_dap/</guid><description>&lt;blockquote>
-&lt;p>原文：&lt;a href="https://github.com/go-delve/delve/blob/master/Documentation/usage/dlv_dap.md">https://github.com/go-delve/delve/blob/master/Documentation/usage/dlv_dap.md&lt;/a>&lt;/p>
-&lt;p>收录该文档时间： &lt;code>2024-12-09T08:05:37+08:00&lt;/code>&lt;/p>&lt;/blockquote>
-&lt;h2 id="dlv-dap">dlv dap&lt;a class="td-heading-self-link" href="#dlv-dap" aria-label="Heading self-link">&lt;/a>&lt;/h2>
-&lt;p>Starts a headless TCP server communicating via Debug Adaptor Protocol (DAP).&lt;/p>
-&lt;p>​	启动一个通过调试适配器协议（DAP）通信的无界面 TCP 服务器。&lt;/p>
-&lt;h3 id="synopsis">Synopsis&lt;a class="td-heading-self-link" href="#synopsis" aria-label="Heading self-link">&lt;/a>&lt;/h3>
-&lt;p>Starts a headless TCP server communicating via Debug Adaptor Protocol (DAP).&lt;/p></description></item><item><title>dlv_core</title><link>https://before80.github.io/go_docs/delve/usage/dlv_core/</link><pubDate>Mon, 09 Dec 2024 08:05:27 +0800</pubDate><guid>https://before80.github.io/go_docs/delve/usage/dlv_core/</guid><description>&lt;blockquote>
-&lt;p>原文：&lt;a href="https://github.com/go-delve/delve/blob/master/Documentation/usage/dlv_core.md">https://github.com/go-delve/delve/blob/master/Documentation/usage/dlv_core.md&lt;/a>&lt;/p>
-&lt;p>收录该文档时间： &lt;code>2024-12-09T08:05:27+08:00&lt;/code>&lt;/p>&lt;/blockquote>
-&lt;h2 id="dlv-core">dlv core&lt;a class="td-heading-self-link" href="#dlv-core" aria-label="Heading self-link">&lt;/a>&lt;/h2>
-&lt;p>Examine a core dump.&lt;/p>
-&lt;p>​	检查核心转储。&lt;/p>
-&lt;h3 id="synopsis">Synopsis&lt;a class="td-heading-self-link" href="#synopsis" aria-label="Heading self-link">&lt;/a>&lt;/h3>
-&lt;p>Examine a core dump (only supports linux and windows core dumps).&lt;/p>
-&lt;p>​	检查核心转储（仅支持 Linux 和 Windows 的核心转储）。&lt;/p>
-&lt;p>The core command will open the specified core file and the associated executable and let you examine the state of the process when the core dump was taken.&lt;/p></description></item><item><title>dlv_connect</title><link>https://before80.github.io/go_docs/delve/usage/dlv_connect/</link><pubDate>Mon, 09 Dec 2024 08:05:19 +0800</pubDate><guid>https://before80.github.io/go_docs/delve/usage/dlv_connect/</guid><description>&lt;blockquote>
-&lt;p>原文：&lt;a href="https://github.com/go-delve/delve/blob/master/Documentation/usage/dlv_connect.md">https://github.com/go-delve/delve/blob/master/Documentation/usage/dlv_connect.md&lt;/a>&lt;/p>
-&lt;p>收录该文档时间： &lt;code>2024-12-09T08:05:19+08:00&lt;/code>&lt;/p>&lt;/blockquote>
-&lt;h2 id="dlv-connect">dlv connect&lt;a class="td-heading-self-link" href="#dlv-connect" aria-label="Heading self-link">&lt;/a>&lt;/h2>
-&lt;p>Connect to a headless debug server with a terminal client.&lt;/p>
-&lt;p>​	使用终端客户端连接到无界面调试服务器。&lt;/p>
-&lt;h3 id="synopsis">Synopsis&lt;a class="td-heading-self-link" href="#synopsis" aria-label="Heading self-link">&lt;/a>&lt;/h3>
-&lt;p>Connect to a running headless debug server with a terminal client. Prefix with &amp;lsquo;unix:&amp;rsquo; to use a unix domain socket.&lt;/p>
-&lt;p>​	使用终端客户端连接到正在运行的无界面调试服务器。使用 &amp;lsquo;unix:&amp;rsquo; 前缀来使用 Unix 域套接字。&lt;/p></description></item><item><title>dlv_backend</title><link>https://before80.github.io/go_docs/delve/usage/dlv_backend/</link><pubDate>Mon, 09 Dec 2024 08:05:05 +0800</pubDate><guid>https://before80.github.io/go_docs/delve/usage/dlv_backend/</guid><description>&lt;blockquote>
-&lt;p>原文：&lt;a href="https://github.com/go-delve/delve/blob/master/Documentation/usage/dlv_backend.md">https://github.com/go-delve/delve/blob/master/Documentation/usage/dlv_backend.md&lt;/a>&lt;/p>
-&lt;p>收录该文档时间： &lt;code>2024-12-09T08:05:05+08:00&lt;/code>&lt;/p>&lt;/blockquote>
-&lt;h2 id="dlv-backend">dlv backend&lt;a class="td-heading-self-link" href="#dlv-backend" aria-label="Heading self-link">&lt;/a>&lt;/h2>
-&lt;p>Help about the &amp;ndash;backend flag.&lt;/p>
-&lt;p>​	关于 &lt;code>--backend&lt;/code> 标志的帮助信息。&lt;/p>
-&lt;h3 id="synopsis">Synopsis&lt;a class="td-heading-self-link" href="#synopsis" aria-label="Heading self-link">&lt;/a>&lt;/h3>
-&lt;p>The &amp;ndash;backend flag specifies which backend should be used, possible values are:&lt;/p>
-&lt;p>​	&lt;code>--backend&lt;/code> 标志指定要使用的后端，可能的值为：&lt;/p>
-&lt;pre tabindex="0">&lt;code>default		Uses lldb on macOS, native everywhere else.
+&lt;/code&gt;&lt;/pre&gt;&lt;h3 id="see-also"&gt;SEE ALSO&lt;/h3&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;a href="https://github.com/go-delve/delve/blob/master/Documentation/usage/dlv.md"&gt;dlv&lt;/a&gt; - Delve is a debugger for the Go programming language.
+&lt;ul&gt;
+&lt;li&gt;&lt;a href="https://github.com/go-delve/delve/blob/master/Documentation/usage/dlv.md"&gt;dlv&lt;/a&gt; - Delve 是 Go 编程语言的调试器。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;/ul&gt;</description></item><item><title>dlv_relay</title><link>https://before80.github.io/go_docs/delve/usage/dlv_relay/</link><pubDate>Mon, 09 Dec 2024 08:06:19 +0800</pubDate><guid>https://before80.github.io/go_docs/delve/usage/dlv_relay/</guid><description>&lt;blockquote&gt;
+&lt;p&gt;原文：&lt;a href="https://github.com/go-delve/delve/blob/master/Documentation/usage/dlv_replay.md"&gt;https://github.com/go-delve/delve/blob/master/Documentation/usage/dlv_replay.md&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;收录该文档时间： &lt;code&gt;2024-12-09T08:06:19+08:00&lt;/code&gt;&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;h2 id="dlv-replay"&gt;dlv replay&lt;/h2&gt;
+&lt;p&gt;Replays a rr trace.&lt;/p&gt;
+&lt;p&gt;​	回放 rr 跟踪。&lt;/p&gt;
+&lt;h3 id="synopsis"&gt;Synopsis&lt;/h3&gt;
+&lt;p&gt;The replay command will open a trace generated by mozilla rr. Mozilla rr must be installed: &lt;a href="https://github.com/mozilla/rr"&gt;https://github.com/mozilla/rr&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;​	&lt;code&gt;replay&lt;/code&gt; 命令将打开由 Mozilla rr 生成的跟踪文件。必须安装 Mozilla rr：https://github.com/mozilla/rr&lt;/p&gt;</description></item><item><title>dlv_redirect</title><link>https://before80.github.io/go_docs/delve/usage/dlv_redirect/</link><pubDate>Mon, 09 Dec 2024 08:06:10 +0800</pubDate><guid>https://before80.github.io/go_docs/delve/usage/dlv_redirect/</guid><description>&lt;blockquote&gt;
+&lt;p&gt;原文：&lt;a href="https://github.com/go-delve/delve/blob/master/Documentation/usage/dlv_redirect.md"&gt;https://github.com/go-delve/delve/blob/master/Documentation/usage/dlv_redirect.md&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;收录该文档时间： &lt;code&gt;2024-12-09T08:06:10+08:00&lt;/code&gt;&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;h2 id="dlv-redirect"&gt;dlv redirect&lt;/h2&gt;
+&lt;p&gt;Help about file redirection.&lt;/p&gt;
+&lt;p&gt;​	关于文件重定向的帮助信息。&lt;/p&gt;
+&lt;h3 id="synopsis"&gt;Synopsis&lt;/h3&gt;
+&lt;p&gt;The standard file descriptors of the target process can be controlled using the &amp;lsquo;-r&amp;rsquo; and &amp;lsquo;&amp;ndash;tty&amp;rsquo; arguments.&lt;/p&gt;
+&lt;p&gt;​	可以使用 &lt;code&gt;-r&lt;/code&gt; 和 &lt;code&gt;--tty&lt;/code&gt; 参数控制目标进程的标准文件描述符。&lt;/p&gt;</description></item><item><title>dlv_log</title><link>https://before80.github.io/go_docs/delve/usage/dlv_log/</link><pubDate>Mon, 09 Dec 2024 08:06:01 +0800</pubDate><guid>https://before80.github.io/go_docs/delve/usage/dlv_log/</guid><description>&lt;blockquote&gt;
+&lt;p&gt;原文：&lt;a href="https://github.com/go-delve/delve/blob/master/Documentation/usage/dlv_log.md"&gt;https://github.com/go-delve/delve/blob/master/Documentation/usage/dlv_log.md&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;收录该文档时间： &lt;code&gt;2024-12-09T08:06:01+08:00&lt;/code&gt;&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;h2 id="dlv-log"&gt;dlv log&lt;/h2&gt;
+&lt;p&gt;Help about logging flags.&lt;/p&gt;
+&lt;p&gt;​	关于日志记录标志的帮助信息。&lt;/p&gt;
+&lt;h3 id="synopsis"&gt;Synopsis&lt;/h3&gt;
+&lt;p&gt;Logging can be enabled by specifying the &amp;ndash;log flag and using the &amp;ndash;log-output flag to select which components should produce logs.&lt;/p&gt;
+&lt;p&gt;​	可以通过指定 &lt;code&gt;--log&lt;/code&gt; 标志并使用 &lt;code&gt;--log-output&lt;/code&gt; 标志选择哪些组件应生成日志来启用日志记录。&lt;/p&gt;</description></item><item><title>dlv_exec</title><link>https://before80.github.io/go_docs/delve/usage/dlv_exec/</link><pubDate>Mon, 09 Dec 2024 08:05:52 +0800</pubDate><guid>https://before80.github.io/go_docs/delve/usage/dlv_exec/</guid><description>&lt;blockquote&gt;
+&lt;p&gt;原文：&lt;a href="https://github.com/go-delve/delve/blob/master/Documentation/usage/dlv_exec.md"&gt;https://github.com/go-delve/delve/blob/master/Documentation/usage/dlv_exec.md&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;收录该文档时间： &lt;code&gt;2024-12-09T08:05:52+08:00&lt;/code&gt;&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;h2 id="dlv-exec"&gt;dlv exec&lt;/h2&gt;
+&lt;p&gt;Execute a precompiled binary, and begin a debug session.&lt;/p&gt;
+&lt;p&gt;​	执行预编译的二进制文件并开始调试会话。&lt;/p&gt;
+&lt;h3 id="synopsis"&gt;Synopsis&lt;/h3&gt;
+&lt;p&gt;This command will cause Delve to exec the binary and immediately attach to it to begin a new debug session. Please note that if the binary was not compiled with optimizations disabled, it may be difficult to properly debug it. Please consider compiling debugging binaries with -gcflags=&amp;ldquo;all=-N -l&amp;rdquo; on Go 1.10 or later, -gcflags=&amp;quot;-N -l&amp;quot; on earlier versions of Go.&lt;/p&gt;</description></item><item><title>dlv_debug</title><link>https://before80.github.io/go_docs/delve/usage/dlv_debug/</link><pubDate>Mon, 09 Dec 2024 08:05:43 +0800</pubDate><guid>https://before80.github.io/go_docs/delve/usage/dlv_debug/</guid><description>&lt;blockquote&gt;
+&lt;p&gt;原文：&lt;a href="https://github.com/go-delve/delve/blob/master/Documentation/usage/dlv_debug.md"&gt;https://github.com/go-delve/delve/blob/master/Documentation/usage/dlv_debug.md&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;收录该文档时间： &lt;code&gt;2024-12-09T08:05:43+08:00&lt;/code&gt;&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;h2 id="dlv-debug"&gt;dlv debug&lt;/h2&gt;
+&lt;p&gt;Compile and begin debugging main package in current directory, or the package specified.&lt;/p&gt;
+&lt;p&gt;​	编译并开始调试当前目录中的主包，或者指定的包。&lt;/p&gt;
+&lt;h3 id="synopsis"&gt;Synopsis&lt;/h3&gt;
+&lt;p&gt;Compiles your program with optimizations disabled, starts and attaches to it.&lt;/p&gt;
+&lt;p&gt;​	该命令会禁用优化编译您的程序，并启动并附加到它。&lt;/p&gt;</description></item><item><title>dlv_dap</title><link>https://before80.github.io/go_docs/delve/usage/dlv_dap/</link><pubDate>Mon, 09 Dec 2024 08:05:37 +0800</pubDate><guid>https://before80.github.io/go_docs/delve/usage/dlv_dap/</guid><description>&lt;blockquote&gt;
+&lt;p&gt;原文：&lt;a href="https://github.com/go-delve/delve/blob/master/Documentation/usage/dlv_dap.md"&gt;https://github.com/go-delve/delve/blob/master/Documentation/usage/dlv_dap.md&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;收录该文档时间： &lt;code&gt;2024-12-09T08:05:37+08:00&lt;/code&gt;&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;h2 id="dlv-dap"&gt;dlv dap&lt;/h2&gt;
+&lt;p&gt;Starts a headless TCP server communicating via Debug Adaptor Protocol (DAP).&lt;/p&gt;
+&lt;p&gt;​	启动一个通过调试适配器协议（DAP）通信的无界面 TCP 服务器。&lt;/p&gt;
+&lt;h3 id="synopsis"&gt;Synopsis&lt;/h3&gt;
+&lt;p&gt;Starts a headless TCP server communicating via Debug Adaptor Protocol (DAP).&lt;/p&gt;
+&lt;p&gt;​	启动一个通过调试适配器协议（DAP）通信的无界面 TCP 服务器。&lt;/p&gt;</description></item><item><title>dlv_core</title><link>https://before80.github.io/go_docs/delve/usage/dlv_core/</link><pubDate>Mon, 09 Dec 2024 08:05:27 +0800</pubDate><guid>https://before80.github.io/go_docs/delve/usage/dlv_core/</guid><description>&lt;blockquote&gt;
+&lt;p&gt;原文：&lt;a href="https://github.com/go-delve/delve/blob/master/Documentation/usage/dlv_core.md"&gt;https://github.com/go-delve/delve/blob/master/Documentation/usage/dlv_core.md&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;收录该文档时间： &lt;code&gt;2024-12-09T08:05:27+08:00&lt;/code&gt;&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;h2 id="dlv-core"&gt;dlv core&lt;/h2&gt;
+&lt;p&gt;Examine a core dump.&lt;/p&gt;
+&lt;p&gt;​	检查核心转储。&lt;/p&gt;
+&lt;h3 id="synopsis"&gt;Synopsis&lt;/h3&gt;
+&lt;p&gt;Examine a core dump (only supports linux and windows core dumps).&lt;/p&gt;
+&lt;p&gt;​	检查核心转储（仅支持 Linux 和 Windows 的核心转储）。&lt;/p&gt;
+&lt;p&gt;The core command will open the specified core file and the associated executable and let you examine the state of the process when the core dump was taken.&lt;/p&gt;</description></item><item><title>dlv_connect</title><link>https://before80.github.io/go_docs/delve/usage/dlv_connect/</link><pubDate>Mon, 09 Dec 2024 08:05:19 +0800</pubDate><guid>https://before80.github.io/go_docs/delve/usage/dlv_connect/</guid><description>&lt;blockquote&gt;
+&lt;p&gt;原文：&lt;a href="https://github.com/go-delve/delve/blob/master/Documentation/usage/dlv_connect.md"&gt;https://github.com/go-delve/delve/blob/master/Documentation/usage/dlv_connect.md&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;收录该文档时间： &lt;code&gt;2024-12-09T08:05:19+08:00&lt;/code&gt;&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;h2 id="dlv-connect"&gt;dlv connect&lt;/h2&gt;
+&lt;p&gt;Connect to a headless debug server with a terminal client.&lt;/p&gt;
+&lt;p&gt;​	使用终端客户端连接到无界面调试服务器。&lt;/p&gt;
+&lt;h3 id="synopsis"&gt;Synopsis&lt;/h3&gt;
+&lt;p&gt;Connect to a running headless debug server with a terminal client. Prefix with &amp;lsquo;unix:&amp;rsquo; to use a unix domain socket.&lt;/p&gt;
+&lt;p&gt;​	使用终端客户端连接到正在运行的无界面调试服务器。使用 &amp;lsquo;unix:&amp;rsquo; 前缀来使用 Unix 域套接字。&lt;/p&gt;</description></item><item><title>dlv_backend</title><link>https://before80.github.io/go_docs/delve/usage/dlv_backend/</link><pubDate>Mon, 09 Dec 2024 08:05:05 +0800</pubDate><guid>https://before80.github.io/go_docs/delve/usage/dlv_backend/</guid><description>&lt;blockquote&gt;
+&lt;p&gt;原文：&lt;a href="https://github.com/go-delve/delve/blob/master/Documentation/usage/dlv_backend.md"&gt;https://github.com/go-delve/delve/blob/master/Documentation/usage/dlv_backend.md&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;收录该文档时间： &lt;code&gt;2024-12-09T08:05:05+08:00&lt;/code&gt;&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;h2 id="dlv-backend"&gt;dlv backend&lt;/h2&gt;
+&lt;p&gt;Help about the &amp;ndash;backend flag.&lt;/p&gt;
+&lt;p&gt;​	关于 &lt;code&gt;--backend&lt;/code&gt; 标志的帮助信息。&lt;/p&gt;
+&lt;h3 id="synopsis"&gt;Synopsis&lt;/h3&gt;
+&lt;p&gt;The &amp;ndash;backend flag specifies which backend should be used, possible values are:&lt;/p&gt;
+&lt;p&gt;​	&lt;code&gt;--backend&lt;/code&gt; 标志指定要使用的后端，可能的值为：&lt;/p&gt;
+&lt;pre tabindex="0"&gt;&lt;code&gt;default		Uses lldb on macOS, native everywhere else.
 				在 macOS 上使用 lldb，在其他平台使用 native。
 				
 native		Native backend.
@@ -225,22 +239,24 @@ lldb		Uses lldb-server or debugserver.
 				
 rr		Uses mozilla rr (https://github.com/mozilla/rr).
 			使用 mozilla rr (https://github.com/mozilla/rr)。
-&lt;/code>&lt;/pre>&lt;p>Some backends can be configured using environment variables:&lt;/p></description></item><item><title>dlv_attach</title><link>https://before80.github.io/go_docs/delve/usage/dlv_attach/</link><pubDate>Mon, 09 Dec 2024 08:04:55 +0800</pubDate><guid>https://before80.github.io/go_docs/delve/usage/dlv_attach/</guid><description>&lt;blockquote>
-&lt;p>原文：&lt;a href="https://github.com/go-delve/delve/blob/master/Documentation/usage/dlv_attach.md">https://github.com/go-delve/delve/blob/master/Documentation/usage/dlv_attach.md&lt;/a>&lt;/p>
-&lt;p>收录该文档时间： &lt;code>2024-12-09T08:04:55+08:00&lt;/code>&lt;/p>&lt;/blockquote>
-&lt;h2 id="dlv-attach">dlv attach&lt;a class="td-heading-self-link" href="#dlv-attach" aria-label="Heading self-link">&lt;/a>&lt;/h2>
-&lt;p>Attach to running process and begin debugging.&lt;/p>
-&lt;p>​	附加到正在运行的进程并开始调试。&lt;/p>
-&lt;h3 id="synopsis">Synopsis&lt;a class="td-heading-self-link" href="#synopsis" aria-label="Heading self-link">&lt;/a>&lt;/h3>
-&lt;p>Attach to an already running process and begin debugging it.&lt;/p>
-&lt;p>​	附加到已运行的进程并开始调试。&lt;/p>
-&lt;p>This command will cause Delve to take control of an already running process, and begin a new debug session. When exiting the debug session you will have the option to let the process continue or kill it.&lt;/p></description></item><item><title>dlv</title><link>https://before80.github.io/go_docs/delve/usage/dlv/</link><pubDate>Mon, 09 Dec 2024 08:04:45 +0800</pubDate><guid>https://before80.github.io/go_docs/delve/usage/dlv/</guid><description>&lt;blockquote>
-&lt;p>原文：&lt;a href="https://github.com/go-delve/delve/blob/master/Documentation/usage/dlv.md">https://github.com/go-delve/delve/blob/master/Documentation/usage/dlv.md&lt;/a>&lt;/p>
-&lt;p>收录该文档时间： &lt;code>2024-12-09T08:04:45+08:00&lt;/code>&lt;/p>&lt;/blockquote>
-&lt;h2 id="dlv">dlv&lt;a class="td-heading-self-link" href="#dlv" aria-label="Heading self-link">&lt;/a>&lt;/h2>
-&lt;p>Delve is a debugger for the Go programming language.&lt;/p>
-&lt;p>​	Delve 是用于 Go 编程语言的调试器。&lt;/p>
-&lt;h3 id="synopsis">Synopsis&lt;a class="td-heading-self-link" href="#synopsis" aria-label="Heading self-link">&lt;/a>&lt;/h3>
-&lt;p>Delve is a source level debugger for Go programs.&lt;/p>
-&lt;p>​	Delve 是一个面向 Go 程序的源代码级调试器。&lt;/p>
-&lt;p>Delve enables you to interact with your program by controlling the execution of the process, evaluating variables, and providing information of thread / goroutine state, CPU register state and more.&lt;/p></description></item></channel></rss>
+&lt;/code&gt;&lt;/pre&gt;&lt;p&gt;Some backends can be configured using environment variables:&lt;/p&gt;</description></item><item><title>dlv_attach</title><link>https://before80.github.io/go_docs/delve/usage/dlv_attach/</link><pubDate>Mon, 09 Dec 2024 08:04:55 +0800</pubDate><guid>https://before80.github.io/go_docs/delve/usage/dlv_attach/</guid><description>&lt;blockquote&gt;
+&lt;p&gt;原文：&lt;a href="https://github.com/go-delve/delve/blob/master/Documentation/usage/dlv_attach.md"&gt;https://github.com/go-delve/delve/blob/master/Documentation/usage/dlv_attach.md&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;收录该文档时间： &lt;code&gt;2024-12-09T08:04:55+08:00&lt;/code&gt;&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;h2 id="dlv-attach"&gt;dlv attach&lt;/h2&gt;
+&lt;p&gt;Attach to running process and begin debugging.&lt;/p&gt;
+&lt;p&gt;​	附加到正在运行的进程并开始调试。&lt;/p&gt;
+&lt;h3 id="synopsis"&gt;Synopsis&lt;/h3&gt;
+&lt;p&gt;Attach to an already running process and begin debugging it.&lt;/p&gt;
+&lt;p&gt;​	附加到已运行的进程并开始调试。&lt;/p&gt;
+&lt;p&gt;This command will cause Delve to take control of an already running process, and begin a new debug session. When exiting the debug session you will have the option to let the process continue or kill it.&lt;/p&gt;</description></item><item><title>dlv</title><link>https://before80.github.io/go_docs/delve/usage/dlv/</link><pubDate>Mon, 09 Dec 2024 08:04:45 +0800</pubDate><guid>https://before80.github.io/go_docs/delve/usage/dlv/</guid><description>&lt;blockquote&gt;
+&lt;p&gt;原文：&lt;a href="https://github.com/go-delve/delve/blob/master/Documentation/usage/dlv.md"&gt;https://github.com/go-delve/delve/blob/master/Documentation/usage/dlv.md&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;收录该文档时间： &lt;code&gt;2024-12-09T08:04:45+08:00&lt;/code&gt;&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;h2 id="dlv"&gt;dlv&lt;/h2&gt;
+&lt;p&gt;Delve is a debugger for the Go programming language.&lt;/p&gt;
+&lt;p&gt;​	Delve 是用于 Go 编程语言的调试器。&lt;/p&gt;
+&lt;h3 id="synopsis"&gt;Synopsis&lt;/h3&gt;
+&lt;p&gt;Delve is a source level debugger for Go programs.&lt;/p&gt;
+&lt;p&gt;​	Delve 是一个面向 Go 程序的源代码级调试器。&lt;/p&gt;
+&lt;p&gt;Delve enables you to interact with your program by controlling the execution of the process, evaluating variables, and providing information of thread / goroutine state, CPU register state and more.&lt;/p&gt;</description></item></channel></rss>

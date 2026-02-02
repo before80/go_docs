@@ -1,55 +1,59 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>mime on Go 中文档集</title><link>https://before80.github.io/go_docs/stdLib/mime/</link><description>Recent content in mime on Go 中文档集</description><generator>Hugo</generator><language>zh-cn</language><lastBuildDate>Wed, 02 Apr 2025 16:27:58 +0800</lastBuildDate><atom:link href="https://before80.github.io/go_docs/stdLib/mime/index.xml" rel="self" type="application/rss+xml"/><item><title>mime</title><link>https://before80.github.io/go_docs/stdLib/mime/mime/</link><pubDate>Wed, 17 May 2023 11:11:20 +0800</pubDate><guid>https://before80.github.io/go_docs/stdLib/mime/mime/</guid><description>&lt;blockquote>
-&lt;p>原文：&lt;a href="https://pkg.go.dev/mime@go1.24.2">https://pkg.go.dev/mime@go1.24.2&lt;/a>&lt;/p>&lt;/blockquote>
-&lt;p>Package mime implements parts of the MIME spec.&lt;/p>
-&lt;p>​	mime 包实现了 MIME 规范的部分内容。&lt;/p>
-&lt;h2 id="常量">常量&lt;a class="td-heading-self-link" href="#%e5%b8%b8%e9%87%8f" aria-label="Heading self-link">&lt;/a>&lt;/h2>
-&lt;p>&lt;a href="https://cs.opensource.google/go/go/+/go1.20.1:src/mime/encodedword.go;l=21">View Source&lt;/a>&lt;/p>
-&lt;div class="highlight">&lt;div style="color:#b0c4de;background-color:#282c34;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">
-&lt;table style="border-spacing:0;padding:0;margin:0;border:0;">&lt;tr>&lt;td style="vertical-align:top;padding:0;margin:0;border:0;">
-&lt;pre tabindex="0" style="color:#b0c4de;background-color:#282c34;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code>&lt;span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#58626f">1
-&lt;/span>&lt;span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#58626f">2
-&lt;/span>&lt;span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#58626f">3
-&lt;/span>&lt;span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#58626f">4
-&lt;/span>&lt;span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#58626f">5
-&lt;/span>&lt;span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#58626f">6
-&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
-&lt;td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
-&lt;pre tabindex="0" style="color:#b0c4de;background-color:#282c34;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-go" data-lang="go">&lt;span style="display:flex;">&lt;span>&lt;span style="color:#76a9f9">const&lt;/span> &lt;span style="color:#abb2bf">(&lt;/span>
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>	&lt;span style="color:#8a93a5;font-style:italic">// BEncoding represents Base64 encoding scheme as defined by RFC 2045.&lt;/span>
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>	&lt;span style="color:#aa89ea">BEncoding&lt;/span> &lt;span style="color:#abb2bf">=&lt;/span> &lt;span style="color:#00b1f7">WordEncoder&lt;/span>&lt;span style="color:#abb2bf">(&lt;/span>&lt;span style="color:#98c379">&amp;#39;b&amp;#39;&lt;/span>&lt;span style="color:#abb2bf">)&lt;/span>
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>	&lt;span style="color:#8a93a5;font-style:italic">// QEncoding represents the Q-encoding scheme as defined by RFC 2047.&lt;/span>
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>	&lt;span style="color:#aa89ea">QEncoding&lt;/span> &lt;span style="color:#abb2bf">=&lt;/span> &lt;span style="color:#00b1f7">WordEncoder&lt;/span>&lt;span style="color:#abb2bf">(&lt;/span>&lt;span style="color:#98c379">&amp;#39;q&amp;#39;&lt;/span>&lt;span style="color:#abb2bf">)&lt;/span>
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#abb2bf">)&lt;/span>
-&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
-&lt;/div>
-&lt;/div>&lt;h2 id="变量">变量&lt;a class="td-heading-self-link" href="#%e5%8f%98%e9%87%8f" aria-label="Heading self-link">&lt;/a>&lt;/h2>
-&lt;p>&lt;a href="https://cs.opensource.google/go/go/+/go1.20.1:src/mime/mediatype.go;l=127">View Source&lt;/a>&lt;/p></description></item><item><title>multipart</title><link>https://before80.github.io/go_docs/stdLib/mime/multipart/</link><pubDate>Wed, 17 May 2023 11:11:20 +0800</pubDate><guid>https://before80.github.io/go_docs/stdLib/mime/multipart/</guid><description>&lt;blockquote>
-&lt;p>原文：&lt;a href="https://pkg.go.dev/mime/multipart@go1.24.2">https://pkg.go.dev/mime/multipart@go1.24.2&lt;/a>&lt;/p>&lt;/blockquote>
-&lt;p>Package multipart implements MIME multipart parsing, as defined in &lt;a href="https://rfc-editor.org/rfc/rfc2046.html">RFC 2046&lt;/a>.&lt;/p>
-&lt;p>​	Package multipart 实现 MIME multipart 解析，如 RFC 2046 中所定义。&lt;/p>
-&lt;p>The implementation is sufficient for HTTP (&lt;a href="https://rfc-editor.org/rfc/rfc2388.html">RFC 2388&lt;/a>) and the multipart bodies generated by popular browsers.&lt;/p>
-&lt;p>​	该实现足以用于 HTTP (RFC 2388) 和流行浏览器生成的 multipart 主体。&lt;/p></description></item><item><title>quotedprintable</title><link>https://before80.github.io/go_docs/stdLib/mime/quotedprintable/</link><pubDate>Wed, 17 May 2023 11:11:20 +0800</pubDate><guid>https://before80.github.io/go_docs/stdLib/mime/quotedprintable/</guid><description>&lt;blockquote>
-&lt;p>原文：&lt;a href="https://pkg.go.dev/mime/quotedprintable@go1.24.2">https://pkg.go.dev/mime/quotedprintable@go1.24.2&lt;/a>&lt;/p>&lt;/blockquote>
-&lt;p>Package quotedprintable implements quoted-printable encoding as specified by &lt;a href="https://rfc-editor.org/rfc/rfc2045.html">RFC 2045&lt;/a>.&lt;/p>
-&lt;p>​	Package quotedprintable 实现 RFC 2045 中指定的 quoted-printable 编码。&lt;/p>
-&lt;h2 id="常量">常量&lt;a class="td-heading-self-link" href="#%e5%b8%b8%e9%87%8f" aria-label="Heading self-link">&lt;/a>&lt;/h2>
-&lt;p>This section is empty.&lt;/p>
-&lt;h2 id="变量">变量&lt;a class="td-heading-self-link" href="#%e5%8f%98%e9%87%8f" aria-label="Heading self-link">&lt;/a>&lt;/h2>
-&lt;p>This section is empty.&lt;/p>
-&lt;h2 id="函数">函数&lt;a class="td-heading-self-link" href="#%e5%87%bd%e6%95%b0" aria-label="Heading self-link">&lt;/a>&lt;/h2>
-&lt;p>This section is empty.&lt;/p>
-&lt;h2 id="类型">类型&lt;a class="td-heading-self-link" href="#%e7%b1%bb%e5%9e%8b" aria-label="Heading self-link">&lt;/a>&lt;/h2>
-&lt;h3 id="type-reader">type Reader&lt;a class="td-heading-self-link" href="#type-reader" aria-label="Heading self-link">&lt;/a>&lt;/h3>
-&lt;div class="highlight">&lt;div style="color:#b0c4de;background-color:#282c34;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">
-&lt;table style="border-spacing:0;padding:0;margin:0;border:0;">&lt;tr>&lt;td style="vertical-align:top;padding:0;margin:0;border:0;">
-&lt;pre tabindex="0" style="color:#b0c4de;background-color:#282c34;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code>&lt;span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#58626f">1
-&lt;/span>&lt;span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#58626f">2
-&lt;/span>&lt;span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#58626f">3
-&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
-&lt;td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
-&lt;pre tabindex="0" style="color:#b0c4de;background-color:#282c34;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-go" data-lang="go">&lt;span style="display:flex;">&lt;span>&lt;span style="color:#76a9f9">type&lt;/span> &lt;span style="color:#aa89ea">Reader&lt;/span> &lt;span style="color:#76a9f9">struct&lt;/span> &lt;span style="color:#abb2bf">{&lt;/span>
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>	&lt;span style="color:#8a93a5;font-style:italic">// contains filtered or unexported fields&lt;/span>
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#abb2bf">}&lt;/span>
-&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
-&lt;/div>
-&lt;/div>&lt;p>Reader is a quoted-printable decoder.&lt;/p></description></item></channel></rss>
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>mime on Go 中文档集</title><link>https://before80.github.io/go_docs/stdLib/mime/</link><description>Recent content in mime on Go 中文档集</description><generator>Hugo</generator><language>zh-cn</language><lastBuildDate>Wed, 02 Apr 2025 16:27:58 +0800</lastBuildDate><atom:link href="https://before80.github.io/go_docs/stdLib/mime/index.xml" rel="self" type="application/rss+xml"/><item><title>mime</title><link>https://before80.github.io/go_docs/stdLib/mime/mime/</link><pubDate>Wed, 17 May 2023 11:11:20 +0800</pubDate><guid>https://before80.github.io/go_docs/stdLib/mime/mime/</guid><description>&lt;blockquote&gt;
+&lt;p&gt;原文：&lt;a href="https://pkg.go.dev/mime@go1.24.2"&gt;https://pkg.go.dev/mime@go1.24.2&lt;/a&gt;&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;Package mime implements parts of the MIME spec.&lt;/p&gt;
+&lt;p&gt;​	mime 包实现了 MIME 规范的部分内容。&lt;/p&gt;
+&lt;h2 id="常量"&gt;常量&lt;/h2&gt;
+&lt;p&gt;&lt;a href="https://cs.opensource.google/go/go/+/go1.20.1:src/mime/encodedword.go;l=21"&gt;View Source&lt;/a&gt;&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;div style="color:#b0c4de;background-color:#282c34;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"&gt;
+&lt;table style="border-spacing:0;padding:0;margin:0;border:0;"&gt;&lt;tr&gt;&lt;td style="vertical-align:top;padding:0;margin:0;border:0;"&gt;
+&lt;pre tabindex="0" style="color:#b0c4de;background-color:#282c34;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"&gt;&lt;code&gt;&lt;span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#58626f"&gt;1
+&lt;/span&gt;&lt;span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#58626f"&gt;2
+&lt;/span&gt;&lt;span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#58626f"&gt;3
+&lt;/span&gt;&lt;span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#58626f"&gt;4
+&lt;/span&gt;&lt;span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#58626f"&gt;5
+&lt;/span&gt;&lt;span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#58626f"&gt;6
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
+&lt;td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%"&gt;
+&lt;pre tabindex="0" style="color:#b0c4de;background-color:#282c34;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"&gt;&lt;code class="language-go" data-lang="go"&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;&lt;span style="color:#76a9f9"&gt;const&lt;/span&gt; &lt;span style="color:#abb2bf"&gt;(&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;	&lt;span style="color:#8a93a5;font-style:italic"&gt;// BEncoding represents Base64 encoding scheme as defined by RFC 2045.&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;	&lt;span style="color:#aa89ea"&gt;BEncoding&lt;/span&gt; &lt;span style="color:#abb2bf"&gt;=&lt;/span&gt; &lt;span style="color:#00b1f7"&gt;WordEncoder&lt;/span&gt;&lt;span style="color:#abb2bf"&gt;(&lt;/span&gt;&lt;span style="color:#98c379"&gt;&amp;#39;b&amp;#39;&lt;/span&gt;&lt;span style="color:#abb2bf"&gt;)&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;	&lt;span style="color:#8a93a5;font-style:italic"&gt;// QEncoding represents the Q-encoding scheme as defined by RFC 2047.&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;	&lt;span style="color:#aa89ea"&gt;QEncoding&lt;/span&gt; &lt;span style="color:#abb2bf"&gt;=&lt;/span&gt; &lt;span style="color:#00b1f7"&gt;WordEncoder&lt;/span&gt;&lt;span style="color:#abb2bf"&gt;(&lt;/span&gt;&lt;span style="color:#98c379"&gt;&amp;#39;q&amp;#39;&lt;/span&gt;&lt;span style="color:#abb2bf"&gt;)&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;&lt;span style="color:#abb2bf"&gt;)&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+&lt;/div&gt;
+&lt;/div&gt;&lt;h2 id="变量"&gt;变量&lt;/h2&gt;
+&lt;p&gt;&lt;a href="https://cs.opensource.google/go/go/+/go1.20.1:src/mime/mediatype.go;l=127"&gt;View Source&lt;/a&gt;&lt;/p&gt;</description></item><item><title>multipart</title><link>https://before80.github.io/go_docs/stdLib/mime/multipart/</link><pubDate>Wed, 17 May 2023 11:11:20 +0800</pubDate><guid>https://before80.github.io/go_docs/stdLib/mime/multipart/</guid><description>&lt;blockquote&gt;
+&lt;p&gt;原文：&lt;a href="https://pkg.go.dev/mime/multipart@go1.24.2"&gt;https://pkg.go.dev/mime/multipart@go1.24.2&lt;/a&gt;&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;Package multipart implements MIME multipart parsing, as defined in &lt;a href="https://rfc-editor.org/rfc/rfc2046.html"&gt;RFC 2046&lt;/a&gt;.&lt;/p&gt;
+&lt;p&gt;​	Package multipart 实现 MIME multipart 解析，如 RFC 2046 中所定义。&lt;/p&gt;
+&lt;p&gt;The implementation is sufficient for HTTP (&lt;a href="https://rfc-editor.org/rfc/rfc2388.html"&gt;RFC 2388&lt;/a&gt;) and the multipart bodies generated by popular browsers.&lt;/p&gt;
+&lt;p&gt;​	该实现足以用于 HTTP (RFC 2388) 和流行浏览器生成的 multipart 主体。&lt;/p&gt;
+&lt;p&gt;Copyright 2023 The Go Authors. All rights reserved. Use of this source code is governed by a BSD-style license that can be found in the LICENSE file.&lt;/p&gt;</description></item><item><title>quotedprintable</title><link>https://before80.github.io/go_docs/stdLib/mime/quotedprintable/</link><pubDate>Wed, 17 May 2023 11:11:20 +0800</pubDate><guid>https://before80.github.io/go_docs/stdLib/mime/quotedprintable/</guid><description>&lt;blockquote&gt;
+&lt;p&gt;原文：&lt;a href="https://pkg.go.dev/mime/quotedprintable@go1.24.2"&gt;https://pkg.go.dev/mime/quotedprintable@go1.24.2&lt;/a&gt;&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;Package quotedprintable implements quoted-printable encoding as specified by &lt;a href="https://rfc-editor.org/rfc/rfc2045.html"&gt;RFC 2045&lt;/a&gt;.&lt;/p&gt;
+&lt;p&gt;​	Package quotedprintable 实现 RFC 2045 中指定的 quoted-printable 编码。&lt;/p&gt;
+&lt;h2 id="常量"&gt;常量&lt;/h2&gt;
+&lt;p&gt;This section is empty.&lt;/p&gt;
+&lt;h2 id="变量"&gt;变量&lt;/h2&gt;
+&lt;p&gt;This section is empty.&lt;/p&gt;
+&lt;h2 id="函数"&gt;函数&lt;/h2&gt;
+&lt;p&gt;This section is empty.&lt;/p&gt;
+&lt;h2 id="类型"&gt;类型&lt;/h2&gt;
+&lt;h3 id="type-reader"&gt;type Reader&lt;/h3&gt;
+&lt;div class="highlight"&gt;&lt;div style="color:#b0c4de;background-color:#282c34;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"&gt;
+&lt;table style="border-spacing:0;padding:0;margin:0;border:0;"&gt;&lt;tr&gt;&lt;td style="vertical-align:top;padding:0;margin:0;border:0;"&gt;
+&lt;pre tabindex="0" style="color:#b0c4de;background-color:#282c34;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"&gt;&lt;code&gt;&lt;span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#58626f"&gt;1
+&lt;/span&gt;&lt;span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#58626f"&gt;2
+&lt;/span&gt;&lt;span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#58626f"&gt;3
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
+&lt;td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%"&gt;
+&lt;pre tabindex="0" style="color:#b0c4de;background-color:#282c34;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"&gt;&lt;code class="language-go" data-lang="go"&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;&lt;span style="color:#76a9f9"&gt;type&lt;/span&gt; &lt;span style="color:#aa89ea"&gt;Reader&lt;/span&gt; &lt;span style="color:#76a9f9"&gt;struct&lt;/span&gt; &lt;span style="color:#abb2bf"&gt;{&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;	&lt;span style="color:#8a93a5;font-style:italic"&gt;// contains filtered or unexported fields&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;&lt;span style="color:#abb2bf"&gt;}&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+&lt;/div&gt;
+&lt;/div&gt;&lt;p&gt;Reader is a quoted-printable decoder.&lt;/p&gt;</description></item></channel></rss>

@@ -1,30 +1,34 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>buffalo on Go 中文档集</title><link>https://before80.github.io/go_docs/buffalo/</link><description>Recent content in buffalo on Go 中文档集</description><generator>Hugo</generator><language>zh-cn</language><lastBuildDate>Thu, 10 Oct 2024 15:07:50 +0800</lastBuildDate><atom:link href="https://before80.github.io/go_docs/buffalo/index.xml" rel="self" type="application/rss+xml"/><item><title>教程</title><link>https://before80.github.io/go_docs/buffalo/tutorials/</link><pubDate>Sun, 04 Feb 2024 21:04:07 +0800</pubDate><guid>https://before80.github.io/go_docs/buffalo/tutorials/</guid><description>&lt;blockquote>
-&lt;p>原文：&lt;a href="https://before80.github.io/go_docs/buffalo/tutorials/">https://gobuffalo.io/documentation/tutorials/&lt;/a>&lt;/p>&lt;/blockquote>
-&lt;h1 id="tutorials-教程">Tutorials 教程&lt;a class="td-heading-self-link" href="#tutorials-%e6%95%99%e7%a8%8b" aria-label="Heading self-link">&lt;/a>&lt;/h1>
-&lt;h2 id="using-vuejs-with-buffalo-使用-vuejs-与-buffalo">Using Vue.js with Buffalo 使用 Vue.js 与 Buffalo&lt;a class="td-heading-self-link" href="#using-vuejs-with-buffalo-%e4%bd%bf%e7%94%a8-vuejs-%e4%b8%8e-buffalo" aria-label="Heading self-link">&lt;/a>&lt;/h2>
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>buffalo on Go 中文档集</title><link>https://before80.github.io/go_docs/buffalo/</link><description>Recent content in buffalo on Go 中文档集</description><generator>Hugo</generator><language>zh-cn</language><lastBuildDate>Thu, 10 Oct 2024 15:07:50 +0800</lastBuildDate><atom:link href="https://before80.github.io/go_docs/buffalo/index.xml" rel="self" type="application/rss+xml"/><item><title>教程</title><link>https://before80.github.io/go_docs/buffalo/tutorials/</link><pubDate>Sun, 04 Feb 2024 21:04:07 +0800</pubDate><guid>https://before80.github.io/go_docs/buffalo/tutorials/</guid><description>&lt;blockquote&gt;
+&lt;p&gt;原文：&lt;a href="https://before80.github.io/go_docs/buffalo/tutorials/"&gt;https://gobuffalo.io/documentation/tutorials/&lt;/a&gt;&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;h1 id="tutorials-教程"&gt;Tutorials 教程&lt;/h1&gt;
+&lt;h2 id="using-vuejs-with-buffalo-使用-vuejs-与-buffalo"&gt;Using Vue.js with Buffalo 使用 Vue.js 与 Buffalo&lt;/h2&gt;
 
  &lt;div
- style="position: relative; padding-bottom: 56.25%; height: 0; overflow: hidden;">
+ style="position: relative; padding-bottom: 56.25%; height: 0; overflow: hidden;"&gt;
  &lt;iframe
  src="https://player.vimeo.com/video/238650365?dnt=0"
- style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; border:0;" allow="fullscreen">
- &lt;/iframe>
- &lt;/div>
+ style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; border:0;" allow="fullscreen"&gt;
+ &lt;/iframe&gt;
+ &lt;/div&gt;
 
-&lt;p>It doesn’t take much to get a JavaScript web framework like &lt;a href="https://vuejs.org/">Vue.Js&lt;/a> to work with a Buffalo backend.&lt;/p>
-&lt;p>​	让像 Vue.Js 这样的 JavaScript Web 框架与 Buffalo 后端协同工作并不需要太多工作。&lt;/p></description></item><item><title>概述</title><link>https://before80.github.io/go_docs/buffalo/overview/</link><pubDate>Sun, 04 Feb 2024 21:04:20 +0800</pubDate><guid>https://before80.github.io/go_docs/buffalo/overview/</guid><description>&lt;blockquote>
-&lt;p>原文：&lt;a href="https://before80.github.io/go_docs/buffalo/overview/">https://gobuffalo.io/documentation/overview/&lt;/a>&lt;/p>&lt;/blockquote>
-&lt;h1 id="overview-概述">Overview 概述&lt;a class="td-heading-self-link" href="#overview-%e6%a6%82%e8%bf%b0" aria-label="Heading self-link">&lt;/a>&lt;/h1>
-&lt;p>Welcome aboard!&lt;/p>
-&lt;p>​	欢迎 aboard！&lt;/p>
-&lt;p>While Buffalo can be considered as a framework, it’s mostly an ecosystem of Go and Javascript libraries curated to fit together. Most of these components can be switched for another, but we’ll only provide support for this default mix.&lt;/p>
-&lt;p>​	虽然 Buffalo 可以被认为是一个框架，但它主要是一个 Go 和 Javascript 库的生态系统，经过精心策划以相互配合。这些组件中的大多数都可以切换为另一个组件，但我们只为这种默认组合提供支持。&lt;/p></description></item><item><title>支持</title><link>https://before80.github.io/go_docs/buffalo/support/</link><pubDate>Sun, 04 Feb 2024 21:04:29 +0800</pubDate><guid>https://before80.github.io/go_docs/buffalo/support/</guid><description>&lt;blockquote>
-&lt;p>原文：&lt;a href="https://before80.github.io/go_docs/buffalo/support/">https://gobuffalo.io/documentation/support/&lt;/a>&lt;/p>&lt;/blockquote>
-&lt;h1 id="support-支持">Support 支持&lt;a class="td-heading-self-link" href="#support-%e6%94%af%e6%8c%81" aria-label="Heading self-link">&lt;/a>&lt;/h1>
-&lt;p>If you are looking for support, &lt;a href="https://www.gopherguides.com/in-person-training/">training&lt;/a>, or &lt;a href="https://www.gopherguides.com/consulting/">consulting&lt;/a> for your Buffalo project, the &lt;a href="https://www.gopherguides.com/">Gopher Guides&lt;/a> (founded by Mark Bates - founder of Buffalo) are the official trainers and consultants for the Buffalo ecosystem.&lt;/p>
-&lt;p>​	如果您正在为您的 Buffalo 项目寻找支持、培训或咨询，Gopher Guides（由 Buffalo 创始人 Mark Bates 创立）是 Buffalo 生态系统的官方培训师和顾问。&lt;/p></description></item><item><title>故障排除</title><link>https://before80.github.io/go_docs/buffalo/troubleshooting/</link><pubDate>Sun, 04 Feb 2024 21:04:53 +0800</pubDate><guid>https://before80.github.io/go_docs/buffalo/troubleshooting/</guid><description>&lt;blockquote>
-&lt;p>原文：&lt;a href="https://before80.github.io/go_docs/buffalo/troubleshooting/">https://gobuffalo.io/documentation/troubleshooting/&lt;/a>&lt;/p>&lt;/blockquote>
-&lt;h1 id="troubleshooting-故障排除">Troubleshooting 故障排除&lt;a class="td-heading-self-link" href="#troubleshooting-%e6%95%85%e9%9a%9c%e6%8e%92%e9%99%a4" aria-label="Heading self-link">&lt;/a>&lt;/h1>
-&lt;h2 id="app-crashes-with-securecookie-hash-key-is-not-set-应用在-securecookie-hash-key-is-not-set-处崩溃">App Crashes with &lt;code>securecookie: hash key is not set&lt;/code> 应用在 &lt;code>securecookie: hash key is not set&lt;/code> 处崩溃&lt;a class="td-heading-self-link" href="#app-crashes-with-securecookie-hash-key-is-not-set-%e5%ba%94%e7%94%a8%e5%9c%a8-securecookie-hash-key-is-not-set-%e5%a4%84%e5%b4%a9%e6%ba%83" aria-label="Heading self-link">&lt;/a>&lt;/h2>
-&lt;p>After a recent change in the &lt;a href="http://www.gorillatoolkit.org/pkg/sessions">github.com/gorilla/sessions&lt;/a> Buffalo applications will fail to start with the error &lt;code>securecookie: hash key is not set&lt;/code>.&lt;/p>
-&lt;p>​	在 github.com/gorilla/sessions 中最近的一次更改后，Buffalo 应用将无法启动，并出现错误 &lt;code>securecookie: hash key is not set&lt;/code> 。&lt;/p></description></item></channel></rss>
+&lt;p&gt;It doesn’t take much to get a JavaScript web framework like &lt;a href="https://vuejs.org/"&gt;Vue.Js&lt;/a&gt; to work with a Buffalo backend.&lt;/p&gt;
+&lt;p&gt;​	让像 Vue.Js 这样的 JavaScript Web 框架与 Buffalo 后端协同工作并不需要太多工作。&lt;/p&gt;</description></item><item><title>概述</title><link>https://before80.github.io/go_docs/buffalo/overview/</link><pubDate>Sun, 04 Feb 2024 21:04:20 +0800</pubDate><guid>https://before80.github.io/go_docs/buffalo/overview/</guid><description>&lt;blockquote&gt;
+&lt;p&gt;原文：&lt;a href="https://before80.github.io/go_docs/buffalo/overview/"&gt;https://gobuffalo.io/documentation/overview/&lt;/a&gt;&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;h1 id="overview-概述"&gt;Overview 概述&lt;/h1&gt;
+&lt;p&gt;Welcome aboard!&lt;/p&gt;
+&lt;p&gt;​	欢迎 aboard！&lt;/p&gt;
+&lt;p&gt;While Buffalo can be considered as a framework, it’s mostly an ecosystem of Go and Javascript libraries curated to fit together. Most of these components can be switched for another, but we’ll only provide support for this default mix.&lt;/p&gt;
+&lt;p&gt;​	虽然 Buffalo 可以被认为是一个框架，但它主要是一个 Go 和 Javascript 库的生态系统，经过精心策划以相互配合。这些组件中的大多数都可以切换为另一个组件，但我们只为这种默认组合提供支持。&lt;/p&gt;</description></item><item><title>支持</title><link>https://before80.github.io/go_docs/buffalo/support/</link><pubDate>Sun, 04 Feb 2024 21:04:29 +0800</pubDate><guid>https://before80.github.io/go_docs/buffalo/support/</guid><description>&lt;blockquote&gt;
+&lt;p&gt;原文：&lt;a href="https://before80.github.io/go_docs/buffalo/support/"&gt;https://gobuffalo.io/documentation/support/&lt;/a&gt;&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;h1 id="support-支持"&gt;Support 支持&lt;/h1&gt;
+&lt;p&gt;If you are looking for support, &lt;a href="https://www.gopherguides.com/in-person-training/"&gt;training&lt;/a&gt;, or &lt;a href="https://www.gopherguides.com/consulting/"&gt;consulting&lt;/a&gt; for your Buffalo project, the &lt;a href="https://www.gopherguides.com/"&gt;Gopher Guides&lt;/a&gt; (founded by Mark Bates - founder of Buffalo) are the official trainers and consultants for the Buffalo ecosystem.&lt;/p&gt;
+&lt;p&gt;​	如果您正在为您的 Buffalo 项目寻找支持、培训或咨询，Gopher Guides（由 Buffalo 创始人 Mark Bates 创立）是 Buffalo 生态系统的官方培训师和顾问。&lt;/p&gt;</description></item><item><title>故障排除</title><link>https://before80.github.io/go_docs/buffalo/troubleshooting/</link><pubDate>Sun, 04 Feb 2024 21:04:53 +0800</pubDate><guid>https://before80.github.io/go_docs/buffalo/troubleshooting/</guid><description>&lt;blockquote&gt;
+&lt;p&gt;原文：&lt;a href="https://before80.github.io/go_docs/buffalo/troubleshooting/"&gt;https://gobuffalo.io/documentation/troubleshooting/&lt;/a&gt;&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;h1 id="troubleshooting-故障排除"&gt;Troubleshooting 故障排除&lt;/h1&gt;
+&lt;h2 id="app-crashes-with-securecookie-hash-key-is-not-set-应用在-securecookie-hash-key-is-not-set-处崩溃"&gt;App Crashes with &lt;code&gt;securecookie: hash key is not set&lt;/code&gt; 应用在 &lt;code&gt;securecookie: hash key is not set&lt;/code&gt; 处崩溃&lt;/h2&gt;
+&lt;p&gt;After a recent change in the &lt;a href="http://www.gorillatoolkit.org/pkg/sessions"&gt;github.com/gorilla/sessions&lt;/a&gt; Buffalo applications will fail to start with the error &lt;code&gt;securecookie: hash key is not set&lt;/code&gt;.&lt;/p&gt;
+&lt;p&gt;​	在 github.com/gorilla/sessions 中最近的一次更改后，Buffalo 应用将无法启动，并出现错误 &lt;code&gt;securecookie: hash key is not set&lt;/code&gt; 。&lt;/p&gt;</description></item></channel></rss>

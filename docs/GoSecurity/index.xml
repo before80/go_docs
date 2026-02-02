@@ -1,22 +1,30 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Go 的安全问题 on Go 中文档集</title><link>https://before80.github.io/go_docs/docs/GoSecurity/</link><description>Recent content in Go 的安全问题 on Go 中文档集</description><generator>Hugo</generator><language>zh-cn</language><lastBuildDate>Thu, 10 Oct 2024 15:07:50 +0800</lastBuildDate><atom:link href="https://before80.github.io/go_docs/docs/GoSecurity/index.xml" rel="self" type="application/rss+xml"/><item><title>Go 的安全问题</title><link>https://before80.github.io/go_docs/docs/GoSecurity/GoSecurity/</link><pubDate>Thu, 18 May 2023 16:50:08 +0800</pubDate><guid>https://before80.github.io/go_docs/docs/GoSecurity/GoSecurity/</guid><description>&lt;h1 id="go-security---go的安全问题">Go Security - Go的安全问题&lt;a class="td-heading-self-link" href="#go-security---go%e7%9a%84%e5%ae%89%e5%85%a8%e9%97%ae%e9%a2%98" aria-label="Heading self-link">&lt;/a>&lt;/h1>
-&lt;blockquote>
-&lt;p>原文：https://go.dev/security/&lt;/p>&lt;/blockquote>
-&lt;h2 id="overview-概述">Overview 概述&lt;a class="td-heading-self-link" href="#overview-%e6%a6%82%e8%bf%b0" aria-label="Heading self-link">&lt;/a>&lt;/h2>
-&lt;p>本页提供了关于使用Go编写安全可靠的软件的信息。&lt;/p></description></item><item><title>Go CNA策略</title><link>https://before80.github.io/go_docs/docs/GoSecurity/GoCNAPolicy/</link><pubDate>Thu, 18 May 2023 16:50:08 +0800</pubDate><guid>https://before80.github.io/go_docs/docs/GoSecurity/GoCNAPolicy/</guid><description>&lt;h1 id="go-cna-policy---go-cna策略">Go CNA Policy - Go CNA策略&lt;a class="td-heading-self-link" href="#go-cna-policy---go-cna%e7%ad%96%e7%95%a5" aria-label="Heading self-link">&lt;/a>&lt;/h1>
-&lt;blockquote>
-&lt;p>原文：&lt;a href="https://go.dev/security/vuln/cna">https://go.dev/security/vuln/cna&lt;/a>&lt;/p>&lt;/blockquote>
-&lt;h2 id="概述">概述&lt;a class="td-heading-self-link" href="#%e6%a6%82%e8%bf%b0" aria-label="Heading self-link">&lt;/a>&lt;/h2>
-&lt;p>​	Go CNA是&lt;a href="https://www.cve.org/ProgramOrganization/CNAs">CVE编号机构&lt;/a>，为Go生态系统中的公共漏洞发行&lt;a href="https://www.cve.org/ResourcesSupport/Glossary?activeTerm=glossaryCVEID">CVE IDs&lt;/a>并发布&lt;a href="https://www.cve.org/ResourcesSupport/Glossary?activeTerm=glossaryRecord">CVE记录&lt;/a>。它是Google CNA的子CNA。&lt;/p>
-&lt;h2 id="范围">范围&lt;a class="td-heading-self-link" href="#%e8%8c%83%e5%9b%b4" aria-label="Heading self-link">&lt;/a>&lt;/h2>
-&lt;p>​	Go CNA涵盖Go项目（Go&lt;a href="https://go.dev/pkg">标准库&lt;/a>和&lt;a href="https://pkg.go.dev/golang.org/x">子存储库&lt;/a>）中的漏洞以及不受其他CNA覆盖的可导入Go模块中的公共漏洞。&lt;/p>
-&lt;p>​	该范围旨在明确排除在Go中编写但不可导入的应用程序或包的漏洞（例如，任何位于main包中的内容）。有关排除报告的更多信息，请参见&lt;a href="https://go.dev/security/vuln/database#excluded-reports">go.dev/security/vuln/database#excluded-reports&lt;/a>。&lt;/p></description></item><item><title>Go 安全策略</title><link>https://before80.github.io/go_docs/docs/GoSecurity/GoSecurityPolicy/</link><pubDate>Thu, 18 May 2023 16:50:08 +0800</pubDate><guid>https://before80.github.io/go_docs/docs/GoSecurity/GoSecurityPolicy/</guid><description>&lt;h1 id="go-security-policy---go-安全策略">Go Security Policy - Go 安全策略&lt;a class="td-heading-self-link" href="#go-security-policy---go-%e5%ae%89%e5%85%a8%e7%ad%96%e7%95%a5" aria-label="Heading self-link">&lt;/a>&lt;/h1>
-&lt;blockquote>
-&lt;p>原文：&lt;a href="https://go.dev/security/policy">https://go.dev/security/policy&lt;/a>&lt;/p>&lt;/blockquote>
-&lt;h2 id="概述">概述&lt;a class="td-heading-self-link" href="#%e6%a6%82%e8%bf%b0" aria-label="Heading self-link">&lt;/a>&lt;/h2>
-&lt;p>​	本文档介绍Go安全团队处理报告问题的流程以及期望得到的反馈。&lt;/p>
-&lt;h2 id="报告安全漏洞">报告安全漏洞&lt;a class="td-heading-self-link" href="#%e6%8a%a5%e5%91%8a%e5%ae%89%e5%85%a8%e6%bc%8f%e6%b4%9e" aria-label="Heading self-link">&lt;/a>&lt;/h2>
-&lt;p>​	Go发布的所有安全漏洞都应通过电子邮件发送到&lt;a href="mailto:security@golang.org">security@golang.org&lt;/a>进行报告。此邮件将被送到Go安全团队。&lt;/p></description></item><item><title>Go 的漏洞管理</title><link>https://before80.github.io/go_docs/docs/GoSecurity/GoVulnerabilityManagement/</link><pubDate>Thu, 18 May 2023 16:50:08 +0800</pubDate><guid>https://before80.github.io/go_docs/docs/GoSecurity/GoVulnerabilityManagement/</guid><description>&lt;h1 id="go-vulnerability-management---go-的漏洞管理">Go Vulnerability Management - Go 的漏洞管理&lt;a class="td-heading-self-link" href="#go-vulnerability-management---go-%e7%9a%84%e6%bc%8f%e6%b4%9e%e7%ae%a1%e7%90%86" aria-label="Heading self-link">&lt;/a>&lt;/h1>
-&lt;blockquote>
-&lt;p>原文：&lt;a href="https://go.dev/security/vuln/">https://go.dev/security/vuln/&lt;/a>&lt;/p>&lt;/blockquote>
-&lt;h2 id="概述">概述&lt;a class="td-heading-self-link" href="#%e6%a6%82%e8%bf%b0" aria-label="Heading self-link">&lt;/a>&lt;/h2>
-&lt;p>​	Go帮助开发人员检测、评估和解决存在被攻击者利用风险的错误或弱点。在幕后，Go团队运行一个流水线来整理有关漏洞的报告，这些报告存储在Go漏洞数据库中。各种库和工具可以读取和分析这些报告，以了解特定用户项目可能受到的影响。这个功能已经集成到了&lt;a href="https://pkg.go.dev/">Go包发现站点&lt;/a>和一个新的CLI工具govulncheck中。这个项目是一项正在进行的工作，并且正在积极开发中。我们欢迎您的反馈来帮助我们改进&lt;/p></description></item></channel></rss>
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Go 的安全问题 on Go 中文档集</title><link>https://before80.github.io/go_docs/docs/GoSecurity/</link><description>Recent content in Go 的安全问题 on Go 中文档集</description><generator>Hugo</generator><language>zh-cn</language><lastBuildDate>Thu, 10 Oct 2024 15:07:50 +0800</lastBuildDate><atom:link href="https://before80.github.io/go_docs/docs/GoSecurity/index.xml" rel="self" type="application/rss+xml"/><item><title>Go 的安全问题</title><link>https://before80.github.io/go_docs/docs/GoSecurity/GoSecurity/</link><pubDate>Thu, 18 May 2023 16:50:08 +0800</pubDate><guid>https://before80.github.io/go_docs/docs/GoSecurity/GoSecurity/</guid><description>&lt;h1 id="go-security---go的安全问题"&gt;Go Security - Go的安全问题&lt;/h1&gt;
+&lt;blockquote&gt;
+&lt;p&gt;原文：https://go.dev/security/&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;h2 id="overview-概述"&gt;Overview 概述&lt;/h2&gt;
+&lt;p&gt;本页提供了关于使用Go编写安全可靠的软件的信息。&lt;/p&gt;
+&lt;h2 id="go-security-go的安全问题"&gt;Go Security Go的安全问题&lt;/h2&gt;
+&lt;h3 id="go-security-policy--go-安全政策"&gt;Go Security Policy Go 安全政策&lt;/h3&gt;
+&lt;p&gt;​	&lt;a href="../GoSecurityPolicy"&gt;Go Security Policy&lt;/a&gt;解释了如何向 Go 团队报告 Go 标准库和子库的安全问题。&lt;/p&gt;</description></item><item><title>Go CNA策略</title><link>https://before80.github.io/go_docs/docs/GoSecurity/GoCNAPolicy/</link><pubDate>Thu, 18 May 2023 16:50:08 +0800</pubDate><guid>https://before80.github.io/go_docs/docs/GoSecurity/GoCNAPolicy/</guid><description>&lt;h1 id="go-cna-policy---go-cna策略"&gt;Go CNA Policy - Go CNA策略&lt;/h1&gt;
+&lt;blockquote&gt;
+&lt;p&gt;原文：&lt;a href="https://go.dev/security/vuln/cna"&gt;https://go.dev/security/vuln/cna&lt;/a&gt;&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;h2 id="概述"&gt;概述&lt;/h2&gt;
+&lt;p&gt;​	Go CNA是&lt;a href="https://www.cve.org/ProgramOrganization/CNAs"&gt;CVE编号机构&lt;/a&gt;，为Go生态系统中的公共漏洞发行&lt;a href="https://www.cve.org/ResourcesSupport/Glossary?activeTerm=glossaryCVEID"&gt;CVE IDs&lt;/a&gt;并发布&lt;a href="https://www.cve.org/ResourcesSupport/Glossary?activeTerm=glossaryRecord"&gt;CVE记录&lt;/a&gt;。它是Google CNA的子CNA。&lt;/p&gt;
+&lt;h2 id="范围"&gt;范围&lt;/h2&gt;
+&lt;p&gt;​	Go CNA涵盖Go项目（Go&lt;a href="https://go.dev/pkg"&gt;标准库&lt;/a&gt;和&lt;a href="https://pkg.go.dev/golang.org/x"&gt;子存储库&lt;/a&gt;）中的漏洞以及不受其他CNA覆盖的可导入Go模块中的公共漏洞。&lt;/p&gt;
+&lt;p&gt;​	该范围旨在明确排除在Go中编写但不可导入的应用程序或包的漏洞（例如，任何位于main包中的内容）。有关排除报告的更多信息，请参见&lt;a href="https://go.dev/security/vuln/database#excluded-reports"&gt;go.dev/security/vuln/database#excluded-reports&lt;/a&gt;。&lt;/p&gt;</description></item><item><title>Go 安全策略</title><link>https://before80.github.io/go_docs/docs/GoSecurity/GoSecurityPolicy/</link><pubDate>Thu, 18 May 2023 16:50:08 +0800</pubDate><guid>https://before80.github.io/go_docs/docs/GoSecurity/GoSecurityPolicy/</guid><description>&lt;h1 id="go-security-policy---go-安全策略"&gt;Go Security Policy - Go 安全策略&lt;/h1&gt;
+&lt;blockquote&gt;
+&lt;p&gt;原文：&lt;a href="https://go.dev/security/policy"&gt;https://go.dev/security/policy&lt;/a&gt;&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;h2 id="概述"&gt;概述&lt;/h2&gt;
+&lt;p&gt;​	本文档介绍Go安全团队处理报告问题的流程以及期望得到的反馈。&lt;/p&gt;
+&lt;h2 id="报告安全漏洞"&gt;报告安全漏洞&lt;/h2&gt;
+&lt;p&gt;​	Go发布的所有安全漏洞都应通过电子邮件发送到&lt;a href="mailto:security@golang.org"&gt;security@golang.org&lt;/a&gt;进行报告。此邮件将被送到Go安全团队。&lt;/p&gt;
+&lt;p&gt;​	为确保您的报告不被标记为垃圾邮件，请在电子邮件中任意位置包含单词&amp;quot;vulnerability（漏洞）&amp;quot;。请为报告电子邮件使用一个描述性的主题行。&lt;/p&gt;</description></item><item><title>Go 的漏洞管理</title><link>https://before80.github.io/go_docs/docs/GoSecurity/GoVulnerabilityManagement/</link><pubDate>Thu, 18 May 2023 16:50:08 +0800</pubDate><guid>https://before80.github.io/go_docs/docs/GoSecurity/GoVulnerabilityManagement/</guid><description>&lt;h1 id="go-vulnerability-management---go-的漏洞管理"&gt;Go Vulnerability Management - Go 的漏洞管理&lt;/h1&gt;
+&lt;blockquote&gt;
+&lt;p&gt;原文：&lt;a href="https://go.dev/security/vuln/"&gt;https://go.dev/security/vuln/&lt;/a&gt;&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;h2 id="概述"&gt;概述&lt;/h2&gt;
+&lt;p&gt;​	Go帮助开发人员检测、评估和解决存在被攻击者利用风险的错误或弱点。在幕后，Go团队运行一个流水线来整理有关漏洞的报告，这些报告存储在Go漏洞数据库中。各种库和工具可以读取和分析这些报告，以了解特定用户项目可能受到的影响。这个功能已经集成到了&lt;a href="https://pkg.go.dev/"&gt;Go包发现站点&lt;/a&gt;和一个新的CLI工具govulncheck中。这个项目是一项正在进行的工作，并且正在积极开发中。我们欢迎您的反馈来帮助我们改进&lt;/p&gt;</description></item></channel></rss>

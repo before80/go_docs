@@ -1,31 +1,38 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>lua on Go 中文档集</title><link>https://before80.github.io/go_docs/thirdPkg/lua/</link><description>Recent content in lua on Go 中文档集</description><generator>Hugo</generator><language>zh-cn</language><lastBuildDate>Thu, 10 Oct 2024 15:07:50 +0800</lastBuildDate><atom:link href="https://before80.github.io/go_docs/thirdPkg/lua/index.xml" rel="self" type="application/rss+xml"/><item><title>常见问题</title><link>https://before80.github.io/go_docs/thirdPkg/lua/faq/</link><pubDate>Thu, 25 Jan 2024 22:09:06 +0800</pubDate><guid>https://before80.github.io/go_docs/thirdPkg/lua/faq/</guid><description>&lt;blockquote>
-&lt;p>原文：&lt;/p>&lt;/blockquote>
-&lt;h1 id="frequently-asked-questions-常见问题">Frequently Asked Questions 常见问题&lt;a class="td-heading-self-link" href="#frequently-asked-questions-%e5%b8%b8%e8%a7%81%e9%97%ae%e9%a2%98" aria-label="Heading self-link">&lt;/a>&lt;/h1>
-&lt;p>Here are answers to some frequently asked questions about Lua.&lt;/p>
-&lt;p>​	以下是有关 Lua 的一些常见问题的解答。
-For an introduction to what Lua is, see this &lt;a href="https://www.lua.org/about.html">summary&lt;/a> or learn how to &lt;a href="https://www.lua.org/start.html">get started&lt;/a> with Lua.&lt;/p>
-&lt;p>​	有关 Lua 是什么的介绍，请参阅此摘要或了解如何开始使用 Lua。
-For programming questions, see the community-maintained &lt;a href="http://lua-users.org/wiki/LuaFaq">LuaFaq&lt;/a> and also the much longer &lt;a href="http://www.luafaq.org/">uFAQ&lt;/a>.&lt;/p></description></item><item><title>下载</title><link>https://before80.github.io/go_docs/thirdPkg/lua/download/</link><pubDate>Thu, 25 Jan 2024 21:53:44 +0800</pubDate><guid>https://before80.github.io/go_docs/thirdPkg/lua/download/</guid><description>&lt;blockquote>
-&lt;p>原文：&lt;a href="https://www.lua.org/download.html">https://www.lua.org/download.html&lt;/a>&lt;/p>&lt;/blockquote>
-&lt;h1 id="download-下载">Download 下载&lt;a class="td-heading-self-link" href="#download-%e4%b8%8b%e8%bd%bd" aria-label="Heading self-link">&lt;/a>&lt;/h1>
-&lt;h2 id="source-源代码">Source 源代码&lt;a class="td-heading-self-link" href="#source-%e6%ba%90%e4%bb%a3%e7%a0%81" aria-label="Heading self-link">&lt;/a>&lt;/h2>
-&lt;p>Lua is &lt;a href="https://www.lua.org/license.html">free software&lt;/a> distributed in &lt;a href="https://www.lua.org/ftp/">source code&lt;/a>. It may be used for any purpose, including commercial purposes, at absolutely no cost.&lt;/p>
-&lt;p>​	Lua 是以&lt;a href="https://www.lua.org/ftp/">源代码&lt;/a>形式分发的&lt;a href="https://www.lua.org/license.html">免费软件&lt;/a>。它可以用于任何目的，包括商业目的，绝对免费。&lt;/p>
-&lt;p>All &lt;a href="https://www.lua.org/versions.html">versions&lt;/a> are available for &lt;a href="https://www.lua.org/ftp/">download&lt;/a>. The current version is &lt;a href="https://www.lua.org/versions.html#5.4">Lua 5.4&lt;/a> and its current release is &lt;a href="https://www.lua.org/ftp/lua-5.4.6.tar.gz">Lua 5.4.6&lt;/a>.&lt;/p>
-&lt;p>​	所有&lt;a href="https://www.lua.org/versions.html">版本&lt;/a>均可&lt;a href="https://www.lua.org/ftp/">下载&lt;/a>。当前版本是 &lt;a href="https://www.lua.org/versions.html#5.4">Lua 5.4&lt;/a>，其当前版本是 Lua 5.4.6。&lt;/p></description></item><item><title>社区</title><link>https://before80.github.io/go_docs/thirdPkg/lua/community/</link><pubDate>Thu, 25 Jan 2024 21:49:44 +0800</pubDate><guid>https://before80.github.io/go_docs/thirdPkg/lua/community/</guid><description>&lt;blockquote>
-&lt;p>原文：&lt;a href="https://www.lua.org/community.html">https://www.lua.org/community.html&lt;/a>&lt;/p>&lt;/blockquote>
-&lt;h1 id="community-社区">Community 社区&lt;a class="td-heading-self-link" href="#community-%e7%a4%be%e5%8c%ba" aria-label="Heading self-link">&lt;/a>&lt;/h1>
-&lt;h2 id="meeting-places-会面地点">Meeting places 会面地点&lt;a class="td-heading-self-link" href="#meeting-places-%e4%bc%9a%e9%9d%a2%e5%9c%b0%e7%82%b9" aria-label="Heading self-link">&lt;/a>&lt;/h2>
-&lt;p>There are several places you can go to meet other people that use Lua. A good starting point is &lt;a href="http://lua-users.org/">lua-users.org&lt;/a>, a &lt;a href="http://lua-users.org/wiki/">collaborative&lt;/a> meeting place built for and by Lua users.&lt;/p>
-&lt;p>​	您可以去几个地方与其他使用 Lua 的人会面。一个好的起点是 lua-users.org，这是一个由 Lua 用户构建并为 Lua 用户构建的协作会面场所。&lt;/p></description></item><item><title>新闻</title><link>https://before80.github.io/go_docs/thirdPkg/lua/news/</link><pubDate>Thu, 25 Jan 2024 19:01:27 +0800</pubDate><guid>https://before80.github.io/go_docs/thirdPkg/lua/news/</guid><description>&lt;blockquote>
-&lt;p>原文：&lt;a href="https://www.lua.org/news.html">https://www.lua.org/news.html&lt;/a>&lt;/p>&lt;/blockquote>
-&lt;p>Here is a summary of the main events around and about Lua. [
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>lua on Go 中文档集</title><link>https://before80.github.io/go_docs/thirdPkg/lua/</link><description>Recent content in lua on Go 中文档集</description><generator>Hugo</generator><language>zh-cn</language><lastBuildDate>Thu, 10 Oct 2024 15:07:50 +0800</lastBuildDate><atom:link href="https://before80.github.io/go_docs/thirdPkg/lua/index.xml" rel="self" type="application/rss+xml"/><item><title>常见问题</title><link>https://before80.github.io/go_docs/thirdPkg/lua/faq/</link><pubDate>Thu, 25 Jan 2024 22:09:06 +0800</pubDate><guid>https://before80.github.io/go_docs/thirdPkg/lua/faq/</guid><description>&lt;blockquote&gt;
+&lt;p&gt;原文：&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;h1 id="frequently-asked-questions-常见问题"&gt;Frequently Asked Questions 常见问题&lt;/h1&gt;
+&lt;p&gt;Here are answers to some frequently asked questions about Lua.&lt;/p&gt;
+&lt;p&gt;​	以下是有关 Lua 的一些常见问题的解答。
+For an introduction to what Lua is, see this &lt;a href="https://www.lua.org/about.html"&gt;summary&lt;/a&gt; or learn how to &lt;a href="https://www.lua.org/start.html"&gt;get started&lt;/a&gt; with Lua.&lt;/p&gt;
+&lt;p&gt;​	有关 Lua 是什么的介绍，请参阅此摘要或了解如何开始使用 Lua。
+For programming questions, see the community-maintained &lt;a href="http://lua-users.org/wiki/LuaFaq"&gt;LuaFaq&lt;/a&gt; and also the much longer &lt;a href="http://www.luafaq.org/"&gt;uFAQ&lt;/a&gt;.&lt;/p&gt;</description></item><item><title>下载</title><link>https://before80.github.io/go_docs/thirdPkg/lua/download/</link><pubDate>Thu, 25 Jan 2024 21:53:44 +0800</pubDate><guid>https://before80.github.io/go_docs/thirdPkg/lua/download/</guid><description>&lt;blockquote&gt;
+&lt;p&gt;原文：&lt;a href="https://www.lua.org/download.html"&gt;https://www.lua.org/download.html&lt;/a&gt;&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;h1 id="download-下载"&gt;Download 下载&lt;/h1&gt;
+&lt;h2 id="source-源代码"&gt;Source 源代码&lt;/h2&gt;
+&lt;p&gt;Lua is &lt;a href="https://www.lua.org/license.html"&gt;free software&lt;/a&gt; distributed in &lt;a href="https://www.lua.org/ftp/"&gt;source code&lt;/a&gt;. It may be used for any purpose, including commercial purposes, at absolutely no cost.&lt;/p&gt;
+&lt;p&gt;​	Lua 是以&lt;a href="https://www.lua.org/ftp/"&gt;源代码&lt;/a&gt;形式分发的&lt;a href="https://www.lua.org/license.html"&gt;免费软件&lt;/a&gt;。它可以用于任何目的，包括商业目的，绝对免费。&lt;/p&gt;
+&lt;p&gt;All &lt;a href="https://www.lua.org/versions.html"&gt;versions&lt;/a&gt; are available for &lt;a href="https://www.lua.org/ftp/"&gt;download&lt;/a&gt;. The current version is &lt;a href="https://www.lua.org/versions.html#5.4"&gt;Lua 5.4&lt;/a&gt; and its current release is &lt;a href="https://www.lua.org/ftp/lua-5.4.6.tar.gz"&gt;Lua 5.4.6&lt;/a&gt;.&lt;/p&gt;
+&lt;p&gt;​	所有&lt;a href="https://www.lua.org/versions.html"&gt;版本&lt;/a&gt;均可&lt;a href="https://www.lua.org/ftp/"&gt;下载&lt;/a&gt;。当前版本是 &lt;a href="https://www.lua.org/versions.html#5.4"&gt;Lua 5.4&lt;/a&gt;，其当前版本是 Lua 5.4.6。&lt;/p&gt;
+&lt;p&gt;&lt;a href="https://www.lua.org/ftp/lua-5.4.6.tar.gz"&gt;lua-5.4.6.tar.gz&lt;/a&gt;
+2023-05-02, 355K, sha256:
+7d5ea1b9cb6aa0b59ca3dde1c6adcb57ef83a1ba8e5432c0ecd06bf439b3ad88&lt;/p&gt;</description></item><item><title>社区</title><link>https://before80.github.io/go_docs/thirdPkg/lua/community/</link><pubDate>Thu, 25 Jan 2024 21:49:44 +0800</pubDate><guid>https://before80.github.io/go_docs/thirdPkg/lua/community/</guid><description>&lt;blockquote&gt;
+&lt;p&gt;原文：&lt;a href="https://www.lua.org/community.html"&gt;https://www.lua.org/community.html&lt;/a&gt;&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;h1 id="community-社区"&gt;Community 社区&lt;/h1&gt;
+&lt;h2 id="meeting-places-会面地点"&gt;Meeting places 会面地点&lt;/h2&gt;
+&lt;p&gt;There are several places you can go to meet other people that use Lua. A good starting point is &lt;a href="http://lua-users.org/"&gt;lua-users.org&lt;/a&gt;, a &lt;a href="http://lua-users.org/wiki/"&gt;collaborative&lt;/a&gt; meeting place built for and by Lua users.&lt;/p&gt;
+&lt;p&gt;​	您可以去几个地方与其他使用 Lua 的人会面。一个好的起点是 lua-users.org，这是一个由 Lua 用户构建并为 Lua 用户构建的协作会面场所。&lt;/p&gt;</description></item><item><title>新闻</title><link>https://before80.github.io/go_docs/thirdPkg/lua/news/</link><pubDate>Thu, 25 Jan 2024 19:01:27 +0800</pubDate><guid>https://before80.github.io/go_docs/thirdPkg/lua/news/</guid><description>&lt;blockquote&gt;
+&lt;p&gt;原文：&lt;a href="https://www.lua.org/news.html"&gt;https://www.lua.org/news.html&lt;/a&gt;&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;Here is a summary of the main events around and about Lua. [
  &lt;img src="https://www.lua.org/news.rss"
  alt="RSS]"
  
- />
-&lt;/p>
-&lt;p>​	以下是有关 Lua 的主要事件摘要。 
+ /&gt;
+&lt;/p&gt;
+&lt;p&gt;​	以下是有关 Lua 的主要事件摘要。 
  
  
  
@@ -39,27 +46,34 @@ For programming questions, see the community-maintained &lt;a href="http://lua-u
  &lt;img src="https://before80.github.io/go_docs/thirdPkg/lua/news_img/rss.png"
  alt="[RSS]" data-cur-dir="thirdPkg/lua" data-rg="/news_img/rss.png" data-rg1="news_img/rss.png" data-rel="/go_docs/news_img/rss.png" data-c4my="/go_docs"
  
- />
+ /&gt;
  
  
 
-Check also the announcements in the &lt;a href="https://www.lua.org/lua-l.html">mailing list&lt;/a>, the &lt;a href="https://www.lua.org/recent.html">recent changes&lt;/a> in the site, and our &lt;a href="https://www.lua.org/rss.html">RSS feeds&lt;/a>.&lt;/p>
-&lt;p>​	还请查看邮件列表中的公告、网站上的最新更改以及我们的 RSS 源。&lt;/p></description></item><item><title>关于</title><link>https://before80.github.io/go_docs/thirdPkg/lua/about/</link><pubDate>Thu, 25 Jan 2024 17:43:19 +0800</pubDate><guid>https://before80.github.io/go_docs/thirdPkg/lua/about/</guid><description>&lt;blockquote>
-&lt;p>原文：&lt;a href="https://www.lua.org/about.html">https://www.lua.org/about.html&lt;/a>&lt;/p>&lt;/blockquote>
-&lt;h2 id="what-is-lua-lua-是什么">What is Lua? Lua 是什么？&lt;a class="td-heading-self-link" href="#what-is-lua-lua-%e6%98%af%e4%bb%80%e4%b9%88" aria-label="Heading self-link">&lt;/a>&lt;/h2>
-&lt;p>Lua is a powerful, efficient, lightweight, embeddable scripting language. It supports procedural programming, object-oriented programming, functional programming, data-driven programming, and data description.&lt;/p>
-&lt;p>​	Lua 是一种功能强大、高效、轻量级、可嵌入的脚本语言。它支持过程式编程、面向对象编程、函数式编程、数据驱动编程和数据描述。&lt;/p></description></item><item><title>相关参考</title><link>https://before80.github.io/go_docs/thirdPkg/lua/refs/</link><pubDate>Thu, 25 Jan 2024 17:36:19 +0800</pubDate><guid>https://before80.github.io/go_docs/thirdPkg/lua/refs/</guid><description>&lt;blockquote>
-&lt;p>原文：&lt;/p>&lt;/blockquote>
-&lt;h2 id="onecompiler-在线体验">OneCompiler 在线体验&lt;a class="td-heading-self-link" href="#onecompiler-%e5%9c%a8%e7%ba%bf%e4%bd%93%e9%aa%8c" aria-label="Heading self-link">&lt;/a>&lt;/h2>
-&lt;blockquote>
-&lt;p>原文：&lt;a href="https://onecompiler.com/lua/">https://onecompiler.com/lua/&lt;/a>&lt;/p>&lt;/blockquote>
-&lt;h2 id="在线体验luaos">在线体验LuaOS&lt;a class="td-heading-self-link" href="#%e5%9c%a8%e7%ba%bf%e4%bd%93%e9%aa%8cluaos" aria-label="Heading self-link">&lt;/a>&lt;/h2>
-&lt;blockquote>
-&lt;p>原文：&lt;a href="https://wiki.luatos.com/">https://wiki.luatos.com/&lt;/a>&lt;/p>&lt;/blockquote>
-&lt;h2 id="luatos在线模拟">LuatOS在线模拟&lt;a class="td-heading-self-link" href="#luatos%e5%9c%a8%e7%ba%bf%e6%a8%a1%e6%8b%9f" aria-label="Heading self-link">&lt;/a>&lt;/h2>
-&lt;blockquote>
-&lt;p>原文：&lt;a href="https://wiki.luatos.com/pages/emulator.html">https://wiki.luatos.com/pages/emulator.html&lt;/a>&lt;/p>&lt;/blockquote></description></item><item><title>开始入门</title><link>https://before80.github.io/go_docs/thirdPkg/lua/GettingStarted/</link><pubDate>Thu, 25 Jan 2024 17:30:37 +0800</pubDate><guid>https://before80.github.io/go_docs/thirdPkg/lua/GettingStarted/</guid><description>&lt;blockquote>
-&lt;p>原文：&lt;/p>&lt;/blockquote>
-&lt;h2 id="welcome-欢迎">Welcome! 欢迎！&lt;a class="td-heading-self-link" href="#welcome-%e6%ac%a2%e8%bf%8e" aria-label="Heading self-link">&lt;/a>&lt;/h2>
-&lt;p>Lua is a powerful and fast programming language that is easy to learn and use and to embed into your application.&lt;/p>
-&lt;p>​	Lua 是一种功能强大且快速的编程语言，易于学习和使用，并且可以嵌入到您的应用程序中。&lt;/p></description></item></channel></rss>
+Check also the announcements in the &lt;a href="https://www.lua.org/lua-l.html"&gt;mailing list&lt;/a&gt;, the &lt;a href="https://www.lua.org/recent.html"&gt;recent changes&lt;/a&gt; in the site, and our &lt;a href="https://www.lua.org/rss.html"&gt;RSS feeds&lt;/a&gt;.&lt;/p&gt;
+&lt;p&gt;​	还请查看邮件列表中的公告、网站上的最新更改以及我们的 RSS 源。&lt;/p&gt;</description></item><item><title>关于</title><link>https://before80.github.io/go_docs/thirdPkg/lua/about/</link><pubDate>Thu, 25 Jan 2024 17:43:19 +0800</pubDate><guid>https://before80.github.io/go_docs/thirdPkg/lua/about/</guid><description>&lt;blockquote&gt;
+&lt;p&gt;原文：&lt;a href="https://www.lua.org/about.html"&gt;https://www.lua.org/about.html&lt;/a&gt;&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;h2 id="what-is-lua-lua-是什么"&gt;What is Lua? Lua 是什么？&lt;/h2&gt;
+&lt;p&gt;Lua is a powerful, efficient, lightweight, embeddable scripting language. It supports procedural programming, object-oriented programming, functional programming, data-driven programming, and data description.&lt;/p&gt;
+&lt;p&gt;​	Lua 是一种功能强大、高效、轻量级、可嵌入的脚本语言。它支持过程式编程、面向对象编程、函数式编程、数据驱动编程和数据描述。&lt;/p&gt;</description></item><item><title>相关参考</title><link>https://before80.github.io/go_docs/thirdPkg/lua/refs/</link><pubDate>Thu, 25 Jan 2024 17:36:19 +0800</pubDate><guid>https://before80.github.io/go_docs/thirdPkg/lua/refs/</guid><description>&lt;blockquote&gt;
+&lt;p&gt;原文：&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;h2 id="onecompiler-在线体验"&gt;OneCompiler 在线体验&lt;/h2&gt;
+&lt;blockquote&gt;
+&lt;p&gt;原文：&lt;a href="https://onecompiler.com/lua/"&gt;https://onecompiler.com/lua/&lt;/a&gt;&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;h2 id="在线体验luaos"&gt;在线体验LuaOS&lt;/h2&gt;
+&lt;blockquote&gt;
+&lt;p&gt;原文：&lt;a href="https://wiki.luatos.com/"&gt;https://wiki.luatos.com/&lt;/a&gt;&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;h2 id="luatos在线模拟"&gt;LuatOS在线模拟&lt;/h2&gt;
+&lt;blockquote&gt;
+&lt;p&gt;原文：&lt;a href="https://wiki.luatos.com/pages/emulator.html"&gt;https://wiki.luatos.com/pages/emulator.html&lt;/a&gt;&lt;/p&gt;
+&lt;/blockquote&gt;</description></item><item><title>开始入门</title><link>https://before80.github.io/go_docs/thirdPkg/lua/GettingStarted/</link><pubDate>Thu, 25 Jan 2024 17:30:37 +0800</pubDate><guid>https://before80.github.io/go_docs/thirdPkg/lua/GettingStarted/</guid><description>&lt;blockquote&gt;
+&lt;p&gt;原文：&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;h2 id="welcome-欢迎"&gt;Welcome! 欢迎！&lt;/h2&gt;
+&lt;p&gt;Lua is a powerful and fast programming language that is easy to learn and use and to embed into your application.&lt;/p&gt;
+&lt;p&gt;​	Lua 是一种功能强大且快速的编程语言，易于学习和使用，并且可以嵌入到您的应用程序中。&lt;/p&gt;
+&lt;p&gt;Lua is designed to be a lightweight embeddable scripting language. It is used for &lt;a href="https://www.lua.org/uses.html"&gt;all sorts of applications&lt;/a&gt;, from games to web applications and image processing.&lt;/p&gt;</description></item></channel></rss>

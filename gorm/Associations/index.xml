@@ -1,134 +1,140 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>关联 on Go 中文档集</title><link>https://before80.github.io/go_docs/gorm/Associations/</link><description>Recent content in 关联 on Go 中文档集</description><generator>Hugo</generator><language>zh-cn</language><lastBuildDate>Thu, 10 Oct 2024 15:07:50 +0800</lastBuildDate><atom:link href="https://before80.github.io/go_docs/gorm/Associations/index.xml" rel="self" type="application/rss+xml"/><item><title>属于关系</title><link>https://before80.github.io/go_docs/gorm/Associations/belongsTo/</link><pubDate>Sat, 28 Oct 2023 14:27:48 +0800</pubDate><guid>https://before80.github.io/go_docs/gorm/Associations/belongsTo/</guid><description>&lt;blockquote>
-&lt;p>原文：&lt;a href="https://gorm.io/docs/belongs_to.html">https://gorm.io/docs/belongs_to.html&lt;/a>&lt;/p>&lt;/blockquote>
-&lt;h2 id="属于关系-belongs-to">属于关系 Belongs To&lt;a class="td-heading-self-link" href="#%e5%b1%9e%e4%ba%8e%e5%85%b3%e7%b3%bb-belongs-to" aria-label="Heading self-link">&lt;/a>&lt;/h2>
-&lt;p>A &lt;code>belongs to&lt;/code> association sets up a one-to-one connection with another model, such that each instance of the declaring model “belongs to” one instance of the other model.&lt;/p>
-&lt;p>​	一个&lt;code>belongs to&lt;/code>关联设置了一个模型与另一个模型之间的一对一连接，使得声明模型的每个实例“属于”另一个模型的一个实例。&lt;/p></description></item><item><title>一对一</title><link>https://before80.github.io/go_docs/gorm/Associations/HasOne/</link><pubDate>Sat, 28 Oct 2023 14:28:02 +0800</pubDate><guid>https://before80.github.io/go_docs/gorm/Associations/HasOne/</guid><description>&lt;blockquote>
-&lt;p>原文：&lt;a href="https://gorm.io/docs/has_one.html">https://gorm.io/docs/has_one.html&lt;/a>&lt;/p>&lt;/blockquote>
-&lt;h2 id="一对一-has-one">一对一 Has One&lt;a class="td-heading-self-link" href="#%e4%b8%80%e5%af%b9%e4%b8%80-has-one" aria-label="Heading self-link">&lt;/a>&lt;/h2>
-&lt;p>A &lt;code>has one&lt;/code> association sets up a one-to-one connection with another model, but with somewhat different semantics (and consequences). This association indicates that each instance of a model contains or possesses one instance of another model.&lt;/p>
-&lt;p>​	一个&lt;code>has one&lt;/code>关联设置了一个与另一个模型的一对一连接，但具有一些不同的语义（和后果）。这个关联表示每个模型实例包含或拥有另一个模型的一个实例。&lt;/p></description></item><item><title>多对多</title><link>https://before80.github.io/go_docs/gorm/Associations/manyToMany/</link><pubDate>Sat, 28 Oct 2023 14:28:27 +0800</pubDate><guid>https://before80.github.io/go_docs/gorm/Associations/manyToMany/</guid><description>&lt;blockquote>
-&lt;p>原文：&lt;a href="https://gorm.io/docs/many_to_many.html">https://gorm.io/docs/many_to_many.html&lt;/a>&lt;/p>&lt;/blockquote>
-&lt;h2 id="多对多-many-to-many">多对多 Many To Many&lt;a class="td-heading-self-link" href="#%e5%a4%9a%e5%af%b9%e5%a4%9a-many-to-many" aria-label="Heading self-link">&lt;/a>&lt;/h2>
-&lt;p>Many to Many add a join table between two models.&lt;/p>
-&lt;p>​	多对多在两个模型之间添加一个连接表。&lt;/p>
-&lt;p>For example, if your application includes users and languages, and a user can speak many languages, and many users can speak a specified language.&lt;/p>
-&lt;p>​	例如，如果你的应用包括用户和语言，用户可以说多种语言，也可以说多种语言。&lt;/p></description></item><item><title>多对一</title><link>https://before80.github.io/go_docs/gorm/Associations/HasMany/</link><pubDate>Sat, 28 Oct 2023 14:28:11 +0800</pubDate><guid>https://before80.github.io/go_docs/gorm/Associations/HasMany/</guid><description>&lt;blockquote>
-&lt;p>原文：&lt;a href="https://gorm.io/docs/has_many.html">https://gorm.io/docs/has_many.html&lt;/a>&lt;/p>&lt;/blockquote>
-&lt;h2 id="多对一-has-many">多对一 Has Many&lt;a class="td-heading-self-link" href="#%e5%a4%9a%e5%af%b9%e4%b8%80-has-many" aria-label="Heading self-link">&lt;/a>&lt;/h2>
-&lt;p>A &lt;code>has many&lt;/code> association sets up a one-to-many connection with another model, unlike &lt;code>has one&lt;/code>, the owner could have zero or many instances of models.&lt;/p>
-&lt;p>​	&lt;code>has many&lt;/code>关联设置了一个一对多的连接，与&lt;code>has one&lt;/code>不同，拥有者可以有零个或多个模型实例。&lt;/p></description></item><item><title>关联模式</title><link>https://before80.github.io/go_docs/gorm/Associations/associationMode/</link><pubDate>Sat, 28 Oct 2023 14:28:42 +0800</pubDate><guid>https://before80.github.io/go_docs/gorm/Associations/associationMode/</guid><description>&lt;blockquote>
-&lt;p>原文：&lt;a href="https://gorm.io/docs/associations.html">https://gorm.io/docs/associations.html&lt;/a>&lt;/p>&lt;/blockquote>
-&lt;h2 id="自动创建更新-auto-createupdate">自动创建/更新 Auto Create/Update&lt;a class="td-heading-self-link" href="#%e8%87%aa%e5%8a%a8%e5%88%9b%e5%bb%ba%e6%9b%b4%e6%96%b0-auto-createupdate" aria-label="Heading self-link">&lt;/a>&lt;/h2>
-&lt;p>GORM will auto-save associations and its reference using &lt;a href="https://gorm.io/docs/create.html#upsert">Upsert&lt;/a> when creating/updating a record.&lt;/p>
-&lt;p>​	GORM 在创建或更新记录时会自动保存关联及其引用，使用 Upsert（如果存在则更新，否则插入）功能。&lt;/p>
-&lt;div class="highlight">&lt;div style="color:#b0c4de;background-color:#282c34;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">
-&lt;table style="border-spacing:0;padding:0;margin:0;border:0;">&lt;tr>&lt;td style="vertical-align:top;padding:0;margin:0;border:0;">
-&lt;pre tabindex="0" style="color:#b0c4de;background-color:#282c34;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code>&lt;span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#58626f"> 1
-&lt;/span>&lt;span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#58626f"> 2
-&lt;/span>&lt;span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#58626f"> 3
-&lt;/span>&lt;span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#58626f"> 4
-&lt;/span>&lt;span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#58626f"> 5
-&lt;/span>&lt;span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#58626f"> 6
-&lt;/span>&lt;span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#58626f"> 7
-&lt;/span>&lt;span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#58626f"> 8
-&lt;/span>&lt;span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#58626f"> 9
-&lt;/span>&lt;span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#58626f">10
-&lt;/span>&lt;span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#58626f">11
-&lt;/span>&lt;span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#58626f">12
-&lt;/span>&lt;span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#58626f">13
-&lt;/span>&lt;span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#58626f">14
-&lt;/span>&lt;span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#58626f">15
-&lt;/span>&lt;span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#58626f">16
-&lt;/span>&lt;span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#58626f">17
-&lt;/span>&lt;span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#58626f">18
-&lt;/span>&lt;span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#58626f">19
-&lt;/span>&lt;span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#58626f">20
-&lt;/span>&lt;span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#58626f">21
-&lt;/span>&lt;span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#58626f">22
-&lt;/span>&lt;span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#58626f">23
-&lt;/span>&lt;span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#58626f">24
-&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
-&lt;td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
-&lt;pre tabindex="0" style="color:#b0c4de;background-color:#282c34;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-go" data-lang="go">&lt;span style="display:flex;">&lt;span>&lt;span style="color:#aa89ea">user&lt;/span> &lt;span style="color:#54b1c7">:=&lt;/span> &lt;span style="color:#aa89ea">User&lt;/span>&lt;span style="color:#abb2bf">{&lt;/span>
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#aa89ea">Name&lt;/span>&lt;span style="color:#abb2bf">:&lt;/span> &lt;span style="color:#98c379">&amp;#34;jinzhu&amp;#34;&lt;/span>&lt;span style="color:#abb2bf">,&lt;/span>
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#aa89ea">BillingAddress&lt;/span>&lt;span style="color:#abb2bf">:&lt;/span> &lt;span style="color:#aa89ea">Address&lt;/span>&lt;span style="color:#abb2bf">{&lt;/span>&lt;span style="color:#aa89ea">Address1&lt;/span>&lt;span style="color:#abb2bf">:&lt;/span> &lt;span style="color:#98c379">&amp;#34;Billing Address - Address 1&amp;#34;&lt;/span>&lt;span style="color:#abb2bf">},&lt;/span>
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#aa89ea">ShippingAddress&lt;/span>&lt;span style="color:#abb2bf">:&lt;/span> &lt;span style="color:#aa89ea">Address&lt;/span>&lt;span style="color:#abb2bf">{&lt;/span>&lt;span style="color:#aa89ea">Address1&lt;/span>&lt;span style="color:#abb2bf">:&lt;/span> &lt;span style="color:#98c379">&amp;#34;Shipping Address - Address 1&amp;#34;&lt;/span>&lt;span style="color:#abb2bf">},&lt;/span>
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#aa89ea">Emails&lt;/span>&lt;span style="color:#abb2bf">:&lt;/span> &lt;span style="color:#abb2bf">[]&lt;/span>&lt;span style="color:#aa89ea">Email&lt;/span>&lt;span style="color:#abb2bf">{&lt;/span>
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#abb2bf">{&lt;/span>&lt;span style="color:#aa89ea">Email&lt;/span>&lt;span style="color:#abb2bf">:&lt;/span> &lt;span style="color:#98c379">&amp;#34;jinzhu@example.com&amp;#34;&lt;/span>&lt;span style="color:#abb2bf">},&lt;/span>
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#abb2bf">{&lt;/span>&lt;span style="color:#aa89ea">Email&lt;/span>&lt;span style="color:#abb2bf">:&lt;/span> &lt;span style="color:#98c379">&amp;#34;jinzhu-2@example.com&amp;#34;&lt;/span>&lt;span style="color:#abb2bf">},&lt;/span>
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#abb2bf">},&lt;/span>
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#aa89ea">Languages&lt;/span>&lt;span style="color:#abb2bf">:&lt;/span> &lt;span style="color:#abb2bf">[]&lt;/span>&lt;span style="color:#aa89ea">Language&lt;/span>&lt;span style="color:#abb2bf">{&lt;/span>
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#abb2bf">{&lt;/span>&lt;span style="color:#aa89ea">Name&lt;/span>&lt;span style="color:#abb2bf">:&lt;/span> &lt;span style="color:#98c379">&amp;#34;ZH&amp;#34;&lt;/span>&lt;span style="color:#abb2bf">},&lt;/span>
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#abb2bf">{&lt;/span>&lt;span style="color:#aa89ea">Name&lt;/span>&lt;span style="color:#abb2bf">:&lt;/span> &lt;span style="color:#98c379">&amp;#34;EN&amp;#34;&lt;/span>&lt;span style="color:#abb2bf">},&lt;/span>
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#abb2bf">},&lt;/span>
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#abb2bf">}&lt;/span>
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#aa89ea">db&lt;/span>&lt;span style="color:#abb2bf">.&lt;/span>&lt;span style="color:#00b1f7">Create&lt;/span>&lt;span style="color:#abb2bf">(&lt;/span>&lt;span style="color:#54b1c7">&amp;amp;&lt;/span>&lt;span style="color:#aa89ea">user&lt;/span>&lt;span style="color:#abb2bf">)&lt;/span>
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#8a93a5;font-style:italic">// BEGIN TRANSACTION;&lt;/span>
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#8a93a5;font-style:italic">// INSERT INTO &amp;#34;addresses&amp;#34; (address1) VALUES (&amp;#34;Billing Address - Address 1&amp;#34;), (&amp;#34;Shipping Address - Address 1&amp;#34;) ON DUPLICATE KEY DO NOTHING;&lt;/span>
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#8a93a5;font-style:italic">// INSERT INTO &amp;#34;users&amp;#34; (name,billing_address_id,shipping_address_id) VALUES (&amp;#34;jinzhu&amp;#34;, 1, 2);&lt;/span>
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#8a93a5;font-style:italic">// INSERT INTO &amp;#34;emails&amp;#34; (user_id,email) VALUES (111, &amp;#34;jinzhu@example.com&amp;#34;), (111, &amp;#34;jinzhu-2@example.com&amp;#34;) ON DUPLICATE KEY DO NOTHING;&lt;/span>
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#8a93a5;font-style:italic">// INSERT INTO &amp;#34;languages&amp;#34; (&amp;#34;name&amp;#34;) VALUES (&amp;#39;ZH&amp;#39;), (&amp;#39;EN&amp;#39;) ON DUPLICATE KEY DO NOTHING;&lt;/span>
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#8a93a5;font-style:italic">// INSERT INTO &amp;#34;user_languages&amp;#34; (&amp;#34;user_id&amp;#34;,&amp;#34;language_id&amp;#34;) VALUES (111, 1), (111, 2) ON DUPLICATE KEY DO NOTHING;&lt;/span>
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#8a93a5;font-style:italic">// COMMIT;&lt;/span>
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#aa89ea">db&lt;/span>&lt;span style="color:#abb2bf">.&lt;/span>&lt;span style="color:#00b1f7">Save&lt;/span>&lt;span style="color:#abb2bf">(&lt;/span>&lt;span style="color:#54b1c7">&amp;amp;&lt;/span>&lt;span style="color:#aa89ea">user&lt;/span>&lt;span style="color:#abb2bf">)&lt;/span>
-&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
-&lt;/div>
-&lt;/div>&lt;p>If you want to update associations’s data, you should use the &lt;code>FullSaveAssociations&lt;/code> mode:&lt;/p></description></item><item><title>预加载 (Eager Loading)</title><link>https://before80.github.io/go_docs/gorm/Associations/preloadingEagerLoading/</link><pubDate>Sat, 28 Oct 2023 14:29:04 +0800</pubDate><guid>https://before80.github.io/go_docs/gorm/Associations/preloadingEagerLoading/</guid><description>&lt;blockquote>
-&lt;p>原文：&lt;a href="https://gorm.io/docs/preload.html">https://gorm.io/docs/preload.html&lt;/a>&lt;/p>&lt;/blockquote>
-&lt;h2 id="预加载-preload">预加载 Preload&lt;a class="td-heading-self-link" href="#%e9%a2%84%e5%8a%a0%e8%bd%bd-preload" aria-label="Heading self-link">&lt;/a>&lt;/h2>
-&lt;p>GORM allows eager loading relations in other SQL with &lt;code>Preload&lt;/code>, for example:&lt;/p>
-&lt;p>​	GORM允许在SQL中使用&lt;code>Preload&lt;/code>来预加载其他表的关联数据，例如：&lt;/p>
-&lt;div class="highlight">&lt;div style="color:#b0c4de;background-color:#282c34;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">
-&lt;table style="border-spacing:0;padding:0;margin:0;border:0;">&lt;tr>&lt;td style="vertical-align:top;padding:0;margin:0;border:0;">
-&lt;pre tabindex="0" style="color:#b0c4de;background-color:#282c34;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code>&lt;span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#58626f"> 1
-&lt;/span>&lt;span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#58626f"> 2
-&lt;/span>&lt;span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#58626f"> 3
-&lt;/span>&lt;span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#58626f"> 4
-&lt;/span>&lt;span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#58626f"> 5
-&lt;/span>&lt;span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#58626f"> 6
-&lt;/span>&lt;span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#58626f"> 7
-&lt;/span>&lt;span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#58626f"> 8
-&lt;/span>&lt;span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#58626f"> 9
-&lt;/span>&lt;span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#58626f">10
-&lt;/span>&lt;span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#58626f">11
-&lt;/span>&lt;span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#58626f">12
-&lt;/span>&lt;span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#58626f">13
-&lt;/span>&lt;span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#58626f">14
-&lt;/span>&lt;span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#58626f">15
-&lt;/span>&lt;span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#58626f">16
-&lt;/span>&lt;span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#58626f">17
-&lt;/span>&lt;span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#58626f">18
-&lt;/span>&lt;span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#58626f">19
-&lt;/span>&lt;span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#58626f">20
-&lt;/span>&lt;span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#58626f">21
-&lt;/span>&lt;span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#58626f">22
-&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
-&lt;td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
-&lt;pre tabindex="0" style="color:#b0c4de;background-color:#282c34;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-go" data-lang="go">&lt;span style="display:flex;">&lt;span>&lt;span style="color:#76a9f9">type&lt;/span> &lt;span style="color:#aa89ea">User&lt;/span> &lt;span style="color:#76a9f9">struct&lt;/span> &lt;span style="color:#abb2bf">{&lt;/span>
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#aa89ea">gorm&lt;/span>&lt;span style="color:#abb2bf">.&lt;/span>&lt;span style="color:#aa89ea">Model&lt;/span>
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#aa89ea">Username&lt;/span> &lt;span style="color:#e5c07b">string&lt;/span>
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#aa89ea">Orders&lt;/span> &lt;span style="color:#abb2bf">[]&lt;/span>&lt;span style="color:#aa89ea">Order&lt;/span>
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#abb2bf">}&lt;/span>
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#76a9f9">type&lt;/span> &lt;span style="color:#aa89ea">Order&lt;/span> &lt;span style="color:#76a9f9">struct&lt;/span> &lt;span style="color:#abb2bf">{&lt;/span>
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#aa89ea">gorm&lt;/span>&lt;span style="color:#abb2bf">.&lt;/span>&lt;span style="color:#aa89ea">Model&lt;/span>
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#aa89ea">UserID&lt;/span> &lt;span style="color:#e5c07b">uint&lt;/span>
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#aa89ea">Price&lt;/span> &lt;span style="color:#e5c07b">float64&lt;/span>
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#abb2bf">}&lt;/span>
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#8a93a5;font-style:italic">// 当查找用户时预加载订单 Preload Orders when find users&lt;/span>
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#aa89ea">db&lt;/span>&lt;span style="color:#abb2bf">.&lt;/span>&lt;span style="color:#00b1f7">Preload&lt;/span>&lt;span style="color:#abb2bf">(&lt;/span>&lt;span style="color:#98c379">&amp;#34;Orders&amp;#34;&lt;/span>&lt;span style="color:#abb2bf">).&lt;/span>&lt;span style="color:#00b1f7">Find&lt;/span>&lt;span style="color:#abb2bf">(&lt;/span>&lt;span style="color:#54b1c7">&amp;amp;&lt;/span>&lt;span style="color:#aa89ea">users&lt;/span>&lt;span style="color:#abb2bf">)&lt;/span>
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#8a93a5;font-style:italic">// SELECT * FROM users;&lt;/span>
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#8a93a5;font-style:italic">// SELECT * FROM orders WHERE user_id IN (1,2,3,4);&lt;/span>
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#aa89ea">db&lt;/span>&lt;span style="color:#abb2bf">.&lt;/span>&lt;span style="color:#00b1f7">Preload&lt;/span>&lt;span style="color:#abb2bf">(&lt;/span>&lt;span style="color:#98c379">&amp;#34;Orders&amp;#34;&lt;/span>&lt;span style="color:#abb2bf">).&lt;/span>&lt;span style="color:#00b1f7">Preload&lt;/span>&lt;span style="color:#abb2bf">(&lt;/span>&lt;span style="color:#98c379">&amp;#34;Profile&amp;#34;&lt;/span>&lt;span style="color:#abb2bf">).&lt;/span>&lt;span style="color:#00b1f7">Preload&lt;/span>&lt;span style="color:#abb2bf">(&lt;/span>&lt;span style="color:#98c379">&amp;#34;Role&amp;#34;&lt;/span>&lt;span style="color:#abb2bf">).&lt;/span>&lt;span style="color:#00b1f7">Find&lt;/span>&lt;span style="color:#abb2bf">(&lt;/span>&lt;span style="color:#54b1c7">&amp;amp;&lt;/span>&lt;span style="color:#aa89ea">users&lt;/span>&lt;span style="color:#abb2bf">)&lt;/span>
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#8a93a5;font-style:italic">// SELECT * FROM users;&lt;/span>
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#8a93a5;font-style:italic">// SELECT * FROM orders WHERE user_id IN (1,2,3,4); // has many&lt;/span>
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#8a93a5;font-style:italic">// SELECT * FROM profiles WHERE user_id IN (1,2,3,4); // has one&lt;/span>
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#8a93a5;font-style:italic">// SELECT * FROM roles WHERE id IN (4,5,6); // belongs to&lt;/span>
-&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
-&lt;/div>
-&lt;/div>&lt;h2 id="连接预加载-joins-preloading">连接预加载 Joins Preloading&lt;a class="td-heading-self-link" href="#%e8%bf%9e%e6%8e%a5%e9%a2%84%e5%8a%a0%e8%bd%bd-joins-preloading" aria-label="Heading self-link">&lt;/a>&lt;/h2>
-&lt;p>&lt;code>Preload&lt;/code> loads the association data in a separate query, &lt;code>Join Preload&lt;/code> will loads association data using left join, for example:&lt;/p></description></item></channel></rss>
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>关联 on Go 中文档集</title><link>https://before80.github.io/go_docs/gorm/Associations/</link><description>Recent content in 关联 on Go 中文档集</description><generator>Hugo</generator><language>zh-cn</language><lastBuildDate>Thu, 10 Oct 2024 15:07:50 +0800</lastBuildDate><atom:link href="https://before80.github.io/go_docs/gorm/Associations/index.xml" rel="self" type="application/rss+xml"/><item><title>属于关系</title><link>https://before80.github.io/go_docs/gorm/Associations/belongsTo/</link><pubDate>Sat, 28 Oct 2023 14:27:48 +0800</pubDate><guid>https://before80.github.io/go_docs/gorm/Associations/belongsTo/</guid><description>&lt;blockquote&gt;
+&lt;p&gt;原文：&lt;a href="https://gorm.io/docs/belongs_to.html"&gt;https://gorm.io/docs/belongs_to.html&lt;/a&gt;&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;h2 id="属于关系-belongs-to"&gt;属于关系 Belongs To&lt;/h2&gt;
+&lt;p&gt;A &lt;code&gt;belongs to&lt;/code&gt; association sets up a one-to-one connection with another model, such that each instance of the declaring model “belongs to” one instance of the other model.&lt;/p&gt;
+&lt;p&gt;​	一个&lt;code&gt;belongs to&lt;/code&gt;关联设置了一个模型与另一个模型之间的一对一连接，使得声明模型的每个实例“属于”另一个模型的一个实例。&lt;/p&gt;</description></item><item><title>一对一</title><link>https://before80.github.io/go_docs/gorm/Associations/HasOne/</link><pubDate>Sat, 28 Oct 2023 14:28:02 +0800</pubDate><guid>https://before80.github.io/go_docs/gorm/Associations/HasOne/</guid><description>&lt;blockquote&gt;
+&lt;p&gt;原文：&lt;a href="https://gorm.io/docs/has_one.html"&gt;https://gorm.io/docs/has_one.html&lt;/a&gt;&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;h2 id="一对一-has-one"&gt;一对一 Has One&lt;/h2&gt;
+&lt;p&gt;A &lt;code&gt;has one&lt;/code&gt; association sets up a one-to-one connection with another model, but with somewhat different semantics (and consequences). This association indicates that each instance of a model contains or possesses one instance of another model.&lt;/p&gt;
+&lt;p&gt;​	一个&lt;code&gt;has one&lt;/code&gt;关联设置了一个与另一个模型的一对一连接，但具有一些不同的语义（和后果）。这个关联表示每个模型实例包含或拥有另一个模型的一个实例。&lt;/p&gt;</description></item><item><title>多对多</title><link>https://before80.github.io/go_docs/gorm/Associations/manyToMany/</link><pubDate>Sat, 28 Oct 2023 14:28:27 +0800</pubDate><guid>https://before80.github.io/go_docs/gorm/Associations/manyToMany/</guid><description>&lt;blockquote&gt;
+&lt;p&gt;原文：&lt;a href="https://gorm.io/docs/many_to_many.html"&gt;https://gorm.io/docs/many_to_many.html&lt;/a&gt;&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;h2 id="多对多-many-to-many"&gt;多对多 Many To Many&lt;/h2&gt;
+&lt;p&gt;Many to Many add a join table between two models.&lt;/p&gt;
+&lt;p&gt;​	多对多在两个模型之间添加一个连接表。&lt;/p&gt;
+&lt;p&gt;For example, if your application includes users and languages, and a user can speak many languages, and many users can speak a specified language.&lt;/p&gt;
+&lt;p&gt;​	例如，如果你的应用包括用户和语言，用户可以说多种语言，也可以说多种语言。&lt;/p&gt;</description></item><item><title>多对一</title><link>https://before80.github.io/go_docs/gorm/Associations/HasMany/</link><pubDate>Sat, 28 Oct 2023 14:28:11 +0800</pubDate><guid>https://before80.github.io/go_docs/gorm/Associations/HasMany/</guid><description>&lt;blockquote&gt;
+&lt;p&gt;原文：&lt;a href="https://gorm.io/docs/has_many.html"&gt;https://gorm.io/docs/has_many.html&lt;/a&gt;&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;h2 id="多对一-has-many"&gt;多对一 Has Many&lt;/h2&gt;
+&lt;p&gt;A &lt;code&gt;has many&lt;/code&gt; association sets up a one-to-many connection with another model, unlike &lt;code&gt;has one&lt;/code&gt;, the owner could have zero or many instances of models.&lt;/p&gt;
+&lt;p&gt;​	&lt;code&gt;has many&lt;/code&gt;关联设置了一个一对多的连接，与&lt;code&gt;has one&lt;/code&gt;不同，拥有者可以有零个或多个模型实例。&lt;/p&gt;</description></item><item><title>关联模式</title><link>https://before80.github.io/go_docs/gorm/Associations/associationMode/</link><pubDate>Sat, 28 Oct 2023 14:28:42 +0800</pubDate><guid>https://before80.github.io/go_docs/gorm/Associations/associationMode/</guid><description>&lt;blockquote&gt;
+&lt;p&gt;原文：&lt;a href="https://gorm.io/docs/associations.html"&gt;https://gorm.io/docs/associations.html&lt;/a&gt;&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;h2 id="自动创建更新-auto-createupdate"&gt;自动创建/更新 Auto Create/Update&lt;/h2&gt;
+&lt;p&gt;GORM will auto-save associations and its reference using &lt;a href="https://gorm.io/docs/create.html#upsert"&gt;Upsert&lt;/a&gt; when creating/updating a record.&lt;/p&gt;
+&lt;p&gt;​	GORM 在创建或更新记录时会自动保存关联及其引用，使用 Upsert（如果存在则更新，否则插入）功能。&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;div style="color:#b0c4de;background-color:#282c34;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"&gt;
+&lt;table style="border-spacing:0;padding:0;margin:0;border:0;"&gt;&lt;tr&gt;&lt;td style="vertical-align:top;padding:0;margin:0;border:0;"&gt;
+&lt;pre tabindex="0" style="color:#b0c4de;background-color:#282c34;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"&gt;&lt;code&gt;&lt;span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#58626f"&gt; 1
+&lt;/span&gt;&lt;span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#58626f"&gt; 2
+&lt;/span&gt;&lt;span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#58626f"&gt; 3
+&lt;/span&gt;&lt;span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#58626f"&gt; 4
+&lt;/span&gt;&lt;span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#58626f"&gt; 5
+&lt;/span&gt;&lt;span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#58626f"&gt; 6
+&lt;/span&gt;&lt;span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#58626f"&gt; 7
+&lt;/span&gt;&lt;span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#58626f"&gt; 8
+&lt;/span&gt;&lt;span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#58626f"&gt; 9
+&lt;/span&gt;&lt;span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#58626f"&gt;10
+&lt;/span&gt;&lt;span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#58626f"&gt;11
+&lt;/span&gt;&lt;span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#58626f"&gt;12
+&lt;/span&gt;&lt;span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#58626f"&gt;13
+&lt;/span&gt;&lt;span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#58626f"&gt;14
+&lt;/span&gt;&lt;span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#58626f"&gt;15
+&lt;/span&gt;&lt;span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#58626f"&gt;16
+&lt;/span&gt;&lt;span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#58626f"&gt;17
+&lt;/span&gt;&lt;span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#58626f"&gt;18
+&lt;/span&gt;&lt;span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#58626f"&gt;19
+&lt;/span&gt;&lt;span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#58626f"&gt;20
+&lt;/span&gt;&lt;span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#58626f"&gt;21
+&lt;/span&gt;&lt;span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#58626f"&gt;22
+&lt;/span&gt;&lt;span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#58626f"&gt;23
+&lt;/span&gt;&lt;span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#58626f"&gt;24
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
+&lt;td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%"&gt;
+&lt;pre tabindex="0" style="color:#b0c4de;background-color:#282c34;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"&gt;&lt;code class="language-go" data-lang="go"&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;&lt;span style="color:#aa89ea"&gt;user&lt;/span&gt; &lt;span style="color:#54b1c7"&gt;:=&lt;/span&gt; &lt;span style="color:#aa89ea"&gt;User&lt;/span&gt;&lt;span style="color:#abb2bf"&gt;{&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; &lt;span style="color:#aa89ea"&gt;Name&lt;/span&gt;&lt;span style="color:#abb2bf"&gt;:&lt;/span&gt; &lt;span style="color:#98c379"&gt;&amp;#34;jinzhu&amp;#34;&lt;/span&gt;&lt;span style="color:#abb2bf"&gt;,&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; &lt;span style="color:#aa89ea"&gt;BillingAddress&lt;/span&gt;&lt;span style="color:#abb2bf"&gt;:&lt;/span&gt; &lt;span style="color:#aa89ea"&gt;Address&lt;/span&gt;&lt;span style="color:#abb2bf"&gt;{&lt;/span&gt;&lt;span style="color:#aa89ea"&gt;Address1&lt;/span&gt;&lt;span style="color:#abb2bf"&gt;:&lt;/span&gt; &lt;span style="color:#98c379"&gt;&amp;#34;Billing Address - Address 1&amp;#34;&lt;/span&gt;&lt;span style="color:#abb2bf"&gt;},&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; &lt;span style="color:#aa89ea"&gt;ShippingAddress&lt;/span&gt;&lt;span style="color:#abb2bf"&gt;:&lt;/span&gt; &lt;span style="color:#aa89ea"&gt;Address&lt;/span&gt;&lt;span style="color:#abb2bf"&gt;{&lt;/span&gt;&lt;span style="color:#aa89ea"&gt;Address1&lt;/span&gt;&lt;span style="color:#abb2bf"&gt;:&lt;/span&gt; &lt;span style="color:#98c379"&gt;&amp;#34;Shipping Address - Address 1&amp;#34;&lt;/span&gt;&lt;span style="color:#abb2bf"&gt;},&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; &lt;span style="color:#aa89ea"&gt;Emails&lt;/span&gt;&lt;span style="color:#abb2bf"&gt;:&lt;/span&gt; &lt;span style="color:#abb2bf"&gt;[]&lt;/span&gt;&lt;span style="color:#aa89ea"&gt;Email&lt;/span&gt;&lt;span style="color:#abb2bf"&gt;{&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; &lt;span style="color:#abb2bf"&gt;{&lt;/span&gt;&lt;span style="color:#aa89ea"&gt;Email&lt;/span&gt;&lt;span style="color:#abb2bf"&gt;:&lt;/span&gt; &lt;span style="color:#98c379"&gt;&amp;#34;jinzhu@example.com&amp;#34;&lt;/span&gt;&lt;span style="color:#abb2bf"&gt;},&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; &lt;span style="color:#abb2bf"&gt;{&lt;/span&gt;&lt;span style="color:#aa89ea"&gt;Email&lt;/span&gt;&lt;span style="color:#abb2bf"&gt;:&lt;/span&gt; &lt;span style="color:#98c379"&gt;&amp;#34;jinzhu-2@example.com&amp;#34;&lt;/span&gt;&lt;span style="color:#abb2bf"&gt;},&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; &lt;span style="color:#abb2bf"&gt;},&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; &lt;span style="color:#aa89ea"&gt;Languages&lt;/span&gt;&lt;span style="color:#abb2bf"&gt;:&lt;/span&gt; &lt;span style="color:#abb2bf"&gt;[]&lt;/span&gt;&lt;span style="color:#aa89ea"&gt;Language&lt;/span&gt;&lt;span style="color:#abb2bf"&gt;{&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; &lt;span style="color:#abb2bf"&gt;{&lt;/span&gt;&lt;span style="color:#aa89ea"&gt;Name&lt;/span&gt;&lt;span style="color:#abb2bf"&gt;:&lt;/span&gt; &lt;span style="color:#98c379"&gt;&amp;#34;ZH&amp;#34;&lt;/span&gt;&lt;span style="color:#abb2bf"&gt;},&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; &lt;span style="color:#abb2bf"&gt;{&lt;/span&gt;&lt;span style="color:#aa89ea"&gt;Name&lt;/span&gt;&lt;span style="color:#abb2bf"&gt;:&lt;/span&gt; &lt;span style="color:#98c379"&gt;&amp;#34;EN&amp;#34;&lt;/span&gt;&lt;span style="color:#abb2bf"&gt;},&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; &lt;span style="color:#abb2bf"&gt;},&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;&lt;span style="color:#abb2bf"&gt;}&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;&lt;span style="color:#aa89ea"&gt;db&lt;/span&gt;&lt;span style="color:#abb2bf"&gt;.&lt;/span&gt;&lt;span style="color:#00b1f7"&gt;Create&lt;/span&gt;&lt;span style="color:#abb2bf"&gt;(&lt;/span&gt;&lt;span style="color:#54b1c7"&gt;&amp;amp;&lt;/span&gt;&lt;span style="color:#aa89ea"&gt;user&lt;/span&gt;&lt;span style="color:#abb2bf"&gt;)&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;&lt;span style="color:#8a93a5;font-style:italic"&gt;// BEGIN TRANSACTION;&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;&lt;span style="color:#8a93a5;font-style:italic"&gt;// INSERT INTO &amp;#34;addresses&amp;#34; (address1) VALUES (&amp;#34;Billing Address - Address 1&amp;#34;), (&amp;#34;Shipping Address - Address 1&amp;#34;) ON DUPLICATE KEY DO NOTHING;&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;&lt;span style="color:#8a93a5;font-style:italic"&gt;// INSERT INTO &amp;#34;users&amp;#34; (name,billing_address_id,shipping_address_id) VALUES (&amp;#34;jinzhu&amp;#34;, 1, 2);&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;&lt;span style="color:#8a93a5;font-style:italic"&gt;// INSERT INTO &amp;#34;emails&amp;#34; (user_id,email) VALUES (111, &amp;#34;jinzhu@example.com&amp;#34;), (111, &amp;#34;jinzhu-2@example.com&amp;#34;) ON DUPLICATE KEY DO NOTHING;&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;&lt;span style="color:#8a93a5;font-style:italic"&gt;// INSERT INTO &amp;#34;languages&amp;#34; (&amp;#34;name&amp;#34;) VALUES (&amp;#39;ZH&amp;#39;), (&amp;#39;EN&amp;#39;) ON DUPLICATE KEY DO NOTHING;&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;&lt;span style="color:#8a93a5;font-style:italic"&gt;// INSERT INTO &amp;#34;user_languages&amp;#34; (&amp;#34;user_id&amp;#34;,&amp;#34;language_id&amp;#34;) VALUES (111, 1), (111, 2) ON DUPLICATE KEY DO NOTHING;&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;&lt;span style="color:#8a93a5;font-style:italic"&gt;// COMMIT;&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;&lt;span style="color:#aa89ea"&gt;db&lt;/span&gt;&lt;span style="color:#abb2bf"&gt;.&lt;/span&gt;&lt;span style="color:#00b1f7"&gt;Save&lt;/span&gt;&lt;span style="color:#abb2bf"&gt;(&lt;/span&gt;&lt;span style="color:#54b1c7"&gt;&amp;amp;&lt;/span&gt;&lt;span style="color:#aa89ea"&gt;user&lt;/span&gt;&lt;span style="color:#abb2bf"&gt;)&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+&lt;/div&gt;
+&lt;/div&gt;&lt;p&gt;If you want to update associations’s data, you should use the &lt;code&gt;FullSaveAssociations&lt;/code&gt; mode:&lt;/p&gt;</description></item><item><title>预加载 (Eager Loading)</title><link>https://before80.github.io/go_docs/gorm/Associations/preloadingEagerLoading/</link><pubDate>Sat, 28 Oct 2023 14:29:04 +0800</pubDate><guid>https://before80.github.io/go_docs/gorm/Associations/preloadingEagerLoading/</guid><description>&lt;blockquote&gt;
+&lt;p&gt;原文：&lt;a href="https://gorm.io/docs/preload.html"&gt;https://gorm.io/docs/preload.html&lt;/a&gt;&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;h2 id="预加载-preload"&gt;预加载 Preload&lt;/h2&gt;
+&lt;p&gt;GORM allows eager loading relations in other SQL with &lt;code&gt;Preload&lt;/code&gt;, for example:&lt;/p&gt;
+&lt;p&gt;​	GORM允许在SQL中使用&lt;code&gt;Preload&lt;/code&gt;来预加载其他表的关联数据，例如：&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;div style="color:#b0c4de;background-color:#282c34;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"&gt;
+&lt;table style="border-spacing:0;padding:0;margin:0;border:0;"&gt;&lt;tr&gt;&lt;td style="vertical-align:top;padding:0;margin:0;border:0;"&gt;
+&lt;pre tabindex="0" style="color:#b0c4de;background-color:#282c34;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"&gt;&lt;code&gt;&lt;span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#58626f"&gt; 1
+&lt;/span&gt;&lt;span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#58626f"&gt; 2
+&lt;/span&gt;&lt;span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#58626f"&gt; 3
+&lt;/span&gt;&lt;span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#58626f"&gt; 4
+&lt;/span&gt;&lt;span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#58626f"&gt; 5
+&lt;/span&gt;&lt;span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#58626f"&gt; 6
+&lt;/span&gt;&lt;span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#58626f"&gt; 7
+&lt;/span&gt;&lt;span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#58626f"&gt; 8
+&lt;/span&gt;&lt;span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#58626f"&gt; 9
+&lt;/span&gt;&lt;span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#58626f"&gt;10
+&lt;/span&gt;&lt;span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#58626f"&gt;11
+&lt;/span&gt;&lt;span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#58626f"&gt;12
+&lt;/span&gt;&lt;span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#58626f"&gt;13
+&lt;/span&gt;&lt;span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#58626f"&gt;14
+&lt;/span&gt;&lt;span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#58626f"&gt;15
+&lt;/span&gt;&lt;span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#58626f"&gt;16
+&lt;/span&gt;&lt;span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#58626f"&gt;17
+&lt;/span&gt;&lt;span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#58626f"&gt;18
+&lt;/span&gt;&lt;span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#58626f"&gt;19
+&lt;/span&gt;&lt;span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#58626f"&gt;20
+&lt;/span&gt;&lt;span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#58626f"&gt;21
+&lt;/span&gt;&lt;span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#58626f"&gt;22
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
+&lt;td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%"&gt;
+&lt;pre tabindex="0" style="color:#b0c4de;background-color:#282c34;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"&gt;&lt;code class="language-go" data-lang="go"&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;&lt;span style="color:#76a9f9"&gt;type&lt;/span&gt; &lt;span style="color:#aa89ea"&gt;User&lt;/span&gt; &lt;span style="color:#76a9f9"&gt;struct&lt;/span&gt; &lt;span style="color:#abb2bf"&gt;{&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; &lt;span style="color:#aa89ea"&gt;gorm&lt;/span&gt;&lt;span style="color:#abb2bf"&gt;.&lt;/span&gt;&lt;span style="color:#aa89ea"&gt;Model&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; &lt;span style="color:#aa89ea"&gt;Username&lt;/span&gt; &lt;span style="color:#e5c07b"&gt;string&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; &lt;span style="color:#aa89ea"&gt;Orders&lt;/span&gt; &lt;span style="color:#abb2bf"&gt;[]&lt;/span&gt;&lt;span style="color:#aa89ea"&gt;Order&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;&lt;span style="color:#abb2bf"&gt;}&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;&lt;span style="color:#76a9f9"&gt;type&lt;/span&gt; &lt;span style="color:#aa89ea"&gt;Order&lt;/span&gt; &lt;span style="color:#76a9f9"&gt;struct&lt;/span&gt; &lt;span style="color:#abb2bf"&gt;{&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; &lt;span style="color:#aa89ea"&gt;gorm&lt;/span&gt;&lt;span style="color:#abb2bf"&gt;.&lt;/span&gt;&lt;span style="color:#aa89ea"&gt;Model&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; &lt;span style="color:#aa89ea"&gt;UserID&lt;/span&gt; &lt;span style="color:#e5c07b"&gt;uint&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; &lt;span style="color:#aa89ea"&gt;Price&lt;/span&gt; &lt;span style="color:#e5c07b"&gt;float64&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;&lt;span style="color:#abb2bf"&gt;}&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;&lt;span style="color:#8a93a5;font-style:italic"&gt;// 当查找用户时预加载订单 Preload Orders when find users&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;&lt;span style="color:#aa89ea"&gt;db&lt;/span&gt;&lt;span style="color:#abb2bf"&gt;.&lt;/span&gt;&lt;span style="color:#00b1f7"&gt;Preload&lt;/span&gt;&lt;span style="color:#abb2bf"&gt;(&lt;/span&gt;&lt;span style="color:#98c379"&gt;&amp;#34;Orders&amp;#34;&lt;/span&gt;&lt;span style="color:#abb2bf"&gt;).&lt;/span&gt;&lt;span style="color:#00b1f7"&gt;Find&lt;/span&gt;&lt;span style="color:#abb2bf"&gt;(&lt;/span&gt;&lt;span style="color:#54b1c7"&gt;&amp;amp;&lt;/span&gt;&lt;span style="color:#aa89ea"&gt;users&lt;/span&gt;&lt;span style="color:#abb2bf"&gt;)&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;&lt;span style="color:#8a93a5;font-style:italic"&gt;// SELECT * FROM users;&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;&lt;span style="color:#8a93a5;font-style:italic"&gt;// SELECT * FROM orders WHERE user_id IN (1,2,3,4);&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;&lt;span style="color:#aa89ea"&gt;db&lt;/span&gt;&lt;span style="color:#abb2bf"&gt;.&lt;/span&gt;&lt;span style="color:#00b1f7"&gt;Preload&lt;/span&gt;&lt;span style="color:#abb2bf"&gt;(&lt;/span&gt;&lt;span style="color:#98c379"&gt;&amp;#34;Orders&amp;#34;&lt;/span&gt;&lt;span style="color:#abb2bf"&gt;).&lt;/span&gt;&lt;span style="color:#00b1f7"&gt;Preload&lt;/span&gt;&lt;span style="color:#abb2bf"&gt;(&lt;/span&gt;&lt;span style="color:#98c379"&gt;&amp;#34;Profile&amp;#34;&lt;/span&gt;&lt;span style="color:#abb2bf"&gt;).&lt;/span&gt;&lt;span style="color:#00b1f7"&gt;Preload&lt;/span&gt;&lt;span style="color:#abb2bf"&gt;(&lt;/span&gt;&lt;span style="color:#98c379"&gt;&amp;#34;Role&amp;#34;&lt;/span&gt;&lt;span style="color:#abb2bf"&gt;).&lt;/span&gt;&lt;span style="color:#00b1f7"&gt;Find&lt;/span&gt;&lt;span style="color:#abb2bf"&gt;(&lt;/span&gt;&lt;span style="color:#54b1c7"&gt;&amp;amp;&lt;/span&gt;&lt;span style="color:#aa89ea"&gt;users&lt;/span&gt;&lt;span style="color:#abb2bf"&gt;)&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;&lt;span style="color:#8a93a5;font-style:italic"&gt;// SELECT * FROM users;&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;&lt;span style="color:#8a93a5;font-style:italic"&gt;// SELECT * FROM orders WHERE user_id IN (1,2,3,4); // has many&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;&lt;span style="color:#8a93a5;font-style:italic"&gt;// SELECT * FROM profiles WHERE user_id IN (1,2,3,4); // has one&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;&lt;span style="color:#8a93a5;font-style:italic"&gt;// SELECT * FROM roles WHERE id IN (4,5,6); // belongs to&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+&lt;/div&gt;
+&lt;/div&gt;&lt;h2 id="连接预加载-joins-preloading"&gt;连接预加载 Joins Preloading&lt;/h2&gt;
+&lt;p&gt;&lt;code&gt;Preload&lt;/code&gt; loads the association data in a separate query, &lt;code&gt;Join Preload&lt;/code&gt; will loads association data using left join, for example:&lt;/p&gt;</description></item></channel></rss>

@@ -1,71 +1,92 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>trees on Go 中文档集</title><link>https://before80.github.io/go_docs/thirdPkg/gods/trees/</link><description>Recent content in trees on Go 中文档集</description><generator>Hugo</generator><language>zh-cn</language><lastBuildDate>Sun, 08 Dec 2024 22:10:00 +0800</lastBuildDate><atom:link href="https://before80.github.io/go_docs/thirdPkg/gods/trees/index.xml" rel="self" type="application/rss+xml"/><item><title>avltree</title><link>https://before80.github.io/go_docs/thirdPkg/gods/trees/avltree/</link><pubDate>Sat, 07 Dec 2024 11:09:26 +0800</pubDate><guid>https://before80.github.io/go_docs/thirdPkg/gods/trees/avltree/</guid><description>&lt;blockquote>
-&lt;p>原文：&lt;a href="https://pkg.go.dev/github.com/emirpasic/gods/v2@v2.0.0-alpha/trees/avltree">https://pkg.go.dev/github.com/emirpasic/gods/v2@v2.0.0-alpha/trees/avltree&lt;/a>&lt;/p>
-&lt;p>收录该文档时间： &lt;code>2024-12-07T11:09:26+08:00&lt;/code>&lt;/p>&lt;/blockquote>
-&lt;h2 id="overview">Overview&lt;a class="td-heading-self-link" href="#overview" aria-label="Heading self-link">&lt;/a>&lt;/h2>
-&lt;p>Package avltree implements an AVL balanced binary tree.&lt;/p>
-&lt;p>​	包 &lt;code>avltree&lt;/code> 实现了一个 AVL 平衡二叉树。&lt;/p>
-&lt;p>Structure is not thread safe.&lt;/p>
-&lt;p>​	结构体不是线程安全的。&lt;/p>
-&lt;p>References: &lt;a href="https://en.wikipedia.org/wiki/AVL_tree">https://en.wikipedia.org/wiki/AVL_tree&lt;/a>&lt;/p>
-&lt;h2 id="常量">常量&lt;a class="td-heading-self-link" href="#%e5%b8%b8%e9%87%8f" aria-label="Heading self-link">&lt;/a>&lt;/h2>
-&lt;p>This section is empty.&lt;/p>
-&lt;h2 id="变量">变量&lt;a class="td-heading-self-link" href="#%e5%8f%98%e9%87%8f" aria-label="Heading self-link">&lt;/a>&lt;/h2>
-&lt;p>This section is empty.&lt;/p>
-&lt;h2 id="函数">函数&lt;a class="td-heading-self-link" href="#%e5%87%bd%e6%95%b0" aria-label="Heading self-link">&lt;/a>&lt;/h2>
-&lt;p>This section is empty.&lt;/p></description></item><item><title>binaryheap</title><link>https://before80.github.io/go_docs/thirdPkg/gods/trees/binaryheap/</link><pubDate>Sat, 07 Dec 2024 11:09:41 +0800</pubDate><guid>https://before80.github.io/go_docs/thirdPkg/gods/trees/binaryheap/</guid><description>&lt;blockquote>
-&lt;p>原文：&lt;a href="https://pkg.go.dev/github.com/emirpasic/gods/v2@v2.0.0-alpha/trees/binaryheap">https://pkg.go.dev/github.com/emirpasic/gods/v2@v2.0.0-alpha/trees/binaryheap&lt;/a>&lt;/p>
-&lt;p>收录该文档时间： &lt;code>2024-12-07T11:09:41+08:00&lt;/code>&lt;/p>&lt;/blockquote>
-&lt;h2 id="overview">Overview&lt;a class="td-heading-self-link" href="#overview" aria-label="Heading self-link">&lt;/a>&lt;/h2>
-&lt;p>Package binaryheap implements a binary heap backed by array list.&lt;/p>
-&lt;p>​	包 &lt;code>binaryheap&lt;/code> 实现了一个基于数组列表的二叉堆。&lt;/p>
-&lt;p>Comparator defines this heap as either min or max heap.&lt;/p>
-&lt;p>​	由 &lt;code>Heap&lt;/code> 类型管理堆的操作，可以是最小堆或最大堆，取决于 &lt;code>Comparator&lt;/code>。&lt;/p></description></item><item><title>btree</title><link>https://before80.github.io/go_docs/thirdPkg/gods/trees/btree/</link><pubDate>Sat, 07 Dec 2024 11:09:51 +0800</pubDate><guid>https://before80.github.io/go_docs/thirdPkg/gods/trees/btree/</guid><description>&lt;blockquote>
-&lt;p>原文：&lt;a href="https://pkg.go.dev/github.com/emirpasic/gods/v2@v2.0.0-alpha/trees/btree">https://pkg.go.dev/github.com/emirpasic/gods/v2@v2.0.0-alpha/trees/btree&lt;/a>&lt;/p>
-&lt;p>收录该文档时间： &lt;code>2024-12-07T11:09:51+08:00&lt;/code>&lt;/p>&lt;/blockquote>
-&lt;h2 id="overview">Overview&lt;a class="td-heading-self-link" href="#overview" aria-label="Heading self-link">&lt;/a>&lt;/h2>
-&lt;p>Package btree implements a B tree.&lt;/p>
-&lt;p>​	包 btree 实现了一个 B 树。&lt;/p>
-&lt;p>According to Knuth&amp;rsquo;s definition, a B-tree of order m is a tree which satisfies the following properties:&lt;/p>
-&lt;p>​	根据 Knuth 的定义，m 阶 B 树满足以下性质：&lt;/p>
-&lt;ul>
-&lt;li>Every node has at most m children.
-&lt;ul>
-&lt;li>每个节点最多有 m 个子节点。&lt;/li>
-&lt;/ul>
-&lt;/li>
-&lt;li>Every non-leaf node (except root) has at least ⌈m/2⌉ children.
-&lt;ul>
-&lt;li>每个非叶子节点（除根节点外）至少有 ⌈m/2⌉ 个子节点。&lt;/li>
-&lt;/ul>
-&lt;/li>
-&lt;li>The root has at least two children if it is not a leaf node.
-&lt;ul>
-&lt;li>如果根节点不是叶子节点，则至少有两个子节点。&lt;/li>
-&lt;/ul>
-&lt;/li>
-&lt;li>A non-leaf node with k children contains k−1 keys.
-&lt;ul>
-&lt;li>拥有 k 个子节点的非叶子节点包含 k-1 个键。&lt;/li>
-&lt;/ul>
-&lt;/li>
-&lt;li>All leaves appear in the same level
-&lt;ul>
-&lt;li>所有叶子节点都位于同一层。&lt;/li>
-&lt;/ul>
-&lt;/li>
-&lt;/ul>
-&lt;p>Structure is not thread safe.&lt;/p></description></item><item><title>redblacktree</title><link>https://before80.github.io/go_docs/thirdPkg/gods/trees/redblacktree/</link><pubDate>Sat, 07 Dec 2024 11:10:05 +0800</pubDate><guid>https://before80.github.io/go_docs/thirdPkg/gods/trees/redblacktree/</guid><description>&lt;blockquote>
-&lt;p>原文：&lt;a href="https://pkg.go.dev/github.com/emirpasic/gods/v2@v2.0.0-alpha/trees/redblacktree">https://pkg.go.dev/github.com/emirpasic/gods/v2@v2.0.0-alpha/trees/redblacktree&lt;/a>&lt;/p>
-&lt;p>收录该文档时间： &lt;code>2024-12-07T11:10:05+08:00&lt;/code>&lt;/p>&lt;/blockquote>
-&lt;h2 id="overview">Overview&lt;a class="td-heading-self-link" href="#overview" aria-label="Heading self-link">&lt;/a>&lt;/h2>
-&lt;p>Package redblacktree implements a red-black tree.&lt;/p>
-&lt;p>​	包 &lt;code>redblacktree&lt;/code> 实现了一个红黑树。&lt;/p>
-&lt;p>Used by TreeSet and TreeMap.&lt;/p>
-&lt;p>​	由 &lt;code>TreeSet&lt;/code> 和 &lt;code>TreeMap&lt;/code> 使用。&lt;/p>
-&lt;p>Structure is not thread safe.&lt;/p>
-&lt;p>​	结构不具备线程安全。&lt;/p>
-&lt;p>References: &lt;a href="http://en.wikipedia.org/wiki/Red%E2%80%93black_tree">http://en.wikipedia.org/wiki/Red%E2%80%93black_tree&lt;/a>&lt;/p>
-&lt;h2 id="常量">常量&lt;a class="td-heading-self-link" href="#%e5%b8%b8%e9%87%8f" aria-label="Heading self-link">&lt;/a>&lt;/h2>
-&lt;p>This section is empty.&lt;/p>
-&lt;h2 id="变量">变量&lt;a class="td-heading-self-link" href="#%e5%8f%98%e9%87%8f" aria-label="Heading self-link">&lt;/a>&lt;/h2>
-&lt;p>This section is empty.&lt;/p></description></item></channel></rss>
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>trees on Go 中文档集</title><link>https://before80.github.io/go_docs/thirdPkg/gods/trees/</link><description>Recent content in trees on Go 中文档集</description><generator>Hugo</generator><language>zh-cn</language><lastBuildDate>Sun, 08 Dec 2024 22:10:00 +0800</lastBuildDate><atom:link href="https://before80.github.io/go_docs/thirdPkg/gods/trees/index.xml" rel="self" type="application/rss+xml"/><item><title>avltree</title><link>https://before80.github.io/go_docs/thirdPkg/gods/trees/avltree/</link><pubDate>Sat, 07 Dec 2024 11:09:26 +0800</pubDate><guid>https://before80.github.io/go_docs/thirdPkg/gods/trees/avltree/</guid><description>&lt;blockquote&gt;
+&lt;p&gt;原文：&lt;a href="https://pkg.go.dev/github.com/emirpasic/gods/v2@v2.0.0-alpha/trees/avltree"&gt;https://pkg.go.dev/github.com/emirpasic/gods/v2@v2.0.0-alpha/trees/avltree&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;收录该文档时间： &lt;code&gt;2024-12-07T11:09:26+08:00&lt;/code&gt;&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;h2 id="overview"&gt;Overview&lt;/h2&gt;
+&lt;p&gt;Package avltree implements an AVL balanced binary tree.&lt;/p&gt;
+&lt;p&gt;​	包 &lt;code&gt;avltree&lt;/code&gt; 实现了一个 AVL 平衡二叉树。&lt;/p&gt;
+&lt;p&gt;Structure is not thread safe.&lt;/p&gt;
+&lt;p&gt;​	结构体不是线程安全的。&lt;/p&gt;
+&lt;p&gt;References: &lt;a href="https://en.wikipedia.org/wiki/AVL_tree"&gt;https://en.wikipedia.org/wiki/AVL_tree&lt;/a&gt;&lt;/p&gt;
+&lt;h2 id="常量"&gt;常量&lt;/h2&gt;
+&lt;p&gt;This section is empty.&lt;/p&gt;
+&lt;h2 id="变量"&gt;变量&lt;/h2&gt;
+&lt;p&gt;This section is empty.&lt;/p&gt;
+&lt;h2 id="函数"&gt;函数&lt;/h2&gt;
+&lt;p&gt;This section is empty.&lt;/p&gt;
+&lt;h2 id="类型"&gt;类型&lt;/h2&gt;
+&lt;h3 id="type-iterator"&gt;type Iterator&lt;/h3&gt;
+&lt;div class="highlight"&gt;&lt;div style="color:#b0c4de;background-color:#282c34;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"&gt;
+&lt;table style="border-spacing:0;padding:0;margin:0;border:0;"&gt;&lt;tr&gt;&lt;td style="vertical-align:top;padding:0;margin:0;border:0;"&gt;
+&lt;pre tabindex="0" style="color:#b0c4de;background-color:#282c34;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"&gt;&lt;code&gt;&lt;span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#58626f"&gt;1
+&lt;/span&gt;&lt;span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#58626f"&gt;2
+&lt;/span&gt;&lt;span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#58626f"&gt;3
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
+&lt;td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%"&gt;
+&lt;pre tabindex="0" style="color:#b0c4de;background-color:#282c34;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"&gt;&lt;code class="language-go" data-lang="go"&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;&lt;span style="color:#76a9f9"&gt;type&lt;/span&gt; &lt;span style="color:#aa89ea"&gt;Iterator&lt;/span&gt;&lt;span style="color:#abb2bf"&gt;[&lt;/span&gt;&lt;span style="color:#aa89ea"&gt;K&lt;/span&gt; &lt;span style="color:#aa89ea"&gt;comparable&lt;/span&gt;&lt;span style="color:#abb2bf"&gt;,&lt;/span&gt; &lt;span style="color:#aa89ea"&gt;V&lt;/span&gt; &lt;span style="color:#e5c07b"&gt;any&lt;/span&gt;&lt;span style="color:#abb2bf"&gt;]&lt;/span&gt; &lt;span style="color:#76a9f9"&gt;struct&lt;/span&gt; &lt;span style="color:#abb2bf"&gt;{&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;	&lt;span style="color:#8a93a5;font-style:italic"&gt;// contains filtered or unexported fields&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;&lt;span style="color:#abb2bf"&gt;}&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+&lt;/div&gt;
+&lt;/div&gt;&lt;p&gt;Iterator holding the iterator&amp;rsquo;s state&lt;/p&gt;</description></item><item><title>binaryheap</title><link>https://before80.github.io/go_docs/thirdPkg/gods/trees/binaryheap/</link><pubDate>Sat, 07 Dec 2024 11:09:41 +0800</pubDate><guid>https://before80.github.io/go_docs/thirdPkg/gods/trees/binaryheap/</guid><description>&lt;blockquote&gt;
+&lt;p&gt;原文：&lt;a href="https://pkg.go.dev/github.com/emirpasic/gods/v2@v2.0.0-alpha/trees/binaryheap"&gt;https://pkg.go.dev/github.com/emirpasic/gods/v2@v2.0.0-alpha/trees/binaryheap&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;收录该文档时间： &lt;code&gt;2024-12-07T11:09:41+08:00&lt;/code&gt;&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;h2 id="overview"&gt;Overview&lt;/h2&gt;
+&lt;p&gt;Package binaryheap implements a binary heap backed by array list.&lt;/p&gt;
+&lt;p&gt;​	包 &lt;code&gt;binaryheap&lt;/code&gt; 实现了一个基于数组列表的二叉堆。&lt;/p&gt;
+&lt;p&gt;Comparator defines this heap as either min or max heap.&lt;/p&gt;
+&lt;p&gt;​	由 &lt;code&gt;Heap&lt;/code&gt; 类型管理堆的操作，可以是最小堆或最大堆，取决于 &lt;code&gt;Comparator&lt;/code&gt;。&lt;/p&gt;</description></item><item><title>btree</title><link>https://before80.github.io/go_docs/thirdPkg/gods/trees/btree/</link><pubDate>Sat, 07 Dec 2024 11:09:51 +0800</pubDate><guid>https://before80.github.io/go_docs/thirdPkg/gods/trees/btree/</guid><description>&lt;blockquote&gt;
+&lt;p&gt;原文：&lt;a href="https://pkg.go.dev/github.com/emirpasic/gods/v2@v2.0.0-alpha/trees/btree"&gt;https://pkg.go.dev/github.com/emirpasic/gods/v2@v2.0.0-alpha/trees/btree&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;收录该文档时间： &lt;code&gt;2024-12-07T11:09:51+08:00&lt;/code&gt;&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;h2 id="overview"&gt;Overview&lt;/h2&gt;
+&lt;p&gt;Package btree implements a B tree.&lt;/p&gt;
+&lt;p&gt;​	包 btree 实现了一个 B 树。&lt;/p&gt;
+&lt;p&gt;According to Knuth&amp;rsquo;s definition, a B-tree of order m is a tree which satisfies the following properties:&lt;/p&gt;
+&lt;p&gt;​	根据 Knuth 的定义，m 阶 B 树满足以下性质：&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;Every node has at most m children.
+&lt;ul&gt;
+&lt;li&gt;每个节点最多有 m 个子节点。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;Every non-leaf node (except root) has at least ⌈m/2⌉ children.
+&lt;ul&gt;
+&lt;li&gt;每个非叶子节点（除根节点外）至少有 ⌈m/2⌉ 个子节点。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;The root has at least two children if it is not a leaf node.
+&lt;ul&gt;
+&lt;li&gt;如果根节点不是叶子节点，则至少有两个子节点。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;A non-leaf node with k children contains k−1 keys.
+&lt;ul&gt;
+&lt;li&gt;拥有 k 个子节点的非叶子节点包含 k-1 个键。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;All leaves appear in the same level
+&lt;ul&gt;
+&lt;li&gt;所有叶子节点都位于同一层。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;Structure is not thread safe.&lt;/p&gt;</description></item><item><title>redblacktree</title><link>https://before80.github.io/go_docs/thirdPkg/gods/trees/redblacktree/</link><pubDate>Sat, 07 Dec 2024 11:10:05 +0800</pubDate><guid>https://before80.github.io/go_docs/thirdPkg/gods/trees/redblacktree/</guid><description>&lt;blockquote&gt;
+&lt;p&gt;原文：&lt;a href="https://pkg.go.dev/github.com/emirpasic/gods/v2@v2.0.0-alpha/trees/redblacktree"&gt;https://pkg.go.dev/github.com/emirpasic/gods/v2@v2.0.0-alpha/trees/redblacktree&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;收录该文档时间： &lt;code&gt;2024-12-07T11:10:05+08:00&lt;/code&gt;&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;h2 id="overview"&gt;Overview&lt;/h2&gt;
+&lt;p&gt;Package redblacktree implements a red-black tree.&lt;/p&gt;
+&lt;p&gt;​	包 &lt;code&gt;redblacktree&lt;/code&gt; 实现了一个红黑树。&lt;/p&gt;
+&lt;p&gt;Used by TreeSet and TreeMap.&lt;/p&gt;
+&lt;p&gt;​	由 &lt;code&gt;TreeSet&lt;/code&gt; 和 &lt;code&gt;TreeMap&lt;/code&gt; 使用。&lt;/p&gt;
+&lt;p&gt;Structure is not thread safe.&lt;/p&gt;
+&lt;p&gt;​	结构不具备线程安全。&lt;/p&gt;
+&lt;p&gt;References: &lt;a href="http://en.wikipedia.org/wiki/Red%E2%80%93black_tree"&gt;http://en.wikipedia.org/wiki/Red%E2%80%93black_tree&lt;/a&gt;&lt;/p&gt;
+&lt;h2 id="常量"&gt;常量&lt;/h2&gt;
+&lt;p&gt;This section is empty.&lt;/p&gt;
+&lt;h2 id="变量"&gt;变量&lt;/h2&gt;
+&lt;p&gt;This section is empty.&lt;/p&gt;
+&lt;h2 id="函数"&gt;函数&lt;/h2&gt;
+&lt;p&gt;This section is empty.&lt;/p&gt;</description></item></channel></rss>

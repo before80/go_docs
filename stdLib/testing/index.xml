@@ -1,63 +1,69 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>testing on Go 中文档集</title><link>https://before80.github.io/go_docs/stdLib/testing/</link><description>Recent content in testing on Go 中文档集</description><generator>Hugo</generator><language>zh-cn</language><lastBuildDate>Wed, 02 Apr 2025 16:27:58 +0800</lastBuildDate><atom:link href="https://before80.github.io/go_docs/stdLib/testing/index.xml" rel="self" type="application/rss+xml"/><item><title>slogtest</title><link>https://before80.github.io/go_docs/stdLib/testing/slogtest/</link><pubDate>Sun, 05 Nov 2023 14:33:11 +0800</pubDate><guid>https://before80.github.io/go_docs/stdLib/testing/slogtest/</guid><description>&lt;blockquote>
-&lt;p>原文：&lt;a href="https://pkg.go.dev/testing/slogtest@go1.24.2">https://pkg.go.dev/testing/slogtest@go1.24.2&lt;/a>&lt;/p>&lt;/blockquote>
-&lt;blockquote>
-&lt;p>注意&lt;/p>
-&lt;p>​	从go1.21.0开始才可以使用该包。&lt;/p>&lt;/blockquote>
-&lt;h2 id="概述">概述&lt;a class="td-heading-self-link" href="#%e6%a6%82%e8%bf%b0" aria-label="Heading self-link">&lt;/a>&lt;/h2>
-&lt;p>Package slogtest implements support for testing implementations of log/slog.Handler.&lt;/p>
-&lt;h2 id="example-parsing">Example (Parsing)&lt;a class="td-heading-self-link" href="#example-parsing" aria-label="Heading self-link">&lt;/a>&lt;/h2>
-&lt;p>This example demonstrates one technique for testing a handler with this package. The handler is given a &lt;a href="https://pkg.go.dev/bytes#Buffer">bytes.Buffer&lt;/a> to write to, and each line of the resulting output is parsed. For JSON output, &lt;a href="https://pkg.go.dev/encoding/json#Unmarshal">encoding/json.Unmarshal&lt;/a> produces a result in the desired format when given a pointer to a map[string]any.&lt;/p></description></item><item><title>fstest</title><link>https://before80.github.io/go_docs/stdLib/testing/fstest/</link><pubDate>Wed, 17 May 2023 11:11:20 +0800</pubDate><guid>https://before80.github.io/go_docs/stdLib/testing/fstest/</guid><description>&lt;blockquote>
-&lt;p>原文：&lt;a href="https://pkg.go.dev/testing/fstest@go1.24.2">https://pkg.go.dev/testing/fstest@go1.24.2&lt;/a>&lt;/p>&lt;/blockquote>
-&lt;p>Package fstest implements support for testing implementations and users of file systems.&lt;/p>
-&lt;p>​	&lt;code>fstest&lt;/code>包实现了用于测试文件系统实现和用户的支持。&lt;/p>
-&lt;h2 id="常量">常量&lt;a class="td-heading-self-link" href="#%e5%b8%b8%e9%87%8f" aria-label="Heading self-link">&lt;/a>&lt;/h2>
-&lt;p>This section is empty.&lt;/p>
-&lt;h2 id="变量">变量&lt;a class="td-heading-self-link" href="#%e5%8f%98%e9%87%8f" aria-label="Heading self-link">&lt;/a>&lt;/h2>
-&lt;p>This section is empty.&lt;/p>
-&lt;h2 id="函数">函数&lt;a class="td-heading-self-link" href="#%e5%87%bd%e6%95%b0" aria-label="Heading self-link">&lt;/a>&lt;/h2>
-&lt;h3 id="func-testfs">func TestFS&lt;a class="td-heading-self-link" href="#func-testfs" aria-label="Heading self-link">&lt;/a>&lt;/h3>
-&lt;div class="highlight">&lt;div style="color:#b0c4de;background-color:#282c34;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">
-&lt;table style="border-spacing:0;padding:0;margin:0;border:0;">&lt;tr>&lt;td style="vertical-align:top;padding:0;margin:0;border:0;">
-&lt;pre tabindex="0" style="color:#b0c4de;background-color:#282c34;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code>&lt;span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#58626f">1
-&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
-&lt;td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
-&lt;pre tabindex="0" style="color:#b0c4de;background-color:#282c34;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-go" data-lang="go">&lt;span style="display:flex;">&lt;span>&lt;span style="color:#76a9f9">func&lt;/span> &lt;span style="color:#00b1f7">TestFS&lt;/span>&lt;span style="color:#abb2bf">(&lt;/span>&lt;span style="color:#aa89ea">fsys&lt;/span> &lt;span style="color:#aa89ea">fs&lt;/span>&lt;span style="color:#abb2bf">.&lt;/span>&lt;span style="color:#aa89ea">FS&lt;/span>&lt;span style="color:#abb2bf">,&lt;/span> &lt;span style="color:#aa89ea">expected&lt;/span> &lt;span style="color:#54b1c7">...&lt;/span>&lt;span style="color:#e5c07b">string&lt;/span>&lt;span style="color:#abb2bf">)&lt;/span> &lt;span style="color:#e5c07b">error&lt;/span>
-&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
-&lt;/div>
-&lt;/div>&lt;p>TestFS tests a file system implementation. It walks the entire tree of files in fsys, opening and checking that each file behaves correctly. It also checks that the file system contains at least the expected files. As a special case, if no expected files are listed, fsys must be empty. Otherwise, fsys must contain at least the listed files; it can also contain others. The contents of fsys must not change concurrently with TestFS.&lt;/p></description></item><item><title>iotest</title><link>https://before80.github.io/go_docs/stdLib/testing/iotest/</link><pubDate>Wed, 17 May 2023 11:11:20 +0800</pubDate><guid>https://before80.github.io/go_docs/stdLib/testing/iotest/</guid><description>&lt;blockquote>
-&lt;p>原文：&lt;a href="https://pkg.go.dev/testing/iotest@go1.24.2">https://pkg.go.dev/testing/iotest@go1.24.2&lt;/a>&lt;/p>&lt;/blockquote>
-&lt;p>Package iotest implements Readers and Writers useful mainly for testing.&lt;/p>
-&lt;p>​	&lt;code>iotest&lt;/code> 包实现了一些用于测试的 &lt;code>Reader&lt;/code> 和 &lt;code>Writer&lt;/code>。&lt;/p>
-&lt;h2 id="常量">常量&lt;a class="td-heading-self-link" href="#%e5%b8%b8%e9%87%8f" aria-label="Heading self-link">&lt;/a>&lt;/h2>
-&lt;p>This section is empty.&lt;/p>
-&lt;h2 id="变量">变量&lt;a class="td-heading-self-link" href="#%e5%8f%98%e9%87%8f" aria-label="Heading self-link">&lt;/a>&lt;/h2>
-&lt;p>&lt;a href="https://cs.opensource.google/go/go/+/go1.20.1:src/testing/iotest/reader.go;l=74">View Source&lt;/a>&lt;/p>
-&lt;div class="highlight">&lt;div style="color:#b0c4de;background-color:#282c34;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">
-&lt;table style="border-spacing:0;padding:0;margin:0;border:0;">&lt;tr>&lt;td style="vertical-align:top;padding:0;margin:0;border:0;">
-&lt;pre tabindex="0" style="color:#b0c4de;background-color:#282c34;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code>&lt;span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#58626f">1
-&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
-&lt;td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
-&lt;pre tabindex="0" style="color:#b0c4de;background-color:#282c34;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-go" data-lang="go">&lt;span style="display:flex;">&lt;span>&lt;span style="color:#76a9f9">var&lt;/span> &lt;span style="color:#aa89ea">ErrTimeout&lt;/span> &lt;span style="color:#abb2bf">=&lt;/span> &lt;span style="color:#aa89ea">errors&lt;/span>&lt;span style="color:#abb2bf">.&lt;/span>&lt;span style="color:#00b1f7">New&lt;/span>&lt;span style="color:#abb2bf">(&lt;/span>&lt;span style="color:#98c379">&amp;#34;timeout&amp;#34;&lt;/span>&lt;span style="color:#abb2bf">)&lt;/span>
-&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
-&lt;/div>
-&lt;/div>&lt;p>ErrTimeout is a fake timeout error.&lt;/p>
-&lt;p>​	&lt;code>ErrTimeout&lt;/code> 是一个虚假的超时错误。&lt;/p>
-&lt;h2 id="函数">函数&lt;a class="td-heading-self-link" href="#%e5%87%bd%e6%95%b0" aria-label="Heading self-link">&lt;/a>&lt;/h2>
-&lt;h3 id="func-dataerrreader">func DataErrReader&lt;a class="td-heading-self-link" href="#func-dataerrreader" aria-label="Heading self-link">&lt;/a>&lt;/h3>
-&lt;div class="highlight">&lt;div style="color:#b0c4de;background-color:#282c34;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">
-&lt;table style="border-spacing:0;padding:0;margin:0;border:0;">&lt;tr>&lt;td style="vertical-align:top;padding:0;margin:0;border:0;">
-&lt;pre tabindex="0" style="color:#b0c4de;background-color:#282c34;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code>&lt;span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#58626f">1
-&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
-&lt;td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
-&lt;pre tabindex="0" style="color:#b0c4de;background-color:#282c34;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-go" data-lang="go">&lt;span style="display:flex;">&lt;span>&lt;span style="color:#76a9f9">func&lt;/span> &lt;span style="color:#00b1f7">DataErrReader&lt;/span>&lt;span style="color:#abb2bf">(&lt;/span>&lt;span style="color:#aa89ea">r&lt;/span> &lt;span style="color:#aa89ea">io&lt;/span>&lt;span style="color:#abb2bf">.&lt;/span>&lt;span style="color:#aa89ea">Reader&lt;/span>&lt;span style="color:#abb2bf">)&lt;/span> &lt;span style="color:#aa89ea">io&lt;/span>&lt;span style="color:#abb2bf">.&lt;/span>&lt;span style="color:#aa89ea">Reader&lt;/span>
-&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
-&lt;/div>
-&lt;/div>&lt;p>DataErrReader changes the way errors are handled by a Reader. Normally, a Reader returns an error (typically EOF) from the first Read call after the last piece of data is read. DataErrReader wraps a Reader and changes its behavior so the final error is returned along with the final data, instead of in the first call after the final data.&lt;/p></description></item><item><title>quick</title><link>https://before80.github.io/go_docs/stdLib/testing/quick/</link><pubDate>Wed, 17 May 2023 11:11:20 +0800</pubDate><guid>https://before80.github.io/go_docs/stdLib/testing/quick/</guid><description>&lt;blockquote>
-&lt;p>原文：&lt;a href="https://pkg.go.dev/testing/quick@go1.24.2">https://pkg.go.dev/testing/quick@go1.24.2&lt;/a>&lt;/p>&lt;/blockquote>
-&lt;p>Package quick implements utility functions to help with black box testing.&lt;/p>
-&lt;p>​	&lt;code>quick&lt;/code>包实现了一些实用的函数，以帮助黑盒测试。&lt;/p>
-&lt;p>The testing/quick package is frozen and is not accepting new features.&lt;/p>
-&lt;p>​	&lt;code>testing/quick&lt;/code>包已被冻结，不接受新特性。&lt;/p></description></item><item><title>testing</title><link>https://before80.github.io/go_docs/stdLib/testing/testing/</link><pubDate>Wed, 17 May 2023 11:11:20 +0800</pubDate><guid>https://before80.github.io/go_docs/stdLib/testing/testing/</guid><description>&lt;blockquote>
-&lt;p>原文：&lt;a href="https://pkg.go.dev/testing@go1.24.2">https://pkg.go.dev/testing@go1.24.2&lt;/a>&lt;/p>&lt;/blockquote>
-&lt;p>Package testing provides support for automated testing of Go packages. It is intended to be used in concert with the &amp;ldquo;go test&amp;rdquo; command, which automates execution of any function of the form&lt;/p>
-&lt;p>​	&lt;code>testing&lt;/code>包提供了对Go程序包进行自动化测试的支持。它旨在与&amp;quot;go test&amp;quot;命令一起使用，该命令自动执行以下形式的任何函数：&lt;/p></description></item></channel></rss>
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>testing on Go 中文档集</title><link>https://before80.github.io/go_docs/stdLib/testing/</link><description>Recent content in testing on Go 中文档集</description><generator>Hugo</generator><language>zh-cn</language><lastBuildDate>Wed, 02 Apr 2025 16:27:58 +0800</lastBuildDate><atom:link href="https://before80.github.io/go_docs/stdLib/testing/index.xml" rel="self" type="application/rss+xml"/><item><title>slogtest</title><link>https://before80.github.io/go_docs/stdLib/testing/slogtest/</link><pubDate>Sun, 05 Nov 2023 14:33:11 +0800</pubDate><guid>https://before80.github.io/go_docs/stdLib/testing/slogtest/</guid><description>&lt;blockquote&gt;
+&lt;p&gt;原文：&lt;a href="https://pkg.go.dev/testing/slogtest@go1.24.2"&gt;https://pkg.go.dev/testing/slogtest@go1.24.2&lt;/a&gt;&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;blockquote&gt;
+&lt;p&gt;注意&lt;/p&gt;
+&lt;p&gt;​	从go1.21.0开始才可以使用该包。&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;h2 id="概述"&gt;概述&lt;/h2&gt;
+&lt;p&gt;Package slogtest implements support for testing implementations of log/slog.Handler.&lt;/p&gt;
+&lt;h2 id="example-parsing"&gt;Example (Parsing)&lt;/h2&gt;
+&lt;p&gt;This example demonstrates one technique for testing a handler with this package. The handler is given a &lt;a href="https://pkg.go.dev/bytes#Buffer"&gt;bytes.Buffer&lt;/a&gt; to write to, and each line of the resulting output is parsed. For JSON output, &lt;a href="https://pkg.go.dev/encoding/json#Unmarshal"&gt;encoding/json.Unmarshal&lt;/a&gt; produces a result in the desired format when given a pointer to a map[string]any.&lt;/p&gt;</description></item><item><title>fstest</title><link>https://before80.github.io/go_docs/stdLib/testing/fstest/</link><pubDate>Wed, 17 May 2023 11:11:20 +0800</pubDate><guid>https://before80.github.io/go_docs/stdLib/testing/fstest/</guid><description>&lt;blockquote&gt;
+&lt;p&gt;原文：&lt;a href="https://pkg.go.dev/testing/fstest@go1.24.2"&gt;https://pkg.go.dev/testing/fstest@go1.24.2&lt;/a&gt;&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;Package fstest implements support for testing implementations and users of file systems.&lt;/p&gt;
+&lt;p&gt;​	&lt;code&gt;fstest&lt;/code&gt;包实现了用于测试文件系统实现和用户的支持。&lt;/p&gt;
+&lt;h2 id="常量"&gt;常量&lt;/h2&gt;
+&lt;p&gt;This section is empty.&lt;/p&gt;
+&lt;h2 id="变量"&gt;变量&lt;/h2&gt;
+&lt;p&gt;This section is empty.&lt;/p&gt;
+&lt;h2 id="函数"&gt;函数&lt;/h2&gt;
+&lt;h3 id="func-testfs"&gt;func TestFS&lt;/h3&gt;
+&lt;div class="highlight"&gt;&lt;div style="color:#b0c4de;background-color:#282c34;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"&gt;
+&lt;table style="border-spacing:0;padding:0;margin:0;border:0;"&gt;&lt;tr&gt;&lt;td style="vertical-align:top;padding:0;margin:0;border:0;"&gt;
+&lt;pre tabindex="0" style="color:#b0c4de;background-color:#282c34;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"&gt;&lt;code&gt;&lt;span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#58626f"&gt;1
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
+&lt;td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%"&gt;
+&lt;pre tabindex="0" style="color:#b0c4de;background-color:#282c34;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"&gt;&lt;code class="language-go" data-lang="go"&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;&lt;span style="color:#76a9f9"&gt;func&lt;/span&gt; &lt;span style="color:#00b1f7"&gt;TestFS&lt;/span&gt;&lt;span style="color:#abb2bf"&gt;(&lt;/span&gt;&lt;span style="color:#aa89ea"&gt;fsys&lt;/span&gt; &lt;span style="color:#aa89ea"&gt;fs&lt;/span&gt;&lt;span style="color:#abb2bf"&gt;.&lt;/span&gt;&lt;span style="color:#aa89ea"&gt;FS&lt;/span&gt;&lt;span style="color:#abb2bf"&gt;,&lt;/span&gt; &lt;span style="color:#aa89ea"&gt;expected&lt;/span&gt; &lt;span style="color:#54b1c7"&gt;...&lt;/span&gt;&lt;span style="color:#e5c07b"&gt;string&lt;/span&gt;&lt;span style="color:#abb2bf"&gt;)&lt;/span&gt; &lt;span style="color:#e5c07b"&gt;error&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+&lt;/div&gt;
+&lt;/div&gt;&lt;p&gt;TestFS tests a file system implementation. It walks the entire tree of files in fsys, opening and checking that each file behaves correctly. It also checks that the file system contains at least the expected files. As a special case, if no expected files are listed, fsys must be empty. Otherwise, fsys must contain at least the listed files; it can also contain others. The contents of fsys must not change concurrently with TestFS.&lt;/p&gt;</description></item><item><title>iotest</title><link>https://before80.github.io/go_docs/stdLib/testing/iotest/</link><pubDate>Wed, 17 May 2023 11:11:20 +0800</pubDate><guid>https://before80.github.io/go_docs/stdLib/testing/iotest/</guid><description>&lt;blockquote&gt;
+&lt;p&gt;原文：&lt;a href="https://pkg.go.dev/testing/iotest@go1.24.2"&gt;https://pkg.go.dev/testing/iotest@go1.24.2&lt;/a&gt;&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;Package iotest implements Readers and Writers useful mainly for testing.&lt;/p&gt;
+&lt;p&gt;​	&lt;code&gt;iotest&lt;/code&gt; 包实现了一些用于测试的 &lt;code&gt;Reader&lt;/code&gt; 和 &lt;code&gt;Writer&lt;/code&gt;。&lt;/p&gt;
+&lt;h2 id="常量"&gt;常量&lt;/h2&gt;
+&lt;p&gt;This section is empty.&lt;/p&gt;
+&lt;h2 id="变量"&gt;变量&lt;/h2&gt;
+&lt;p&gt;&lt;a href="https://cs.opensource.google/go/go/+/go1.20.1:src/testing/iotest/reader.go;l=74"&gt;View Source&lt;/a&gt;&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;div style="color:#b0c4de;background-color:#282c34;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"&gt;
+&lt;table style="border-spacing:0;padding:0;margin:0;border:0;"&gt;&lt;tr&gt;&lt;td style="vertical-align:top;padding:0;margin:0;border:0;"&gt;
+&lt;pre tabindex="0" style="color:#b0c4de;background-color:#282c34;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"&gt;&lt;code&gt;&lt;span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#58626f"&gt;1
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
+&lt;td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%"&gt;
+&lt;pre tabindex="0" style="color:#b0c4de;background-color:#282c34;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"&gt;&lt;code class="language-go" data-lang="go"&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;&lt;span style="color:#76a9f9"&gt;var&lt;/span&gt; &lt;span style="color:#aa89ea"&gt;ErrTimeout&lt;/span&gt; &lt;span style="color:#abb2bf"&gt;=&lt;/span&gt; &lt;span style="color:#aa89ea"&gt;errors&lt;/span&gt;&lt;span style="color:#abb2bf"&gt;.&lt;/span&gt;&lt;span style="color:#00b1f7"&gt;New&lt;/span&gt;&lt;span style="color:#abb2bf"&gt;(&lt;/span&gt;&lt;span style="color:#98c379"&gt;&amp;#34;timeout&amp;#34;&lt;/span&gt;&lt;span style="color:#abb2bf"&gt;)&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+&lt;/div&gt;
+&lt;/div&gt;&lt;p&gt;ErrTimeout is a fake timeout error.&lt;/p&gt;
+&lt;p&gt;​	&lt;code&gt;ErrTimeout&lt;/code&gt; 是一个虚假的超时错误。&lt;/p&gt;
+&lt;h2 id="函数"&gt;函数&lt;/h2&gt;
+&lt;h3 id="func-dataerrreader"&gt;func DataErrReader&lt;/h3&gt;
+&lt;div class="highlight"&gt;&lt;div style="color:#b0c4de;background-color:#282c34;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"&gt;
+&lt;table style="border-spacing:0;padding:0;margin:0;border:0;"&gt;&lt;tr&gt;&lt;td style="vertical-align:top;padding:0;margin:0;border:0;"&gt;
+&lt;pre tabindex="0" style="color:#b0c4de;background-color:#282c34;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"&gt;&lt;code&gt;&lt;span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#58626f"&gt;1
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
+&lt;td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%"&gt;
+&lt;pre tabindex="0" style="color:#b0c4de;background-color:#282c34;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"&gt;&lt;code class="language-go" data-lang="go"&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;&lt;span style="color:#76a9f9"&gt;func&lt;/span&gt; &lt;span style="color:#00b1f7"&gt;DataErrReader&lt;/span&gt;&lt;span style="color:#abb2bf"&gt;(&lt;/span&gt;&lt;span style="color:#aa89ea"&gt;r&lt;/span&gt; &lt;span style="color:#aa89ea"&gt;io&lt;/span&gt;&lt;span style="color:#abb2bf"&gt;.&lt;/span&gt;&lt;span style="color:#aa89ea"&gt;Reader&lt;/span&gt;&lt;span style="color:#abb2bf"&gt;)&lt;/span&gt; &lt;span style="color:#aa89ea"&gt;io&lt;/span&gt;&lt;span style="color:#abb2bf"&gt;.&lt;/span&gt;&lt;span style="color:#aa89ea"&gt;Reader&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+&lt;/div&gt;
+&lt;/div&gt;&lt;p&gt;DataErrReader changes the way errors are handled by a Reader. Normally, a Reader returns an error (typically EOF) from the first Read call after the last piece of data is read. DataErrReader wraps a Reader and changes its behavior so the final error is returned along with the final data, instead of in the first call after the final data.&lt;/p&gt;</description></item><item><title>quick</title><link>https://before80.github.io/go_docs/stdLib/testing/quick/</link><pubDate>Wed, 17 May 2023 11:11:20 +0800</pubDate><guid>https://before80.github.io/go_docs/stdLib/testing/quick/</guid><description>&lt;blockquote&gt;
+&lt;p&gt;原文：&lt;a href="https://pkg.go.dev/testing/quick@go1.24.2"&gt;https://pkg.go.dev/testing/quick@go1.24.2&lt;/a&gt;&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;Package quick implements utility functions to help with black box testing.&lt;/p&gt;
+&lt;p&gt;​	&lt;code&gt;quick&lt;/code&gt;包实现了一些实用的函数，以帮助黑盒测试。&lt;/p&gt;
+&lt;p&gt;The testing/quick package is frozen and is not accepting new features.&lt;/p&gt;
+&lt;p&gt;​	&lt;code&gt;testing/quick&lt;/code&gt;包已被冻结，不接受新特性。&lt;/p&gt;</description></item><item><title>testing</title><link>https://before80.github.io/go_docs/stdLib/testing/testing/</link><pubDate>Wed, 17 May 2023 11:11:20 +0800</pubDate><guid>https://before80.github.io/go_docs/stdLib/testing/testing/</guid><description>&lt;blockquote&gt;
+&lt;p&gt;原文：&lt;a href="https://pkg.go.dev/testing@go1.24.2"&gt;https://pkg.go.dev/testing@go1.24.2&lt;/a&gt;&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;Package testing provides support for automated testing of Go packages. It is intended to be used in concert with the &amp;ldquo;go test&amp;rdquo; command, which automates execution of any function of the form&lt;/p&gt;
+&lt;p&gt;​	&lt;code&gt;testing&lt;/code&gt;包提供了对Go程序包进行自动化测试的支持。它旨在与&amp;quot;go test&amp;quot;命令一起使用，该命令自动执行以下形式的任何函数：&lt;/p&gt;</description></item></channel></rss>

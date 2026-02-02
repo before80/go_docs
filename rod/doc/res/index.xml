@@ -1,12 +1,13 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>资源 on Go 中文档集</title><link>https://before80.github.io/go_docs/rod/doc/res/</link><description>Recent content in 资源 on Go 中文档集</description><generator>Hugo</generator><language>zh-cn</language><lastBuildDate>Thu, 21 Nov 2024 10:26:16 +0800</lastBuildDate><atom:link href="https://before80.github.io/go_docs/rod/doc/res/index.xml" rel="self" type="application/rss+xml"/><item><title>常见问题</title><link>https://before80.github.io/go_docs/rod/doc/res/faq/</link><pubDate>Thu, 21 Nov 2024 08:11:50 +0800</pubDate><guid>https://before80.github.io/go_docs/rod/doc/res/faq/</guid><description>&lt;blockquote>
-&lt;p>原文：&lt;a href="https://go-rod.github.io/i18n/zh-CN/#/faq/README">https://go-rod.github.io/i18n/zh-CN/#/faq/README&lt;/a>&lt;/p>
-&lt;p>收录该文档时间： &lt;code>2024-11-21T08:11:50+08:00&lt;/code>&lt;/p>&lt;/blockquote>
-&lt;h1 id="常见问题">常见问题&lt;a class="td-heading-self-link" href="#%e5%b8%b8%e8%a7%81%e9%97%ae%e9%a2%98" aria-label="Heading self-link">&lt;/a>&lt;/h1>
-&lt;h2 id="为什么选择-rod-而不是其他库">为什么选择 Rod 而不是其他库？&lt;a class="td-heading-self-link" href="#%e4%b8%ba%e4%bb%80%e4%b9%88%e9%80%89%e6%8b%a9-rod-%e8%80%8c%e4%b8%8d%e6%98%af%e5%85%b6%e4%bb%96%e5%ba%93" aria-label="Heading self-link">&lt;/a>&lt;/h2>
-&lt;p>​	请看 &lt;a href="https://go-rod.github.io/i18n/zh-CN/#/why-rod">为什么 Rod &lt;/a>。&lt;/p>
-&lt;h2 id="如何在注释或文档中搜索符号">如何在注释或文档中搜索符号？&lt;a class="td-heading-self-link" href="#%e5%a6%82%e4%bd%95%e5%9c%a8%e6%b3%a8%e9%87%8a%e6%88%96%e6%96%87%e6%a1%a3%e4%b8%ad%e6%90%9c%e7%b4%a2%e7%ac%a6%e5%8f%b7" aria-label="Heading self-link">&lt;/a>&lt;/h2>
-&lt;p>​	比如截图中显示的符号 &lt;code>Page.Element&lt;/code>&lt;/p>
-&lt;p>
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>资源 on Go 中文档集</title><link>https://before80.github.io/go_docs/rod/doc/res/</link><description>Recent content in 资源 on Go 中文档集</description><generator>Hugo</generator><language>zh-cn</language><lastBuildDate>Thu, 21 Nov 2024 10:26:16 +0800</lastBuildDate><atom:link href="https://before80.github.io/go_docs/rod/doc/res/index.xml" rel="self" type="application/rss+xml"/><item><title>常见问题</title><link>https://before80.github.io/go_docs/rod/doc/res/faq/</link><pubDate>Thu, 21 Nov 2024 08:11:50 +0800</pubDate><guid>https://before80.github.io/go_docs/rod/doc/res/faq/</guid><description>&lt;blockquote&gt;
+&lt;p&gt;原文：&lt;a href="https://go-rod.github.io/i18n/zh-CN/#/faq/README"&gt;https://go-rod.github.io/i18n/zh-CN/#/faq/README&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;收录该文档时间： &lt;code&gt;2024-11-21T08:11:50+08:00&lt;/code&gt;&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;h1 id="常见问题"&gt;常见问题&lt;/h1&gt;
+&lt;h2 id="为什么选择-rod-而不是其他库"&gt;为什么选择 Rod 而不是其他库？&lt;/h2&gt;
+&lt;p&gt;​	请看 &lt;a href="https://go-rod.github.io/i18n/zh-CN/#/why-rod"&gt;为什么 Rod &lt;/a&gt;。&lt;/p&gt;
+&lt;h2 id="如何在注释或文档中搜索符号"&gt;如何在注释或文档中搜索符号？&lt;/h2&gt;
+&lt;p&gt;​	比如截图中显示的符号 &lt;code&gt;Page.Element&lt;/code&gt;&lt;/p&gt;
+&lt;p&gt;
  
  
  
@@ -20,78 +21,106 @@
  &lt;img src="https://before80.github.io/go_docs/rod/doc/res/faq_img/symbol-in-doc.png"
  alt="symbol-in-doc" data-cur-dir="rod/doc/res" data-rg="/faq_img/symbol-in-doc.png" data-rg1="faq_img/symbol-in-doc.png" data-rel="/go_docs/faq_img/symbol-in-doc.png" data-c4my="/go_docs"
  
- />
+ /&gt;
  
  
-&lt;/p>
-&lt;p>​	可以通过从这里搜索跳转到它(键盘快捷键是 &lt;code>F&lt;/code>):&lt;/p></description></item><item><title>API 文档</title><link>https://before80.github.io/go_docs/rod/doc/res/api-reference/</link><pubDate>Thu, 21 Nov 2024 08:11:23 +0800</pubDate><guid>https://before80.github.io/go_docs/rod/doc/res/api-reference/</guid><description>&lt;blockquote>
-&lt;p>原文：&lt;a href="https://go-rod.github.io/i18n/zh-CN/#/api-reference">https://go-rod.github.io/i18n/zh-CN/#/api-reference&lt;/a>&lt;/p>
-&lt;p>收录该文档时间： &lt;code>2024-11-21T08:11:23+08:00&lt;/code>&lt;/p>&lt;/blockquote>
-&lt;h1 id="api-文档">API 文档&lt;a class="td-heading-self-link" href="#api-%e6%96%87%e6%a1%a3" aria-label="Heading self-link">&lt;/a>&lt;/h1>
-&lt;ul>
-&lt;li>&lt;a href="https://pkg.go.dev/github.com/go-rod/rod">rod&lt;/a>: 主包&lt;/li>
-&lt;li>&lt;a href="https://pkg.go.dev/github.com/go-rod/rod/lib/defaults">defaults&lt;/a>: 从环境中解析常用参数的包。&lt;/li>
-&lt;li>&lt;a href="https://pkg.go.dev/github.com/go-rod/rod/lib/launcher">launcher&lt;/a>: 启动浏览器的工具包.&lt;/li>
-&lt;li>&lt;a href="https://pkg.go.dev/github.com/go-rod/rod/lib/proto">proto&lt;/a>: 编码和解码 cdp 协议数据的包.&lt;/li>
-&lt;li>&lt;a href="https://pkg.go.dev/github.com/go-rod/rod/lib/cdp">cdp&lt;/a>: 用于与浏览器进行应用层通讯的包.&lt;/li>
-&lt;/ul></description></item><item><title>示例</title><link>https://before80.github.io/go_docs/rod/doc/res/examples/</link><pubDate>Thu, 21 Nov 2024 08:11:38 +0800</pubDate><guid>https://before80.github.io/go_docs/rod/doc/res/examples/</guid><description>&lt;blockquote>
-&lt;p>原文：&lt;a href="https://go-rod.github.io/i18n/zh-CN/#/examples">https://go-rod.github.io/i18n/zh-CN/#/examples&lt;/a>&lt;/p>
-&lt;p>收录该文档时间： &lt;code>2024-11-21T08:11:38+08:00&lt;/code>&lt;/p>&lt;/blockquote>
-&lt;h1 id="示例">示例&lt;a class="td-heading-self-link" href="#%e7%a4%ba%e4%be%8b" aria-label="Heading self-link">&lt;/a>&lt;/h1>
-&lt;p>​	请先阅读 &lt;a href="https://github.com/go-rod/rod/tree/master/examples_test.go">examples_test.go&lt;/a> 文件，然后查看 &lt;a href="https://github.com/go-rod/rod/tree/master/lib/examples">examples&lt;/a> 文件夹。&lt;/p>
-&lt;p>​	有关更多详细示例，请在单元测试中搜索。 例如方法 &lt;code>HandleAuth&lt;/code>的使用，您可以搜索所有 &lt;code>*_test.go&lt;/code> 包含 &lt;code>HandleAuth&lt;/code>的文件 您也可以搜索 GitHub &lt;a href="https://github.com/go-rod/rod/issues">问题&lt;/a> 或 &lt;a href="https://github.com/go-rod/rod/discussions">讨论&lt;/a>, 这里记录了大量使用示例。&lt;/p></description></item><item><title>为什么选择 Rod</title><link>https://before80.github.io/go_docs/rod/doc/res/why-rod/</link><pubDate>Thu, 21 Nov 2024 08:12:02 +0800</pubDate><guid>https://before80.github.io/go_docs/rod/doc/res/why-rod/</guid><description>&lt;blockquote>
-&lt;p>原文：&lt;a href="https://go-rod.github.io/i18n/zh-CN/#/why-rod">https://go-rod.github.io/i18n/zh-CN/#/why-rod&lt;/a>&lt;/p>
-&lt;p>收录该文档时间： &lt;code>2024-11-21T08:12:02+08:00&lt;/code>&lt;/p>&lt;/blockquote>
-&lt;h1 id="为什么选择-rod">为什么选择 Rod&lt;a class="td-heading-self-link" href="#%e4%b8%ba%e4%bb%80%e4%b9%88%e9%80%89%e6%8b%a9-rod" aria-label="Heading self-link">&lt;/a>&lt;/h1>
-&lt;p>​	有许多不错的项目，但其中没有一个是完美的。 重要的是选择其中最适合你需求的那一个。&lt;/p>
-&lt;h2 id="与其他库对比">与其他库对比&lt;a class="td-heading-self-link" href="#%e4%b8%8e%e5%85%b6%e4%bb%96%e5%ba%93%e5%af%b9%e6%af%94" aria-label="Heading self-link">&lt;/a>&lt;/h2>
-&lt;h3 id="chromedp">Chromedp&lt;a class="td-heading-self-link" href="#chromedp" aria-label="Heading self-link">&lt;/a>&lt;/h3>
-&lt;p>​	理论上，Rod 应该比 Chromedp 更快，消耗更少的内存，Rod 的架构更稳定和一致。&lt;/p></description></item><item><title>兼容性</title><link>https://before80.github.io/go_docs/rod/doc/res/compatibility/</link><pubDate>Thu, 21 Nov 2024 08:12:24 +0800</pubDate><guid>https://before80.github.io/go_docs/rod/doc/res/compatibility/</guid><description>&lt;blockquote>
-&lt;p>原文：&lt;a href="https://go-rod.github.io/i18n/zh-CN/#/compatibility">https://go-rod.github.io/i18n/zh-CN/#/compatibility&lt;/a>&lt;/p>
-&lt;p>收录该文档时间： &lt;code>2024-11-21T08:12:24+08:00&lt;/code>&lt;/p>&lt;/blockquote>
-&lt;h1 id="兼容性">兼容性&lt;a class="td-heading-self-link" href="#%e5%85%bc%e5%ae%b9%e6%80%a7" aria-label="Heading self-link">&lt;/a>&lt;/h1>
-&lt;h2 id="操作系统">操作系统&lt;a class="td-heading-self-link" href="#%e6%93%8d%e4%bd%9c%e7%b3%bb%e7%bb%9f" aria-label="Heading self-link">&lt;/a>&lt;/h2>
-&lt;p>​	一般来说你可以在 Golang 支持的所有主要平台上无感知地编译和运行 Rod。 推荐使用 &lt;a href="https://go-rod.github.io/i18n/zh-CN/#/custom-launch?id=remotely-manage-the-launcher">docker 方式&lt;/a> 在服务器上运行 Rod 。 在某些平台上，您可能需要手动安装浏览器。 Rod 无法保证自动下载的浏览器能够正常工作。 如果您想要Rod 支持一个平台，请为此提出问题。&lt;/p></description></item><item><title>理解 Context</title><link>https://before80.github.io/go_docs/rod/doc/res/understand-context/</link><pubDate>Thu, 21 Nov 2024 08:12:38 +0800</pubDate><guid>https://before80.github.io/go_docs/rod/doc/res/understand-context/</guid><description>&lt;blockquote>
-&lt;p>原文：&lt;a href="https://go-rod.github.io/i18n/zh-CN/#/understand-context">https://go-rod.github.io/i18n/zh-CN/#/understand-context&lt;/a>&lt;/p>
-&lt;p>收录该文档时间： &lt;code>2024-11-21T08:12:38+08:00&lt;/code>&lt;/p>&lt;/blockquote>
-&lt;h1 id="理解-context">理解 Context&lt;a class="td-heading-self-link" href="#%e7%90%86%e8%a7%a3-context" aria-label="Heading self-link">&lt;/a>&lt;/h1>
-&lt;p>​	在此之前，先确保你已经学会了 &lt;a href="https://tour.golang.org/concurrency/1">Goroutines&lt;/a> 和 &lt;a href="https://tour.golang.org/concurrency/2">Channels&lt;/a>。 Context 主要用于在 Goroutines 之间传递上下文信息，包括：取消信号，超时，截止时间，键值对等等。&lt;/p></description></item><item><title>聊天室</title><link>https://before80.github.io/go_docs/rod/doc/res/chat-room/</link><pubDate>Thu, 21 Nov 2024 08:17:50 +0800</pubDate><guid>https://before80.github.io/go_docs/rod/doc/res/chat-room/</guid><description>&lt;blockquote>
-&lt;p>原文：&lt;a href="https://go-rod.github.io/i18n/zh-CN/#/chat-room">https://go-rod.github.io/i18n/zh-CN/#/chat-room&lt;/a>&lt;/p>
-&lt;p>收录该文档时间： &lt;code>2024-11-21T08:17:50+08:00&lt;/code>&lt;/p>&lt;/blockquote>
-&lt;h1 id="聊天室">聊天室&lt;a class="td-heading-self-link" href="#%e8%81%8a%e5%a4%a9%e5%ae%a4" aria-label="Heading self-link">&lt;/a>&lt;/h1>
-&lt;p>​	我们使用 discord: &lt;a href="https://discord.gg/CpevuvY">加入地址&lt;/a>。&lt;/p>
-&lt;ul>
-&lt;li>请使用 markdown 格式化代码块&lt;/li>
-&lt;li>请不要向这里发送超过 30 行的代码块，而是使用 gist 或 github issue&lt;/li>
-&lt;li>如果可能，请使用您的 Github 用户名&lt;/li>
-&lt;li>在提问之前，请阅读 &lt;a href="http://www.catb.org/~esr/faqs/smart-questions.html">如何用聪明的方式提问&lt;/a>。&lt;/li>
-&lt;/ul></description></item><item><title>加入开发</title><link>https://before80.github.io/go_docs/rod/doc/res/join-development/</link><pubDate>Thu, 21 Nov 2024 08:18:07 +0800</pubDate><guid>https://before80.github.io/go_docs/rod/doc/res/join-development/</guid><description>&lt;blockquote>
-&lt;p>原文：&lt;a href="https://go-rod.github.io/i18n/zh-CN/#/join-development">https://go-rod.github.io/i18n/zh-CN/#/join-development&lt;/a>&lt;/p>
-&lt;p>收录该文档时间： &lt;code>2024-11-21T08:18:07+08:00&lt;/code>&lt;/p>&lt;/blockquote>
-&lt;h1 id="加入开发">加入开发&lt;a class="td-heading-self-link" href="#%e5%8a%a0%e5%85%a5%e5%bc%80%e5%8f%91" aria-label="Heading self-link">&lt;/a>&lt;/h1>
-&lt;p>​	欢迎任何形式的帮助！ 即使只是新建一个 issue 来提问也会大大有助于他人。&lt;/p>
-&lt;p>​	在提问之前，请阅读 &lt;a href="http://www.catb.org/~esr/faqs/smart-questions.html">如何用聪明的方式提问&lt;/a>。&lt;/p>
-&lt;p>​	我们使用 Github Projects 来管理任务，你可以 &lt;a href="https://github.com/orgs/go-rod/projects/1">在这里&lt;/a> 看到 issue 的优先级和进度。&lt;/p></description></item><item><title>贡献文档</title><link>https://before80.github.io/go_docs/rod/doc/res/contribute-doc/</link><pubDate>Thu, 21 Nov 2024 08:18:21 +0800</pubDate><guid>https://before80.github.io/go_docs/rod/doc/res/contribute-doc/</guid><description>&lt;blockquote>
-&lt;p>原文：&lt;a href="https://go-rod.github.io/i18n/zh-CN/#/contribute-doc">https://go-rod.github.io/i18n/zh-CN/#/contribute-doc&lt;/a>&lt;/p>
-&lt;p>收录该文档时间： &lt;code>2024-11-21T08:18:21+08:00&lt;/code>&lt;/p>&lt;/blockquote>
-&lt;h1 id="贡献文档">贡献文档&lt;a class="td-heading-self-link" href="#%e8%b4%a1%e7%8c%ae%e6%96%87%e6%a1%a3" aria-label="Heading self-link">&lt;/a>&lt;/h1>
-&lt;h2 id="调试和预览">调试和预览&lt;a class="td-heading-self-link" href="#%e8%b0%83%e8%af%95%e5%92%8c%e9%a2%84%e8%a7%88" aria-label="Heading self-link">&lt;/a>&lt;/h2>
-&lt;p>​	安装 &lt;a href="https://docsify.js.org/#/quickstart">docsify-cli&lt;/a>。&lt;/p>
-&lt;p>​	然后运行这些命令：&lt;/p>
-&lt;div class="highlight">&lt;div style="color:#b0c4de;background-color:#282c34;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">
-&lt;table style="border-spacing:0;padding:0;margin:0;border:0;">&lt;tr>&lt;td style="vertical-align:top;padding:0;margin:0;border:0;">
-&lt;pre tabindex="0" style="color:#b0c4de;background-color:#282c34;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code>&lt;span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#58626f">1
-&lt;/span>&lt;span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#58626f">2
-&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
-&lt;td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
-&lt;pre tabindex="0" style="color:#b0c4de;background-color:#282c34;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-bash" data-lang="bash">&lt;span style="display:flex;">&lt;span>git clone https://github.com/go-rod/go-rod.github.io.git
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>docsify serve -o go-rod.github.io
-&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
-&lt;/div>
-&lt;/div>&lt;p>​	每当你修改文档时，页面都会自动刷新。&lt;/p>
-&lt;h2 id="文档">文档&lt;a class="td-heading-self-link" href="#%e6%96%87%e6%a1%a3" aria-label="Heading self-link">&lt;/a>&lt;/h2>
-&lt;p>​	只需为此 &lt;a href="https://github.com/go-rod/go-rod.github.io.git">repo&lt;/a> 创建一个 &lt;a href="https://docs.github.com/en/github/collaborating-with-issues-and-pull-requests/about-pull-requests">pull request&lt;/a>。&lt;/p></description></item><item><title>源代码</title><link>https://before80.github.io/go_docs/rod/doc/res/source-code/</link><pubDate>Thu, 21 Nov 2024 08:18:37 +0800</pubDate><guid>https://before80.github.io/go_docs/rod/doc/res/source-code/</guid><description>&lt;blockquote>
-&lt;p>原文：&lt;a href="https://go-rod.github.io/i18n/zh-CN/#/source-code">https://go-rod.github.io/i18n/zh-CN/#/source-code&lt;/a>&lt;/p>
-&lt;p>收录该文档时间： &lt;code>2024-11-21T08:18:37+08:00&lt;/code>&lt;/p>&lt;/blockquote>
-&lt;h1 id="源代码">源代码&lt;a class="td-heading-self-link" href="#%e6%ba%90%e4%bb%a3%e7%a0%81" aria-label="Heading self-link">&lt;/a>&lt;/h1>
-&lt;p>​	主代码仓库： &lt;a href="https://github.com/go-rod/rod">链接&lt;/a>。&lt;/p></description></item></channel></rss>
+&lt;/p&gt;
+&lt;p&gt;​	可以通过从这里搜索跳转到它(键盘快捷键是 &lt;code&gt;F&lt;/code&gt;):&lt;/p&gt;
+&lt;p&gt;
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ &lt;img src="https://before80.github.io/go_docs/rod/doc/res/faq_img/search-symbol-in-doc.png"
+ alt="search-symbol-in-doc" data-cur-dir="rod/doc/res" data-rg="/faq_img/search-symbol-in-doc.png" data-rg1="faq_img/search-symbol-in-doc.png" data-rel="/go_docs/faq_img/search-symbol-in-doc.png" data-c4my="/go_docs"
+ 
+ /&gt;
+ 
+ 
+&lt;/p&gt;</description></item><item><title>API 文档</title><link>https://before80.github.io/go_docs/rod/doc/res/api-reference/</link><pubDate>Thu, 21 Nov 2024 08:11:23 +0800</pubDate><guid>https://before80.github.io/go_docs/rod/doc/res/api-reference/</guid><description>&lt;blockquote&gt;
+&lt;p&gt;原文：&lt;a href="https://go-rod.github.io/i18n/zh-CN/#/api-reference"&gt;https://go-rod.github.io/i18n/zh-CN/#/api-reference&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;收录该文档时间： &lt;code&gt;2024-11-21T08:11:23+08:00&lt;/code&gt;&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;h1 id="api-文档"&gt;API 文档&lt;/h1&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;a href="https://pkg.go.dev/github.com/go-rod/rod"&gt;rod&lt;/a&gt;: 主包&lt;/li&gt;
+&lt;li&gt;&lt;a href="https://pkg.go.dev/github.com/go-rod/rod/lib/defaults"&gt;defaults&lt;/a&gt;: 从环境中解析常用参数的包。&lt;/li&gt;
+&lt;li&gt;&lt;a href="https://pkg.go.dev/github.com/go-rod/rod/lib/launcher"&gt;launcher&lt;/a&gt;: 启动浏览器的工具包.&lt;/li&gt;
+&lt;li&gt;&lt;a href="https://pkg.go.dev/github.com/go-rod/rod/lib/proto"&gt;proto&lt;/a&gt;: 编码和解码 cdp 协议数据的包.&lt;/li&gt;
+&lt;li&gt;&lt;a href="https://pkg.go.dev/github.com/go-rod/rod/lib/cdp"&gt;cdp&lt;/a&gt;: 用于与浏览器进行应用层通讯的包.&lt;/li&gt;
+&lt;/ul&gt;</description></item><item><title>示例</title><link>https://before80.github.io/go_docs/rod/doc/res/examples/</link><pubDate>Thu, 21 Nov 2024 08:11:38 +0800</pubDate><guid>https://before80.github.io/go_docs/rod/doc/res/examples/</guid><description>&lt;blockquote&gt;
+&lt;p&gt;原文：&lt;a href="https://go-rod.github.io/i18n/zh-CN/#/examples"&gt;https://go-rod.github.io/i18n/zh-CN/#/examples&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;收录该文档时间： &lt;code&gt;2024-11-21T08:11:38+08:00&lt;/code&gt;&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;h1 id="示例"&gt;示例&lt;/h1&gt;
+&lt;p&gt;​	请先阅读 &lt;a href="https://github.com/go-rod/rod/tree/master/examples_test.go"&gt;examples_test.go&lt;/a&gt; 文件，然后查看 &lt;a href="https://github.com/go-rod/rod/tree/master/lib/examples"&gt;examples&lt;/a&gt; 文件夹。&lt;/p&gt;
+&lt;p&gt;​	有关更多详细示例，请在单元测试中搜索。 例如方法 &lt;code&gt;HandleAuth&lt;/code&gt;的使用，您可以搜索所有 &lt;code&gt;*_test.go&lt;/code&gt; 包含 &lt;code&gt;HandleAuth&lt;/code&gt;的文件 您也可以搜索 GitHub &lt;a href="https://github.com/go-rod/rod/issues"&gt;问题&lt;/a&gt; 或 &lt;a href="https://github.com/go-rod/rod/discussions"&gt;讨论&lt;/a&gt;, 这里记录了大量使用示例。&lt;/p&gt;</description></item><item><title>为什么选择 Rod</title><link>https://before80.github.io/go_docs/rod/doc/res/why-rod/</link><pubDate>Thu, 21 Nov 2024 08:12:02 +0800</pubDate><guid>https://before80.github.io/go_docs/rod/doc/res/why-rod/</guid><description>&lt;blockquote&gt;
+&lt;p&gt;原文：&lt;a href="https://go-rod.github.io/i18n/zh-CN/#/why-rod"&gt;https://go-rod.github.io/i18n/zh-CN/#/why-rod&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;收录该文档时间： &lt;code&gt;2024-11-21T08:12:02+08:00&lt;/code&gt;&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;h1 id="为什么选择-rod"&gt;为什么选择 Rod&lt;/h1&gt;
+&lt;p&gt;​	有许多不错的项目，但其中没有一个是完美的。 重要的是选择其中最适合你需求的那一个。&lt;/p&gt;
+&lt;h2 id="与其他库对比"&gt;与其他库对比&lt;/h2&gt;
+&lt;h3 id="chromedp"&gt;Chromedp&lt;/h3&gt;
+&lt;p&gt;​	理论上，Rod 应该比 Chromedp 更快，消耗更少的内存，Rod 的架构更稳定和一致。&lt;/p&gt;</description></item><item><title>兼容性</title><link>https://before80.github.io/go_docs/rod/doc/res/compatibility/</link><pubDate>Thu, 21 Nov 2024 08:12:24 +0800</pubDate><guid>https://before80.github.io/go_docs/rod/doc/res/compatibility/</guid><description>&lt;blockquote&gt;
+&lt;p&gt;原文：&lt;a href="https://go-rod.github.io/i18n/zh-CN/#/compatibility"&gt;https://go-rod.github.io/i18n/zh-CN/#/compatibility&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;收录该文档时间： &lt;code&gt;2024-11-21T08:12:24+08:00&lt;/code&gt;&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;h1 id="兼容性"&gt;兼容性&lt;/h1&gt;
+&lt;h2 id="操作系统"&gt;操作系统&lt;/h2&gt;
+&lt;p&gt;​	一般来说你可以在 Golang 支持的所有主要平台上无感知地编译和运行 Rod。 推荐使用 &lt;a href="https://go-rod.github.io/i18n/zh-CN/#/custom-launch?id=remotely-manage-the-launcher"&gt;docker 方式&lt;/a&gt; 在服务器上运行 Rod 。 在某些平台上，您可能需要手动安装浏览器。 Rod 无法保证自动下载的浏览器能够正常工作。 如果您想要Rod 支持一个平台，请为此提出问题。&lt;/p&gt;</description></item><item><title>理解 Context</title><link>https://before80.github.io/go_docs/rod/doc/res/understand-context/</link><pubDate>Thu, 21 Nov 2024 08:12:38 +0800</pubDate><guid>https://before80.github.io/go_docs/rod/doc/res/understand-context/</guid><description>&lt;blockquote&gt;
+&lt;p&gt;原文：&lt;a href="https://go-rod.github.io/i18n/zh-CN/#/understand-context"&gt;https://go-rod.github.io/i18n/zh-CN/#/understand-context&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;收录该文档时间： &lt;code&gt;2024-11-21T08:12:38+08:00&lt;/code&gt;&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;h1 id="理解-context"&gt;理解 Context&lt;/h1&gt;
+&lt;p&gt;​	在此之前，先确保你已经学会了 &lt;a href="https://tour.golang.org/concurrency/1"&gt;Goroutines&lt;/a&gt; 和 &lt;a href="https://tour.golang.org/concurrency/2"&gt;Channels&lt;/a&gt;。 Context 主要用于在 Goroutines 之间传递上下文信息，包括：取消信号，超时，截止时间，键值对等等。&lt;/p&gt;
+&lt;p&gt;​	例如，我们现在有一个长时间运行的函数 &lt;code&gt;heartbeat&lt;/code&gt;，它每秒会打印一次 &lt;code&gt;beat&lt;/code&gt;：&lt;/p&gt;</description></item><item><title>聊天室</title><link>https://before80.github.io/go_docs/rod/doc/res/chat-room/</link><pubDate>Thu, 21 Nov 2024 08:17:50 +0800</pubDate><guid>https://before80.github.io/go_docs/rod/doc/res/chat-room/</guid><description>&lt;blockquote&gt;
+&lt;p&gt;原文：&lt;a href="https://go-rod.github.io/i18n/zh-CN/#/chat-room"&gt;https://go-rod.github.io/i18n/zh-CN/#/chat-room&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;收录该文档时间： &lt;code&gt;2024-11-21T08:17:50+08:00&lt;/code&gt;&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;h1 id="聊天室"&gt;聊天室&lt;/h1&gt;
+&lt;p&gt;​	我们使用 discord: &lt;a href="https://discord.gg/CpevuvY"&gt;加入地址&lt;/a&gt;。&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;请使用 markdown 格式化代码块&lt;/li&gt;
+&lt;li&gt;请不要向这里发送超过 30 行的代码块，而是使用 gist 或 github issue&lt;/li&gt;
+&lt;li&gt;如果可能，请使用您的 Github 用户名&lt;/li&gt;
+&lt;li&gt;在提问之前，请阅读 &lt;a href="http://www.catb.org/~esr/faqs/smart-questions.html"&gt;如何用聪明的方式提问&lt;/a&gt;。&lt;/li&gt;
+&lt;/ul&gt;</description></item><item><title>加入开发</title><link>https://before80.github.io/go_docs/rod/doc/res/join-development/</link><pubDate>Thu, 21 Nov 2024 08:18:07 +0800</pubDate><guid>https://before80.github.io/go_docs/rod/doc/res/join-development/</guid><description>&lt;blockquote&gt;
+&lt;p&gt;原文：&lt;a href="https://go-rod.github.io/i18n/zh-CN/#/join-development"&gt;https://go-rod.github.io/i18n/zh-CN/#/join-development&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;收录该文档时间： &lt;code&gt;2024-11-21T08:18:07+08:00&lt;/code&gt;&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;h1 id="加入开发"&gt;加入开发&lt;/h1&gt;
+&lt;p&gt;​	欢迎任何形式的帮助！ 即使只是新建一个 issue 来提问也会大大有助于他人。&lt;/p&gt;
+&lt;p&gt;​	在提问之前，请阅读 &lt;a href="http://www.catb.org/~esr/faqs/smart-questions.html"&gt;如何用聪明的方式提问&lt;/a&gt;。&lt;/p&gt;
+&lt;p&gt;​	我们使用 Github Projects 来管理任务，你可以 &lt;a href="https://github.com/orgs/go-rod/projects/1"&gt;在这里&lt;/a&gt; 看到 issue 的优先级和进度。&lt;/p&gt;</description></item><item><title>贡献文档</title><link>https://before80.github.io/go_docs/rod/doc/res/contribute-doc/</link><pubDate>Thu, 21 Nov 2024 08:18:21 +0800</pubDate><guid>https://before80.github.io/go_docs/rod/doc/res/contribute-doc/</guid><description>&lt;blockquote&gt;
+&lt;p&gt;原文：&lt;a href="https://go-rod.github.io/i18n/zh-CN/#/contribute-doc"&gt;https://go-rod.github.io/i18n/zh-CN/#/contribute-doc&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;收录该文档时间： &lt;code&gt;2024-11-21T08:18:21+08:00&lt;/code&gt;&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;h1 id="贡献文档"&gt;贡献文档&lt;/h1&gt;
+&lt;h2 id="调试和预览"&gt;调试和预览&lt;/h2&gt;
+&lt;p&gt;​	安装 &lt;a href="https://docsify.js.org/#/quickstart"&gt;docsify-cli&lt;/a&gt;。&lt;/p&gt;
+&lt;p&gt;​	然后运行这些命令：&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;div style="color:#b0c4de;background-color:#282c34;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"&gt;
+&lt;table style="border-spacing:0;padding:0;margin:0;border:0;"&gt;&lt;tr&gt;&lt;td style="vertical-align:top;padding:0;margin:0;border:0;"&gt;
+&lt;pre tabindex="0" style="color:#b0c4de;background-color:#282c34;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"&gt;&lt;code&gt;&lt;span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#58626f"&gt;1
+&lt;/span&gt;&lt;span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#58626f"&gt;2
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
+&lt;td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%"&gt;
+&lt;pre tabindex="0" style="color:#b0c4de;background-color:#282c34;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"&gt;&lt;code class="language-bash" data-lang="bash"&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;git clone https://github.com/go-rod/go-rod.github.io.git
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;docsify serve -o go-rod.github.io
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+&lt;/div&gt;
+&lt;/div&gt;&lt;p&gt;​	每当你修改文档时，页面都会自动刷新。&lt;/p&gt;
+&lt;h2 id="文档"&gt;文档&lt;/h2&gt;
+&lt;p&gt;​	只需为此 &lt;a href="https://github.com/go-rod/go-rod.github.io.git"&gt;repo&lt;/a&gt; 创建一个 &lt;a href="https://docs.github.com/en/github/collaborating-with-issues-and-pull-requests/about-pull-requests"&gt;pull request&lt;/a&gt;。&lt;/p&gt;</description></item><item><title>源代码</title><link>https://before80.github.io/go_docs/rod/doc/res/source-code/</link><pubDate>Thu, 21 Nov 2024 08:18:37 +0800</pubDate><guid>https://before80.github.io/go_docs/rod/doc/res/source-code/</guid><description>&lt;blockquote&gt;
+&lt;p&gt;原文：&lt;a href="https://go-rod.github.io/i18n/zh-CN/#/source-code"&gt;https://go-rod.github.io/i18n/zh-CN/#/source-code&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;收录该文档时间： &lt;code&gt;2024-11-21T08:18:37+08:00&lt;/code&gt;&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;h1 id="源代码"&gt;源代码&lt;/h1&gt;
+&lt;p&gt;​	主代码仓库： &lt;a href="https://github.com/go-rod/rod"&gt;链接&lt;/a&gt;。&lt;/p&gt;</description></item></channel></rss>

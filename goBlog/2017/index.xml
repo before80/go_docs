@@ -1,67 +1,79 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>2017 [11篇] on Go 中文档集</title><link>https://before80.github.io/go_docs/goBlog/2017/</link><description>Recent content in 2017 [11篇] on Go 中文档集</description><generator>Hugo</generator><language>zh-cn</language><lastBuildDate>Thu, 10 Oct 2024 15:07:50 +0800</lastBuildDate><atom:link href="https://before80.github.io/go_docs/goBlog/2017/index.xml" rel="self" type="application/rss+xml"/><item><title>参与2017年 Go 用户调查</title><link>https://before80.github.io/go_docs/goBlog/2017/ParticipateInThe2017GoUserSurvey/</link><pubDate>Thu, 18 May 2023 17:03:08 +0800</pubDate><guid>https://before80.github.io/go_docs/goBlog/2017/ParticipateInThe2017GoUserSurvey/</guid><description>&lt;h1 id="participate-in-the-2017-go-user-survey---参与2017年-go-用户调查">Participate in the 2017 Go User Survey - 参与2017年 Go 用户调查&lt;a class="td-heading-self-link" href="#participate-in-the-2017-go-user-survey---%e5%8f%82%e4%b8%8e2017%e5%b9%b4-go-%e7%94%a8%e6%88%b7%e8%b0%83%e6%9f%a5" aria-label="Heading self-link">&lt;/a>&lt;/h1>
-&lt;blockquote>
-&lt;p>原文：&lt;a href="https://go.dev/blog/survey2017">https://go.dev/blog/survey2017&lt;/a>&lt;/p>&lt;/blockquote>
-&lt;p>Steve Francia
-16 November 2017&lt;/p>
-&lt;h2 id="the-go-project-wants-to-hear-from-you-again-go项目希望听到您的意见再次您的意见是什么">The Go project wants to hear from you (again)! Go项目希望听到您的意见（再次）！您的意见是什么？&lt;a class="td-heading-self-link" href="#the-go-project-wants-to-hear-from-you-again-go%e9%a1%b9%e7%9b%ae%e5%b8%8c%e6%9c%9b%e5%90%ac%e5%88%b0%e6%82%a8%e7%9a%84%e6%84%8f%e8%a7%81%e5%86%8d%e6%ac%a1%e6%82%a8%e7%9a%84%e6%84%8f%e8%a7%81%e6%98%af%e4%bb%80%e4%b9%88" aria-label="Heading self-link">&lt;/a>&lt;/h2>
-&lt;p>Last year we conducted the first ever &lt;a href="https://blog.golang.org/survey2016-results">Go user survey&lt;/a>. Thanks to all of you, it was an overwhelming success with over 3500 responses. The survey provided key insights and helped us better plan and prioritize.&lt;/p></description></item><item><title>Go 8 岁了</title><link>https://before80.github.io/go_docs/goBlog/2017/EightYearsOfGo/</link><pubDate>Thu, 18 May 2023 17:03:08 +0800</pubDate><guid>https://before80.github.io/go_docs/goBlog/2017/EightYearsOfGo/</guid><description>&lt;h1 id="eight-years-of-go---go-8-岁了">Eight years of Go - Go 8 岁了&lt;a class="td-heading-self-link" href="#eight-years-of-go---go-8-%e5%b2%81%e4%ba%86" aria-label="Heading self-link">&lt;/a>&lt;/h1>
-&lt;blockquote>
-&lt;p>原文：&lt;a href="https://go.dev/blog/8years">https://go.dev/blog/8years&lt;/a>&lt;/p>&lt;/blockquote>
-&lt;p>Steve Francia
-10 November 2017&lt;/p>
-&lt;p>Today we celebrate 8 years since Go was released as an open source project. During &lt;a href="https://blog.golang.org/4years">Go’s 4th anniversary&lt;/a>, Andrew finished the post with &amp;ldquo;Here’s to four more years!&amp;rdquo;. Now that we have reached that milestone, I cannot help but reflect on how much the project and ecosystem has grown since then. In our post 4 years ago we included a chart demonstrating Go’s rising popularity on Google Trends with the search term &amp;ldquo;golang&amp;rdquo;. Today, we’re including an updated chart. In this relative scale of popularity, what was 100 four years ago is now a mere 17. Go’s popularity has increased exponentially over the last 8 years and continues to grow.&lt;/p></description></item><item><title>社区外展工作小组</title><link>https://before80.github.io/go_docs/goBlog/2017/CommunityOutreachWorkingGroup/</link><pubDate>Thu, 18 May 2023 17:03:08 +0800</pubDate><guid>https://before80.github.io/go_docs/goBlog/2017/CommunityOutreachWorkingGroup/</guid><description>&lt;h1 id="community-outreach-working-group---社区外展工作小组">Community Outreach Working Group - 社区外展工作小组&lt;a class="td-heading-self-link" href="#community-outreach-working-group---%e7%a4%be%e5%8c%ba%e5%a4%96%e5%b1%95%e5%b7%a5%e4%bd%9c%e5%b0%8f%e7%bb%84" aria-label="Heading self-link">&lt;/a>&lt;/h1>
-&lt;blockquote>
-&lt;p>原文：&lt;a href="https://go.dev/blog/cwg">https://go.dev/blog/cwg&lt;/a>&lt;/p>&lt;/blockquote>
-&lt;p>Steve Francia &amp;amp; Cassandra Salisbury
-5 September 2017&lt;/p>
-&lt;h2 id="announcing-the-go-community-outreach-working-group-宣布go社区推广工作组的成立">Announcing the Go Community Outreach Working Group 宣布Go社区推广工作组的成立&lt;a class="td-heading-self-link" href="#announcing-the-go-community-outreach-working-group-%e5%ae%a3%e5%b8%83go%e7%a4%be%e5%8c%ba%e6%8e%a8%e5%b9%bf%e5%b7%a5%e4%bd%9c%e7%bb%84%e7%9a%84%e6%88%90%e7%ab%8b" aria-label="Heading self-link">&lt;/a>&lt;/h2>
-&lt;p>The Go project has grown considerably with over half a million users and community members all over the world. To date all community oriented activities have been organized by the community with minimal involvement from the Go project. We greatly appreciate these efforts.&lt;/p></description></item><item><title>Go 1.9发布了</title><link>https://before80.github.io/go_docs/goBlog/2017/Go1_9IsReleased/</link><pubDate>Thu, 18 May 2023 17:03:08 +0800</pubDate><guid>https://before80.github.io/go_docs/goBlog/2017/Go1_9IsReleased/</guid><description>&lt;h1 id="go-19-is-released---go-19发布了">Go 1.9 is released - Go 1.9发布了&lt;a class="td-heading-self-link" href="#go-19-is-released---go-19%e5%8f%91%e5%b8%83%e4%ba%86" aria-label="Heading self-link">&lt;/a>&lt;/h1>
-&lt;blockquote>
-&lt;p>原文：&lt;a href="https://go.dev/blog/go1.9">https://go.dev/blog/go1.9&lt;/a>&lt;/p>&lt;/blockquote>
-&lt;p>Francesc Campoy
-24 August 2017&lt;/p>
-&lt;p>Today the Go team is happy to announce the release of Go 1.9. You can get it from the &lt;a href="https://go.dev/dl/">download page&lt;/a>. There are many changes to the language, standard library, runtime, and tooling. This post covers the most significant visible ones. Most of the engineering effort put into this release went to improvements of the runtime and tooling, which makes for a less exciting announcement, but nonetheless a great release.&lt;/p></description></item><item><title>贡献研讨会</title><link>https://before80.github.io/go_docs/goBlog/2017/ContributionWorkshop/</link><pubDate>Thu, 18 May 2023 17:03:08 +0800</pubDate><guid>https://before80.github.io/go_docs/goBlog/2017/ContributionWorkshop/</guid><description>&lt;h1 id="contribution-workshop---贡献研讨会">Contribution Workshop - 贡献研讨会&lt;a class="td-heading-self-link" href="#contribution-workshop---%e8%b4%a1%e7%8c%ae%e7%a0%94%e8%ae%a8%e4%bc%9a" aria-label="Heading self-link">&lt;/a>&lt;/h1>
-&lt;blockquote>
-&lt;p>原文：&lt;a href="https://go.dev/blog/contributor-workshop">https://go.dev/blog/contributor-workshop&lt;/a>&lt;/p>&lt;/blockquote>
-&lt;p>Steve Francia, Cassandra Salisbury, Matt Broberg, and Dmitri Shuralyov
-9 August 2017&lt;/p>
-&lt;h2 id="event-overview-活动概述">Event Overview 活动概述&lt;a class="td-heading-self-link" href="#event-overview-%e6%b4%bb%e5%8a%a8%e6%a6%82%e8%bf%b0" aria-label="Heading self-link">&lt;/a>&lt;/h2>
-&lt;p>by &lt;a href="https://twitter.com/spf13">Steve&lt;/a>&lt;/p>
-&lt;p>作者：Steve&lt;/p>
-&lt;p>During the community day at GopherCon, the Go team held two workshops where we worked with people to help them make their first contribution to the Go project. This was the first time the Go project has ever attempted anything like this. We had about 140 participants and about 35 people who volunteered as mentors. Mentors not only received warm fuzzy feelings for helping others, but also a very stylish Go Mentor trucker hat. We had contributors of all ages and experience levels coming from North and South America, Africa, Europe, Asia, and Australia. It was truly a worldwide effort of Gophers coming together at GopherCon.&lt;/p></description></item><item><title>贡献者峰会</title><link>https://before80.github.io/go_docs/goBlog/2017/ContributorsSummit/</link><pubDate>Thu, 18 May 2023 17:03:08 +0800</pubDate><guid>https://before80.github.io/go_docs/goBlog/2017/ContributorsSummit/</guid><description>&lt;h1 id="contributors-summit---贡献者峰会">Contributors Summit - 贡献者峰会&lt;a class="td-heading-self-link" href="#contributors-summit---%e8%b4%a1%e7%8c%ae%e8%80%85%e5%b3%b0%e4%bc%9a" aria-label="Heading self-link">&lt;/a>&lt;/h1>
-&lt;blockquote>
-&lt;p>原文：&lt;a href="https://go.dev/blog/contributors-summit">https://go.dev/blog/contributors-summit&lt;/a>&lt;/p>&lt;/blockquote>
-&lt;p>Sam Whited
-3 August 2017&lt;/p>
-&lt;h2 id="introduction-简介">Introduction 简介&lt;a class="td-heading-self-link" href="#introduction-%e7%ae%80%e4%bb%8b" aria-label="Heading self-link">&lt;/a>&lt;/h2>
-&lt;p>The day before GopherCon, a group of Go team members and contributors gathered in Denver to discuss and plan for the future of the Go project. This was the first ever event of its kind, a major milestone for the Go project. The event comprised a morning session revolving around focused discussions on a theme, and an afternoon session made up of round table discussions in small break-out groups.&lt;/p></description></item><item><title>迈向 Go 2</title><link>https://before80.github.io/go_docs/goBlog/2017/TowardGo2/</link><pubDate>Thu, 18 May 2023 17:03:08 +0800</pubDate><guid>https://before80.github.io/go_docs/goBlog/2017/TowardGo2/</guid><description>&lt;h1 id="toward-go-2---迈向-go-2">Toward Go 2 - 迈向 Go 2&lt;a class="td-heading-self-link" href="#toward-go-2---%e8%bf%88%e5%90%91-go-2" aria-label="Heading self-link">&lt;/a>&lt;/h1>
-&lt;blockquote>
-&lt;p>原文：&lt;a href="https://go.dev/blog/toward-go2">https://go.dev/blog/toward-go2&lt;/a>&lt;/p>&lt;/blockquote>
-&lt;p>Russ Cox
-13 July 2017&lt;/p>
-&lt;h2 id="introduction-简介">Introduction 简介&lt;a class="td-heading-self-link" href="#introduction-%e7%ae%80%e4%bb%8b" aria-label="Heading self-link">&lt;/a>&lt;/h2>
-&lt;p>[This is the text of &lt;a href="https://www.youtube.com/watch?v=0Zbh_vmAKvk">my talk today&lt;/a> at Gophercon 2017, asking for the entire Go community’s help as we discuss and plan Go 2.]&lt;/p>
-&lt;p>[这是我今天在Gophercon 2017上的演讲稿，请求整个Go社区在我们讨论和规划Go 2时给予帮助。］&lt;/p></description></item><item><title>开发者体验工作组介绍</title><link>https://before80.github.io/go_docs/goBlog/2017/IntroducingTheDeveloperExperienceWorkingGroup/</link><pubDate>Thu, 18 May 2023 17:03:08 +0800</pubDate><guid>https://before80.github.io/go_docs/goBlog/2017/IntroducingTheDeveloperExperienceWorkingGroup/</guid><description>&lt;h1 id="introducing-the-developer-experience-working-group---开发者体验工作组介绍">Introducing the Developer Experience Working Group - 开发者体验工作组介绍&lt;a class="td-heading-self-link" href="#introducing-the-developer-experience-working-group---%e5%bc%80%e5%8f%91%e8%80%85%e4%bd%93%e9%aa%8c%e5%b7%a5%e4%bd%9c%e7%bb%84%e4%bb%8b%e7%bb%8d" aria-label="Heading self-link">&lt;/a>&lt;/h1>
-&lt;blockquote>
-&lt;p>原文：&lt;a href="https://go.dev/blog/developer-experience">https://go.dev/blog/developer-experience&lt;/a>&lt;/p>&lt;/blockquote>
-&lt;p>The Developer Experience Working Group
-10 April 2017&lt;/p>
-&lt;p>Over the last several years, Go’s audience has shifted from early adopters to mainstream users. Today, our users come from a wide variety of backgrounds, experiences, and expectations. The needs of users are growing faster than the Go project can currently address them. To streamline the experience for first-time Go users, we’ve created the Developer eXperience Working Group (DXWG).&lt;/p></description></item><item><title>HTTP/2服务器推送</title><link>https://before80.github.io/go_docs/goBlog/2017/HTTP2ServerPush/</link><pubDate>Thu, 18 May 2023 17:03:08 +0800</pubDate><guid>https://before80.github.io/go_docs/goBlog/2017/HTTP2ServerPush/</guid><description>&lt;h1 id="http2-server-push---http2服务器推送">HTTP/2 Server Push - HTTP/2服务器推送&lt;a class="td-heading-self-link" href="#http2-server-push---http2%e6%9c%8d%e5%8a%a1%e5%99%a8%e6%8e%a8%e9%80%81" aria-label="Heading self-link">&lt;/a>&lt;/h1>
-&lt;blockquote>
-&lt;p>原文：&lt;a href="https://go.dev/blog/h2push">https://go.dev/blog/h2push&lt;/a>&lt;/p>&lt;/blockquote>
-&lt;p>Jaana Burcu Dogan and Tom Bergan
-24 March 2017&lt;/p>
-&lt;h2 id="introduction-简介">Introduction 简介&lt;a class="td-heading-self-link" href="#introduction-%e7%ae%80%e4%bb%8b" aria-label="Heading self-link">&lt;/a>&lt;/h2>
-&lt;p>HTTP/2 is designed to address many of the failings of HTTP/1.x. Modern web pages use many resources: HTML, stylesheets, scripts, images, and so on. In HTTP/1.x, each of these resources must be requested explicitly. This can be a slow process. The browser starts by fetching the HTML, then learns of more resources incrementally as it parses and evaluates the page. Since the server must wait for the browser to make each request, the network is often idle and underutilized.&lt;/p></description></item><item><title>2016年 Go 调查结果</title><link>https://before80.github.io/go_docs/goBlog/2017/Go2016SurveyResults/</link><pubDate>Thu, 18 May 2023 17:03:08 +0800</pubDate><guid>https://before80.github.io/go_docs/goBlog/2017/Go2016SurveyResults/</guid><description>&lt;h1 id="go-2016-survey-results---2016年-go-调查结果">Go 2016 Survey Results - 2016年 Go 调查结果&lt;a class="td-heading-self-link" href="#go-2016-survey-results---2016%e5%b9%b4-go-%e8%b0%83%e6%9f%a5%e7%bb%93%e6%9e%9c" aria-label="Heading self-link">&lt;/a>&lt;/h1>
-&lt;blockquote>
-&lt;p>原文：&lt;a href="https://go.dev/blog/survey2016-results">https://go.dev/blog/survey2016-results&lt;/a>&lt;/p>&lt;/blockquote>
-&lt;p>Steve Francia, for the Go team
-6 March 2017&lt;/p>
-&lt;h2 id="thank-you-谢谢您">Thank you 谢谢您&lt;a class="td-heading-self-link" href="#thank-you-%e8%b0%a2%e8%b0%a2%e6%82%a8" aria-label="Heading self-link">&lt;/a>&lt;/h2>
-&lt;p>This post summarizes the result of our December 2016 user survey along with our commentary and insights. We are grateful to everyone who provided their feedback through the survey to help shape the future of Go.&lt;/p></description></item><item><title>Go 1.8发布了</title><link>https://before80.github.io/go_docs/goBlog/2017/Go1_8IsReleased/</link><pubDate>Thu, 18 May 2023 17:03:08 +0800</pubDate><guid>https://before80.github.io/go_docs/goBlog/2017/Go1_8IsReleased/</guid><description>&lt;h1 id="go-18-is-released---go-18发布了">Go 1.8 is released - Go 1.8发布了&lt;a class="td-heading-self-link" href="#go-18-is-released---go-18%e5%8f%91%e5%b8%83%e4%ba%86" aria-label="Heading self-link">&lt;/a>&lt;/h1>
-&lt;blockquote>
-&lt;p>原文：&lt;a href="https://go.dev/blog/go1.8">https://go.dev/blog/go1.8&lt;/a>&lt;/p>&lt;/blockquote>
-&lt;p>Chris Broadfoot
-16 February 2017&lt;/p>
-&lt;p>Today the Go team is happy to announce the release of Go 1.8. You can get it from the &lt;a href="https://go.dev/dl/">download page&lt;/a>. There are significant performance improvements and changes across the standard library.&lt;/p>
-&lt;p>今天Go团队很高兴地宣布Go 1.8的发布。您可以从下载页面获得它。整个标准库有明显的性能改进和变化。&lt;/p></description></item></channel></rss>
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>2017 [11篇] on Go 中文档集</title><link>https://before80.github.io/go_docs/goBlog/2017/</link><description>Recent content in 2017 [11篇] on Go 中文档集</description><generator>Hugo</generator><language>zh-cn</language><lastBuildDate>Thu, 10 Oct 2024 15:07:50 +0800</lastBuildDate><atom:link href="https://before80.github.io/go_docs/goBlog/2017/index.xml" rel="self" type="application/rss+xml"/><item><title>参与2017年 Go 用户调查</title><link>https://before80.github.io/go_docs/goBlog/2017/ParticipateInThe2017GoUserSurvey/</link><pubDate>Thu, 18 May 2023 17:03:08 +0800</pubDate><guid>https://before80.github.io/go_docs/goBlog/2017/ParticipateInThe2017GoUserSurvey/</guid><description>&lt;h1 id="participate-in-the-2017-go-user-survey---参与2017年-go-用户调查"&gt;Participate in the 2017 Go User Survey - 参与2017年 Go 用户调查&lt;/h1&gt;
+&lt;blockquote&gt;
+&lt;p&gt;原文：&lt;a href="https://go.dev/blog/survey2017"&gt;https://go.dev/blog/survey2017&lt;/a&gt;&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;Steve Francia
+16 November 2017&lt;/p&gt;
+&lt;h2 id="the-go-project-wants-to-hear-from-you-again-go项目希望听到您的意见再次您的意见是什么"&gt;The Go project wants to hear from you (again)! Go项目希望听到您的意见（再次）！您的意见是什么？&lt;/h2&gt;
+&lt;p&gt;Last year we conducted the first ever &lt;a href="https://blog.golang.org/survey2016-results"&gt;Go user survey&lt;/a&gt;. Thanks to all of you, it was an overwhelming success with over 3500 responses. The survey provided key insights and helped us better plan and prioritize.&lt;/p&gt;</description></item><item><title>Go 8 岁了</title><link>https://before80.github.io/go_docs/goBlog/2017/EightYearsOfGo/</link><pubDate>Thu, 18 May 2023 17:03:08 +0800</pubDate><guid>https://before80.github.io/go_docs/goBlog/2017/EightYearsOfGo/</guid><description>&lt;h1 id="eight-years-of-go---go-8-岁了"&gt;Eight years of Go - Go 8 岁了&lt;/h1&gt;
+&lt;blockquote&gt;
+&lt;p&gt;原文：&lt;a href="https://go.dev/blog/8years"&gt;https://go.dev/blog/8years&lt;/a&gt;&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;Steve Francia
+10 November 2017&lt;/p&gt;
+&lt;p&gt;Today we celebrate 8 years since Go was released as an open source project. During &lt;a href="https://blog.golang.org/4years"&gt;Go’s 4th anniversary&lt;/a&gt;, Andrew finished the post with &amp;ldquo;Here’s to four more years!&amp;rdquo;. Now that we have reached that milestone, I cannot help but reflect on how much the project and ecosystem has grown since then. In our post 4 years ago we included a chart demonstrating Go’s rising popularity on Google Trends with the search term &amp;ldquo;golang&amp;rdquo;. Today, we’re including an updated chart. In this relative scale of popularity, what was 100 four years ago is now a mere 17. Go’s popularity has increased exponentially over the last 8 years and continues to grow.&lt;/p&gt;</description></item><item><title>社区外展工作小组</title><link>https://before80.github.io/go_docs/goBlog/2017/CommunityOutreachWorkingGroup/</link><pubDate>Thu, 18 May 2023 17:03:08 +0800</pubDate><guid>https://before80.github.io/go_docs/goBlog/2017/CommunityOutreachWorkingGroup/</guid><description>&lt;h1 id="community-outreach-working-group---社区外展工作小组"&gt;Community Outreach Working Group - 社区外展工作小组&lt;/h1&gt;
+&lt;blockquote&gt;
+&lt;p&gt;原文：&lt;a href="https://go.dev/blog/cwg"&gt;https://go.dev/blog/cwg&lt;/a&gt;&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;Steve Francia &amp;amp; Cassandra Salisbury
+5 September 2017&lt;/p&gt;
+&lt;h2 id="announcing-the-go-community-outreach-working-group-宣布go社区推广工作组的成立"&gt;Announcing the Go Community Outreach Working Group 宣布Go社区推广工作组的成立&lt;/h2&gt;
+&lt;p&gt;The Go project has grown considerably with over half a million users and community members all over the world. To date all community oriented activities have been organized by the community with minimal involvement from the Go project. We greatly appreciate these efforts.&lt;/p&gt;</description></item><item><title>Go 1.9发布了</title><link>https://before80.github.io/go_docs/goBlog/2017/Go1_9IsReleased/</link><pubDate>Thu, 18 May 2023 17:03:08 +0800</pubDate><guid>https://before80.github.io/go_docs/goBlog/2017/Go1_9IsReleased/</guid><description>&lt;h1 id="go-19-is-released---go-19发布了"&gt;Go 1.9 is released - Go 1.9发布了&lt;/h1&gt;
+&lt;blockquote&gt;
+&lt;p&gt;原文：&lt;a href="https://go.dev/blog/go1.9"&gt;https://go.dev/blog/go1.9&lt;/a&gt;&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;Francesc Campoy
+24 August 2017&lt;/p&gt;
+&lt;p&gt;Today the Go team is happy to announce the release of Go 1.9. You can get it from the &lt;a href="https://go.dev/dl/"&gt;download page&lt;/a&gt;. There are many changes to the language, standard library, runtime, and tooling. This post covers the most significant visible ones. Most of the engineering effort put into this release went to improvements of the runtime and tooling, which makes for a less exciting announcement, but nonetheless a great release.&lt;/p&gt;</description></item><item><title>贡献研讨会</title><link>https://before80.github.io/go_docs/goBlog/2017/ContributionWorkshop/</link><pubDate>Thu, 18 May 2023 17:03:08 +0800</pubDate><guid>https://before80.github.io/go_docs/goBlog/2017/ContributionWorkshop/</guid><description>&lt;h1 id="contribution-workshop---贡献研讨会"&gt;Contribution Workshop - 贡献研讨会&lt;/h1&gt;
+&lt;blockquote&gt;
+&lt;p&gt;原文：&lt;a href="https://go.dev/blog/contributor-workshop"&gt;https://go.dev/blog/contributor-workshop&lt;/a&gt;&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;Steve Francia, Cassandra Salisbury, Matt Broberg, and Dmitri Shuralyov
+9 August 2017&lt;/p&gt;
+&lt;h2 id="event-overview-活动概述"&gt;Event Overview 活动概述&lt;/h2&gt;
+&lt;p&gt;by &lt;a href="https://twitter.com/spf13"&gt;Steve&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;作者：Steve&lt;/p&gt;
+&lt;p&gt;During the community day at GopherCon, the Go team held two workshops where we worked with people to help them make their first contribution to the Go project. This was the first time the Go project has ever attempted anything like this. We had about 140 participants and about 35 people who volunteered as mentors. Mentors not only received warm fuzzy feelings for helping others, but also a very stylish Go Mentor trucker hat. We had contributors of all ages and experience levels coming from North and South America, Africa, Europe, Asia, and Australia. It was truly a worldwide effort of Gophers coming together at GopherCon.&lt;/p&gt;</description></item><item><title>贡献者峰会</title><link>https://before80.github.io/go_docs/goBlog/2017/ContributorsSummit/</link><pubDate>Thu, 18 May 2023 17:03:08 +0800</pubDate><guid>https://before80.github.io/go_docs/goBlog/2017/ContributorsSummit/</guid><description>&lt;h1 id="contributors-summit---贡献者峰会"&gt;Contributors Summit - 贡献者峰会&lt;/h1&gt;
+&lt;blockquote&gt;
+&lt;p&gt;原文：&lt;a href="https://go.dev/blog/contributors-summit"&gt;https://go.dev/blog/contributors-summit&lt;/a&gt;&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;Sam Whited
+3 August 2017&lt;/p&gt;
+&lt;h2 id="introduction-简介"&gt;Introduction 简介&lt;/h2&gt;
+&lt;p&gt;The day before GopherCon, a group of Go team members and contributors gathered in Denver to discuss and plan for the future of the Go project. This was the first ever event of its kind, a major milestone for the Go project. The event comprised a morning session revolving around focused discussions on a theme, and an afternoon session made up of round table discussions in small break-out groups.&lt;/p&gt;</description></item><item><title>迈向 Go 2</title><link>https://before80.github.io/go_docs/goBlog/2017/TowardGo2/</link><pubDate>Thu, 18 May 2023 17:03:08 +0800</pubDate><guid>https://before80.github.io/go_docs/goBlog/2017/TowardGo2/</guid><description>&lt;h1 id="toward-go-2---迈向-go-2"&gt;Toward Go 2 - 迈向 Go 2&lt;/h1&gt;
+&lt;blockquote&gt;
+&lt;p&gt;原文：&lt;a href="https://go.dev/blog/toward-go2"&gt;https://go.dev/blog/toward-go2&lt;/a&gt;&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;Russ Cox
+13 July 2017&lt;/p&gt;
+&lt;h2 id="introduction-简介"&gt;Introduction 简介&lt;/h2&gt;
+&lt;p&gt;[This is the text of &lt;a href="https://www.youtube.com/watch?v=0Zbh_vmAKvk"&gt;my talk today&lt;/a&gt; at Gophercon 2017, asking for the entire Go community’s help as we discuss and plan Go 2.]&lt;/p&gt;
+&lt;p&gt;[这是我今天在Gophercon 2017上的演讲稿，请求整个Go社区在我们讨论和规划Go 2时给予帮助。］&lt;/p&gt;</description></item><item><title>开发者体验工作组介绍</title><link>https://before80.github.io/go_docs/goBlog/2017/IntroducingTheDeveloperExperienceWorkingGroup/</link><pubDate>Thu, 18 May 2023 17:03:08 +0800</pubDate><guid>https://before80.github.io/go_docs/goBlog/2017/IntroducingTheDeveloperExperienceWorkingGroup/</guid><description>&lt;h1 id="introducing-the-developer-experience-working-group---开发者体验工作组介绍"&gt;Introducing the Developer Experience Working Group - 开发者体验工作组介绍&lt;/h1&gt;
+&lt;blockquote&gt;
+&lt;p&gt;原文：&lt;a href="https://go.dev/blog/developer-experience"&gt;https://go.dev/blog/developer-experience&lt;/a&gt;&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;The Developer Experience Working Group
+10 April 2017&lt;/p&gt;
+&lt;p&gt;Over the last several years, Go’s audience has shifted from early adopters to mainstream users. Today, our users come from a wide variety of backgrounds, experiences, and expectations. The needs of users are growing faster than the Go project can currently address them. To streamline the experience for first-time Go users, we’ve created the Developer eXperience Working Group (DXWG).&lt;/p&gt;</description></item><item><title>HTTP/2服务器推送</title><link>https://before80.github.io/go_docs/goBlog/2017/HTTP2ServerPush/</link><pubDate>Thu, 18 May 2023 17:03:08 +0800</pubDate><guid>https://before80.github.io/go_docs/goBlog/2017/HTTP2ServerPush/</guid><description>&lt;h1 id="http2-server-push---http2服务器推送"&gt;HTTP/2 Server Push - HTTP/2服务器推送&lt;/h1&gt;
+&lt;blockquote&gt;
+&lt;p&gt;原文：&lt;a href="https://go.dev/blog/h2push"&gt;https://go.dev/blog/h2push&lt;/a&gt;&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;Jaana Burcu Dogan and Tom Bergan
+24 March 2017&lt;/p&gt;
+&lt;h2 id="introduction-简介"&gt;Introduction 简介&lt;/h2&gt;
+&lt;p&gt;HTTP/2 is designed to address many of the failings of HTTP/1.x. Modern web pages use many resources: HTML, stylesheets, scripts, images, and so on. In HTTP/1.x, each of these resources must be requested explicitly. This can be a slow process. The browser starts by fetching the HTML, then learns of more resources incrementally as it parses and evaluates the page. Since the server must wait for the browser to make each request, the network is often idle and underutilized.&lt;/p&gt;</description></item><item><title>2016年 Go 调查结果</title><link>https://before80.github.io/go_docs/goBlog/2017/Go2016SurveyResults/</link><pubDate>Thu, 18 May 2023 17:03:08 +0800</pubDate><guid>https://before80.github.io/go_docs/goBlog/2017/Go2016SurveyResults/</guid><description>&lt;h1 id="go-2016-survey-results---2016年-go-调查结果"&gt;Go 2016 Survey Results - 2016年 Go 调查结果&lt;/h1&gt;
+&lt;blockquote&gt;
+&lt;p&gt;原文：&lt;a href="https://go.dev/blog/survey2016-results"&gt;https://go.dev/blog/survey2016-results&lt;/a&gt;&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;Steve Francia, for the Go team
+6 March 2017&lt;/p&gt;
+&lt;h2 id="thank-you-谢谢您"&gt;Thank you 谢谢您&lt;/h2&gt;
+&lt;p&gt;This post summarizes the result of our December 2016 user survey along with our commentary and insights. We are grateful to everyone who provided their feedback through the survey to help shape the future of Go.&lt;/p&gt;
+&lt;p&gt;这篇文章总结了我们2016年12月的用户调查的结果以及我们的评论和见解。我们感谢每个通过调查提供反馈的人，以帮助塑造Go的未来。&lt;/p&gt;</description></item><item><title>Go 1.8发布了</title><link>https://before80.github.io/go_docs/goBlog/2017/Go1_8IsReleased/</link><pubDate>Thu, 18 May 2023 17:03:08 +0800</pubDate><guid>https://before80.github.io/go_docs/goBlog/2017/Go1_8IsReleased/</guid><description>&lt;h1 id="go-18-is-released---go-18发布了"&gt;Go 1.8 is released - Go 1.8发布了&lt;/h1&gt;
+&lt;blockquote&gt;
+&lt;p&gt;原文：&lt;a href="https://go.dev/blog/go1.8"&gt;https://go.dev/blog/go1.8&lt;/a&gt;&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;Chris Broadfoot
+16 February 2017&lt;/p&gt;
+&lt;p&gt;Today the Go team is happy to announce the release of Go 1.8. You can get it from the &lt;a href="https://go.dev/dl/"&gt;download page&lt;/a&gt;. There are significant performance improvements and changes across the standard library.&lt;/p&gt;
+&lt;p&gt;今天Go团队很高兴地宣布Go 1.8的发布。您可以从下载页面获得它。整个标准库有明显的性能改进和变化。&lt;/p&gt;</description></item></channel></rss>

@@ -1,61 +1,62 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>安装、卸载Go和运行Go代码 on Go 中文档集</title><link>https://before80.github.io/go_docs/asu/basic/installuninstallrun/</link><description>Recent content in 安装、卸载Go和运行Go代码 on Go 中文档集</description><generator>Hugo</generator><language>zh-cn</language><lastBuildDate>Thu, 10 Oct 2024 15:07:50 +0800</lastBuildDate><atom:link href="https://before80.github.io/go_docs/asu/basic/installuninstallrun/index.xml" rel="self" type="application/rss+xml"/><item><title>安装Go</title><link>https://before80.github.io/go_docs/asu/basic/installuninstallrun/install/</link><pubDate>Sat, 13 Jul 2024 14:49:37 +0800</pubDate><guid>https://before80.github.io/go_docs/asu/basic/installuninstallrun/install/</guid><description>&lt;h2 id="安装包来源">安装包来源&lt;a class="td-heading-self-link" href="#%e5%ae%89%e8%a3%85%e5%8c%85%e6%9d%a5%e6%ba%90" aria-label="Heading self-link">&lt;/a>&lt;/h2>
-&lt;ul>
-&lt;li>&lt;a href="https://go.dev/dl/">https://go.dev/dl/&lt;/a>&lt;/li>
-&lt;li>&lt;a href="https://mirrors.aliyun.com/golang/">https://mirrors.aliyun.com/golang/&lt;/a>&lt;/li>
-&lt;li>&lt;a href="https://github.com/golang/go/tags">https://github.com/golang/go/tags&lt;/a>&lt;/li>
-&lt;li>&lt;a href="https://golang.google.cn/dl/">https://golang.google.cn/dl/&lt;/a>&lt;/li>
-&lt;li>&lt;a href="https://studygolang.com/dl">https://studygolang.com/dl&lt;/a>&lt;/li>
-&lt;/ul>
-&lt;blockquote>
-&lt;p>说明&lt;/p>
-&lt;p>​	这里以go1.21.2为例，您安装时，请先查看&lt;a href="https://go.dev/dl/">当前Go的最新版本&lt;/a>，有最新版本推荐选择最新版本，毕竟Google内部的多个服务也是用最新版本的，其安全是一定保障的，相信其bug数应该很少。&lt;/p>&lt;/blockquote>
-&lt;h2 id="在linux上安装go">在Linux上安装Go&lt;a class="td-heading-self-link" href="#%e5%9c%a8linux%e4%b8%8a%e5%ae%89%e8%a3%85go" aria-label="Heading self-link">&lt;/a>&lt;/h2>
-&lt;h3 id="centos">CentOS&lt;a class="td-heading-self-link" href="#centos" aria-label="Heading self-link">&lt;/a>&lt;/h3>
-&lt;p>（a）下载安装包：&lt;/p>
-&lt;div class="highlight">&lt;div style="color:#b0c4de;background-color:#282c34;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">
-&lt;table style="border-spacing:0;padding:0;margin:0;border:0;">&lt;tr>&lt;td style="vertical-align:top;padding:0;margin:0;border:0;">
-&lt;pre tabindex="0" style="color:#b0c4de;background-color:#282c34;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code>&lt;span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#58626f">1
-&lt;/span>&lt;span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#58626f">2
-&lt;/span>&lt;span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#58626f">3
-&lt;/span>&lt;span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#58626f">4
-&lt;/span>&lt;span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#58626f">5
-&lt;/span>&lt;span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#58626f">6
-&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
-&lt;td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
-&lt;pre tabindex="0" style="color:#b0c4de;background-color:#282c34;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-bash" data-lang="bash">&lt;span style="display:flex;">&lt;span>&lt;span style="color:#e5c07b">cd&lt;/span> /tmp
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>yum install wget
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#8a93a5;font-style:italic"># 请从 https://go.dev/dl/页面中查看相关系统架构的最新版本&lt;/span>
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>wget -c https://go.dev/dl/go1.21.2.linux-amd64.tar.gz
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#8a93a5;font-style:italic"># 或者使用其他来源，例如：&lt;/span>
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>wget -c https://mirrors.aliyun.com/golang/go1.21.2.linux-amd64.tar.gz
-&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
-&lt;/div>
-&lt;/div>&lt;p>（b）解压&lt;code>go1.21.2.linux-amd64.tar.gz&lt;/code>压缩包至&lt;code>/usr/local&lt;/code>目录：&lt;/p></description></item><item><title>卸载Go</title><link>https://before80.github.io/go_docs/asu/basic/installuninstallrun/uninstall/</link><pubDate>Sat, 13 Jul 2024 14:49:45 +0800</pubDate><guid>https://before80.github.io/go_docs/asu/basic/installuninstallrun/uninstall/</guid><description>&lt;h2 id="在linux上卸载go">在Linux上卸载Go&lt;a class="td-heading-self-link" href="#%e5%9c%a8linux%e4%b8%8a%e5%8d%b8%e8%bd%bdgo" aria-label="Heading self-link">&lt;/a>&lt;/h2>
-&lt;h3 id="centos">CentOS&lt;a class="td-heading-self-link" href="#centos" aria-label="Heading self-link">&lt;/a>&lt;/h3>
-&lt;p>（a）删除&lt;code>/usr/local/go&lt;/code>目录；&lt;/p>
-&lt;p>（b）修改相关环境变量，将相关Go环境变量移除掉；&lt;/p>
-&lt;h3 id="ubuntu">Ubuntu&lt;a class="td-heading-self-link" href="#ubuntu" aria-label="Heading self-link">&lt;/a>&lt;/h3>
-&lt;p>（a）若是使用snap安装Go，则直接打开snap，找到Go，点击右侧的&lt;code>Uninstall&lt;/code>按钮进行卸载；&lt;/p></description></item><item><title>运行Go代码</title><link>https://before80.github.io/go_docs/asu/basic/installuninstallrun/run/</link><pubDate>Sat, 13 Jul 2024 14:49:52 +0800</pubDate><guid>https://before80.github.io/go_docs/asu/basic/installuninstallrun/run/</guid><description>&lt;h2 id="要运行的go代码demo">要运行的Go代码（demo）&lt;a class="td-heading-self-link" href="#%e8%a6%81%e8%bf%90%e8%a1%8c%e7%9a%84go%e4%bb%a3%e7%a0%81demo" aria-label="Heading self-link">&lt;/a>&lt;/h2>
-&lt;div class="highlight">&lt;div style="color:#b0c4de;background-color:#282c34;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">
-&lt;table style="border-spacing:0;padding:0;margin:0;border:0;">&lt;tr>&lt;td style="vertical-align:top;padding:0;margin:0;border:0;">
-&lt;pre tabindex="0" style="color:#b0c4de;background-color:#282c34;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code>&lt;span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#58626f">1
-&lt;/span>&lt;span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#58626f">2
-&lt;/span>&lt;span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#58626f">3
-&lt;/span>&lt;span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#58626f">4
-&lt;/span>&lt;span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#58626f">5
-&lt;/span>&lt;span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#58626f">6
-&lt;/span>&lt;span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#58626f">7
-&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
-&lt;td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
-&lt;pre tabindex="0" style="color:#b0c4de;background-color:#282c34;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-go" data-lang="go">&lt;span style="display:flex;">&lt;span>&lt;span style="color:#76a9f9">package&lt;/span> &lt;span style="color:#aa89ea">main&lt;/span>
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#76a9f9">import&lt;/span> &lt;span style="color:#98c379">&amp;#34;fmt&amp;#34;&lt;/span>
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#76a9f9">func&lt;/span> &lt;span style="color:#00b1f7">main&lt;/span>&lt;span style="color:#abb2bf">()&lt;/span> &lt;span style="color:#abb2bf">{&lt;/span>
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#aa89ea">fmt&lt;/span>&lt;span style="color:#abb2bf">.&lt;/span>&lt;span style="color:#00b1f7">Println&lt;/span>&lt;span style="color:#abb2bf">(&lt;/span>&lt;span style="color:#98c379">&amp;#34;Hello World!&amp;#34;&lt;/span>&lt;span style="color:#abb2bf">)&lt;/span>
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#abb2bf">}&lt;/span>
-&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
-&lt;/div>
-&lt;/div>&lt;h2 id="在linux上运行go代码">在Linux上运行Go代码&lt;a class="td-heading-self-link" href="#%e5%9c%a8linux%e4%b8%8a%e8%bf%90%e8%a1%8cgo%e4%bb%a3%e7%a0%81" aria-label="Heading self-link">&lt;/a>&lt;/h2>
-&lt;h3 id="centos">CentOS&lt;a class="td-heading-self-link" href="#centos" aria-label="Heading self-link">&lt;/a>&lt;/h3>
-&lt;p>​	假设以上代码存放于&lt;code>$HOME/goprjs/demo/app.go&lt;/code> 文件中&lt;/p></description></item></channel></rss>
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>安装、卸载Go和运行Go代码 on Go 中文档集</title><link>https://before80.github.io/go_docs/asu/basic/installuninstallrun/</link><description>Recent content in 安装、卸载Go和运行Go代码 on Go 中文档集</description><generator>Hugo</generator><language>zh-cn</language><lastBuildDate>Thu, 10 Oct 2024 15:07:50 +0800</lastBuildDate><atom:link href="https://before80.github.io/go_docs/asu/basic/installuninstallrun/index.xml" rel="self" type="application/rss+xml"/><item><title>安装Go</title><link>https://before80.github.io/go_docs/asu/basic/installuninstallrun/install/</link><pubDate>Sat, 13 Jul 2024 14:49:37 +0800</pubDate><guid>https://before80.github.io/go_docs/asu/basic/installuninstallrun/install/</guid><description>&lt;h2 id="安装包来源"&gt;安装包来源&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;a href="https://go.dev/dl/"&gt;https://go.dev/dl/&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href="https://mirrors.aliyun.com/golang/"&gt;https://mirrors.aliyun.com/golang/&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href="https://github.com/golang/go/tags"&gt;https://github.com/golang/go/tags&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href="https://golang.google.cn/dl/"&gt;https://golang.google.cn/dl/&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href="https://studygolang.com/dl"&gt;https://studygolang.com/dl&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;blockquote&gt;
+&lt;p&gt;说明&lt;/p&gt;
+&lt;p&gt;​	这里以go1.21.2为例，您安装时，请先查看&lt;a href="https://go.dev/dl/"&gt;当前Go的最新版本&lt;/a&gt;，有最新版本推荐选择最新版本，毕竟Google内部的多个服务也是用最新版本的，其安全是一定保障的，相信其bug数应该很少。&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;h2 id="在linux上安装go"&gt;在Linux上安装Go&lt;/h2&gt;
+&lt;h3 id="centos"&gt;CentOS&lt;/h3&gt;
+&lt;p&gt;（a）下载安装包：&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;div style="color:#b0c4de;background-color:#282c34;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"&gt;
+&lt;table style="border-spacing:0;padding:0;margin:0;border:0;"&gt;&lt;tr&gt;&lt;td style="vertical-align:top;padding:0;margin:0;border:0;"&gt;
+&lt;pre tabindex="0" style="color:#b0c4de;background-color:#282c34;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"&gt;&lt;code&gt;&lt;span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#58626f"&gt;1
+&lt;/span&gt;&lt;span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#58626f"&gt;2
+&lt;/span&gt;&lt;span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#58626f"&gt;3
+&lt;/span&gt;&lt;span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#58626f"&gt;4
+&lt;/span&gt;&lt;span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#58626f"&gt;5
+&lt;/span&gt;&lt;span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#58626f"&gt;6
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
+&lt;td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%"&gt;
+&lt;pre tabindex="0" style="color:#b0c4de;background-color:#282c34;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"&gt;&lt;code class="language-bash" data-lang="bash"&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;&lt;span style="color:#e5c07b"&gt;cd&lt;/span&gt; /tmp
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;yum install wget
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;&lt;span style="color:#8a93a5;font-style:italic"&gt;# 请从 https://go.dev/dl/页面中查看相关系统架构的最新版本&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;wget -c https://go.dev/dl/go1.21.2.linux-amd64.tar.gz
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;&lt;span style="color:#8a93a5;font-style:italic"&gt;# 或者使用其他来源，例如：&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;wget -c https://mirrors.aliyun.com/golang/go1.21.2.linux-amd64.tar.gz
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+&lt;/div&gt;
+&lt;/div&gt;&lt;p&gt;（b）解压&lt;code&gt;go1.21.2.linux-amd64.tar.gz&lt;/code&gt;压缩包至&lt;code&gt;/usr/local&lt;/code&gt;目录：&lt;/p&gt;</description></item><item><title>卸载Go</title><link>https://before80.github.io/go_docs/asu/basic/installuninstallrun/uninstall/</link><pubDate>Sat, 13 Jul 2024 14:49:45 +0800</pubDate><guid>https://before80.github.io/go_docs/asu/basic/installuninstallrun/uninstall/</guid><description>&lt;h2 id="在linux上卸载go"&gt;在Linux上卸载Go&lt;/h2&gt;
+&lt;h3 id="centos"&gt;CentOS&lt;/h3&gt;
+&lt;p&gt;（a）删除&lt;code&gt;/usr/local/go&lt;/code&gt;目录；&lt;/p&gt;
+&lt;p&gt;（b）修改相关环境变量，将相关Go环境变量移除掉；&lt;/p&gt;
+&lt;h3 id="ubuntu"&gt;Ubuntu&lt;/h3&gt;
+&lt;p&gt;（a）若是使用snap安装Go，则直接打开snap，找到Go，点击右侧的&lt;code&gt;Uninstall&lt;/code&gt;按钮进行卸载；&lt;/p&gt;</description></item><item><title>运行Go代码</title><link>https://before80.github.io/go_docs/asu/basic/installuninstallrun/run/</link><pubDate>Sat, 13 Jul 2024 14:49:52 +0800</pubDate><guid>https://before80.github.io/go_docs/asu/basic/installuninstallrun/run/</guid><description>&lt;h2 id="要运行的go代码demo"&gt;要运行的Go代码（demo）&lt;/h2&gt;
+&lt;div class="highlight"&gt;&lt;div style="color:#b0c4de;background-color:#282c34;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"&gt;
+&lt;table style="border-spacing:0;padding:0;margin:0;border:0;"&gt;&lt;tr&gt;&lt;td style="vertical-align:top;padding:0;margin:0;border:0;"&gt;
+&lt;pre tabindex="0" style="color:#b0c4de;background-color:#282c34;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"&gt;&lt;code&gt;&lt;span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#58626f"&gt;1
+&lt;/span&gt;&lt;span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#58626f"&gt;2
+&lt;/span&gt;&lt;span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#58626f"&gt;3
+&lt;/span&gt;&lt;span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#58626f"&gt;4
+&lt;/span&gt;&lt;span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#58626f"&gt;5
+&lt;/span&gt;&lt;span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#58626f"&gt;6
+&lt;/span&gt;&lt;span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#58626f"&gt;7
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
+&lt;td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%"&gt;
+&lt;pre tabindex="0" style="color:#b0c4de;background-color:#282c34;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"&gt;&lt;code class="language-go" data-lang="go"&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;&lt;span style="color:#76a9f9"&gt;package&lt;/span&gt; &lt;span style="color:#aa89ea"&gt;main&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;&lt;span style="color:#76a9f9"&gt;import&lt;/span&gt; &lt;span style="color:#98c379"&gt;&amp;#34;fmt&amp;#34;&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;&lt;span style="color:#76a9f9"&gt;func&lt;/span&gt; &lt;span style="color:#00b1f7"&gt;main&lt;/span&gt;&lt;span style="color:#abb2bf"&gt;()&lt;/span&gt; &lt;span style="color:#abb2bf"&gt;{&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; &lt;span style="color:#aa89ea"&gt;fmt&lt;/span&gt;&lt;span style="color:#abb2bf"&gt;.&lt;/span&gt;&lt;span style="color:#00b1f7"&gt;Println&lt;/span&gt;&lt;span style="color:#abb2bf"&gt;(&lt;/span&gt;&lt;span style="color:#98c379"&gt;&amp;#34;Hello World!&amp;#34;&lt;/span&gt;&lt;span style="color:#abb2bf"&gt;)&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;&lt;span style="color:#abb2bf"&gt;}&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+&lt;/div&gt;
+&lt;/div&gt;&lt;h2 id="在linux上运行go代码"&gt;在Linux上运行Go代码&lt;/h2&gt;
+&lt;h3 id="centos"&gt;CentOS&lt;/h3&gt;
+&lt;p&gt;​	假设以上代码存放于&lt;code&gt;$HOME/goprjs/demo/app.go&lt;/code&gt; 文件中&lt;/p&gt;</description></item></channel></rss>

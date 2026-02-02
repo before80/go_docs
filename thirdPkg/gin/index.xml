@@ -1,10 +1,22 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>gin on Go 中文档集</title><link>https://before80.github.io/go_docs/thirdPkg/gin/</link><description>Recent content in gin on Go 中文档集</description><generator>Hugo</generator><language>zh-cn</language><lastBuildDate>Thu, 10 Oct 2024 15:07:50 +0800</lastBuildDate><atom:link href="https://before80.github.io/go_docs/thirdPkg/gin/index.xml" rel="self" type="application/rss+xml"/><item><title>gin文档</title><link>https://before80.github.io/go_docs/thirdPkg/gin/gin/</link><pubDate>Mon, 05 Jun 2023 08:55:39 +0800</pubDate><guid>https://before80.github.io/go_docs/thirdPkg/gin/gin/</guid><description>&lt;h1 id="gin-web-framework">Gin Web Framework&lt;a class="td-heading-self-link" href="#gin-web-framework" aria-label="Heading self-link">&lt;/a>&lt;/h1>
-&lt;blockquote>
-&lt;p>原文：&lt;a href="https://pkg.go.dev/github.com/gin-gonic/gin">https://pkg.go.dev/github.com/gin-gonic/gin&lt;/a>&lt;/p>&lt;/blockquote>
-&lt;p>当前版本：1.9.0 发布时间：2023.2.21&lt;/p>
-&lt;p>​	Gin是一个用Go编写的网络框架。它的特点是有一个类似于martini-like的API，由于&lt;a href="https://github.com/julienschmidt/httprouter">httprouter&lt;/a>的存在，其性能可提高40倍。如果你需要性能和良好的生产力，你会喜欢Gin。&lt;/p></description></item><item><title>gin快速入门</title><link>https://before80.github.io/go_docs/thirdPkg/gin/ginQuickStart/</link><pubDate>Mon, 05 Jun 2023 08:55:39 +0800</pubDate><guid>https://before80.github.io/go_docs/thirdPkg/gin/ginQuickStart/</guid><description>&lt;h1 id="gin-quick-start---gin快速入门">Gin Quick Start - gin快速入门&lt;a class="td-heading-self-link" href="#gin-quick-start---gin%e5%bf%ab%e9%80%9f%e5%85%a5%e9%97%a8" aria-label="Heading self-link">&lt;/a>&lt;/h1>
-&lt;blockquote>
-&lt;p>原文：&lt;a href="https://github.com/gin-gonic/gin/blob/master/docs/doc.md">https://github.com/gin-gonic/gin/blob/master/docs/doc.md&lt;/a>&lt;/p>&lt;/blockquote>
-&lt;h2 id="构建标签">构建标签&lt;a class="td-heading-self-link" href="#%e6%9e%84%e5%bb%ba%e6%a0%87%e7%ad%be" aria-label="Heading self-link">&lt;/a>&lt;/h2>
-&lt;h3 id="使用替代的json包构建">使用替代的json包构建&lt;a class="td-heading-self-link" href="#%e4%bd%bf%e7%94%a8%e6%9b%bf%e4%bb%a3%e7%9a%84json%e5%8c%85%e6%9e%84%e5%bb%ba" aria-label="Heading self-link">&lt;/a>&lt;/h3>
-&lt;p>​	gin默认使用&lt;code>encoding/json&lt;/code>作为json包，但你可以通过使用其他标签进行构建来更改它。&lt;/p></description></item></channel></rss>
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>gin on Go 中文档集</title><link>https://before80.github.io/go_docs/thirdPkg/gin/</link><description>Recent content in gin on Go 中文档集</description><generator>Hugo</generator><language>zh-cn</language><lastBuildDate>Thu, 10 Oct 2024 15:07:50 +0800</lastBuildDate><atom:link href="https://before80.github.io/go_docs/thirdPkg/gin/index.xml" rel="self" type="application/rss+xml"/><item><title>gin文档</title><link>https://before80.github.io/go_docs/thirdPkg/gin/gin/</link><pubDate>Mon, 05 Jun 2023 08:55:39 +0800</pubDate><guid>https://before80.github.io/go_docs/thirdPkg/gin/gin/</guid><description>&lt;h1 id="gin-web-framework"&gt;Gin Web Framework&lt;/h1&gt;
+&lt;blockquote&gt;
+&lt;p&gt;原文：&lt;a href="https://pkg.go.dev/github.com/gin-gonic/gin"&gt;https://pkg.go.dev/github.com/gin-gonic/gin&lt;/a&gt;&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;当前版本：1.9.0 发布时间：2023.2.21&lt;/p&gt;
+&lt;p&gt;​	Gin是一个用Go编写的网络框架。它的特点是有一个类似于martini-like的API，由于&lt;a href="https://github.com/julienschmidt/httprouter"&gt;httprouter&lt;/a&gt;的存在，其性能可提高40倍。如果你需要性能和良好的生产力，你会喜欢Gin。&lt;/p&gt;</description></item><item><title>gin快速入门</title><link>https://before80.github.io/go_docs/thirdPkg/gin/ginQuickStart/</link><pubDate>Mon, 05 Jun 2023 08:55:39 +0800</pubDate><guid>https://before80.github.io/go_docs/thirdPkg/gin/ginQuickStart/</guid><description>&lt;h1 id="gin-quick-start---gin快速入门"&gt;Gin Quick Start - gin快速入门&lt;/h1&gt;
+&lt;blockquote&gt;
+&lt;p&gt;原文：&lt;a href="https://github.com/gin-gonic/gin/blob/master/docs/doc.md"&gt;https://github.com/gin-gonic/gin/blob/master/docs/doc.md&lt;/a&gt;&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;h2 id="构建标签"&gt;构建标签&lt;/h2&gt;
+&lt;h3 id="使用替代的json包构建"&gt;使用替代的json包构建&lt;/h3&gt;
+&lt;p&gt;​	gin默认使用&lt;code&gt;encoding/json&lt;/code&gt;作为json包，但你可以通过使用其他标签进行构建来更改它。&lt;/p&gt;
+&lt;p&gt;&lt;a href="https://github.com/json-iterator/go"&gt;jsoniter&lt;/a&gt;&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;div style="color:#b0c4de;background-color:#282c34;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"&gt;
+&lt;table style="border-spacing:0;padding:0;margin:0;border:0;"&gt;&lt;tr&gt;&lt;td style="vertical-align:top;padding:0;margin:0;border:0;"&gt;
+&lt;pre tabindex="0" style="color:#b0c4de;background-color:#282c34;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"&gt;&lt;code&gt;&lt;span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#58626f"&gt;1
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
+&lt;td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%"&gt;
+&lt;pre tabindex="0" style="color:#b0c4de;background-color:#282c34;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"&gt;&lt;code class="language-sh" data-lang="sh"&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;go build -tags&lt;span style="color:#54b1c7"&gt;=&lt;/span&gt;jsoniter .
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+&lt;/div&gt;
+&lt;/div&gt;&lt;p&gt;&lt;a href="https://github.com/goccy/go-json"&gt;go-json&lt;/a&gt;&lt;/p&gt;</description></item></channel></rss>

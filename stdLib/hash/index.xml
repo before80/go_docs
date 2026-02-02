@@ -1,161 +1,167 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>hash on Go 中文档集</title><link>https://before80.github.io/go_docs/stdLib/hash/</link><description>Recent content in hash on Go 中文档集</description><generator>Hugo</generator><language>zh-cn</language><lastBuildDate>Wed, 02 Apr 2025 16:27:58 +0800</lastBuildDate><atom:link href="https://before80.github.io/go_docs/stdLib/hash/index.xml" rel="self" type="application/rss+xml"/><item><title>adler32</title><link>https://before80.github.io/go_docs/stdLib/hash/adler32/</link><pubDate>Wed, 17 May 2023 11:11:20 +0800</pubDate><guid>https://before80.github.io/go_docs/stdLib/hash/adler32/</guid><description>&lt;blockquote>
-&lt;p>原文：&lt;a href="https://pkg.go.dev/hash/adler32@go1.24.2">https://pkg.go.dev/hash/adler32@go1.24.2&lt;/a>&lt;/p>&lt;/blockquote>
-&lt;p>Package adler32 implements the Adler-32 checksum.&lt;/p>
-&lt;p>​	Package adler32 实现 Adler-32 校验和。&lt;/p>
-&lt;p>It is defined in &lt;a href="https://rfc-editor.org/rfc/rfc1950.html">RFC 1950&lt;/a>:&lt;/p>
-&lt;p>​	它在 &lt;a href="https://rfc-editor.org/rfc/rfc1950.html">RFC 1950&lt;/a> 中定义：&lt;/p>
-&lt;pre tabindex="0">&lt;code>Adler-32 is composed of two sums accumulated per byte: s1 is
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>hash on Go 中文档集</title><link>https://before80.github.io/go_docs/stdLib/hash/</link><description>Recent content in hash on Go 中文档集</description><generator>Hugo</generator><language>zh-cn</language><lastBuildDate>Wed, 02 Apr 2025 16:27:58 +0800</lastBuildDate><atom:link href="https://before80.github.io/go_docs/stdLib/hash/index.xml" rel="self" type="application/rss+xml"/><item><title>adler32</title><link>https://before80.github.io/go_docs/stdLib/hash/adler32/</link><pubDate>Wed, 17 May 2023 11:11:20 +0800</pubDate><guid>https://before80.github.io/go_docs/stdLib/hash/adler32/</guid><description>&lt;blockquote&gt;
+&lt;p&gt;原文：&lt;a href="https://pkg.go.dev/hash/adler32@go1.24.2"&gt;https://pkg.go.dev/hash/adler32@go1.24.2&lt;/a&gt;&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;Package adler32 implements the Adler-32 checksum.&lt;/p&gt;
+&lt;p&gt;​	Package adler32 实现 Adler-32 校验和。&lt;/p&gt;
+&lt;p&gt;It is defined in &lt;a href="https://rfc-editor.org/rfc/rfc1950.html"&gt;RFC 1950&lt;/a&gt;:&lt;/p&gt;
+&lt;p&gt;​	它在 &lt;a href="https://rfc-editor.org/rfc/rfc1950.html"&gt;RFC 1950&lt;/a&gt; 中定义：&lt;/p&gt;
+&lt;pre tabindex="0"&gt;&lt;code&gt;Adler-32 is composed of two sums accumulated per byte: s1 is
 the sum of all bytes, s2 is the sum of all s1 values. Both sums
 are done modulo 65521. s1 is initialized to 1, s2 to zero. The
 Adler-32 checksum is stored as s2*65536 + s1 in most-
 significant-byte first (network) order.
-&lt;/code>&lt;/pre>&lt;h2 id="常量">常量&lt;a class="td-heading-self-link" href="#%e5%b8%b8%e9%87%8f" aria-label="Heading self-link">&lt;/a>&lt;/h2>
-&lt;p>&lt;a href="https://cs.opensource.google/go/go/+/go1.20.1:src/hash/adler32/adler32.go;l=31">View Source&lt;/a>&lt;/p></description></item><item><title>crc32</title><link>https://before80.github.io/go_docs/stdLib/hash/crc32/</link><pubDate>Wed, 17 May 2023 11:11:20 +0800</pubDate><guid>https://before80.github.io/go_docs/stdLib/hash/crc32/</guid><description>&lt;blockquote>
-&lt;p>原文：&lt;a href="https://pkg.go.dev/hash/crc32@go1.24.2">https://pkg.go.dev/hash/crc32@go1.24.2&lt;/a>&lt;/p>&lt;/blockquote>
-&lt;p>Package crc32 implements the 32-bit cyclic redundancy check, or CRC-32, checksum. See &lt;a href="https://en.wikipedia.org/wiki/Cyclic_redundancy_check">https://en.wikipedia.org/wiki/Cyclic_redundancy_check&lt;/a> for information.&lt;/p>
-&lt;p>​	crc32 包实现了 32 位循环冗余校验，或 CRC-32，校验和。有关信息，请参阅 &lt;a href="https://en.wikipedia.org/wiki/Cyclic_redundancy_check">https://en.wikipedia.org/wiki/Cyclic_redundancy_check&lt;/a>。&lt;/p>
-&lt;p>Polynomials are represented in LSB-first form also known as reversed representation.&lt;/p>
-&lt;p>​	多项式以 LSB 优先的形式表示，也称为反向表示。&lt;/p></description></item><item><title>crc64</title><link>https://before80.github.io/go_docs/stdLib/hash/crc64/</link><pubDate>Wed, 17 May 2023 11:11:20 +0800</pubDate><guid>https://before80.github.io/go_docs/stdLib/hash/crc64/</guid><description>&lt;blockquote>
-&lt;p>原文：&lt;a href="https://pkg.go.dev/hash/crc64@go1.24.2">https://pkg.go.dev/hash/crc64@go1.24.2&lt;/a>&lt;/p>&lt;/blockquote>
-&lt;p>Package crc64 implements the 64-bit cyclic redundancy check, or CRC-64, checksum. See &lt;a href="https://en.wikipedia.org/wiki/Cyclic_redundancy_check">https://en.wikipedia.org/wiki/Cyclic_redundancy_check&lt;/a> for information.&lt;/p>
-&lt;p>​	crc64 包实现了 64 位循环冗余校验或 CRC-64 校验和。有关信息，请参阅 &lt;a href="https://en.wikipedia.org/wiki/Cyclic_redundancy_check">https://en.wikipedia.org/wiki/Cyclic_redundancy_check&lt;/a>。&lt;/p>
-&lt;h2 id="常量">常量&lt;a class="td-heading-self-link" href="#%e5%b8%b8%e9%87%8f" aria-label="Heading self-link">&lt;/a>&lt;/h2>
-&lt;p>&lt;a href="https://cs.opensource.google/go/go/+/go1.20.1:src/hash/crc64/crc64.go;l=20">View Source&lt;/a>&lt;/p>
-&lt;div class="highlight">&lt;div style="color:#b0c4de;background-color:#282c34;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">
-&lt;table style="border-spacing:0;padding:0;margin:0;border:0;">&lt;tr>&lt;td style="vertical-align:top;padding:0;margin:0;border:0;">
-&lt;pre tabindex="0" style="color:#b0c4de;background-color:#282c34;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code>&lt;span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#58626f">1
-&lt;/span>&lt;span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#58626f">2
-&lt;/span>&lt;span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#58626f">3
-&lt;/span>&lt;span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#58626f">4
-&lt;/span>&lt;span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#58626f">5
-&lt;/span>&lt;span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#58626f">6
-&lt;/span>&lt;span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#58626f">7
-&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
-&lt;td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
-&lt;pre tabindex="0" style="color:#b0c4de;background-color:#282c34;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-go" data-lang="go">&lt;span style="display:flex;">&lt;span>&lt;span style="color:#76a9f9">const&lt;/span> &lt;span style="color:#abb2bf">(&lt;/span>
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>	&lt;span style="color:#8a93a5;font-style:italic">// The ISO polynomial, defined in ISO 3309 and used in HDLC.&lt;/span>
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>	&lt;span style="color:#aa89ea">ISO&lt;/span> &lt;span style="color:#abb2bf">=&lt;/span> &lt;span style="color:#d19a66">0xD800000000000000&lt;/span>
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>	&lt;span style="color:#8a93a5;font-style:italic">// The ECMA polynomial, defined in ECMA 182.&lt;/span>
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>	&lt;span style="color:#aa89ea">ECMA&lt;/span> &lt;span style="color:#abb2bf">=&lt;/span> &lt;span style="color:#d19a66">0xC96C5795D7870F42&lt;/span>
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#abb2bf">)&lt;/span>
-&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
-&lt;/div>
-&lt;/div>&lt;p>Predefined polynomials.&lt;/p></description></item><item><title>fnv</title><link>https://before80.github.io/go_docs/stdLib/hash/fnv/</link><pubDate>Wed, 17 May 2023 11:11:20 +0800</pubDate><guid>https://before80.github.io/go_docs/stdLib/hash/fnv/</guid><description>&lt;blockquote>
-&lt;p>原文：&lt;a href="https://pkg.go.dev/hash/fnv@go1.24.2">https://pkg.go.dev/hash/fnv@go1.24.2&lt;/a>&lt;/p>&lt;/blockquote>
-&lt;p>Package fnv implements FNV-1 and FNV-1a, non-cryptographic hash functions created by Glenn Fowler, Landon Curt Noll, and Phong Vo. See &lt;a href="https://en.wikipedia.org/wiki/Fowler-Noll-Vo_hash_function">https://en.wikipedia.org/wiki/Fowler-Noll-Vo_hash_function&lt;/a>.&lt;/p>
-&lt;p>​	包 fnv 实现 FNV-1 和 FNV-1a，由 Glenn Fowler、Landon Curt Noll 和 Phong Vo 创建的非加密哈希函数。请参阅 &lt;a href="https://en.wikipedia.org/wiki/Fowler-Noll-Vo_hash_function">https://en.wikipedia.org/wiki/Fowler-Noll-Vo_hash_function&lt;/a>。&lt;/p></description></item><item><title>hash</title><link>https://before80.github.io/go_docs/stdLib/hash/hash/</link><pubDate>Wed, 17 May 2023 11:11:20 +0800</pubDate><guid>https://before80.github.io/go_docs/stdLib/hash/hash/</guid><description>&lt;blockquote>
-&lt;p>原文：&lt;a href="https://pkg.go.dev/hash@go1.24.2">https://pkg.go.dev/hash@go1.24.2&lt;/a>&lt;/p>&lt;/blockquote>
-&lt;p>Package hash provides interfaces for hash functions.&lt;/p>
-&lt;pre>&lt;code>hash 包提供了哈希函数的接口。
-&lt;/code>&lt;/pre>
-&lt;h2 id="example-binarymarshaler">Example (BinaryMarshaler)&lt;a class="td-heading-self-link" href="#example-binarymarshaler" aria-label="Heading self-link">&lt;/a>&lt;/h2>
-&lt;div class="highlight">&lt;div style="color:#b0c4de;background-color:#282c34;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">
-&lt;table style="border-spacing:0;padding:0;margin:0;border:0;">&lt;tr>&lt;td style="vertical-align:top;padding:0;margin:0;border:0;">
-&lt;pre tabindex="0" style="color:#b0c4de;background-color:#282c34;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code>&lt;span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#58626f"> 1
-&lt;/span>&lt;span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#58626f"> 2
-&lt;/span>&lt;span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#58626f"> 3
-&lt;/span>&lt;span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#58626f"> 4
-&lt;/span>&lt;span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#58626f"> 5
-&lt;/span>&lt;span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#58626f"> 6
-&lt;/span>&lt;span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#58626f"> 7
-&lt;/span>&lt;span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#58626f"> 8
-&lt;/span>&lt;span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#58626f"> 9
-&lt;/span>&lt;span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#58626f">10
-&lt;/span>&lt;span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#58626f">11
-&lt;/span>&lt;span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#58626f">12
-&lt;/span>&lt;span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#58626f">13
-&lt;/span>&lt;span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#58626f">14
-&lt;/span>&lt;span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#58626f">15
-&lt;/span>&lt;span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#58626f">16
-&lt;/span>&lt;span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#58626f">17
-&lt;/span>&lt;span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#58626f">18
-&lt;/span>&lt;span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#58626f">19
-&lt;/span>&lt;span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#58626f">20
-&lt;/span>&lt;span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#58626f">21
-&lt;/span>&lt;span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#58626f">22
-&lt;/span>&lt;span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#58626f">23
-&lt;/span>&lt;span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#58626f">24
-&lt;/span>&lt;span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#58626f">25
-&lt;/span>&lt;span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#58626f">26
-&lt;/span>&lt;span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#58626f">27
-&lt;/span>&lt;span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#58626f">28
-&lt;/span>&lt;span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#58626f">29
-&lt;/span>&lt;span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#58626f">30
-&lt;/span>&lt;span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#58626f">31
-&lt;/span>&lt;span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#58626f">32
-&lt;/span>&lt;span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#58626f">33
-&lt;/span>&lt;span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#58626f">34
-&lt;/span>&lt;span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#58626f">35
-&lt;/span>&lt;span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#58626f">36
-&lt;/span>&lt;span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#58626f">37
-&lt;/span>&lt;span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#58626f">38
-&lt;/span>&lt;span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#58626f">39
-&lt;/span>&lt;span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#58626f">40
-&lt;/span>&lt;span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#58626f">41
-&lt;/span>&lt;span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#58626f">42
-&lt;/span>&lt;span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#58626f">43
-&lt;/span>&lt;span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#58626f">44
-&lt;/span>&lt;span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#58626f">45
-&lt;/span>&lt;span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#58626f">46
-&lt;/span>&lt;span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#58626f">47
-&lt;/span>&lt;span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#58626f">48
-&lt;/span>&lt;span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#58626f">49
-&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
-&lt;td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
-&lt;pre tabindex="0" style="color:#b0c4de;background-color:#282c34;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-go" data-lang="go">&lt;span style="display:flex;">&lt;span>&lt;span style="color:#76a9f9">package&lt;/span> &lt;span style="color:#aa89ea">main&lt;/span>
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#76a9f9">import&lt;/span> &lt;span style="color:#abb2bf">(&lt;/span>
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>	&lt;span style="color:#98c379">&amp;#34;bytes&amp;#34;&lt;/span>
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>	&lt;span style="color:#98c379">&amp;#34;crypto/sha256&amp;#34;&lt;/span>
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>	&lt;span style="color:#98c379">&amp;#34;encoding&amp;#34;&lt;/span>
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>	&lt;span style="color:#98c379">&amp;#34;fmt&amp;#34;&lt;/span>
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>	&lt;span style="color:#98c379">&amp;#34;log&amp;#34;&lt;/span>
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#abb2bf">)&lt;/span>
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#76a9f9">func&lt;/span> &lt;span style="color:#00b1f7">main&lt;/span>&lt;span style="color:#abb2bf">()&lt;/span> &lt;span style="color:#abb2bf">{&lt;/span>
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>	&lt;span style="color:#76a9f9">const&lt;/span> &lt;span style="color:#abb2bf">(&lt;/span>
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>		&lt;span style="color:#aa89ea">input1&lt;/span> &lt;span style="color:#abb2bf">=&lt;/span> &lt;span style="color:#98c379">&amp;#34;The tunneling gopher digs downwards, &amp;#34;&lt;/span>
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>		&lt;span style="color:#aa89ea">input2&lt;/span> &lt;span style="color:#abb2bf">=&lt;/span> &lt;span style="color:#98c379">&amp;#34;unaware of what he will find.&amp;#34;&lt;/span>
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>	&lt;span style="color:#abb2bf">)&lt;/span>
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>	&lt;span style="color:#aa89ea">first&lt;/span> &lt;span style="color:#54b1c7">:=&lt;/span> &lt;span style="color:#aa89ea">sha256&lt;/span>&lt;span style="color:#abb2bf">.&lt;/span>&lt;span style="color:#00b1f7">New&lt;/span>&lt;span style="color:#abb2bf">()&lt;/span>
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>	&lt;span style="color:#aa89ea">first&lt;/span>&lt;span style="color:#abb2bf">.&lt;/span>&lt;span style="color:#00b1f7">Write&lt;/span>&lt;span style="color:#abb2bf">([]&lt;/span>&lt;span style="color:#e5c07b">byte&lt;/span>&lt;span style="color:#abb2bf">(&lt;/span>&lt;span style="color:#aa89ea">input1&lt;/span>&lt;span style="color:#abb2bf">))&lt;/span>
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>	&lt;span style="color:#aa89ea">marshaler&lt;/span>&lt;span style="color:#abb2bf">,&lt;/span> &lt;span style="color:#aa89ea">ok&lt;/span> &lt;span style="color:#54b1c7">:=&lt;/span> &lt;span style="color:#aa89ea">first&lt;/span>&lt;span style="color:#abb2bf">.(&lt;/span>&lt;span style="color:#aa89ea">encoding&lt;/span>&lt;span style="color:#abb2bf">.&lt;/span>&lt;span style="color:#aa89ea">BinaryMarshaler&lt;/span>&lt;span style="color:#abb2bf">)&lt;/span>
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>	&lt;span style="color:#76a9f9">if&lt;/span> &lt;span style="color:#abb2bf">!&lt;/span>&lt;span style="color:#aa89ea">ok&lt;/span> &lt;span style="color:#abb2bf">{&lt;/span>
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>		&lt;span style="color:#aa89ea">log&lt;/span>&lt;span style="color:#abb2bf">.&lt;/span>&lt;span style="color:#00b1f7">Fatal&lt;/span>&lt;span style="color:#abb2bf">(&lt;/span>&lt;span style="color:#98c379">&amp;#34;first does not implement encoding.BinaryMarshaler&amp;#34;&lt;/span>&lt;span style="color:#abb2bf">)&lt;/span>
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>	&lt;span style="color:#abb2bf">}&lt;/span>
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>	&lt;span style="color:#aa89ea">state&lt;/span>&lt;span style="color:#abb2bf">,&lt;/span> &lt;span style="color:#aa89ea">err&lt;/span> &lt;span style="color:#54b1c7">:=&lt;/span> &lt;span style="color:#aa89ea">marshaler&lt;/span>&lt;span style="color:#abb2bf">.&lt;/span>&lt;span style="color:#00b1f7">MarshalBinary&lt;/span>&lt;span style="color:#abb2bf">()&lt;/span>
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>	&lt;span style="color:#76a9f9">if&lt;/span> &lt;span style="color:#aa89ea">err&lt;/span> &lt;span style="color:#54b1c7">!=&lt;/span> &lt;span style="color:#e5c07b">nil&lt;/span> &lt;span style="color:#abb2bf">{&lt;/span>
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>		&lt;span style="color:#aa89ea">log&lt;/span>&lt;span style="color:#abb2bf">.&lt;/span>&lt;span style="color:#00b1f7">Fatal&lt;/span>&lt;span style="color:#abb2bf">(&lt;/span>&lt;span style="color:#98c379">&amp;#34;unable to marshal hash:&amp;#34;&lt;/span>&lt;span style="color:#abb2bf">,&lt;/span> &lt;span style="color:#aa89ea">err&lt;/span>&lt;span style="color:#abb2bf">)&lt;/span>
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>	&lt;span style="color:#abb2bf">}&lt;/span>
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>	&lt;span style="color:#aa89ea">second&lt;/span> &lt;span style="color:#54b1c7">:=&lt;/span> &lt;span style="color:#aa89ea">sha256&lt;/span>&lt;span style="color:#abb2bf">.&lt;/span>&lt;span style="color:#00b1f7">New&lt;/span>&lt;span style="color:#abb2bf">()&lt;/span>
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>	&lt;span style="color:#aa89ea">unmarshaler&lt;/span>&lt;span style="color:#abb2bf">,&lt;/span> &lt;span style="color:#aa89ea">ok&lt;/span> &lt;span style="color:#54b1c7">:=&lt;/span> &lt;span style="color:#aa89ea">second&lt;/span>&lt;span style="color:#abb2bf">.(&lt;/span>&lt;span style="color:#aa89ea">encoding&lt;/span>&lt;span style="color:#abb2bf">.&lt;/span>&lt;span style="color:#aa89ea">BinaryUnmarshaler&lt;/span>&lt;span style="color:#abb2bf">)&lt;/span>
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>	&lt;span style="color:#76a9f9">if&lt;/span> &lt;span style="color:#abb2bf">!&lt;/span>&lt;span style="color:#aa89ea">ok&lt;/span> &lt;span style="color:#abb2bf">{&lt;/span>
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>		&lt;span style="color:#aa89ea">log&lt;/span>&lt;span style="color:#abb2bf">.&lt;/span>&lt;span style="color:#00b1f7">Fatal&lt;/span>&lt;span style="color:#abb2bf">(&lt;/span>&lt;span style="color:#98c379">&amp;#34;second does not implement encoding.BinaryUnmarshaler&amp;#34;&lt;/span>&lt;span style="color:#abb2bf">)&lt;/span>
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>	&lt;span style="color:#abb2bf">}&lt;/span>
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>	&lt;span style="color:#76a9f9">if&lt;/span> &lt;span style="color:#aa89ea">err&lt;/span> &lt;span style="color:#54b1c7">:=&lt;/span> &lt;span style="color:#aa89ea">unmarshaler&lt;/span>&lt;span style="color:#abb2bf">.&lt;/span>&lt;span style="color:#00b1f7">UnmarshalBinary&lt;/span>&lt;span style="color:#abb2bf">(&lt;/span>&lt;span style="color:#aa89ea">state&lt;/span>&lt;span style="color:#abb2bf">);&lt;/span> &lt;span style="color:#aa89ea">err&lt;/span> &lt;span style="color:#54b1c7">!=&lt;/span> &lt;span style="color:#e5c07b">nil&lt;/span> &lt;span style="color:#abb2bf">{&lt;/span>
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>		&lt;span style="color:#aa89ea">log&lt;/span>&lt;span style="color:#abb2bf">.&lt;/span>&lt;span style="color:#00b1f7">Fatal&lt;/span>&lt;span style="color:#abb2bf">(&lt;/span>&lt;span style="color:#98c379">&amp;#34;unable to unmarshal hash:&amp;#34;&lt;/span>&lt;span style="color:#abb2bf">,&lt;/span> &lt;span style="color:#aa89ea">err&lt;/span>&lt;span style="color:#abb2bf">)&lt;/span>
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>	&lt;span style="color:#abb2bf">}&lt;/span>
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>	&lt;span style="color:#aa89ea">first&lt;/span>&lt;span style="color:#abb2bf">.&lt;/span>&lt;span style="color:#00b1f7">Write&lt;/span>&lt;span style="color:#abb2bf">([]&lt;/span>&lt;span style="color:#e5c07b">byte&lt;/span>&lt;span style="color:#abb2bf">(&lt;/span>&lt;span style="color:#aa89ea">input2&lt;/span>&lt;span style="color:#abb2bf">))&lt;/span>
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>	&lt;span style="color:#aa89ea">second&lt;/span>&lt;span style="color:#abb2bf">.&lt;/span>&lt;span style="color:#00b1f7">Write&lt;/span>&lt;span style="color:#abb2bf">([]&lt;/span>&lt;span style="color:#e5c07b">byte&lt;/span>&lt;span style="color:#abb2bf">(&lt;/span>&lt;span style="color:#aa89ea">input2&lt;/span>&lt;span style="color:#abb2bf">))&lt;/span>
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>	&lt;span style="color:#aa89ea">fmt&lt;/span>&lt;span style="color:#abb2bf">.&lt;/span>&lt;span style="color:#00b1f7">Printf&lt;/span>&lt;span style="color:#abb2bf">(&lt;/span>&lt;span style="color:#98c379">&amp;#34;%x\n&amp;#34;&lt;/span>&lt;span style="color:#abb2bf">,&lt;/span> &lt;span style="color:#aa89ea">first&lt;/span>&lt;span style="color:#abb2bf">.&lt;/span>&lt;span style="color:#00b1f7">Sum&lt;/span>&lt;span style="color:#abb2bf">(&lt;/span>&lt;span style="color:#e5c07b">nil&lt;/span>&lt;span style="color:#abb2bf">))&lt;/span>
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>	&lt;span style="color:#aa89ea">fmt&lt;/span>&lt;span style="color:#abb2bf">.&lt;/span>&lt;span style="color:#00b1f7">Println&lt;/span>&lt;span style="color:#abb2bf">(&lt;/span>&lt;span style="color:#aa89ea">bytes&lt;/span>&lt;span style="color:#abb2bf">.&lt;/span>&lt;span style="color:#00b1f7">Equal&lt;/span>&lt;span style="color:#abb2bf">(&lt;/span>&lt;span style="color:#aa89ea">first&lt;/span>&lt;span style="color:#abb2bf">.&lt;/span>&lt;span style="color:#00b1f7">Sum&lt;/span>&lt;span style="color:#abb2bf">(&lt;/span>&lt;span style="color:#e5c07b">nil&lt;/span>&lt;span style="color:#abb2bf">),&lt;/span> &lt;span style="color:#aa89ea">second&lt;/span>&lt;span style="color:#abb2bf">.&lt;/span>&lt;span style="color:#00b1f7">Sum&lt;/span>&lt;span style="color:#abb2bf">(&lt;/span>&lt;span style="color:#e5c07b">nil&lt;/span>&lt;span style="color:#abb2bf">)))&lt;/span>
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#abb2bf">}&lt;/span>
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#aa89ea">Output&lt;/span>&lt;span style="color:#abb2bf">:&lt;/span>
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#d19a66">57&lt;/span>&lt;span style="color:#aa89ea">d51a066f3a39942649cd9a76c77e97ceab246756ff3888659e6aa5a07f4a52&lt;/span>
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#e5c07b">true&lt;/span>
-&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
-&lt;/div>
-&lt;/div>&lt;h2 id="常量">常量&lt;a class="td-heading-self-link" href="#%e5%b8%b8%e9%87%8f" aria-label="Heading self-link">&lt;/a>&lt;/h2>
-&lt;p>This section is empty.&lt;/p></description></item><item><title>maphash</title><link>https://before80.github.io/go_docs/stdLib/hash/maphash/</link><pubDate>Wed, 17 May 2023 11:11:20 +0800</pubDate><guid>https://before80.github.io/go_docs/stdLib/hash/maphash/</guid><description>&lt;blockquote>
-&lt;p>原文：&lt;a href="https://pkg.go.dev/hash/maphash@go1.24.2">https://pkg.go.dev/hash/maphash@go1.24.2&lt;/a>&lt;/p>&lt;/blockquote>
-&lt;p>Package maphash provides hash functions on byte sequences. These hash functions are intended to be used to implement hash tables or other data structures that need to map arbitrary strings or byte sequences to a uniform distribution on unsigned 64-bit integers. Each different instance of a hash table or data structure should use its own Seed.&lt;/p>
-&lt;p>​	maphash 包提供字节序列的哈希函数。这些哈希函数旨在用于实现哈希表或其他需要将任意字符串或字节序列映射到无符号 64 位整数的均匀分布的数据结构。哈希表或数据结构的每个不同实例都应使用其自己的种子。&lt;/p></description></item></channel></rss>
+&lt;/code&gt;&lt;/pre&gt;&lt;h2 id="常量"&gt;常量&lt;/h2&gt;
+&lt;p&gt;&lt;a href="https://cs.opensource.google/go/go/+/go1.20.1:src/hash/adler32/adler32.go;l=31"&gt;View Source&lt;/a&gt;&lt;/p&gt;</description></item><item><title>crc32</title><link>https://before80.github.io/go_docs/stdLib/hash/crc32/</link><pubDate>Wed, 17 May 2023 11:11:20 +0800</pubDate><guid>https://before80.github.io/go_docs/stdLib/hash/crc32/</guid><description>&lt;blockquote&gt;
+&lt;p&gt;原文：&lt;a href="https://pkg.go.dev/hash/crc32@go1.24.2"&gt;https://pkg.go.dev/hash/crc32@go1.24.2&lt;/a&gt;&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;Package crc32 implements the 32-bit cyclic redundancy check, or CRC-32, checksum. See &lt;a href="https://en.wikipedia.org/wiki/Cyclic_redundancy_check"&gt;https://en.wikipedia.org/wiki/Cyclic_redundancy_check&lt;/a&gt; for information.&lt;/p&gt;
+&lt;p&gt;​	crc32 包实现了 32 位循环冗余校验，或 CRC-32，校验和。有关信息，请参阅 &lt;a href="https://en.wikipedia.org/wiki/Cyclic_redundancy_check"&gt;https://en.wikipedia.org/wiki/Cyclic_redundancy_check&lt;/a&gt;。&lt;/p&gt;
+&lt;p&gt;Polynomials are represented in LSB-first form also known as reversed representation.&lt;/p&gt;
+&lt;p&gt;​	多项式以 LSB 优先的形式表示，也称为反向表示。&lt;/p&gt;</description></item><item><title>crc64</title><link>https://before80.github.io/go_docs/stdLib/hash/crc64/</link><pubDate>Wed, 17 May 2023 11:11:20 +0800</pubDate><guid>https://before80.github.io/go_docs/stdLib/hash/crc64/</guid><description>&lt;blockquote&gt;
+&lt;p&gt;原文：&lt;a href="https://pkg.go.dev/hash/crc64@go1.24.2"&gt;https://pkg.go.dev/hash/crc64@go1.24.2&lt;/a&gt;&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;Package crc64 implements the 64-bit cyclic redundancy check, or CRC-64, checksum. See &lt;a href="https://en.wikipedia.org/wiki/Cyclic_redundancy_check"&gt;https://en.wikipedia.org/wiki/Cyclic_redundancy_check&lt;/a&gt; for information.&lt;/p&gt;
+&lt;p&gt;​	crc64 包实现了 64 位循环冗余校验或 CRC-64 校验和。有关信息，请参阅 &lt;a href="https://en.wikipedia.org/wiki/Cyclic_redundancy_check"&gt;https://en.wikipedia.org/wiki/Cyclic_redundancy_check&lt;/a&gt;。&lt;/p&gt;
+&lt;h2 id="常量"&gt;常量&lt;/h2&gt;
+&lt;p&gt;&lt;a href="https://cs.opensource.google/go/go/+/go1.20.1:src/hash/crc64/crc64.go;l=20"&gt;View Source&lt;/a&gt;&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;div style="color:#b0c4de;background-color:#282c34;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"&gt;
+&lt;table style="border-spacing:0;padding:0;margin:0;border:0;"&gt;&lt;tr&gt;&lt;td style="vertical-align:top;padding:0;margin:0;border:0;"&gt;
+&lt;pre tabindex="0" style="color:#b0c4de;background-color:#282c34;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"&gt;&lt;code&gt;&lt;span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#58626f"&gt;1
+&lt;/span&gt;&lt;span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#58626f"&gt;2
+&lt;/span&gt;&lt;span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#58626f"&gt;3
+&lt;/span&gt;&lt;span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#58626f"&gt;4
+&lt;/span&gt;&lt;span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#58626f"&gt;5
+&lt;/span&gt;&lt;span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#58626f"&gt;6
+&lt;/span&gt;&lt;span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#58626f"&gt;7
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
+&lt;td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%"&gt;
+&lt;pre tabindex="0" style="color:#b0c4de;background-color:#282c34;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"&gt;&lt;code class="language-go" data-lang="go"&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;&lt;span style="color:#76a9f9"&gt;const&lt;/span&gt; &lt;span style="color:#abb2bf"&gt;(&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;	&lt;span style="color:#8a93a5;font-style:italic"&gt;// The ISO polynomial, defined in ISO 3309 and used in HDLC.&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;	&lt;span style="color:#aa89ea"&gt;ISO&lt;/span&gt; &lt;span style="color:#abb2bf"&gt;=&lt;/span&gt; &lt;span style="color:#d19a66"&gt;0xD800000000000000&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;	&lt;span style="color:#8a93a5;font-style:italic"&gt;// The ECMA polynomial, defined in ECMA 182.&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;	&lt;span style="color:#aa89ea"&gt;ECMA&lt;/span&gt; &lt;span style="color:#abb2bf"&gt;=&lt;/span&gt; &lt;span style="color:#d19a66"&gt;0xC96C5795D7870F42&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;&lt;span style="color:#abb2bf"&gt;)&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+&lt;/div&gt;
+&lt;/div&gt;&lt;p&gt;Predefined polynomials.&lt;/p&gt;</description></item><item><title>fnv</title><link>https://before80.github.io/go_docs/stdLib/hash/fnv/</link><pubDate>Wed, 17 May 2023 11:11:20 +0800</pubDate><guid>https://before80.github.io/go_docs/stdLib/hash/fnv/</guid><description>&lt;blockquote&gt;
+&lt;p&gt;原文：&lt;a href="https://pkg.go.dev/hash/fnv@go1.24.2"&gt;https://pkg.go.dev/hash/fnv@go1.24.2&lt;/a&gt;&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;Package fnv implements FNV-1 and FNV-1a, non-cryptographic hash functions created by Glenn Fowler, Landon Curt Noll, and Phong Vo. See &lt;a href="https://en.wikipedia.org/wiki/Fowler-Noll-Vo_hash_function"&gt;https://en.wikipedia.org/wiki/Fowler-Noll-Vo_hash_function&lt;/a&gt;.&lt;/p&gt;
+&lt;p&gt;​	包 fnv 实现 FNV-1 和 FNV-1a，由 Glenn Fowler、Landon Curt Noll 和 Phong Vo 创建的非加密哈希函数。请参阅 &lt;a href="https://en.wikipedia.org/wiki/Fowler-Noll-Vo_hash_function"&gt;https://en.wikipedia.org/wiki/Fowler-Noll-Vo_hash_function&lt;/a&gt;。&lt;/p&gt;</description></item><item><title>hash</title><link>https://before80.github.io/go_docs/stdLib/hash/hash/</link><pubDate>Wed, 17 May 2023 11:11:20 +0800</pubDate><guid>https://before80.github.io/go_docs/stdLib/hash/hash/</guid><description>&lt;blockquote&gt;
+&lt;p&gt;原文：&lt;a href="https://pkg.go.dev/hash@go1.24.2"&gt;https://pkg.go.dev/hash@go1.24.2&lt;/a&gt;&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;Package hash provides interfaces for hash functions.&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;hash 包提供了哈希函数的接口。
+&lt;/code&gt;&lt;/pre&gt;
+&lt;h2 id="example-binarymarshaler"&gt;Example (BinaryMarshaler)&lt;/h2&gt;
+&lt;div class="highlight"&gt;&lt;div style="color:#b0c4de;background-color:#282c34;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"&gt;
+&lt;table style="border-spacing:0;padding:0;margin:0;border:0;"&gt;&lt;tr&gt;&lt;td style="vertical-align:top;padding:0;margin:0;border:0;"&gt;
+&lt;pre tabindex="0" style="color:#b0c4de;background-color:#282c34;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"&gt;&lt;code&gt;&lt;span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#58626f"&gt; 1
+&lt;/span&gt;&lt;span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#58626f"&gt; 2
+&lt;/span&gt;&lt;span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#58626f"&gt; 3
+&lt;/span&gt;&lt;span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#58626f"&gt; 4
+&lt;/span&gt;&lt;span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#58626f"&gt; 5
+&lt;/span&gt;&lt;span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#58626f"&gt; 6
+&lt;/span&gt;&lt;span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#58626f"&gt; 7
+&lt;/span&gt;&lt;span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#58626f"&gt; 8
+&lt;/span&gt;&lt;span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#58626f"&gt; 9
+&lt;/span&gt;&lt;span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#58626f"&gt;10
+&lt;/span&gt;&lt;span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#58626f"&gt;11
+&lt;/span&gt;&lt;span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#58626f"&gt;12
+&lt;/span&gt;&lt;span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#58626f"&gt;13
+&lt;/span&gt;&lt;span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#58626f"&gt;14
+&lt;/span&gt;&lt;span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#58626f"&gt;15
+&lt;/span&gt;&lt;span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#58626f"&gt;16
+&lt;/span&gt;&lt;span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#58626f"&gt;17
+&lt;/span&gt;&lt;span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#58626f"&gt;18
+&lt;/span&gt;&lt;span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#58626f"&gt;19
+&lt;/span&gt;&lt;span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#58626f"&gt;20
+&lt;/span&gt;&lt;span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#58626f"&gt;21
+&lt;/span&gt;&lt;span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#58626f"&gt;22
+&lt;/span&gt;&lt;span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#58626f"&gt;23
+&lt;/span&gt;&lt;span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#58626f"&gt;24
+&lt;/span&gt;&lt;span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#58626f"&gt;25
+&lt;/span&gt;&lt;span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#58626f"&gt;26
+&lt;/span&gt;&lt;span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#58626f"&gt;27
+&lt;/span&gt;&lt;span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#58626f"&gt;28
+&lt;/span&gt;&lt;span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#58626f"&gt;29
+&lt;/span&gt;&lt;span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#58626f"&gt;30
+&lt;/span&gt;&lt;span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#58626f"&gt;31
+&lt;/span&gt;&lt;span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#58626f"&gt;32
+&lt;/span&gt;&lt;span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#58626f"&gt;33
+&lt;/span&gt;&lt;span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#58626f"&gt;34
+&lt;/span&gt;&lt;span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#58626f"&gt;35
+&lt;/span&gt;&lt;span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#58626f"&gt;36
+&lt;/span&gt;&lt;span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#58626f"&gt;37
+&lt;/span&gt;&lt;span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#58626f"&gt;38
+&lt;/span&gt;&lt;span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#58626f"&gt;39
+&lt;/span&gt;&lt;span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#58626f"&gt;40
+&lt;/span&gt;&lt;span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#58626f"&gt;41
+&lt;/span&gt;&lt;span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#58626f"&gt;42
+&lt;/span&gt;&lt;span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#58626f"&gt;43
+&lt;/span&gt;&lt;span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#58626f"&gt;44
+&lt;/span&gt;&lt;span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#58626f"&gt;45
+&lt;/span&gt;&lt;span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#58626f"&gt;46
+&lt;/span&gt;&lt;span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#58626f"&gt;47
+&lt;/span&gt;&lt;span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#58626f"&gt;48
+&lt;/span&gt;&lt;span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#58626f"&gt;49
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
+&lt;td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%"&gt;
+&lt;pre tabindex="0" style="color:#b0c4de;background-color:#282c34;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"&gt;&lt;code class="language-go" data-lang="go"&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;&lt;span style="color:#76a9f9"&gt;package&lt;/span&gt; &lt;span style="color:#aa89ea"&gt;main&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;&lt;span style="color:#76a9f9"&gt;import&lt;/span&gt; &lt;span style="color:#abb2bf"&gt;(&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;	&lt;span style="color:#98c379"&gt;&amp;#34;bytes&amp;#34;&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;	&lt;span style="color:#98c379"&gt;&amp;#34;crypto/sha256&amp;#34;&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;	&lt;span style="color:#98c379"&gt;&amp;#34;encoding&amp;#34;&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;	&lt;span style="color:#98c379"&gt;&amp;#34;fmt&amp;#34;&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;	&lt;span style="color:#98c379"&gt;&amp;#34;log&amp;#34;&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;&lt;span style="color:#abb2bf"&gt;)&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;&lt;span style="color:#76a9f9"&gt;func&lt;/span&gt; &lt;span style="color:#00b1f7"&gt;main&lt;/span&gt;&lt;span style="color:#abb2bf"&gt;()&lt;/span&gt; &lt;span style="color:#abb2bf"&gt;{&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;	&lt;span style="color:#76a9f9"&gt;const&lt;/span&gt; &lt;span style="color:#abb2bf"&gt;(&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;		&lt;span style="color:#aa89ea"&gt;input1&lt;/span&gt; &lt;span style="color:#abb2bf"&gt;=&lt;/span&gt; &lt;span style="color:#98c379"&gt;&amp;#34;The tunneling gopher digs downwards, &amp;#34;&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;		&lt;span style="color:#aa89ea"&gt;input2&lt;/span&gt; &lt;span style="color:#abb2bf"&gt;=&lt;/span&gt; &lt;span style="color:#98c379"&gt;&amp;#34;unaware of what he will find.&amp;#34;&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;	&lt;span style="color:#abb2bf"&gt;)&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;	&lt;span style="color:#aa89ea"&gt;first&lt;/span&gt; &lt;span style="color:#54b1c7"&gt;:=&lt;/span&gt; &lt;span style="color:#aa89ea"&gt;sha256&lt;/span&gt;&lt;span style="color:#abb2bf"&gt;.&lt;/span&gt;&lt;span style="color:#00b1f7"&gt;New&lt;/span&gt;&lt;span style="color:#abb2bf"&gt;()&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;	&lt;span style="color:#aa89ea"&gt;first&lt;/span&gt;&lt;span style="color:#abb2bf"&gt;.&lt;/span&gt;&lt;span style="color:#00b1f7"&gt;Write&lt;/span&gt;&lt;span style="color:#abb2bf"&gt;([]&lt;/span&gt;&lt;span style="color:#e5c07b"&gt;byte&lt;/span&gt;&lt;span style="color:#abb2bf"&gt;(&lt;/span&gt;&lt;span style="color:#aa89ea"&gt;input1&lt;/span&gt;&lt;span style="color:#abb2bf"&gt;))&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;	&lt;span style="color:#aa89ea"&gt;marshaler&lt;/span&gt;&lt;span style="color:#abb2bf"&gt;,&lt;/span&gt; &lt;span style="color:#aa89ea"&gt;ok&lt;/span&gt; &lt;span style="color:#54b1c7"&gt;:=&lt;/span&gt; &lt;span style="color:#aa89ea"&gt;first&lt;/span&gt;&lt;span style="color:#abb2bf"&gt;.(&lt;/span&gt;&lt;span style="color:#aa89ea"&gt;encoding&lt;/span&gt;&lt;span style="color:#abb2bf"&gt;.&lt;/span&gt;&lt;span style="color:#aa89ea"&gt;BinaryMarshaler&lt;/span&gt;&lt;span style="color:#abb2bf"&gt;)&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;	&lt;span style="color:#76a9f9"&gt;if&lt;/span&gt; &lt;span style="color:#abb2bf"&gt;!&lt;/span&gt;&lt;span style="color:#aa89ea"&gt;ok&lt;/span&gt; &lt;span style="color:#abb2bf"&gt;{&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;		&lt;span style="color:#aa89ea"&gt;log&lt;/span&gt;&lt;span style="color:#abb2bf"&gt;.&lt;/span&gt;&lt;span style="color:#00b1f7"&gt;Fatal&lt;/span&gt;&lt;span style="color:#abb2bf"&gt;(&lt;/span&gt;&lt;span style="color:#98c379"&gt;&amp;#34;first does not implement encoding.BinaryMarshaler&amp;#34;&lt;/span&gt;&lt;span style="color:#abb2bf"&gt;)&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;	&lt;span style="color:#abb2bf"&gt;}&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;	&lt;span style="color:#aa89ea"&gt;state&lt;/span&gt;&lt;span style="color:#abb2bf"&gt;,&lt;/span&gt; &lt;span style="color:#aa89ea"&gt;err&lt;/span&gt; &lt;span style="color:#54b1c7"&gt;:=&lt;/span&gt; &lt;span style="color:#aa89ea"&gt;marshaler&lt;/span&gt;&lt;span style="color:#abb2bf"&gt;.&lt;/span&gt;&lt;span style="color:#00b1f7"&gt;MarshalBinary&lt;/span&gt;&lt;span style="color:#abb2bf"&gt;()&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;	&lt;span style="color:#76a9f9"&gt;if&lt;/span&gt; &lt;span style="color:#aa89ea"&gt;err&lt;/span&gt; &lt;span style="color:#54b1c7"&gt;!=&lt;/span&gt; &lt;span style="color:#e5c07b"&gt;nil&lt;/span&gt; &lt;span style="color:#abb2bf"&gt;{&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;		&lt;span style="color:#aa89ea"&gt;log&lt;/span&gt;&lt;span style="color:#abb2bf"&gt;.&lt;/span&gt;&lt;span style="color:#00b1f7"&gt;Fatal&lt;/span&gt;&lt;span style="color:#abb2bf"&gt;(&lt;/span&gt;&lt;span style="color:#98c379"&gt;&amp;#34;unable to marshal hash:&amp;#34;&lt;/span&gt;&lt;span style="color:#abb2bf"&gt;,&lt;/span&gt; &lt;span style="color:#aa89ea"&gt;err&lt;/span&gt;&lt;span style="color:#abb2bf"&gt;)&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;	&lt;span style="color:#abb2bf"&gt;}&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;	&lt;span style="color:#aa89ea"&gt;second&lt;/span&gt; &lt;span style="color:#54b1c7"&gt;:=&lt;/span&gt; &lt;span style="color:#aa89ea"&gt;sha256&lt;/span&gt;&lt;span style="color:#abb2bf"&gt;.&lt;/span&gt;&lt;span style="color:#00b1f7"&gt;New&lt;/span&gt;&lt;span style="color:#abb2bf"&gt;()&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;	&lt;span style="color:#aa89ea"&gt;unmarshaler&lt;/span&gt;&lt;span style="color:#abb2bf"&gt;,&lt;/span&gt; &lt;span style="color:#aa89ea"&gt;ok&lt;/span&gt; &lt;span style="color:#54b1c7"&gt;:=&lt;/span&gt; &lt;span style="color:#aa89ea"&gt;second&lt;/span&gt;&lt;span style="color:#abb2bf"&gt;.(&lt;/span&gt;&lt;span style="color:#aa89ea"&gt;encoding&lt;/span&gt;&lt;span style="color:#abb2bf"&gt;.&lt;/span&gt;&lt;span style="color:#aa89ea"&gt;BinaryUnmarshaler&lt;/span&gt;&lt;span style="color:#abb2bf"&gt;)&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;	&lt;span style="color:#76a9f9"&gt;if&lt;/span&gt; &lt;span style="color:#abb2bf"&gt;!&lt;/span&gt;&lt;span style="color:#aa89ea"&gt;ok&lt;/span&gt; &lt;span style="color:#abb2bf"&gt;{&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;		&lt;span style="color:#aa89ea"&gt;log&lt;/span&gt;&lt;span style="color:#abb2bf"&gt;.&lt;/span&gt;&lt;span style="color:#00b1f7"&gt;Fatal&lt;/span&gt;&lt;span style="color:#abb2bf"&gt;(&lt;/span&gt;&lt;span style="color:#98c379"&gt;&amp;#34;second does not implement encoding.BinaryUnmarshaler&amp;#34;&lt;/span&gt;&lt;span style="color:#abb2bf"&gt;)&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;	&lt;span style="color:#abb2bf"&gt;}&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;	&lt;span style="color:#76a9f9"&gt;if&lt;/span&gt; &lt;span style="color:#aa89ea"&gt;err&lt;/span&gt; &lt;span style="color:#54b1c7"&gt;:=&lt;/span&gt; &lt;span style="color:#aa89ea"&gt;unmarshaler&lt;/span&gt;&lt;span style="color:#abb2bf"&gt;.&lt;/span&gt;&lt;span style="color:#00b1f7"&gt;UnmarshalBinary&lt;/span&gt;&lt;span style="color:#abb2bf"&gt;(&lt;/span&gt;&lt;span style="color:#aa89ea"&gt;state&lt;/span&gt;&lt;span style="color:#abb2bf"&gt;);&lt;/span&gt; &lt;span style="color:#aa89ea"&gt;err&lt;/span&gt; &lt;span style="color:#54b1c7"&gt;!=&lt;/span&gt; &lt;span style="color:#e5c07b"&gt;nil&lt;/span&gt; &lt;span style="color:#abb2bf"&gt;{&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;		&lt;span style="color:#aa89ea"&gt;log&lt;/span&gt;&lt;span style="color:#abb2bf"&gt;.&lt;/span&gt;&lt;span style="color:#00b1f7"&gt;Fatal&lt;/span&gt;&lt;span style="color:#abb2bf"&gt;(&lt;/span&gt;&lt;span style="color:#98c379"&gt;&amp;#34;unable to unmarshal hash:&amp;#34;&lt;/span&gt;&lt;span style="color:#abb2bf"&gt;,&lt;/span&gt; &lt;span style="color:#aa89ea"&gt;err&lt;/span&gt;&lt;span style="color:#abb2bf"&gt;)&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;	&lt;span style="color:#abb2bf"&gt;}&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;	&lt;span style="color:#aa89ea"&gt;first&lt;/span&gt;&lt;span style="color:#abb2bf"&gt;.&lt;/span&gt;&lt;span style="color:#00b1f7"&gt;Write&lt;/span&gt;&lt;span style="color:#abb2bf"&gt;([]&lt;/span&gt;&lt;span style="color:#e5c07b"&gt;byte&lt;/span&gt;&lt;span style="color:#abb2bf"&gt;(&lt;/span&gt;&lt;span style="color:#aa89ea"&gt;input2&lt;/span&gt;&lt;span style="color:#abb2bf"&gt;))&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;	&lt;span style="color:#aa89ea"&gt;second&lt;/span&gt;&lt;span style="color:#abb2bf"&gt;.&lt;/span&gt;&lt;span style="color:#00b1f7"&gt;Write&lt;/span&gt;&lt;span style="color:#abb2bf"&gt;([]&lt;/span&gt;&lt;span style="color:#e5c07b"&gt;byte&lt;/span&gt;&lt;span style="color:#abb2bf"&gt;(&lt;/span&gt;&lt;span style="color:#aa89ea"&gt;input2&lt;/span&gt;&lt;span style="color:#abb2bf"&gt;))&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;	&lt;span style="color:#aa89ea"&gt;fmt&lt;/span&gt;&lt;span style="color:#abb2bf"&gt;.&lt;/span&gt;&lt;span style="color:#00b1f7"&gt;Printf&lt;/span&gt;&lt;span style="color:#abb2bf"&gt;(&lt;/span&gt;&lt;span style="color:#98c379"&gt;&amp;#34;%x\n&amp;#34;&lt;/span&gt;&lt;span style="color:#abb2bf"&gt;,&lt;/span&gt; &lt;span style="color:#aa89ea"&gt;first&lt;/span&gt;&lt;span style="color:#abb2bf"&gt;.&lt;/span&gt;&lt;span style="color:#00b1f7"&gt;Sum&lt;/span&gt;&lt;span style="color:#abb2bf"&gt;(&lt;/span&gt;&lt;span style="color:#e5c07b"&gt;nil&lt;/span&gt;&lt;span style="color:#abb2bf"&gt;))&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;	&lt;span style="color:#aa89ea"&gt;fmt&lt;/span&gt;&lt;span style="color:#abb2bf"&gt;.&lt;/span&gt;&lt;span style="color:#00b1f7"&gt;Println&lt;/span&gt;&lt;span style="color:#abb2bf"&gt;(&lt;/span&gt;&lt;span style="color:#aa89ea"&gt;bytes&lt;/span&gt;&lt;span style="color:#abb2bf"&gt;.&lt;/span&gt;&lt;span style="color:#00b1f7"&gt;Equal&lt;/span&gt;&lt;span style="color:#abb2bf"&gt;(&lt;/span&gt;&lt;span style="color:#aa89ea"&gt;first&lt;/span&gt;&lt;span style="color:#abb2bf"&gt;.&lt;/span&gt;&lt;span style="color:#00b1f7"&gt;Sum&lt;/span&gt;&lt;span style="color:#abb2bf"&gt;(&lt;/span&gt;&lt;span style="color:#e5c07b"&gt;nil&lt;/span&gt;&lt;span style="color:#abb2bf"&gt;),&lt;/span&gt; &lt;span style="color:#aa89ea"&gt;second&lt;/span&gt;&lt;span style="color:#abb2bf"&gt;.&lt;/span&gt;&lt;span style="color:#00b1f7"&gt;Sum&lt;/span&gt;&lt;span style="color:#abb2bf"&gt;(&lt;/span&gt;&lt;span style="color:#e5c07b"&gt;nil&lt;/span&gt;&lt;span style="color:#abb2bf"&gt;)))&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;&lt;span style="color:#abb2bf"&gt;}&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;&lt;span style="color:#aa89ea"&gt;Output&lt;/span&gt;&lt;span style="color:#abb2bf"&gt;:&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;&lt;span style="color:#d19a66"&gt;57&lt;/span&gt;&lt;span style="color:#aa89ea"&gt;d51a066f3a39942649cd9a76c77e97ceab246756ff3888659e6aa5a07f4a52&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;&lt;span style="color:#e5c07b"&gt;true&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+&lt;/div&gt;
+&lt;/div&gt;&lt;h2 id="常量"&gt;常量&lt;/h2&gt;
+&lt;p&gt;This section is empty.&lt;/p&gt;</description></item><item><title>maphash</title><link>https://before80.github.io/go_docs/stdLib/hash/maphash/</link><pubDate>Wed, 17 May 2023 11:11:20 +0800</pubDate><guid>https://before80.github.io/go_docs/stdLib/hash/maphash/</guid><description>&lt;blockquote&gt;
+&lt;p&gt;原文：&lt;a href="https://pkg.go.dev/hash/maphash@go1.24.2"&gt;https://pkg.go.dev/hash/maphash@go1.24.2&lt;/a&gt;&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;Package maphash provides hash functions on byte sequences. These hash functions are intended to be used to implement hash tables or other data structures that need to map arbitrary strings or byte sequences to a uniform distribution on unsigned 64-bit integers. Each different instance of a hash table or data structure should use its own Seed.&lt;/p&gt;
+&lt;p&gt;​	maphash 包提供字节序列的哈希函数。这些哈希函数旨在用于实现哈希表或其他需要将任意字符串或字节序列映射到无符号 64 位整数的均匀分布的数据结构。哈希表或数据结构的每个不同实例都应使用其自己的种子。&lt;/p&gt;</description></item></channel></rss>

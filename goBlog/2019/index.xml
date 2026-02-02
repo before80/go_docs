@@ -1,161 +1,191 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>2019 [20篇] on Go 中文档集</title><link>https://before80.github.io/go_docs/goBlog/2019/</link><description>Recent content in 2019 [20篇] on Go 中文档集</description><generator>Hugo</generator><language>zh-cn</language><lastBuildDate>Thu, 10 Oct 2024 15:07:50 +0800</lastBuildDate><atom:link href="https://before80.github.io/go_docs/goBlog/2019/index.xml" rel="self" type="application/rss+xml"/><item><title>宣布2019年Go开发者调查</title><link>https://before80.github.io/go_docs/goBlog/2019/AnnouncingThe2019GoDeveloperSurvey/</link><pubDate>Thu, 18 May 2023 17:03:08 +0800</pubDate><guid>https://before80.github.io/go_docs/goBlog/2019/AnnouncingThe2019GoDeveloperSurvey/</guid><description>&lt;h1 id="announcing-the-2019-go-developer-survey---宣布2019年go开发者调查">Announcing the 2019 Go Developer Survey - 宣布2019年Go开发者调查&lt;a class="td-heading-self-link" href="#announcing-the-2019-go-developer-survey---%e5%ae%a3%e5%b8%832019%e5%b9%b4go%e5%bc%80%e5%8f%91%e8%80%85%e8%b0%83%e6%9f%a5" aria-label="Heading self-link">&lt;/a>&lt;/h1>
-&lt;blockquote>
-&lt;p>原文：&lt;a href="https://go.dev/blog/survey2019">https://go.dev/blog/survey2019&lt;/a>&lt;/p>&lt;/blockquote>
-&lt;p>Todd Kulesza
-20 November 2019&lt;/p>
-&lt;h2 id="help-shape-the-future-of-go-帮助塑造go的未来">Help shape the future of Go 帮助塑造Go的未来&lt;a class="td-heading-self-link" href="#help-shape-the-future-of-go-%e5%b8%ae%e5%8a%a9%e5%a1%91%e9%80%a0go%e7%9a%84%e6%9c%aa%e6%9d%a5" aria-label="Heading self-link">&lt;/a>&lt;/h2>
-&lt;p>Since 2016, thousands of Gophers around the world have helped the Go project by sharing your thoughts via our annual Go Developer Survey. Your feedback has played an enormous role in driving changes to our language, ecosystem, and community, including &lt;a href="https://about.sourcegraph.com/go/gophercon-2019-go-pls-stop-breaking-my-editor">the gopls language server&lt;/a>, new &lt;a href="https://blog.golang.org/go1.13-errors">error-handling mechanics&lt;/a>, the &lt;a href="https://blog.golang.org/module-mirror-launch">module mirror&lt;/a>, and so much more from the latest &lt;a href="https://blog.golang.org/go1.13">Go 1.13 release&lt;/a>. And of course, we publicly share &lt;a href="https://blog.golang.org/survey2016-results">each&lt;/a> &lt;a href="https://blog.golang.org/survey2017-results">year’s&lt;/a> &lt;a href="https://blog.golang.org/survey2018-results">results&lt;/a>, so we can all benefit from the community’s insights.&lt;/p></description></item><item><title>go.dev：go开发者的新中心</title><link>https://before80.github.io/go_docs/goBlog/2019/GodevANewHubForGoDevelopers/</link><pubDate>Thu, 18 May 2023 17:03:08 +0800</pubDate><guid>https://before80.github.io/go_docs/goBlog/2019/GodevANewHubForGoDevelopers/</guid><description>&lt;h1 id="godev-a-new-hub-for-go-developers---godevgo开发者的新中心">Go.dev: a new hub for Go developers - go.dev：go开发者的新中心&lt;a class="td-heading-self-link" href="#godev-a-new-hub-for-go-developers---godevgo%e5%bc%80%e5%8f%91%e8%80%85%e7%9a%84%e6%96%b0%e4%b8%ad%e5%bf%83" aria-label="Heading self-link">&lt;/a>&lt;/h1>
-&lt;blockquote>
-&lt;p>原文：&lt;a href="https://go.dev/blog/go.dev">https://go.dev/blog/go.dev&lt;/a>&lt;/p>&lt;/blockquote>
-&lt;p>Steve Francia and Julie Qiu
-13 November 2019&lt;/p>
-&lt;p>Over the last two years, as we’ve spoken with users at companies of all sizes, we’ve heard three questions repeatedly: who else is using Go, what do they use it for, and how can I find useful Go packages?&lt;/p></description></item><item><title>Go进入10周年</title><link>https://before80.github.io/go_docs/goBlog/2019/GoTurns10/</link><pubDate>Thu, 18 May 2023 17:03:08 +0800</pubDate><guid>https://before80.github.io/go_docs/goBlog/2019/GoTurns10/</guid><description>&lt;h1 id="go-turns-10---go进入10周年">Go Turns 10 - go进入10周年&lt;a class="td-heading-self-link" href="#go-turns-10---go%e8%bf%9b%e5%85%a510%e5%91%a8%e5%b9%b4" aria-label="Heading self-link">&lt;/a>&lt;/h1>
-&lt;blockquote>
-&lt;p>原文：&lt;a href="https://go.dev/blog/10years">https://go.dev/blog/10years&lt;/a>&lt;/p>&lt;/blockquote>
-&lt;p>Russ Cox, for the Go team
-8 November 2019&lt;/p>
-&lt;p>Happy birthday, Go!&lt;/p>
-&lt;p>生日快乐，Go!&lt;/p>
-&lt;p>This weekend we celebrate the 10th anniversary of &lt;a href="https://opensource.googleblog.com/2009/11/hey-ho-lets-go.html">the Go release&lt;/a>, marking the 10th birthday of Go as an open-source programming language and ecosystem for building modern networked software.&lt;/p>
-&lt;p>本周末我们庆祝Go发布10周年，标志着Go作为一种开源编程语言和构建现代网络软件的生态系统的10岁生日。&lt;/p></description></item><item><title>Go模块：V2版及以后</title><link>https://before80.github.io/go_docs/goBlog/2019/GoModulesV2AndBeyond/</link><pubDate>Thu, 18 May 2023 17:03:08 +0800</pubDate><guid>https://before80.github.io/go_docs/goBlog/2019/GoModulesV2AndBeyond/</guid><description>&lt;h1 id="go-modules-v2-and-beyond---go模块v2版及以后">Go Modules: v2 and Beyond - go模块：V2版及以后&lt;a class="td-heading-self-link" href="#go-modules-v2-and-beyond---go%e6%a8%a1%e5%9d%97v2%e7%89%88%e5%8f%8a%e4%bb%a5%e5%90%8e" aria-label="Heading self-link">&lt;/a>&lt;/h1>
-&lt;blockquote>
-&lt;p>原文：&lt;a href="https://go.dev/blog/v2-go-modules">https://go.dev/blog/v2-go-modules&lt;/a>&lt;/p>&lt;/blockquote>
-&lt;p>Jean de Klerk and Tyler Bui-Palsulich
-7 November 2019&lt;/p>
-&lt;h2 id="introduction-简介">Introduction 简介&lt;a class="td-heading-self-link" href="#introduction-%e7%ae%80%e4%bb%8b" aria-label="Heading self-link">&lt;/a>&lt;/h2>
-&lt;p>This post is part 4 in a series.&lt;/p>
-&lt;p>这篇文章是系列文章中的第四部分。&lt;/p>
-&lt;ul>
-&lt;li>Part 1 — &lt;a href="https://go.dev/blog/using-go-modules">Using Go Modules 使用Go模块&lt;/a>&lt;/li>
-&lt;li>Part 2 — &lt;a href="https://go.dev/blog/migrating-to-go-modules">Migrating To Go Modules 迁移到Go模块&lt;/a>&lt;/li>
-&lt;li>Part 3 — &lt;a href="https://go.dev/blog/publishing-go-modules">Publishing Go Modules 发布Go模块&lt;/a>&lt;/li>
-&lt;li>&lt;strong>Part 4 — Go Modules: v2 and Beyond&lt;/strong> (this post) Go模块：v2版及以后（本帖）&lt;/li>
-&lt;li>Part 5 — &lt;a href="https://go.dev/blog/module-compatibility">Keeping Your Modules Compatible 保持模块的兼容性&lt;/a>&lt;/li>
-&lt;/ul>
-&lt;p>&lt;strong>Note:&lt;/strong> For documentation on developing modules, see &lt;a href="https://go.dev/doc/modules/developing">Developing and publishing modules&lt;/a>.&lt;/p></description></item><item><title>在 Go 1.13中处理错误</title><link>https://before80.github.io/go_docs/goBlog/2019/WorkingWithErrorsInGo1_13/</link><pubDate>Thu, 18 May 2023 17:03:08 +0800</pubDate><guid>https://before80.github.io/go_docs/goBlog/2019/WorkingWithErrorsInGo1_13/</guid><description>&lt;h1 id="working-with-errors-in-go-113---在-go-113中处理错误">Working with Errors in Go 1.13 - 在 go 1.13中处理错误&lt;a class="td-heading-self-link" href="#working-with-errors-in-go-113---%e5%9c%a8-go-113%e4%b8%ad%e5%a4%84%e7%90%86%e9%94%99%e8%af%af" aria-label="Heading self-link">&lt;/a>&lt;/h1>
-&lt;blockquote>
-&lt;p>原文：&lt;a href="https://go.dev/blog/go1.13-errors">https://go.dev/blog/go1.13-errors&lt;/a>&lt;/p>&lt;/blockquote>
-&lt;p>Damien Neil and Jonathan Amsterdam
-17 October 2019&lt;/p>
-&lt;h2 id="introduction-简介">Introduction 简介&lt;a class="td-heading-self-link" href="#introduction-%e7%ae%80%e4%bb%8b" aria-label="Heading self-link">&lt;/a>&lt;/h2>
-&lt;p>Go’s treatment of &lt;a href="https://blog.golang.org/errors-are-values">errors as values&lt;/a> has served us well over the last decade. Although the standard library’s support for errors has been minimal—just the &lt;code>errors.New&lt;/code> and &lt;code>fmt.Errorf&lt;/code> functions, which produce errors that contain only a message—the built-in &lt;code>error&lt;/code> interface allows Go programmers to add whatever information they desire. All it requires is a type that implements an &lt;code>Error&lt;/code> method:&lt;/p></description></item><item><title>发布 Go 模块</title><link>https://before80.github.io/go_docs/goBlog/2019/PublishingGoModules/</link><pubDate>Thu, 18 May 2023 17:03:08 +0800</pubDate><guid>https://before80.github.io/go_docs/goBlog/2019/PublishingGoModules/</guid><description>&lt;h1 id="publishing-go-modules---发布-go-模块">Publishing Go Modules - 发布 go 模块&lt;a class="td-heading-self-link" href="#publishing-go-modules---%e5%8f%91%e5%b8%83-go-%e6%a8%a1%e5%9d%97" aria-label="Heading self-link">&lt;/a>&lt;/h1>
-&lt;blockquote>
-&lt;p>原文：&lt;a href="https://go.dev/blog/publishing-go-modules">https://go.dev/blog/publishing-go-modules&lt;/a>&lt;/p>&lt;/blockquote>
-&lt;p>Tyler Bui-Palsulich
-26 September 2019&lt;/p>
-&lt;h2 id="introduction-简介">Introduction 简介&lt;a class="td-heading-self-link" href="#introduction-%e7%ae%80%e4%bb%8b" aria-label="Heading self-link">&lt;/a>&lt;/h2>
-&lt;p>This post is part 3 in a series.&lt;/p>
-&lt;p>这篇文章是系列文章的第三部分。&lt;/p>
-&lt;ul>
-&lt;li>Part 1 — &lt;a href="https://go.dev/blog/using-go-modules">Using Go Modules 使用Go模块&lt;/a>&lt;/li>
-&lt;li>Part 2 — &lt;a href="https://go.dev/blog/migrating-to-go-modules">Migrating To Go Modules 迁移到Go模块&lt;/a>&lt;/li>
-&lt;li>&lt;strong>Part 3 — Publishing Go Modules&lt;/strong> (this post) 发布Go模块（本帖）&lt;/li>
-&lt;li>Part 4 — &lt;a href="https://go.dev/blog/v2-go-modules">Go Modules: v2 and Beyond Go模块：V2版及以后&lt;/a>&lt;/li>
-&lt;li>Part 5 — &lt;a href="https://go.dev/blog/module-compatibility">Keeping Your Modules Compatible 保持模块的兼容性&lt;/a>&lt;/li>
-&lt;/ul>
-&lt;p>&lt;strong>Note:&lt;/strong> For documentation on developing modules, see &lt;a href="https://go.dev/doc/modules/developing">Developing and publishing modules&lt;/a>.&lt;/p></description></item><item><title>Go 1.13发布了</title><link>https://before80.github.io/go_docs/goBlog/2019/Go1_13IsReleased/</link><pubDate>Thu, 18 May 2023 17:03:08 +0800</pubDate><guid>https://before80.github.io/go_docs/goBlog/2019/Go1_13IsReleased/</guid><description>&lt;h1 id="go-113-is-released---go-113发布了">Go 1.13 is released - go 1.13发布了&lt;a class="td-heading-self-link" href="#go-113-is-released---go-113%e5%8f%91%e5%b8%83%e4%ba%86" aria-label="Heading self-link">&lt;/a>&lt;/h1>
-&lt;blockquote>
-&lt;p>原文：&lt;a href="https://go.dev/blog/go1.13">https://go.dev/blog/go1.13&lt;/a>&lt;/p>&lt;/blockquote>
-&lt;p>Andrew Bonventre
-3 September 2019&lt;/p>
-&lt;p>Today the Go team is very happy to announce the release of Go 1.13. You can get it from the &lt;a href="https://go.dev/dl">download page&lt;/a>.&lt;/p>
-&lt;p>今天，Go团队非常高兴地宣布Go 1.13的发布。您可以从下载页面获得它。&lt;/p></description></item><item><title>模块镜像和校验数据库发布</title><link>https://before80.github.io/go_docs/goBlog/2019/ModuleMirrorAndChecksumDatabaseLaunched/</link><pubDate>Thu, 18 May 2023 17:03:08 +0800</pubDate><guid>https://before80.github.io/go_docs/goBlog/2019/ModuleMirrorAndChecksumDatabaseLaunched/</guid><description>&lt;h1 id="module-mirror-and-checksum-database-launched---模块镜像和校验数据库发布">Module Mirror and Checksum Database Launched - 模块镜像和校验数据库发布&lt;a class="td-heading-self-link" href="#module-mirror-and-checksum-database-launched---%e6%a8%a1%e5%9d%97%e9%95%9c%e5%83%8f%e5%92%8c%e6%a0%a1%e9%aa%8c%e6%95%b0%e6%8d%ae%e5%ba%93%e5%8f%91%e5%b8%83" aria-label="Heading self-link">&lt;/a>&lt;/h1>
-&lt;blockquote>
-&lt;p>原文：&lt;a href="https://go.dev/blog/module-mirror-launch">https://go.dev/blog/module-mirror-launch&lt;/a>&lt;/p>&lt;/blockquote>
-&lt;p>Katie Hockman
-29 August 2019&lt;/p>
-&lt;p>We are excited to share that our module &lt;a href="https://proxy.golang.org/">mirror&lt;/a>, &lt;a href="https://index.golang.org/">index&lt;/a>, and &lt;a href="https://sum.golang.org/">checksum database&lt;/a> are now production ready! The &lt;code>go&lt;/code> command will use the module mirror and checksum database by default for &lt;a href="https://go.dev/doc/go1.13#introduction">Go 1.13 module users&lt;/a>. See &lt;a href="https://proxy.golang.org/privacy">proxy.golang.org/privacy&lt;/a> for privacy information about these services and the &lt;a href="https://go.dev/cmd/go/#hdr-Module_downloading_and_verification">go command documentation&lt;/a> for configuration details, including how to disable the use of these servers or use different ones. If you depend on non-public modules, see the &lt;a href="https://go.dev/cmd/go/#hdr-Module_configuration_for_non_public_modules">documentation for configuring your environment&lt;/a>.&lt;/p></description></item><item><title>迁移到 Go 模块</title><link>https://before80.github.io/go_docs/goBlog/2019/MigratingToGoModules/</link><pubDate>Thu, 18 May 2023 17:03:08 +0800</pubDate><guid>https://before80.github.io/go_docs/goBlog/2019/MigratingToGoModules/</guid><description>&lt;h1 id="migrating-to-go-modules---迁移到-go-模块">Migrating to Go Modules - 迁移到 go 模块&lt;a class="td-heading-self-link" href="#migrating-to-go-modules---%e8%bf%81%e7%a7%bb%e5%88%b0-go-%e6%a8%a1%e5%9d%97" aria-label="Heading self-link">&lt;/a>&lt;/h1>
-&lt;blockquote>
-&lt;p>原文：&lt;a href="https://go.dev/blog/migrating-to-go-modules">https://go.dev/blog/migrating-to-go-modules&lt;/a>&lt;/p>&lt;/blockquote>
-&lt;p>Jean de Klerk
-21 August 2019&lt;/p>
-&lt;h2 id="introduction-简介">Introduction 简介&lt;a class="td-heading-self-link" href="#introduction-%e7%ae%80%e4%bb%8b" aria-label="Heading self-link">&lt;/a>&lt;/h2>
-&lt;p>This post is part 2 in a series.&lt;/p>
-&lt;p>这篇文章是系列文章的第二部分。&lt;/p>
-&lt;ul>
-&lt;li>Part 1 — &lt;a href="https://go.dev/blog/using-go-modules">Using Go Modules 使用Go模块&lt;/a>&lt;/li>
-&lt;li>&lt;strong>Part 2 — Migrating To Go Modules&lt;/strong> (this post) 迁移到Go模块（本帖）&lt;/li>
-&lt;li>Part 3 — &lt;a href="https://go.dev/blog/publishing-go-modules">Publishing Go Modules 发布Go模块&lt;/a>&lt;/li>
-&lt;li>Part 4 — &lt;a href="https://go.dev/blog/v2-go-modules">Go Modules: v2 and Beyond Go模块：V2版及以后&lt;/a>&lt;/li>
-&lt;li>Part 5 — &lt;a href="https://go.dev/blog/module-compatibility">Keeping Your Modules Compatible 保持模块的兼容性&lt;/a>&lt;/li>
-&lt;/ul>
-&lt;p>&lt;strong>Note:&lt;/strong> For documentation, see &lt;a href="https://go.dev/doc/modules/managing-dependencies">Managing dependencies&lt;/a> and &lt;a href="https://go.dev/doc/modules/developing">Developing and publishing modules&lt;/a>.&lt;/p></description></item><item><title>Contributors Summit 2019</title><link>https://before80.github.io/go_docs/goBlog/2019/ContributorsSummit2019/</link><pubDate>Thu, 18 May 2023 17:03:08 +0800</pubDate><guid>https://before80.github.io/go_docs/goBlog/2019/ContributorsSummit2019/</guid><description>&lt;h1 id="contributors-summit-2019">Contributors Summit 2019&lt;a class="td-heading-self-link" href="#contributors-summit-2019" aria-label="Heading self-link">&lt;/a>&lt;/h1>
-&lt;blockquote>
-&lt;p>原文：&lt;a href="https://go.dev/blog/contributors-summit-2019">https://go.dev/blog/contributors-summit-2019&lt;/a>&lt;/p>&lt;/blockquote>
-&lt;p>Carmen Andoh and contributors
-15 August 2019&lt;/p>
-&lt;h2 id="introduction-简介">Introduction 简介&lt;a class="td-heading-self-link" href="#introduction-%e7%ae%80%e4%bb%8b" aria-label="Heading self-link">&lt;/a>&lt;/h2>
-&lt;p>For the third year in a row, the Go team and contributors convened the day before GopherCon to discuss and plan for the future of the Go project. The event included self-organizing into breakout groups, a town-hall style discussion about the proposal process in the morning, and afternoon break-out roundtable discussions based on topics our contributors chose. We asked five contributors to write about their experience in various discussions at this year’s summit.&lt;/p></description></item><item><title>实验, 简化, ship</title><link>https://before80.github.io/go_docs/goBlog/2019/ExperimentSimplifyShip/</link><pubDate>Thu, 18 May 2023 17:03:08 +0800</pubDate><guid>https://before80.github.io/go_docs/goBlog/2019/ExperimentSimplifyShip/</guid><description>&lt;h1 id="experiment-simplify-ship---实验-简化-ship">Experiment, Simplify, Ship - 实验, 简化, ship&lt;a class="td-heading-self-link" href="#experiment-simplify-ship---%e5%ae%9e%e9%aa%8c-%e7%ae%80%e5%8c%96-ship" aria-label="Heading self-link">&lt;/a>&lt;/h1>
-&lt;blockquote>
-&lt;p>原文：&lt;a href="https://go.dev/blog/experiment">https://go.dev/blog/experiment&lt;/a>&lt;/p>&lt;/blockquote>
-&lt;p>Russ Cox
-1 August 2019&lt;/p>
-&lt;h2 id="introduction-简介">Introduction 简介&lt;a class="td-heading-self-link" href="#introduction-%e7%ae%80%e4%bb%8b" aria-label="Heading self-link">&lt;/a>&lt;/h2>
-&lt;p>This is the blog post version of my talk last week at GopherCon 2019.&lt;/p>
-&lt;p>这是我上周在GopherCon 2019上的演讲的博文版本。&lt;/p></description></item><item><title>为什么泛型？</title><link>https://before80.github.io/go_docs/goBlog/2019/WhyGenerics/</link><pubDate>Thu, 18 May 2023 17:03:08 +0800</pubDate><guid>https://before80.github.io/go_docs/goBlog/2019/WhyGenerics/</guid><description>&lt;h1 id="why-generics---为什么泛型">Why Generics? - 为什么泛型？&lt;a class="td-heading-self-link" href="#why-generics---%e4%b8%ba%e4%bb%80%e4%b9%88%e6%b3%9b%e5%9e%8b" aria-label="Heading self-link">&lt;/a>&lt;/h1>
-&lt;blockquote>
-&lt;p>原文：&lt;a href="https://go.dev/blog/why-generics">https://go.dev/blog/why-generics&lt;/a>&lt;/p>&lt;/blockquote>
-&lt;p>Ian Lance Taylor
-31 July 2019&lt;/p>
-&lt;h2 id="introduction-简介">Introduction 简介&lt;a class="td-heading-self-link" href="#introduction-%e7%ae%80%e4%bb%8b" aria-label="Heading self-link">&lt;/a>&lt;/h2>
-&lt;p>This is the blog post version of my talk last week at Gophercon 2019.&lt;/p>
-&lt;p>这是我上周在Gophercon 2019的演讲的博文版本。&lt;/p></description></item><item><title>宣布新的go Store</title><link>https://before80.github.io/go_docs/goBlog/2019/AnnouncingTheNewGoStore/</link><pubDate>Thu, 18 May 2023 17:03:08 +0800</pubDate><guid>https://before80.github.io/go_docs/goBlog/2019/AnnouncingTheNewGoStore/</guid><description>&lt;h1 id="announcing-the-new-go-store---宣布新的go-store">Announcing The New Go Store - 宣布新的go Store&lt;a class="td-heading-self-link" href="#announcing-the-new-go-store---%e5%ae%a3%e5%b8%83%e6%96%b0%e7%9a%84go-store" aria-label="Heading self-link">&lt;/a>&lt;/h1>
-&lt;blockquote>
-&lt;p>原文：&lt;a href="https://go.dev/blog/store">https://go.dev/blog/store&lt;/a>&lt;/p>&lt;/blockquote>
-&lt;p>Cassandra Salisbury
-18 July 2019&lt;/p>
-&lt;p>&lt;strong>October 1, 2019, Update:&lt;/strong> &lt;em>The Go Store is currently offline.&lt;/em> &lt;em>We are sorry for any inconvenience.&lt;/em> &lt;em>We will update this post with any status changes.&lt;/em>&lt;/p>
-&lt;p>2019年10月1日，更新：Go Store目前已经下线。我们对造成的不便感到抱歉。我们将根据任何状态变化更新此帖。&lt;/p></description></item><item><title>迈向Go 2的下一步</title><link>https://before80.github.io/go_docs/goBlog/2019/NextStepsTowardGo2/</link><pubDate>Thu, 18 May 2023 17:03:08 +0800</pubDate><guid>https://before80.github.io/go_docs/goBlog/2019/NextStepsTowardGo2/</guid><description>&lt;h1 id="next-steps-toward-go-2---迈向go-2的下一步">Next steps toward Go 2 - 迈向go 2的下一步&lt;a class="td-heading-self-link" href="#next-steps-toward-go-2---%e8%bf%88%e5%90%91go-2%e7%9a%84%e4%b8%8b%e4%b8%80%e6%ad%a5" aria-label="Heading self-link">&lt;/a>&lt;/h1>
-&lt;blockquote>
-&lt;p>原文：&lt;a href="https://go.dev/blog/go2-next-steps">https://go.dev/blog/go2-next-steps&lt;/a>&lt;/p>&lt;/blockquote>
-&lt;p>Robert Griesemer, for the Go team
-26 June 2019&lt;/p>
-&lt;h2 id="status-状态">Status 状态&lt;a class="td-heading-self-link" href="#status-%e7%8a%b6%e6%80%81" aria-label="Heading self-link">&lt;/a>&lt;/h2>
-&lt;p>We’re well on the way towards the release of Go 1.13, hopefully in early August of this year. This is the first release that will include concrete changes to the language (rather than just minor adjustments to the spec), after a longer moratorium on any such changes.&lt;/p></description></item><item><title>2018年 Go 调查结果</title><link>https://before80.github.io/go_docs/goBlog/2019/Go2018SurveyResults/</link><pubDate>Thu, 18 May 2023 17:03:08 +0800</pubDate><guid>https://before80.github.io/go_docs/goBlog/2019/Go2018SurveyResults/</guid><description>&lt;h1 id="go-2018-survey-results---2018年-go-调查结果">Go 2018 Survey Results - 2018年 go 调查结果&lt;a class="td-heading-self-link" href="#go-2018-survey-results---2018%e5%b9%b4-go-%e8%b0%83%e6%9f%a5%e7%bb%93%e6%9e%9c" aria-label="Heading self-link">&lt;/a>&lt;/h1>
-&lt;blockquote>
-&lt;p>原文：&lt;a href="https://go.dev/blog/survey2018-results">https://go.dev/blog/survey2018-results&lt;/a>&lt;/p>&lt;/blockquote>
-&lt;p>Todd Kulesza, Steve Francia
-28 March 2019&lt;/p>
-&lt;h2 id="thank-you-谢谢您">Thank you 谢谢您&lt;a class="td-heading-self-link" href="#thank-you-%e8%b0%a2%e8%b0%a2%e6%82%a8" aria-label="Heading self-link">&lt;/a>&lt;/h2>
-&lt;p>This post summarizes the results of our 2018 user survey and draws comparisons between the results of our prior surveys from &lt;a href="https://blog.golang.org/survey2016-results">2016&lt;/a> and &lt;a href="https://blog.golang.org/survey2017-results">2017&lt;/a>.&lt;/p>
-&lt;p>这篇文章总结了我们2018年用户调查的结果，并对我们之前2016年和2017年的调查结果进行了比较。&lt;/p></description></item><item><title>调试您在Go 1.12中部署的内容</title><link>https://before80.github.io/go_docs/goBlog/2019/DebuggingWhatYouDeployInGo1_12/</link><pubDate>Thu, 18 May 2023 17:03:08 +0800</pubDate><guid>https://before80.github.io/go_docs/goBlog/2019/DebuggingWhatYouDeployInGo1_12/</guid><description>&lt;h1 id="debugging-what-you-deploy-in-go-112---调试您在go-112中部署的内容">Debugging what you deploy in Go 1.12 - 调试您在go 1.12中部署的内容&lt;a class="td-heading-self-link" href="#debugging-what-you-deploy-in-go-112---%e8%b0%83%e8%af%95%e6%82%a8%e5%9c%a8go-112%e4%b8%ad%e9%83%a8%e7%bd%b2%e7%9a%84%e5%86%85%e5%ae%b9" aria-label="Heading self-link">&lt;/a>&lt;/h1>
-&lt;blockquote>
-&lt;p>原文：&lt;a href="https://go.dev/blog/debug-opt">https://go.dev/blog/debug-opt&lt;/a>&lt;/p>&lt;/blockquote>
-&lt;p>David Chase
-21 March 2019&lt;/p>
-&lt;h2 id="introduction-简介">Introduction 简介&lt;a class="td-heading-self-link" href="#introduction-%e7%ae%80%e4%bb%8b" aria-label="Heading self-link">&lt;/a>&lt;/h2>
-&lt;p>Go 1.11 and Go 1.12 make significant progress toward allowing developers to debug the same optimized binaries that they deploy to production.&lt;/p>
-&lt;p>Go 1.11 和 Go 1.12 在允许开发人员调试他们部署到生产中的相同优化二进制文件方面取得了重大进展。&lt;/p></description></item><item><title>使用 Go 模块</title><link>https://before80.github.io/go_docs/goBlog/2019/UsingGoModules/</link><pubDate>Thu, 18 May 2023 17:03:08 +0800</pubDate><guid>https://before80.github.io/go_docs/goBlog/2019/UsingGoModules/</guid><description>&lt;h1 id="using-go-modules---使用-go-模块">Using Go Modules - 使用 go 模块&lt;a class="td-heading-self-link" href="#using-go-modules---%e4%bd%bf%e7%94%a8-go-%e6%a8%a1%e5%9d%97" aria-label="Heading self-link">&lt;/a>&lt;/h1>
-&lt;blockquote>
-&lt;p>原文：&lt;a href="https://go.dev/blog/using-go-modules">https://go.dev/blog/using-go-modules&lt;/a>&lt;/p>&lt;/blockquote>
-&lt;p>Tyler Bui-Palsulich and Eno Compton
-19 March 2019&lt;/p>
-&lt;p>2019年3月19日&lt;/p>
-&lt;h2 id="introduction-简介">Introduction 简介&lt;a class="td-heading-self-link" href="#introduction-%e7%ae%80%e4%bb%8b" aria-label="Heading self-link">&lt;/a>&lt;/h2>
-&lt;p>这篇文章是系列的第一部分。&lt;/p>
-&lt;ul>
-&lt;li>Part 1 — 使用Go模块（本帖）&lt;/li>
-&lt;li>Part 2 — &lt;a href="../MigratingToGoModules">Migrating To Go Modules 迁移到Go模块&lt;/a>&lt;/li>
-&lt;li>Part 3 — &lt;a href="../PublishingGoModules">Publishing Go Modules 发布Go模块&lt;/a>&lt;/li>
-&lt;li>Part 4 — &lt;a href="../GoModulesV2AndBeyond">Go Modules: v2 and Beyond Go模块：V2版及以后&lt;/a>&lt;/li>
-&lt;li>Part 5 — &lt;a href="../../2020/KeepingYourModulesCompatible">Keeping Your Modules Compatible 保持模块的兼容性&lt;/a>&lt;/li>
-&lt;/ul>
-&lt;p>注意：关于管理模块的依赖项的文档，请参见&lt;a href="../../../UsingAndUnderstandingGo/ManagingDependencies">管理依赖项&lt;/a>。&lt;/p></description></item><item><title>新的 Go 开发者网络</title><link>https://before80.github.io/go_docs/goBlog/2019/TheNewGoDeveloperNetwork/</link><pubDate>Thu, 18 May 2023 17:03:08 +0800</pubDate><guid>https://before80.github.io/go_docs/goBlog/2019/TheNewGoDeveloperNetwork/</guid><description>&lt;h1 id="the-new-go-developer-network---新的-go-开发者网络">The New Go Developer Network - 新的 go 开发者网络&lt;a class="td-heading-self-link" href="#the-new-go-developer-network---%e6%96%b0%e7%9a%84-go-%e5%bc%80%e5%8f%91%e8%80%85%e7%bd%91%e7%bb%9c" aria-label="Heading self-link">&lt;/a>&lt;/h1>
-&lt;blockquote>
-&lt;p>原文：&lt;a href="https://go.dev/blog/go-developer-network">https://go.dev/blog/go-developer-network&lt;/a>&lt;/p>&lt;/blockquote>
-&lt;p>GoBridge Leadership Team
-14 March 2019&lt;/p>
-&lt;p>A sense of community flourishes when we come together in person. As handles become names and avatars become faces, the smiles are real and true friendship can grow. There is joy in the sharing of knowledge and celebrating the accomplishments of our friends, colleagues, and neighbors. In our rapidly growing Go community this critical role is played by the Go user groups.&lt;/p></description></item><item><title>Go 云开发工具包的新内容</title><link>https://before80.github.io/go_docs/goBlog/2019/WhatIsNewInTheGoCloudDevelopmentKit/</link><pubDate>Thu, 18 May 2023 17:03:08 +0800</pubDate><guid>https://before80.github.io/go_docs/goBlog/2019/WhatIsNewInTheGoCloudDevelopmentKit/</guid><description>&lt;h1 id="whats-new-in-the-go-cloud-development-kit---go-云开发工具包的新内容">What&amp;rsquo;s new in the Go Cloud Development Kit - go 云开发工具包的新内容&lt;a class="td-heading-self-link" href="#whats-new-in-the-go-cloud-development-kit---go-%e4%ba%91%e5%bc%80%e5%8f%91%e5%b7%a5%e5%85%b7%e5%8c%85%e7%9a%84%e6%96%b0%e5%86%85%e5%ae%b9" aria-label="Heading self-link">&lt;/a>&lt;/h1>
-&lt;blockquote>
-&lt;p>原文：&lt;a href="https://go.dev/blog/go-cloud2019">https://go.dev/blog/go-cloud2019&lt;/a>&lt;/p>&lt;/blockquote>
-&lt;p>The Go Cloud Development Kit team at Google 谷歌的Go云开发工具包团队&lt;/p>
-&lt;p>4 March 2019&lt;/p>
-&lt;p>2019年3月4日&lt;/p>
-&lt;h2 id="introduction-简介">Introduction 简介&lt;a class="td-heading-self-link" href="#introduction-%e7%ae%80%e4%bb%8b" aria-label="Heading self-link">&lt;/a>&lt;/h2>
-&lt;p>Last July, we &lt;a href="https://blog.golang.org/go-cloud">introduced&lt;/a> the &lt;a href="https://gocloud.dev/">Go Cloud Development Kit&lt;/a> (previously referred to as simply &amp;ldquo;Go Cloud&amp;rdquo;), an open source project building libraries and tools to improve the experience of developing for the cloud with Go. We’ve made a lot of progress since then – thank you to early contributors! We look forward to growing the Go CDK community of users and contributors, and are excited to work closely with early adopters.&lt;/p></description></item><item><title>Go 1.12发布了</title><link>https://before80.github.io/go_docs/goBlog/2019/Go1_12IsReleased/</link><pubDate>Thu, 18 May 2023 17:03:08 +0800</pubDate><guid>https://before80.github.io/go_docs/goBlog/2019/Go1_12IsReleased/</guid><description>&lt;h1 id="go-112-is-released---go-112发布了">Go 1.12 is released - Go 1.12发布了&lt;a class="td-heading-self-link" href="#go-112-is-released---go-112%e5%8f%91%e5%b8%83%e4%ba%86" aria-label="Heading self-link">&lt;/a>&lt;/h1>
-&lt;blockquote>
-&lt;p>原文：&lt;a href="https://go.dev/blog/go1.12">https://go.dev/blog/go1.12&lt;/a>&lt;/p>&lt;/blockquote>
-&lt;p>Andrew Bonventre
-25 February 2019&lt;/p>
-&lt;p>Today the Go team is happy to announce the release of Go 1.12. You can get it from the &lt;a href="https://go.dev/dl/">download page&lt;/a>.&lt;/p>
-&lt;p>今天，Go团队很高兴地宣布Go 1.12的发布。您可以从下载页面获得它。&lt;/p></description></item></channel></rss>
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>2019 [20篇] on Go 中文档集</title><link>https://before80.github.io/go_docs/goBlog/2019/</link><description>Recent content in 2019 [20篇] on Go 中文档集</description><generator>Hugo</generator><language>zh-cn</language><lastBuildDate>Thu, 10 Oct 2024 15:07:50 +0800</lastBuildDate><atom:link href="https://before80.github.io/go_docs/goBlog/2019/index.xml" rel="self" type="application/rss+xml"/><item><title>宣布2019年Go开发者调查</title><link>https://before80.github.io/go_docs/goBlog/2019/AnnouncingThe2019GoDeveloperSurvey/</link><pubDate>Thu, 18 May 2023 17:03:08 +0800</pubDate><guid>https://before80.github.io/go_docs/goBlog/2019/AnnouncingThe2019GoDeveloperSurvey/</guid><description>&lt;h1 id="announcing-the-2019-go-developer-survey---宣布2019年go开发者调查"&gt;Announcing the 2019 Go Developer Survey - 宣布2019年Go开发者调查&lt;/h1&gt;
+&lt;blockquote&gt;
+&lt;p&gt;原文：&lt;a href="https://go.dev/blog/survey2019"&gt;https://go.dev/blog/survey2019&lt;/a&gt;&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;Todd Kulesza
+20 November 2019&lt;/p&gt;
+&lt;h2 id="help-shape-the-future-of-go-帮助塑造go的未来"&gt;Help shape the future of Go 帮助塑造Go的未来&lt;/h2&gt;
+&lt;p&gt;Since 2016, thousands of Gophers around the world have helped the Go project by sharing your thoughts via our annual Go Developer Survey. Your feedback has played an enormous role in driving changes to our language, ecosystem, and community, including &lt;a href="https://about.sourcegraph.com/go/gophercon-2019-go-pls-stop-breaking-my-editor"&gt;the gopls language server&lt;/a&gt;, new &lt;a href="https://blog.golang.org/go1.13-errors"&gt;error-handling mechanics&lt;/a&gt;, the &lt;a href="https://blog.golang.org/module-mirror-launch"&gt;module mirror&lt;/a&gt;, and so much more from the latest &lt;a href="https://blog.golang.org/go1.13"&gt;Go 1.13 release&lt;/a&gt;. And of course, we publicly share &lt;a href="https://blog.golang.org/survey2016-results"&gt;each&lt;/a&gt; &lt;a href="https://blog.golang.org/survey2017-results"&gt;year’s&lt;/a&gt; &lt;a href="https://blog.golang.org/survey2018-results"&gt;results&lt;/a&gt;, so we can all benefit from the community’s insights.&lt;/p&gt;</description></item><item><title>go.dev：go开发者的新中心</title><link>https://before80.github.io/go_docs/goBlog/2019/GodevANewHubForGoDevelopers/</link><pubDate>Thu, 18 May 2023 17:03:08 +0800</pubDate><guid>https://before80.github.io/go_docs/goBlog/2019/GodevANewHubForGoDevelopers/</guid><description>&lt;h1 id="godev-a-new-hub-for-go-developers---godevgo开发者的新中心"&gt;Go.dev: a new hub for Go developers - go.dev：go开发者的新中心&lt;/h1&gt;
+&lt;blockquote&gt;
+&lt;p&gt;原文：&lt;a href="https://go.dev/blog/go.dev"&gt;https://go.dev/blog/go.dev&lt;/a&gt;&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;Steve Francia and Julie Qiu
+13 November 2019&lt;/p&gt;
+&lt;p&gt;Over the last two years, as we’ve spoken with users at companies of all sizes, we’ve heard three questions repeatedly: who else is using Go, what do they use it for, and how can I find useful Go packages?&lt;/p&gt;</description></item><item><title>Go进入10周年</title><link>https://before80.github.io/go_docs/goBlog/2019/GoTurns10/</link><pubDate>Thu, 18 May 2023 17:03:08 +0800</pubDate><guid>https://before80.github.io/go_docs/goBlog/2019/GoTurns10/</guid><description>&lt;h1 id="go-turns-10---go进入10周年"&gt;Go Turns 10 - go进入10周年&lt;/h1&gt;
+&lt;blockquote&gt;
+&lt;p&gt;原文：&lt;a href="https://go.dev/blog/10years"&gt;https://go.dev/blog/10years&lt;/a&gt;&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;Russ Cox, for the Go team
+8 November 2019&lt;/p&gt;
+&lt;p&gt;Happy birthday, Go!&lt;/p&gt;
+&lt;p&gt;生日快乐，Go!&lt;/p&gt;
+&lt;p&gt;This weekend we celebrate the 10th anniversary of &lt;a href="https://opensource.googleblog.com/2009/11/hey-ho-lets-go.html"&gt;the Go release&lt;/a&gt;, marking the 10th birthday of Go as an open-source programming language and ecosystem for building modern networked software.&lt;/p&gt;
+&lt;p&gt;本周末我们庆祝Go发布10周年，标志着Go作为一种开源编程语言和构建现代网络软件的生态系统的10岁生日。&lt;/p&gt;</description></item><item><title>Go模块：V2版及以后</title><link>https://before80.github.io/go_docs/goBlog/2019/GoModulesV2AndBeyond/</link><pubDate>Thu, 18 May 2023 17:03:08 +0800</pubDate><guid>https://before80.github.io/go_docs/goBlog/2019/GoModulesV2AndBeyond/</guid><description>&lt;h1 id="go-modules-v2-and-beyond---go模块v2版及以后"&gt;Go Modules: v2 and Beyond - go模块：V2版及以后&lt;/h1&gt;
+&lt;blockquote&gt;
+&lt;p&gt;原文：&lt;a href="https://go.dev/blog/v2-go-modules"&gt;https://go.dev/blog/v2-go-modules&lt;/a&gt;&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;Jean de Klerk and Tyler Bui-Palsulich
+7 November 2019&lt;/p&gt;
+&lt;h2 id="introduction-简介"&gt;Introduction 简介&lt;/h2&gt;
+&lt;p&gt;This post is part 4 in a series.&lt;/p&gt;
+&lt;p&gt;这篇文章是系列文章中的第四部分。&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;Part 1 — &lt;a href="https://go.dev/blog/using-go-modules"&gt;Using Go Modules 使用Go模块&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;Part 2 — &lt;a href="https://go.dev/blog/migrating-to-go-modules"&gt;Migrating To Go Modules 迁移到Go模块&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;Part 3 — &lt;a href="https://go.dev/blog/publishing-go-modules"&gt;Publishing Go Modules 发布Go模块&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Part 4 — Go Modules: v2 and Beyond&lt;/strong&gt; (this post) Go模块：v2版及以后（本帖）&lt;/li&gt;
+&lt;li&gt;Part 5 — &lt;a href="https://go.dev/blog/module-compatibility"&gt;Keeping Your Modules Compatible 保持模块的兼容性&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;&lt;strong&gt;Note:&lt;/strong&gt; For documentation on developing modules, see &lt;a href="https://go.dev/doc/modules/developing"&gt;Developing and publishing modules&lt;/a&gt;.&lt;/p&gt;</description></item><item><title>在 Go 1.13中处理错误</title><link>https://before80.github.io/go_docs/goBlog/2019/WorkingWithErrorsInGo1_13/</link><pubDate>Thu, 18 May 2023 17:03:08 +0800</pubDate><guid>https://before80.github.io/go_docs/goBlog/2019/WorkingWithErrorsInGo1_13/</guid><description>&lt;h1 id="working-with-errors-in-go-113---在-go-113中处理错误"&gt;Working with Errors in Go 1.13 - 在 go 1.13中处理错误&lt;/h1&gt;
+&lt;blockquote&gt;
+&lt;p&gt;原文：&lt;a href="https://go.dev/blog/go1.13-errors"&gt;https://go.dev/blog/go1.13-errors&lt;/a&gt;&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;Damien Neil and Jonathan Amsterdam
+17 October 2019&lt;/p&gt;
+&lt;h2 id="introduction-简介"&gt;Introduction 简介&lt;/h2&gt;
+&lt;p&gt;Go’s treatment of &lt;a href="https://blog.golang.org/errors-are-values"&gt;errors as values&lt;/a&gt; has served us well over the last decade. Although the standard library’s support for errors has been minimal—just the &lt;code&gt;errors.New&lt;/code&gt; and &lt;code&gt;fmt.Errorf&lt;/code&gt; functions, which produce errors that contain only a message—the built-in &lt;code&gt;error&lt;/code&gt; interface allows Go programmers to add whatever information they desire. All it requires is a type that implements an &lt;code&gt;Error&lt;/code&gt; method:&lt;/p&gt;</description></item><item><title>发布 Go 模块</title><link>https://before80.github.io/go_docs/goBlog/2019/PublishingGoModules/</link><pubDate>Thu, 18 May 2023 17:03:08 +0800</pubDate><guid>https://before80.github.io/go_docs/goBlog/2019/PublishingGoModules/</guid><description>&lt;h1 id="publishing-go-modules---发布-go-模块"&gt;Publishing Go Modules - 发布 go 模块&lt;/h1&gt;
+&lt;blockquote&gt;
+&lt;p&gt;原文：&lt;a href="https://go.dev/blog/publishing-go-modules"&gt;https://go.dev/blog/publishing-go-modules&lt;/a&gt;&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;Tyler Bui-Palsulich
+26 September 2019&lt;/p&gt;
+&lt;h2 id="introduction-简介"&gt;Introduction 简介&lt;/h2&gt;
+&lt;p&gt;This post is part 3 in a series.&lt;/p&gt;
+&lt;p&gt;这篇文章是系列文章的第三部分。&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;Part 1 — &lt;a href="https://go.dev/blog/using-go-modules"&gt;Using Go Modules 使用Go模块&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;Part 2 — &lt;a href="https://go.dev/blog/migrating-to-go-modules"&gt;Migrating To Go Modules 迁移到Go模块&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Part 3 — Publishing Go Modules&lt;/strong&gt; (this post) 发布Go模块（本帖）&lt;/li&gt;
+&lt;li&gt;Part 4 — &lt;a href="https://go.dev/blog/v2-go-modules"&gt;Go Modules: v2 and Beyond Go模块：V2版及以后&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;Part 5 — &lt;a href="https://go.dev/blog/module-compatibility"&gt;Keeping Your Modules Compatible 保持模块的兼容性&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;&lt;strong&gt;Note:&lt;/strong&gt; For documentation on developing modules, see &lt;a href="https://go.dev/doc/modules/developing"&gt;Developing and publishing modules&lt;/a&gt;.&lt;/p&gt;</description></item><item><title>Go 1.13发布了</title><link>https://before80.github.io/go_docs/goBlog/2019/Go1_13IsReleased/</link><pubDate>Thu, 18 May 2023 17:03:08 +0800</pubDate><guid>https://before80.github.io/go_docs/goBlog/2019/Go1_13IsReleased/</guid><description>&lt;h1 id="go-113-is-released---go-113发布了"&gt;Go 1.13 is released - go 1.13发布了&lt;/h1&gt;
+&lt;blockquote&gt;
+&lt;p&gt;原文：&lt;a href="https://go.dev/blog/go1.13"&gt;https://go.dev/blog/go1.13&lt;/a&gt;&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;Andrew Bonventre
+3 September 2019&lt;/p&gt;
+&lt;p&gt;Today the Go team is very happy to announce the release of Go 1.13. You can get it from the &lt;a href="https://go.dev/dl"&gt;download page&lt;/a&gt;.&lt;/p&gt;
+&lt;p&gt;今天，Go团队非常高兴地宣布Go 1.13的发布。您可以从下载页面获得它。&lt;/p&gt;</description></item><item><title>模块镜像和校验数据库发布</title><link>https://before80.github.io/go_docs/goBlog/2019/ModuleMirrorAndChecksumDatabaseLaunched/</link><pubDate>Thu, 18 May 2023 17:03:08 +0800</pubDate><guid>https://before80.github.io/go_docs/goBlog/2019/ModuleMirrorAndChecksumDatabaseLaunched/</guid><description>&lt;h1 id="module-mirror-and-checksum-database-launched---模块镜像和校验数据库发布"&gt;Module Mirror and Checksum Database Launched - 模块镜像和校验数据库发布&lt;/h1&gt;
+&lt;blockquote&gt;
+&lt;p&gt;原文：&lt;a href="https://go.dev/blog/module-mirror-launch"&gt;https://go.dev/blog/module-mirror-launch&lt;/a&gt;&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;Katie Hockman
+29 August 2019&lt;/p&gt;
+&lt;p&gt;We are excited to share that our module &lt;a href="https://proxy.golang.org/"&gt;mirror&lt;/a&gt;, &lt;a href="https://index.golang.org/"&gt;index&lt;/a&gt;, and &lt;a href="https://sum.golang.org/"&gt;checksum database&lt;/a&gt; are now production ready! The &lt;code&gt;go&lt;/code&gt; command will use the module mirror and checksum database by default for &lt;a href="https://go.dev/doc/go1.13#introduction"&gt;Go 1.13 module users&lt;/a&gt;. See &lt;a href="https://proxy.golang.org/privacy"&gt;proxy.golang.org/privacy&lt;/a&gt; for privacy information about these services and the &lt;a href="https://go.dev/cmd/go/#hdr-Module_downloading_and_verification"&gt;go command documentation&lt;/a&gt; for configuration details, including how to disable the use of these servers or use different ones. If you depend on non-public modules, see the &lt;a href="https://go.dev/cmd/go/#hdr-Module_configuration_for_non_public_modules"&gt;documentation for configuring your environment&lt;/a&gt;.&lt;/p&gt;</description></item><item><title>迁移到 Go 模块</title><link>https://before80.github.io/go_docs/goBlog/2019/MigratingToGoModules/</link><pubDate>Thu, 18 May 2023 17:03:08 +0800</pubDate><guid>https://before80.github.io/go_docs/goBlog/2019/MigratingToGoModules/</guid><description>&lt;h1 id="migrating-to-go-modules---迁移到-go-模块"&gt;Migrating to Go Modules - 迁移到 go 模块&lt;/h1&gt;
+&lt;blockquote&gt;
+&lt;p&gt;原文：&lt;a href="https://go.dev/blog/migrating-to-go-modules"&gt;https://go.dev/blog/migrating-to-go-modules&lt;/a&gt;&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;Jean de Klerk
+21 August 2019&lt;/p&gt;
+&lt;h2 id="introduction-简介"&gt;Introduction 简介&lt;/h2&gt;
+&lt;p&gt;This post is part 2 in a series.&lt;/p&gt;
+&lt;p&gt;这篇文章是系列文章的第二部分。&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;Part 1 — &lt;a href="https://go.dev/blog/using-go-modules"&gt;Using Go Modules 使用Go模块&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Part 2 — Migrating To Go Modules&lt;/strong&gt; (this post) 迁移到Go模块（本帖）&lt;/li&gt;
+&lt;li&gt;Part 3 — &lt;a href="https://go.dev/blog/publishing-go-modules"&gt;Publishing Go Modules 发布Go模块&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;Part 4 — &lt;a href="https://go.dev/blog/v2-go-modules"&gt;Go Modules: v2 and Beyond Go模块：V2版及以后&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;Part 5 — &lt;a href="https://go.dev/blog/module-compatibility"&gt;Keeping Your Modules Compatible 保持模块的兼容性&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;&lt;strong&gt;Note:&lt;/strong&gt; For documentation, see &lt;a href="https://go.dev/doc/modules/managing-dependencies"&gt;Managing dependencies&lt;/a&gt; and &lt;a href="https://go.dev/doc/modules/developing"&gt;Developing and publishing modules&lt;/a&gt;.&lt;/p&gt;</description></item><item><title>Contributors Summit 2019</title><link>https://before80.github.io/go_docs/goBlog/2019/ContributorsSummit2019/</link><pubDate>Thu, 18 May 2023 17:03:08 +0800</pubDate><guid>https://before80.github.io/go_docs/goBlog/2019/ContributorsSummit2019/</guid><description>&lt;h1 id="contributors-summit-2019"&gt;Contributors Summit 2019&lt;/h1&gt;
+&lt;blockquote&gt;
+&lt;p&gt;原文：&lt;a href="https://go.dev/blog/contributors-summit-2019"&gt;https://go.dev/blog/contributors-summit-2019&lt;/a&gt;&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;Carmen Andoh and contributors
+15 August 2019&lt;/p&gt;
+&lt;h2 id="introduction-简介"&gt;Introduction 简介&lt;/h2&gt;
+&lt;p&gt;For the third year in a row, the Go team and contributors convened the day before GopherCon to discuss and plan for the future of the Go project. The event included self-organizing into breakout groups, a town-hall style discussion about the proposal process in the morning, and afternoon break-out roundtable discussions based on topics our contributors chose. We asked five contributors to write about their experience in various discussions at this year’s summit.&lt;/p&gt;</description></item><item><title>实验, 简化, ship</title><link>https://before80.github.io/go_docs/goBlog/2019/ExperimentSimplifyShip/</link><pubDate>Thu, 18 May 2023 17:03:08 +0800</pubDate><guid>https://before80.github.io/go_docs/goBlog/2019/ExperimentSimplifyShip/</guid><description>&lt;h1 id="experiment-simplify-ship---实验-简化-ship"&gt;Experiment, Simplify, Ship - 实验, 简化, ship&lt;/h1&gt;
+&lt;blockquote&gt;
+&lt;p&gt;原文：&lt;a href="https://go.dev/blog/experiment"&gt;https://go.dev/blog/experiment&lt;/a&gt;&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;Russ Cox
+1 August 2019&lt;/p&gt;
+&lt;h2 id="introduction-简介"&gt;Introduction 简介&lt;/h2&gt;
+&lt;p&gt;This is the blog post version of my talk last week at GopherCon 2019.&lt;/p&gt;
+&lt;p&gt;这是我上周在GopherCon 2019上的演讲的博文版本。&lt;/p&gt;
+&lt;div style="position: relative; padding-bottom: 56.25%; height: 0; overflow: hidden;"&gt;
+ &lt;iframe allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share; fullscreen" loading="eager" referrerpolicy="strict-origin-when-cross-origin" src="https://www.youtube.com/embed/kNHo788oO5Y?autoplay=0&amp;amp;controls=1&amp;amp;end=0&amp;amp;loop=0&amp;amp;mute=0&amp;amp;start=0" style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; border:0;" title="YouTube video"&gt;&lt;/iframe&gt;
+ &lt;/div&gt;
+
+&lt;p&gt;We are all on the path to Go 2, together, but none of us know exactly where that path leads or sometimes even which direction the path goes. This post discusses how we actually find and follow the path to Go 2. Here’s what the process looks like.&lt;/p&gt;</description></item><item><title>为什么泛型？</title><link>https://before80.github.io/go_docs/goBlog/2019/WhyGenerics/</link><pubDate>Thu, 18 May 2023 17:03:08 +0800</pubDate><guid>https://before80.github.io/go_docs/goBlog/2019/WhyGenerics/</guid><description>&lt;h1 id="why-generics---为什么泛型"&gt;Why Generics? - 为什么泛型？&lt;/h1&gt;
+&lt;blockquote&gt;
+&lt;p&gt;原文：&lt;a href="https://go.dev/blog/why-generics"&gt;https://go.dev/blog/why-generics&lt;/a&gt;&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;Ian Lance Taylor
+31 July 2019&lt;/p&gt;
+&lt;h2 id="introduction-简介"&gt;Introduction 简介&lt;/h2&gt;
+&lt;p&gt;This is the blog post version of my talk last week at Gophercon 2019.&lt;/p&gt;
+&lt;p&gt;这是我上周在Gophercon 2019的演讲的博文版本。&lt;/p&gt;
+&lt;div style="position: relative; padding-bottom: 56.25%; height: 0; overflow: hidden;"&gt;
+ &lt;iframe allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share; fullscreen" loading="eager" referrerpolicy="strict-origin-when-cross-origin" src="https://www.youtube.com/embed/WzgLqE-3IhY?autoplay=0&amp;amp;controls=1&amp;amp;end=0&amp;amp;loop=0&amp;amp;mute=0&amp;amp;start=0" style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; border:0;" title="YouTube video"&gt;&lt;/iframe&gt;
+ &lt;/div&gt;
+
+&lt;p&gt;This article is about what it would mean to add generics to Go, and why I think we should do it. I’ll also touch on an update to a possible design for adding generics to Go.&lt;/p&gt;</description></item><item><title>宣布新的go Store</title><link>https://before80.github.io/go_docs/goBlog/2019/AnnouncingTheNewGoStore/</link><pubDate>Thu, 18 May 2023 17:03:08 +0800</pubDate><guid>https://before80.github.io/go_docs/goBlog/2019/AnnouncingTheNewGoStore/</guid><description>&lt;h1 id="announcing-the-new-go-store---宣布新的go-store"&gt;Announcing The New Go Store - 宣布新的go Store&lt;/h1&gt;
+&lt;blockquote&gt;
+&lt;p&gt;原文：&lt;a href="https://go.dev/blog/store"&gt;https://go.dev/blog/store&lt;/a&gt;&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;Cassandra Salisbury
+18 July 2019&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;October 1, 2019, Update:&lt;/strong&gt; &lt;em&gt;The Go Store is currently offline.&lt;/em&gt; &lt;em&gt;We are sorry for any inconvenience.&lt;/em&gt; &lt;em&gt;We will update this post with any status changes.&lt;/em&gt;&lt;/p&gt;
+&lt;p&gt;2019年10月1日，更新：Go Store目前已经下线。我们对造成的不便感到抱歉。我们将根据任何状态变化更新此帖。&lt;/p&gt;</description></item><item><title>迈向Go 2的下一步</title><link>https://before80.github.io/go_docs/goBlog/2019/NextStepsTowardGo2/</link><pubDate>Thu, 18 May 2023 17:03:08 +0800</pubDate><guid>https://before80.github.io/go_docs/goBlog/2019/NextStepsTowardGo2/</guid><description>&lt;h1 id="next-steps-toward-go-2---迈向go-2的下一步"&gt;Next steps toward Go 2 - 迈向go 2的下一步&lt;/h1&gt;
+&lt;blockquote&gt;
+&lt;p&gt;原文：&lt;a href="https://go.dev/blog/go2-next-steps"&gt;https://go.dev/blog/go2-next-steps&lt;/a&gt;&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;Robert Griesemer, for the Go team
+26 June 2019&lt;/p&gt;
+&lt;h2 id="status-状态"&gt;Status 状态&lt;/h2&gt;
+&lt;p&gt;We’re well on the way towards the release of Go 1.13, hopefully in early August of this year. This is the first release that will include concrete changes to the language (rather than just minor adjustments to the spec), after a longer moratorium on any such changes.&lt;/p&gt;</description></item><item><title>2018年 Go 调查结果</title><link>https://before80.github.io/go_docs/goBlog/2019/Go2018SurveyResults/</link><pubDate>Thu, 18 May 2023 17:03:08 +0800</pubDate><guid>https://before80.github.io/go_docs/goBlog/2019/Go2018SurveyResults/</guid><description>&lt;h1 id="go-2018-survey-results---2018年-go-调查结果"&gt;Go 2018 Survey Results - 2018年 go 调查结果&lt;/h1&gt;
+&lt;blockquote&gt;
+&lt;p&gt;原文：&lt;a href="https://go.dev/blog/survey2018-results"&gt;https://go.dev/blog/survey2018-results&lt;/a&gt;&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;Todd Kulesza, Steve Francia
+28 March 2019&lt;/p&gt;
+&lt;h2 id="thank-you-谢谢您"&gt;Thank you 谢谢您&lt;/h2&gt;
+&lt;p&gt;This post summarizes the results of our 2018 user survey and draws comparisons between the results of our prior surveys from &lt;a href="https://blog.golang.org/survey2016-results"&gt;2016&lt;/a&gt; and &lt;a href="https://blog.golang.org/survey2017-results"&gt;2017&lt;/a&gt;.&lt;/p&gt;
+&lt;p&gt;这篇文章总结了我们2018年用户调查的结果，并对我们之前2016年和2017年的调查结果进行了比较。&lt;/p&gt;</description></item><item><title>调试您在Go 1.12中部署的内容</title><link>https://before80.github.io/go_docs/goBlog/2019/DebuggingWhatYouDeployInGo1_12/</link><pubDate>Thu, 18 May 2023 17:03:08 +0800</pubDate><guid>https://before80.github.io/go_docs/goBlog/2019/DebuggingWhatYouDeployInGo1_12/</guid><description>&lt;h1 id="debugging-what-you-deploy-in-go-112---调试您在go-112中部署的内容"&gt;Debugging what you deploy in Go 1.12 - 调试您在go 1.12中部署的内容&lt;/h1&gt;
+&lt;blockquote&gt;
+&lt;p&gt;原文：&lt;a href="https://go.dev/blog/debug-opt"&gt;https://go.dev/blog/debug-opt&lt;/a&gt;&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;David Chase
+21 March 2019&lt;/p&gt;
+&lt;h2 id="introduction-简介"&gt;Introduction 简介&lt;/h2&gt;
+&lt;p&gt;Go 1.11 and Go 1.12 make significant progress toward allowing developers to debug the same optimized binaries that they deploy to production.&lt;/p&gt;
+&lt;p&gt;Go 1.11 和 Go 1.12 在允许开发人员调试他们部署到生产中的相同优化二进制文件方面取得了重大进展。&lt;/p&gt;</description></item><item><title>使用 Go 模块</title><link>https://before80.github.io/go_docs/goBlog/2019/UsingGoModules/</link><pubDate>Thu, 18 May 2023 17:03:08 +0800</pubDate><guid>https://before80.github.io/go_docs/goBlog/2019/UsingGoModules/</guid><description>&lt;h1 id="using-go-modules---使用-go-模块"&gt;Using Go Modules - 使用 go 模块&lt;/h1&gt;
+&lt;blockquote&gt;
+&lt;p&gt;原文：&lt;a href="https://go.dev/blog/using-go-modules"&gt;https://go.dev/blog/using-go-modules&lt;/a&gt;&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;Tyler Bui-Palsulich and Eno Compton
+19 March 2019&lt;/p&gt;
+&lt;p&gt;2019年3月19日&lt;/p&gt;
+&lt;h2 id="introduction-简介"&gt;Introduction 简介&lt;/h2&gt;
+&lt;p&gt;这篇文章是系列的第一部分。&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;Part 1 — 使用Go模块（本帖）&lt;/li&gt;
+&lt;li&gt;Part 2 — &lt;a href="../MigratingToGoModules"&gt;Migrating To Go Modules 迁移到Go模块&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;Part 3 — &lt;a href="../PublishingGoModules"&gt;Publishing Go Modules 发布Go模块&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;Part 4 — &lt;a href="../GoModulesV2AndBeyond"&gt;Go Modules: v2 and Beyond Go模块：V2版及以后&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;Part 5 — &lt;a href="../../2020/KeepingYourModulesCompatible"&gt;Keeping Your Modules Compatible 保持模块的兼容性&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;注意：关于管理模块的依赖项的文档，请参见&lt;a href="../../../UsingAndUnderstandingGo/ManagingDependencies"&gt;管理依赖项&lt;/a&gt;。&lt;/p&gt;</description></item><item><title>新的 Go 开发者网络</title><link>https://before80.github.io/go_docs/goBlog/2019/TheNewGoDeveloperNetwork/</link><pubDate>Thu, 18 May 2023 17:03:08 +0800</pubDate><guid>https://before80.github.io/go_docs/goBlog/2019/TheNewGoDeveloperNetwork/</guid><description>&lt;h1 id="the-new-go-developer-network---新的-go-开发者网络"&gt;The New Go Developer Network - 新的 go 开发者网络&lt;/h1&gt;
+&lt;blockquote&gt;
+&lt;p&gt;原文：&lt;a href="https://go.dev/blog/go-developer-network"&gt;https://go.dev/blog/go-developer-network&lt;/a&gt;&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;GoBridge Leadership Team
+14 March 2019&lt;/p&gt;
+&lt;p&gt;A sense of community flourishes when we come together in person. As handles become names and avatars become faces, the smiles are real and true friendship can grow. There is joy in the sharing of knowledge and celebrating the accomplishments of our friends, colleagues, and neighbors. In our rapidly growing Go community this critical role is played by the Go user groups.&lt;/p&gt;</description></item><item><title>Go 云开发工具包的新内容</title><link>https://before80.github.io/go_docs/goBlog/2019/WhatIsNewInTheGoCloudDevelopmentKit/</link><pubDate>Thu, 18 May 2023 17:03:08 +0800</pubDate><guid>https://before80.github.io/go_docs/goBlog/2019/WhatIsNewInTheGoCloudDevelopmentKit/</guid><description>&lt;h1 id="whats-new-in-the-go-cloud-development-kit---go-云开发工具包的新内容"&gt;What&amp;rsquo;s new in the Go Cloud Development Kit - go 云开发工具包的新内容&lt;/h1&gt;
+&lt;blockquote&gt;
+&lt;p&gt;原文：&lt;a href="https://go.dev/blog/go-cloud2019"&gt;https://go.dev/blog/go-cloud2019&lt;/a&gt;&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;The Go Cloud Development Kit team at Google 谷歌的Go云开发工具包团队&lt;/p&gt;
+&lt;p&gt;4 March 2019&lt;/p&gt;
+&lt;p&gt;2019年3月4日&lt;/p&gt;
+&lt;h2 id="introduction-简介"&gt;Introduction 简介&lt;/h2&gt;
+&lt;p&gt;Last July, we &lt;a href="https://blog.golang.org/go-cloud"&gt;introduced&lt;/a&gt; the &lt;a href="https://gocloud.dev/"&gt;Go Cloud Development Kit&lt;/a&gt; (previously referred to as simply &amp;ldquo;Go Cloud&amp;rdquo;), an open source project building libraries and tools to improve the experience of developing for the cloud with Go. We’ve made a lot of progress since then – thank you to early contributors! We look forward to growing the Go CDK community of users and contributors, and are excited to work closely with early adopters.&lt;/p&gt;</description></item><item><title>Go 1.12发布了</title><link>https://before80.github.io/go_docs/goBlog/2019/Go1_12IsReleased/</link><pubDate>Thu, 18 May 2023 17:03:08 +0800</pubDate><guid>https://before80.github.io/go_docs/goBlog/2019/Go1_12IsReleased/</guid><description>&lt;h1 id="go-112-is-released---go-112发布了"&gt;Go 1.12 is released - Go 1.12发布了&lt;/h1&gt;
+&lt;blockquote&gt;
+&lt;p&gt;原文：&lt;a href="https://go.dev/blog/go1.12"&gt;https://go.dev/blog/go1.12&lt;/a&gt;&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;Andrew Bonventre
+25 February 2019&lt;/p&gt;
+&lt;p&gt;Today the Go team is happy to announce the release of Go 1.12. You can get it from the &lt;a href="https://go.dev/dl/"&gt;download page&lt;/a&gt;.&lt;/p&gt;
+&lt;p&gt;今天，Go团队很高兴地宣布Go 1.12的发布。您可以从下载页面获得它。&lt;/p&gt;</description></item></channel></rss>

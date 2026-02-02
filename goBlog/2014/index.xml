@@ -1,72 +1,85 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>2014 [14篇] on Go 中文档集</title><link>https://before80.github.io/go_docs/goBlog/2014/</link><description>Recent content in 2014 [14篇] on Go 中文档集</description><generator>Hugo</generator><language>zh-cn</language><lastBuildDate>Thu, 10 Oct 2024 15:07:50 +0800</lastBuildDate><atom:link href="https://before80.github.io/go_docs/goBlog/2014/index.xml" rel="self" type="application/rss+xml"/><item><title>生成代码</title><link>https://before80.github.io/go_docs/goBlog/2014/GeneratingCode/</link><pubDate>Thu, 18 May 2023 17:03:08 +0800</pubDate><guid>https://before80.github.io/go_docs/goBlog/2014/GeneratingCode/</guid><description>&lt;h1 id="generating-code---生成代码">Generating code - 生成代码&lt;a class="td-heading-self-link" href="#generating-code---%e7%94%9f%e6%88%90%e4%bb%a3%e7%a0%81" aria-label="Heading self-link">&lt;/a>&lt;/h1>
-&lt;blockquote>
-&lt;p>原文：&lt;a href="https://go.dev/blog/generate">https://go.dev/blog/generate&lt;/a>&lt;/p>&lt;/blockquote>
-&lt;p>Rob Pike
-22 December 2014&lt;/p>
-&lt;p>A property of universal computation—Turing completeness—is that a computer program can write a computer program. This is a powerful idea that is not appreciated as often as it might be, even though it happens frequently. It’s a big part of the definition of a compiler, for instance. It’s also how the &lt;code>go&lt;/code> &lt;code>test&lt;/code> command works: it scans the packages to be tested, writes out a Go program containing a test harness customized for the package, and then compiles and runs it. Modern computers are so fast this expensive-sounding sequence can complete in a fraction of a second.&lt;/p></description></item><item><title>Go 1.4发布了</title><link>https://before80.github.io/go_docs/goBlog/2014/Go1_4IsReleased/</link><pubDate>Thu, 18 May 2023 17:03:08 +0800</pubDate><guid>https://before80.github.io/go_docs/goBlog/2014/Go1_4IsReleased/</guid><description>&lt;h1 id="go-14-is-released---go-14发布了">Go 1.4 is released - Go 1.4发布了&lt;a class="td-heading-self-link" href="#go-14-is-released---go-14%e5%8f%91%e5%b8%83%e4%ba%86" aria-label="Heading self-link">&lt;/a>&lt;/h1>
-&lt;blockquote>
-&lt;p>原文：&lt;a href="https://go.dev/blog/go1.4">https://go.dev/blog/go1.4&lt;/a>&lt;/p>&lt;/blockquote>
-&lt;p>Andrew Gerrand
-10 December 2014&lt;/p>
-&lt;p>Today we announce Go 1.4, the fifth major stable release of Go, arriving six months after our previous major release &lt;a href="https://blog.golang.org/go1.3">Go 1.3&lt;/a>. It contains a small language change, support for more operating systems and processor architectures, and improvements to the tool chain and libraries. As always, Go 1.4 keeps the promise of compatibility, and almost everything will continue to compile and run without change when moved to 1.4. For the full details, see the &lt;a href="https://go.dev/doc/go1.4">Go 1.4 release notes&lt;/a>.&lt;/p></description></item><item><title>与 Go 相处的5年</title><link>https://before80.github.io/go_docs/goBlog/2014/HalfADecadeWithGo/</link><pubDate>Thu, 18 May 2023 17:03:08 +0800</pubDate><guid>https://before80.github.io/go_docs/goBlog/2014/HalfADecadeWithGo/</guid><description>&lt;h1 id="half-a-decade-with-go---与-go-相处的5年">Half a decade with Go - 与 Go 相处的5年&lt;a class="td-heading-self-link" href="#half-a-decade-with-go---%e4%b8%8e-go-%e7%9b%b8%e5%a4%84%e7%9a%845%e5%b9%b4" aria-label="Heading self-link">&lt;/a>&lt;/h1>
-&lt;blockquote>
-&lt;p>原文：&lt;a href="https://go.dev/blog/5years">https://go.dev/blog/5years&lt;/a>&lt;/p>&lt;/blockquote>
-&lt;p>Andrew Gerrand
-10 November 2014&lt;/p>
-&lt;p>Five years ago we launched the Go project. It seems like only yesterday that we were preparing the initial public release: our &lt;a href="https://web.archive.org/web/20091112094121/http://golang.org/">website&lt;/a> was a lovely shade of yellow, we were calling Go a &amp;ldquo;systems language&amp;rdquo;, and you had to terminate statements with a semicolon and write Makefiles to build your code. We had no idea how Go would be received. Would people share our vision and goals? Would people find Go useful?&lt;/p></description></item><item><title>在Google I/O和Gopher SummerFest上的 go</title><link>https://before80.github.io/go_docs/goBlog/2014/GoAtGoogleIOAndGopherSummerFest/</link><pubDate>Thu, 18 May 2023 17:03:08 +0800</pubDate><guid>https://before80.github.io/go_docs/goBlog/2014/GoAtGoogleIOAndGopherSummerFest/</guid><description>&lt;h1 id="go-at-google-io-and-gopher-summerfest---在google-io和gopher-summerfest上的-go">Go at Google I/O and Gopher SummerFest - 在Google I/O和Gopher SummerFest上的 go&lt;a class="td-heading-self-link" href="#go-at-google-io-and-gopher-summerfest---%e5%9c%a8google-io%e5%92%8cgopher-summerfest%e4%b8%8a%e7%9a%84-go" aria-label="Heading self-link">&lt;/a>&lt;/h1>
-&lt;blockquote>
-&lt;p>原文：&lt;a href="https://go.dev/blog/io2014">https://go.dev/blog/io2014&lt;/a>&lt;/p>&lt;/blockquote>
-&lt;p>Francesc Campoy
-6 October 2014&lt;/p>
-&lt;h2 id="introduction-简介">Introduction 简介&lt;a class="td-heading-self-link" href="#introduction-%e7%ae%80%e4%bb%8b" aria-label="Heading self-link">&lt;/a>&lt;/h2>
-&lt;p>The week of June 23rd was a good week for gophers in San Francisco. Go was a big part of &lt;a href="https://www.google.com/events/io">Google I/O&lt;/a> on Wednesday and Thursday, and on Monday we took advantage of the large gopher population to run the &lt;a href="http://www.meetup.com/golangsf/events/170421402/">Go SummerFest&lt;/a>, a special instance of the &lt;a href="http://www.meetup.com/golangsf">GoSF&lt;/a> meetup. This blog post is a recap of both events.&lt;/p></description></item><item><title>用Docker部署 Go 服务器</title><link>https://before80.github.io/go_docs/goBlog/2014/DeployingGoServersWithDocker/</link><pubDate>Thu, 18 May 2023 17:03:08 +0800</pubDate><guid>https://before80.github.io/go_docs/goBlog/2014/DeployingGoServersWithDocker/</guid><description>&lt;h1 id="deploying-go-servers-with-docker---用docker部署-go-服务器">Deploying Go servers with Docker - 用Docker部署 Go 服务器&lt;a class="td-heading-self-link" href="#deploying-go-servers-with-docker---%e7%94%a8docker%e9%83%a8%e7%bd%b2-go-%e6%9c%8d%e5%8a%a1%e5%99%a8" aria-label="Heading self-link">&lt;/a>&lt;/h1>
-&lt;blockquote>
-&lt;p>原文：&lt;a href="https://go.dev/blog/docker">https://go.dev/blog/docker&lt;/a>&lt;/p>&lt;/blockquote>
-&lt;p>Andrew Gerrand
-26 September 2014&lt;/p>
-&lt;h2 id="introduction-简介">Introduction 简介&lt;a class="td-heading-self-link" href="#introduction-%e7%ae%80%e4%bb%8b" aria-label="Heading self-link">&lt;/a>&lt;/h2>
-&lt;p>This week Docker &lt;a href="https://blog.docker.com/2014/09/docker-hub-official-repos-announcing-language-stacks/">announced&lt;/a> official base images for Go and other major languages, giving programmers a trusted and easy way to build containers for their Go programs.&lt;/p>
-&lt;p>本周，Docker发布了针对Go和其他主要语言的官方基础镜像，为程序员提供了一个值得信赖的、简单的方法来为他们的Go程序构建容器。&lt;/p></description></item><item><title>常量</title><link>https://before80.github.io/go_docs/goBlog/2014/Constants/</link><pubDate>Thu, 18 May 2023 17:03:08 +0800</pubDate><guid>https://before80.github.io/go_docs/goBlog/2014/Constants/</guid><description>&lt;h1 id="constants---常量">Constants - 常量&lt;a class="td-heading-self-link" href="#constants---%e5%b8%b8%e9%87%8f" aria-label="Heading self-link">&lt;/a>&lt;/h1>
-&lt;blockquote>
-&lt;p>原文：&lt;a href="https://go.dev/blog/constants">https://go.dev/blog/constants&lt;/a>&lt;/p>&lt;/blockquote>
-&lt;p>Rob Pike
-25 August 2014&lt;/p>
-&lt;h2 id="introduction-简介">Introduction 简介&lt;a class="td-heading-self-link" href="#introduction-%e7%ae%80%e4%bb%8b" aria-label="Heading self-link">&lt;/a>&lt;/h2>
-&lt;p>Go is a statically typed language that does not permit operations that mix numeric types. You can’t add a &lt;code>float64&lt;/code> to an &lt;code>int&lt;/code>, or even an &lt;code>int32&lt;/code> to an &lt;code>int&lt;/code>. Yet it is legal to write &lt;code>1e6*time.Second&lt;/code> or &lt;code>math.Exp(1)&lt;/code> or even &lt;code>1&amp;lt;&amp;lt;(' '+2.0)&lt;/code>. In Go, constants, unlike variables, behave pretty much like regular numbers. This post explains why that is and what it means.&lt;/p></description></item><item><title>在 OSCON上的 go</title><link>https://before80.github.io/go_docs/goBlog/2014/GoAtOSCON/</link><pubDate>Thu, 18 May 2023 17:03:08 +0800</pubDate><guid>https://before80.github.io/go_docs/goBlog/2014/GoAtOSCON/</guid><description>&lt;h1 id="go-at-oscon----在-oscon上的-go">Go at OSCON - 在 OSCON上的 go&lt;a class="td-heading-self-link" href="#go-at-oscon----%e5%9c%a8-oscon%e4%b8%8a%e7%9a%84-go" aria-label="Heading self-link">&lt;/a>&lt;/h1>
-&lt;blockquote>
-&lt;p>原文：&lt;a href="https://go.dev/blog/osconreport">https://go.dev/blog/osconreport&lt;/a>&lt;/p>&lt;/blockquote>
-&lt;p>Francesc Campoy
-20 August 2014&lt;/p>
-&lt;h2 id="introduction-简介">Introduction 简介&lt;a class="td-heading-self-link" href="#introduction-%e7%ae%80%e4%bb%8b" aria-label="Heading self-link">&lt;/a>&lt;/h2>
-&lt;p>What happens in Portland in July? &lt;a href="http://www.oscon.com/oscon2014">OSCON&lt;/a>! At this year’s conference, Go was more present than ever before, with five talks, two workshops, a &lt;a href="http://en.wikipedia.org/wiki/Birds_of_a_feather_(computing)">Birds of a Feather&lt;/a> session, and a meetup.&lt;/p>
-&lt;p>7月在波特兰会发生什么？OSCON! 在今年的会议上，Go比以往任何时候都更受欢迎，有五场讲座，两个研讨会，一个Birds of a Feather会议，以及一个聚会。&lt;/p></description></item><item><title>Go 并发模式：Context</title><link>https://before80.github.io/go_docs/goBlog/2014/GoConcurrencyPatternsContext/</link><pubDate>Thu, 18 May 2023 17:03:08 +0800</pubDate><guid>https://before80.github.io/go_docs/goBlog/2014/GoConcurrencyPatternsContext/</guid><description>&lt;h1 id="go-concurrency-patterns-context---go-并发模式context">Go Concurrency Patterns: Context - Go 并发模式：Context&lt;a class="td-heading-self-link" href="#go-concurrency-patterns-context---go-%e5%b9%b6%e5%8f%91%e6%a8%a1%e5%bc%8fcontext" aria-label="Heading self-link">&lt;/a>&lt;/h1>
-&lt;blockquote>
-&lt;p>原文：&lt;a href="https://go.dev/blog/context">https://go.dev/blog/context&lt;/a>&lt;/p>&lt;/blockquote>
-&lt;p>Sameer Ajmani
-29 July 2014&lt;/p>
-&lt;p>2014年7月29日&lt;/p>
-&lt;h2 id="简介-introduction">简介 Introduction&lt;a class="td-heading-self-link" href="#%e7%ae%80%e4%bb%8b-introduction" aria-label="Heading self-link">&lt;/a>&lt;/h2>
-&lt;p>In Go servers, each incoming request is handled in its own goroutine. Request handlers often start additional goroutines to access backends such as databases and RPC services. The set of goroutines working on a request typically needs access to request-specific values such as the identity of the end user, authorization tokens, and the request’s deadline. When a request is canceled or times out, all the goroutines working on that request should exit quickly so the system can reclaim any resources they are using.&lt;/p></description></item><item><title>Go 将参加2014年OSCON展会</title><link>https://before80.github.io/go_docs/goBlog/2014/GoWillBeAtOSCON2014/</link><pubDate>Thu, 18 May 2023 17:03:08 +0800</pubDate><guid>https://before80.github.io/go_docs/goBlog/2014/GoWillBeAtOSCON2014/</guid><description>&lt;h1 id="go-will-be-at-oscon-2014---go-将参加2014年oscon展会">Go will be at OSCON 2014 - Go 将参加2014年OSCON展会&lt;a class="td-heading-self-link" href="#go-will-be-at-oscon-2014---go-%e5%b0%86%e5%8f%82%e5%8a%a02014%e5%b9%b4oscon%e5%b1%95%e4%bc%9a" aria-label="Heading self-link">&lt;/a>&lt;/h1>
-&lt;blockquote>
-&lt;p>原文：&lt;a href="https://go.dev/blog/oscon">https://go.dev/blog/oscon&lt;/a>&lt;/p>&lt;/blockquote>
-&lt;p>Francesc Campoy
-15 July 2014&lt;/p>
-&lt;p>&lt;a href="http://www.oscon.com/">OSCON&lt;/a>, the Open Source Convention, is taking place from July 20th to the 29th in Portland, Oregon and Go will be central to many talks. If you are attending make sure you add these to your personal schedule.&lt;/p></description></item><item><title>Go 1.3发布了</title><link>https://before80.github.io/go_docs/goBlog/2014/Go1_3IsReleased/</link><pubDate>Thu, 18 May 2023 17:03:08 +0800</pubDate><guid>https://before80.github.io/go_docs/goBlog/2014/Go1_3IsReleased/</guid><description>&lt;h1 id="go-13-is-released---go-13发布了">Go 1.3 is released - Go 1.3发布了&lt;a class="td-heading-self-link" href="#go-13-is-released---go-13%e5%8f%91%e5%b8%83%e4%ba%86" aria-label="Heading self-link">&lt;/a>&lt;/h1>
-&lt;blockquote>
-&lt;p>原文：&lt;a href="https://go.dev/blog/go1.3">https://go.dev/blog/go1.3&lt;/a>&lt;/p>&lt;/blockquote>
-&lt;p>Andrew Gerrand
-18 June 2014&lt;/p>
-&lt;p>Today we are happy to announce the release of &lt;a href="https://go.dev/doc/go1.3">Go 1.3&lt;/a>. This release comes six months after our last major release and provides better performance, improved tools, support for running Go in new environments, and more. All Go users should upgrade to Go 1.3. You can grab the release from our &lt;a href="https://go.dev/dl/">downloads page&lt;/a> and find the full list of improvements and fixes in the &lt;a href="https://go.dev/doc/go1.3">release notes&lt;/a>. What follows are some highlights.&lt;/p></description></item><item><title>GopherCon 2014总结</title><link>https://before80.github.io/go_docs/goBlog/2014/GopherCon-2014-Wrap-Up/</link><pubDate>Thu, 18 May 2023 17:03:08 +0800</pubDate><guid>https://before80.github.io/go_docs/goBlog/2014/GopherCon-2014-Wrap-Up/</guid><description>&lt;h1 id="gophercon-2014-wrap-up---gophercon-2014总结">GopherCon 2014 Wrap Up - GopherCon 2014总结&lt;a class="td-heading-self-link" href="#gophercon-2014-wrap-up---gophercon-2014%e6%80%bb%e7%bb%93" aria-label="Heading self-link">&lt;/a>&lt;/h1>
-&lt;blockquote>
-&lt;p>原文：&lt;a href="https://go.dev/blog/gophercon">https://go.dev/blog/gophercon&lt;/a>&lt;/p>&lt;/blockquote>
-&lt;p>Andrew Gerrand
-28 May 2014&lt;/p>
-&lt;p>In April this year 700 gophers descended upon Denver to attend &lt;a href="http://www.gophercon.com/">GopherCon&lt;/a>, the world’s first large-scale Go conference, organized entirely by the community. The three day event featured 24 talks and one panel discussion in a single track over two days, followed by an informal &amp;ldquo;hack day&amp;rdquo; full of code, conversation, and more than 4 hours (!) of lightning talks.&lt;/p></description></item><item><title>The Go Gopher</title><link>https://before80.github.io/go_docs/goBlog/2014/TheGoGopher/</link><pubDate>Thu, 18 May 2023 17:03:08 +0800</pubDate><guid>https://before80.github.io/go_docs/goBlog/2014/TheGoGopher/</guid><description>&lt;h1 id="the-go-gopher">The Go Gopher&lt;a class="td-heading-self-link" href="#the-go-gopher" aria-label="Heading self-link">&lt;/a>&lt;/h1>
-&lt;blockquote>
-&lt;p>原文：&lt;a href="https://go.dev/blog/gopher">https://go.dev/blog/gopher&lt;/a>&lt;/p>&lt;/blockquote>
-&lt;p>Rob Pike and Andrew Gerrand
-24 March 2014&lt;/p>
-&lt;p>
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>2014 [14篇] on Go 中文档集</title><link>https://before80.github.io/go_docs/goBlog/2014/</link><description>Recent content in 2014 [14篇] on Go 中文档集</description><generator>Hugo</generator><language>zh-cn</language><lastBuildDate>Thu, 10 Oct 2024 15:07:50 +0800</lastBuildDate><atom:link href="https://before80.github.io/go_docs/goBlog/2014/index.xml" rel="self" type="application/rss+xml"/><item><title>生成代码</title><link>https://before80.github.io/go_docs/goBlog/2014/GeneratingCode/</link><pubDate>Thu, 18 May 2023 17:03:08 +0800</pubDate><guid>https://before80.github.io/go_docs/goBlog/2014/GeneratingCode/</guid><description>&lt;h1 id="generating-code---生成代码"&gt;Generating code - 生成代码&lt;/h1&gt;
+&lt;blockquote&gt;
+&lt;p&gt;原文：&lt;a href="https://go.dev/blog/generate"&gt;https://go.dev/blog/generate&lt;/a&gt;&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;Rob Pike
+22 December 2014&lt;/p&gt;
+&lt;p&gt;A property of universal computation—Turing completeness—is that a computer program can write a computer program. This is a powerful idea that is not appreciated as often as it might be, even though it happens frequently. It’s a big part of the definition of a compiler, for instance. It’s also how the &lt;code&gt;go&lt;/code&gt; &lt;code&gt;test&lt;/code&gt; command works: it scans the packages to be tested, writes out a Go program containing a test harness customized for the package, and then compiles and runs it. Modern computers are so fast this expensive-sounding sequence can complete in a fraction of a second.&lt;/p&gt;</description></item><item><title>Go 1.4发布了</title><link>https://before80.github.io/go_docs/goBlog/2014/Go1_4IsReleased/</link><pubDate>Thu, 18 May 2023 17:03:08 +0800</pubDate><guid>https://before80.github.io/go_docs/goBlog/2014/Go1_4IsReleased/</guid><description>&lt;h1 id="go-14-is-released---go-14发布了"&gt;Go 1.4 is released - Go 1.4发布了&lt;/h1&gt;
+&lt;blockquote&gt;
+&lt;p&gt;原文：&lt;a href="https://go.dev/blog/go1.4"&gt;https://go.dev/blog/go1.4&lt;/a&gt;&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;Andrew Gerrand
+10 December 2014&lt;/p&gt;
+&lt;p&gt;Today we announce Go 1.4, the fifth major stable release of Go, arriving six months after our previous major release &lt;a href="https://blog.golang.org/go1.3"&gt;Go 1.3&lt;/a&gt;. It contains a small language change, support for more operating systems and processor architectures, and improvements to the tool chain and libraries. As always, Go 1.4 keeps the promise of compatibility, and almost everything will continue to compile and run without change when moved to 1.4. For the full details, see the &lt;a href="https://go.dev/doc/go1.4"&gt;Go 1.4 release notes&lt;/a&gt;.&lt;/p&gt;</description></item><item><title>与 Go 相处的5年</title><link>https://before80.github.io/go_docs/goBlog/2014/HalfADecadeWithGo/</link><pubDate>Thu, 18 May 2023 17:03:08 +0800</pubDate><guid>https://before80.github.io/go_docs/goBlog/2014/HalfADecadeWithGo/</guid><description>&lt;h1 id="half-a-decade-with-go---与-go-相处的5年"&gt;Half a decade with Go - 与 Go 相处的5年&lt;/h1&gt;
+&lt;blockquote&gt;
+&lt;p&gt;原文：&lt;a href="https://go.dev/blog/5years"&gt;https://go.dev/blog/5years&lt;/a&gt;&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;Andrew Gerrand
+10 November 2014&lt;/p&gt;
+&lt;p&gt;Five years ago we launched the Go project. It seems like only yesterday that we were preparing the initial public release: our &lt;a href="https://web.archive.org/web/20091112094121/http://golang.org/"&gt;website&lt;/a&gt; was a lovely shade of yellow, we were calling Go a &amp;ldquo;systems language&amp;rdquo;, and you had to terminate statements with a semicolon and write Makefiles to build your code. We had no idea how Go would be received. Would people share our vision and goals? Would people find Go useful?&lt;/p&gt;</description></item><item><title>在Google I/O和Gopher SummerFest上的 go</title><link>https://before80.github.io/go_docs/goBlog/2014/GoAtGoogleIOAndGopherSummerFest/</link><pubDate>Thu, 18 May 2023 17:03:08 +0800</pubDate><guid>https://before80.github.io/go_docs/goBlog/2014/GoAtGoogleIOAndGopherSummerFest/</guid><description>&lt;h1 id="go-at-google-io-and-gopher-summerfest---在google-io和gopher-summerfest上的-go"&gt;Go at Google I/O and Gopher SummerFest - 在Google I/O和Gopher SummerFest上的 go&lt;/h1&gt;
+&lt;blockquote&gt;
+&lt;p&gt;原文：&lt;a href="https://go.dev/blog/io2014"&gt;https://go.dev/blog/io2014&lt;/a&gt;&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;Francesc Campoy
+6 October 2014&lt;/p&gt;
+&lt;h2 id="introduction-简介"&gt;Introduction 简介&lt;/h2&gt;
+&lt;p&gt;The week of June 23rd was a good week for gophers in San Francisco. Go was a big part of &lt;a href="https://www.google.com/events/io"&gt;Google I/O&lt;/a&gt; on Wednesday and Thursday, and on Monday we took advantage of the large gopher population to run the &lt;a href="http://www.meetup.com/golangsf/events/170421402/"&gt;Go SummerFest&lt;/a&gt;, a special instance of the &lt;a href="http://www.meetup.com/golangsf"&gt;GoSF&lt;/a&gt; meetup. This blog post is a recap of both events.&lt;/p&gt;</description></item><item><title>用Docker部署 Go 服务器</title><link>https://before80.github.io/go_docs/goBlog/2014/DeployingGoServersWithDocker/</link><pubDate>Thu, 18 May 2023 17:03:08 +0800</pubDate><guid>https://before80.github.io/go_docs/goBlog/2014/DeployingGoServersWithDocker/</guid><description>&lt;h1 id="deploying-go-servers-with-docker---用docker部署-go-服务器"&gt;Deploying Go servers with Docker - 用Docker部署 Go 服务器&lt;/h1&gt;
+&lt;blockquote&gt;
+&lt;p&gt;原文：&lt;a href="https://go.dev/blog/docker"&gt;https://go.dev/blog/docker&lt;/a&gt;&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;Andrew Gerrand
+26 September 2014&lt;/p&gt;
+&lt;h2 id="introduction-简介"&gt;Introduction 简介&lt;/h2&gt;
+&lt;p&gt;This week Docker &lt;a href="https://blog.docker.com/2014/09/docker-hub-official-repos-announcing-language-stacks/"&gt;announced&lt;/a&gt; official base images for Go and other major languages, giving programmers a trusted and easy way to build containers for their Go programs.&lt;/p&gt;
+&lt;p&gt;本周，Docker发布了针对Go和其他主要语言的官方基础镜像，为程序员提供了一个值得信赖的、简单的方法来为他们的Go程序构建容器。&lt;/p&gt;</description></item><item><title>常量</title><link>https://before80.github.io/go_docs/goBlog/2014/Constants/</link><pubDate>Thu, 18 May 2023 17:03:08 +0800</pubDate><guid>https://before80.github.io/go_docs/goBlog/2014/Constants/</guid><description>&lt;h1 id="constants---常量"&gt;Constants - 常量&lt;/h1&gt;
+&lt;blockquote&gt;
+&lt;p&gt;原文：&lt;a href="https://go.dev/blog/constants"&gt;https://go.dev/blog/constants&lt;/a&gt;&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;Rob Pike
+25 August 2014&lt;/p&gt;
+&lt;h2 id="introduction-简介"&gt;Introduction 简介&lt;/h2&gt;
+&lt;p&gt;Go is a statically typed language that does not permit operations that mix numeric types. You can’t add a &lt;code&gt;float64&lt;/code&gt; to an &lt;code&gt;int&lt;/code&gt;, or even an &lt;code&gt;int32&lt;/code&gt; to an &lt;code&gt;int&lt;/code&gt;. Yet it is legal to write &lt;code&gt;1e6*time.Second&lt;/code&gt; or &lt;code&gt;math.Exp(1)&lt;/code&gt; or even &lt;code&gt;1&amp;lt;&amp;lt;(' '+2.0)&lt;/code&gt;. In Go, constants, unlike variables, behave pretty much like regular numbers. This post explains why that is and what it means.&lt;/p&gt;</description></item><item><title>在 OSCON上的 go</title><link>https://before80.github.io/go_docs/goBlog/2014/GoAtOSCON/</link><pubDate>Thu, 18 May 2023 17:03:08 +0800</pubDate><guid>https://before80.github.io/go_docs/goBlog/2014/GoAtOSCON/</guid><description>&lt;h1 id="go-at-oscon----在-oscon上的-go"&gt;Go at OSCON - 在 OSCON上的 go&lt;/h1&gt;
+&lt;blockquote&gt;
+&lt;p&gt;原文：&lt;a href="https://go.dev/blog/osconreport"&gt;https://go.dev/blog/osconreport&lt;/a&gt;&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;Francesc Campoy
+20 August 2014&lt;/p&gt;
+&lt;h2 id="introduction-简介"&gt;Introduction 简介&lt;/h2&gt;
+&lt;p&gt;What happens in Portland in July? &lt;a href="http://www.oscon.com/oscon2014"&gt;OSCON&lt;/a&gt;! At this year’s conference, Go was more present than ever before, with five talks, two workshops, a &lt;a href="http://en.wikipedia.org/wiki/Birds_of_a_feather_(computing)"&gt;Birds of a Feather&lt;/a&gt; session, and a meetup.&lt;/p&gt;
+&lt;p&gt;7月在波特兰会发生什么？OSCON! 在今年的会议上，Go比以往任何时候都更受欢迎，有五场讲座，两个研讨会，一个Birds of a Feather会议，以及一个聚会。&lt;/p&gt;</description></item><item><title>Go 并发模式：Context</title><link>https://before80.github.io/go_docs/goBlog/2014/GoConcurrencyPatternsContext/</link><pubDate>Thu, 18 May 2023 17:03:08 +0800</pubDate><guid>https://before80.github.io/go_docs/goBlog/2014/GoConcurrencyPatternsContext/</guid><description>&lt;h1 id="go-concurrency-patterns-context---go-并发模式context"&gt;Go Concurrency Patterns: Context - Go 并发模式：Context&lt;/h1&gt;
+&lt;blockquote&gt;
+&lt;p&gt;原文：&lt;a href="https://go.dev/blog/context"&gt;https://go.dev/blog/context&lt;/a&gt;&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;Sameer Ajmani
+29 July 2014&lt;/p&gt;
+&lt;p&gt;2014年7月29日&lt;/p&gt;
+&lt;h2 id="简介-introduction"&gt;简介 Introduction&lt;/h2&gt;
+&lt;p&gt;In Go servers, each incoming request is handled in its own goroutine. Request handlers often start additional goroutines to access backends such as databases and RPC services. The set of goroutines working on a request typically needs access to request-specific values such as the identity of the end user, authorization tokens, and the request’s deadline. When a request is canceled or times out, all the goroutines working on that request should exit quickly so the system can reclaim any resources they are using.&lt;/p&gt;</description></item><item><title>Go 将参加2014年OSCON展会</title><link>https://before80.github.io/go_docs/goBlog/2014/GoWillBeAtOSCON2014/</link><pubDate>Thu, 18 May 2023 17:03:08 +0800</pubDate><guid>https://before80.github.io/go_docs/goBlog/2014/GoWillBeAtOSCON2014/</guid><description>&lt;h1 id="go-will-be-at-oscon-2014---go-将参加2014年oscon展会"&gt;Go will be at OSCON 2014 - Go 将参加2014年OSCON展会&lt;/h1&gt;
+&lt;blockquote&gt;
+&lt;p&gt;原文：&lt;a href="https://go.dev/blog/oscon"&gt;https://go.dev/blog/oscon&lt;/a&gt;&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;Francesc Campoy
+15 July 2014&lt;/p&gt;
+&lt;p&gt;&lt;a href="http://www.oscon.com/"&gt;OSCON&lt;/a&gt;, the Open Source Convention, is taking place from July 20th to the 29th in Portland, Oregon and Go will be central to many talks. If you are attending make sure you add these to your personal schedule.&lt;/p&gt;
+&lt;p&gt;OSCON，即开源大会，将于7月20日至29日在俄勒冈州波特兰市举行，Go将成为许多讲座的核心。如果您要参加，请确保将这些内容加入您的个人日程。&lt;/p&gt;</description></item><item><title>Go 1.3发布了</title><link>https://before80.github.io/go_docs/goBlog/2014/Go1_3IsReleased/</link><pubDate>Thu, 18 May 2023 17:03:08 +0800</pubDate><guid>https://before80.github.io/go_docs/goBlog/2014/Go1_3IsReleased/</guid><description>&lt;h1 id="go-13-is-released---go-13发布了"&gt;Go 1.3 is released - Go 1.3发布了&lt;/h1&gt;
+&lt;blockquote&gt;
+&lt;p&gt;原文：&lt;a href="https://go.dev/blog/go1.3"&gt;https://go.dev/blog/go1.3&lt;/a&gt;&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;Andrew Gerrand
+18 June 2014&lt;/p&gt;
+&lt;p&gt;Today we are happy to announce the release of &lt;a href="https://go.dev/doc/go1.3"&gt;Go 1.3&lt;/a&gt;. This release comes six months after our last major release and provides better performance, improved tools, support for running Go in new environments, and more. All Go users should upgrade to Go 1.3. You can grab the release from our &lt;a href="https://go.dev/dl/"&gt;downloads page&lt;/a&gt; and find the full list of improvements and fixes in the &lt;a href="https://go.dev/doc/go1.3"&gt;release notes&lt;/a&gt;. What follows are some highlights.&lt;/p&gt;</description></item><item><title>GopherCon 2014总结</title><link>https://before80.github.io/go_docs/goBlog/2014/GopherCon-2014-Wrap-Up/</link><pubDate>Thu, 18 May 2023 17:03:08 +0800</pubDate><guid>https://before80.github.io/go_docs/goBlog/2014/GopherCon-2014-Wrap-Up/</guid><description>&lt;h1 id="gophercon-2014-wrap-up---gophercon-2014总结"&gt;GopherCon 2014 Wrap Up - GopherCon 2014总结&lt;/h1&gt;
+&lt;blockquote&gt;
+&lt;p&gt;原文：&lt;a href="https://go.dev/blog/gophercon"&gt;https://go.dev/blog/gophercon&lt;/a&gt;&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;Andrew Gerrand
+28 May 2014&lt;/p&gt;
+&lt;p&gt;In April this year 700 gophers descended upon Denver to attend &lt;a href="http://www.gophercon.com/"&gt;GopherCon&lt;/a&gt;, the world’s first large-scale Go conference, organized entirely by the community. The three day event featured 24 talks and one panel discussion in a single track over two days, followed by an informal &amp;ldquo;hack day&amp;rdquo; full of code, conversation, and more than 4 hours (!) of lightning talks.&lt;/p&gt;</description></item><item><title>The Go Gopher</title><link>https://before80.github.io/go_docs/goBlog/2014/TheGoGopher/</link><pubDate>Thu, 18 May 2023 17:03:08 +0800</pubDate><guid>https://before80.github.io/go_docs/goBlog/2014/TheGoGopher/</guid><description>&lt;h1 id="the-go-gopher"&gt;The Go Gopher&lt;/h1&gt;
+&lt;blockquote&gt;
+&lt;p&gt;原文：&lt;a href="https://go.dev/blog/gopher"&gt;https://go.dev/blog/gopher&lt;/a&gt;&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;Rob Pike and Andrew Gerrand
+24 March 2014&lt;/p&gt;
+&lt;p&gt;
  
  
  
@@ -80,22 +93,24 @@
  &lt;img src="https://before80.github.io/go_docs/goBlog/2014/TheGoGopher_img/header.jpg"
  alt="img" data-cur-dir="goBlog/2014" data-rg="/TheGoGopher_img/header.jpg" data-rg1="TheGoGopher_img/header.jpg" data-rel="/go_docs/TheGoGopher_img/header.jpg" data-c4my="/go_docs"
  
- />
+ /&gt;
  
  
-&lt;/p>
-&lt;p>The Go gopher is an iconic mascot and one of the most distinctive features of the Go project. In this post we’ll talk about its origins, evolution, and behavior.&lt;/p>
-&lt;p>Go地鼠是一个标志性的吉祥物，也是Go项目中最独特的特征之一。在这篇文章中，我们将讨论它的起源、演变和行为。&lt;/p></description></item><item><title>Go 并发模式：Pipelines和取消</title><link>https://before80.github.io/go_docs/goBlog/2014/GoConcurrencyPatternsPipelinesAndCancellation/</link><pubDate>Thu, 18 May 2023 17:03:08 +0800</pubDate><guid>https://before80.github.io/go_docs/goBlog/2014/GoConcurrencyPatternsPipelinesAndCancellation/</guid><description>&lt;h1 id="go-concurrency-patterns-pipelines-and-cancellation---go-并发模式管道和取消">Go Concurrency Patterns: Pipelines and cancellation - Go 并发模式：管道和取消&lt;a class="td-heading-self-link" href="#go-concurrency-patterns-pipelines-and-cancellation---go-%e5%b9%b6%e5%8f%91%e6%a8%a1%e5%bc%8f%e7%ae%a1%e9%81%93%e5%92%8c%e5%8f%96%e6%b6%88" aria-label="Heading self-link">&lt;/a>&lt;/h1>
-&lt;blockquote>
-&lt;p>原文：&lt;a href="https://go.dev/blog/pipelines">https://go.dev/blog/pipelines&lt;/a>&lt;/p>&lt;/blockquote>
-&lt;p>Sameer Ajmani
-13 March 2014&lt;/p>
-&lt;p>2014年3月13日&lt;/p>
-&lt;h2 id="简介-introduction">简介 Introduction&lt;a class="td-heading-self-link" href="#%e7%ae%80%e4%bb%8b-introduction" aria-label="Heading self-link">&lt;/a>&lt;/h2>
-&lt;p>Go’s concurrency primitives make it easy to construct streaming data pipelines that make efficient use of I/O and multiple CPUs. This article presents examples of such pipelines, highlights subtleties that arise when operations fail, and introduces techniques for dealing with failures cleanly.&lt;/p></description></item><item><title>2014年FOSDEM上的 Go 讲座</title><link>https://before80.github.io/go_docs/goBlog/2014/GoTalksAtFOSDEM2014/</link><pubDate>Thu, 18 May 2023 17:03:08 +0800</pubDate><guid>https://before80.github.io/go_docs/goBlog/2014/GoTalksAtFOSDEM2014/</guid><description>&lt;h1 id="go-talks-at-fosdem-2014---2014年fosdem上的-go-讲座">Go talks at FOSDEM 2014 - 2014年FOSDEM上的 Go 讲座&lt;a class="td-heading-self-link" href="#go-talks-at-fosdem-2014---2014%e5%b9%b4fosdem%e4%b8%8a%e7%9a%84-go-%e8%ae%b2%e5%ba%a7" aria-label="Heading self-link">&lt;/a>&lt;/h1>
-&lt;blockquote>
-&lt;p>原文：&lt;a href="https://go.dev/blog/fosdem14">https://go.dev/blog/fosdem14&lt;/a>&lt;/p>&lt;/blockquote>
-&lt;p>Andrew Gerrand
-24 February 2014&lt;/p>
-&lt;h2 id="introduction-简介">Introduction 简介&lt;a class="td-heading-self-link" href="#introduction-%e7%ae%80%e4%bb%8b" aria-label="Heading self-link">&lt;/a>&lt;/h2>
-&lt;p>At &lt;a href="http://fosdem.org/">FOSDEM&lt;/a> on the 2nd of February 2014 members of the Go community presented a series of talks in the Go Devroom. The day was a huge success, with 13 great talks presented to a consistently jam-packed room.&lt;/p></description></item></channel></rss>
+&lt;/p&gt;
+&lt;p&gt;The Go gopher is an iconic mascot and one of the most distinctive features of the Go project. In this post we’ll talk about its origins, evolution, and behavior.&lt;/p&gt;
+&lt;p&gt;Go地鼠是一个标志性的吉祥物，也是Go项目中最独特的特征之一。在这篇文章中，我们将讨论它的起源、演变和行为。&lt;/p&gt;</description></item><item><title>Go 并发模式：Pipelines和取消</title><link>https://before80.github.io/go_docs/goBlog/2014/GoConcurrencyPatternsPipelinesAndCancellation/</link><pubDate>Thu, 18 May 2023 17:03:08 +0800</pubDate><guid>https://before80.github.io/go_docs/goBlog/2014/GoConcurrencyPatternsPipelinesAndCancellation/</guid><description>&lt;h1 id="go-concurrency-patterns-pipelines-and-cancellation---go-并发模式管道和取消"&gt;Go Concurrency Patterns: Pipelines and cancellation - Go 并发模式：管道和取消&lt;/h1&gt;
+&lt;blockquote&gt;
+&lt;p&gt;原文：&lt;a href="https://go.dev/blog/pipelines"&gt;https://go.dev/blog/pipelines&lt;/a&gt;&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;Sameer Ajmani
+13 March 2014&lt;/p&gt;
+&lt;p&gt;2014年3月13日&lt;/p&gt;
+&lt;h2 id="简介-introduction"&gt;简介 Introduction&lt;/h2&gt;
+&lt;p&gt;Go’s concurrency primitives make it easy to construct streaming data pipelines that make efficient use of I/O and multiple CPUs. This article presents examples of such pipelines, highlights subtleties that arise when operations fail, and introduces techniques for dealing with failures cleanly.&lt;/p&gt;</description></item><item><title>2014年FOSDEM上的 Go 讲座</title><link>https://before80.github.io/go_docs/goBlog/2014/GoTalksAtFOSDEM2014/</link><pubDate>Thu, 18 May 2023 17:03:08 +0800</pubDate><guid>https://before80.github.io/go_docs/goBlog/2014/GoTalksAtFOSDEM2014/</guid><description>&lt;h1 id="go-talks-at-fosdem-2014---2014年fosdem上的-go-讲座"&gt;Go talks at FOSDEM 2014 - 2014年FOSDEM上的 Go 讲座&lt;/h1&gt;
+&lt;blockquote&gt;
+&lt;p&gt;原文：&lt;a href="https://go.dev/blog/fosdem14"&gt;https://go.dev/blog/fosdem14&lt;/a&gt;&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;Andrew Gerrand
+24 February 2014&lt;/p&gt;
+&lt;h2 id="introduction-简介"&gt;Introduction 简介&lt;/h2&gt;
+&lt;p&gt;At &lt;a href="http://fosdem.org/"&gt;FOSDEM&lt;/a&gt; on the 2nd of February 2014 members of the Go community presented a series of talks in the Go Devroom. The day was a huge success, with 13 great talks presented to a consistently jam-packed room.&lt;/p&gt;</description></item></channel></rss>

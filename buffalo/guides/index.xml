@@ -1,289 +1,305 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>指南 on Go 中文档集</title><link>https://before80.github.io/go_docs/buffalo/guides/</link><description>Recent content in 指南 on Go 中文档集</description><generator>Hugo</generator><language>zh-cn</language><lastBuildDate>Thu, 10 Oct 2024 15:07:50 +0800</lastBuildDate><atom:link href="https://before80.github.io/go_docs/buffalo/guides/index.xml" rel="self" type="application/rss+xml"/><item><title>API 应用程序</title><link>https://before80.github.io/go_docs/buffalo/guides/APIApplications/</link><pubDate>Sun, 04 Feb 2024 21:16:19 +0800</pubDate><guid>https://before80.github.io/go_docs/buffalo/guides/APIApplications/</guid><description>&lt;blockquote>
-&lt;p>原文：&lt;a href="https://before80.github.io/go_docs/buffalo/guides/APIApplications/">https://gobuffalo.io/documentation/guides/apis/&lt;/a>&lt;/p>&lt;/blockquote>
-&lt;h1 id="api-applications-api-应用程序">API Applications API 应用程序&lt;a class="td-heading-self-link" href="#api-applications-api-%e5%ba%94%e7%94%a8%e7%a8%8b%e5%ba%8f" aria-label="Heading self-link">&lt;/a>&lt;/h1>
-&lt;p>Applications that only serve API end-points, typically JSON, are very different from those that serve HTML, JavaScript, and CSS. In this guide, you’ll learn how to build an API-only app, using Buffalo.&lt;/p>
-&lt;p>​	仅提供 API 端点（通常为 JSON）的应用程序与提供 HTML、JavaScript 和 CSS 的应用程序非常不同。在本指南中，您将学习如何使用 Buffalo 构建仅限 API 的应用程序。&lt;/p></description></item><item><title>文件上传</title><link>https://before80.github.io/go_docs/buffalo/guides/fileUploads/</link><pubDate>Sun, 04 Feb 2024 21:16:31 +0800</pubDate><guid>https://before80.github.io/go_docs/buffalo/guides/fileUploads/</guid><description>&lt;blockquote>
-&lt;p>原文：&lt;a href="https://before80.github.io/go_docs/buffalo/guides/fileUploads/">https://gobuffalo.io/documentation/guides/file-uploads/&lt;/a>&lt;/p>&lt;/blockquote>
-&lt;h1 id="file-uploads-文件上传">File Uploads 文件上传&lt;a class="td-heading-self-link" href="#file-uploads-%e6%96%87%e4%bb%b6%e4%b8%8a%e4%bc%a0" aria-label="Heading self-link">&lt;/a>&lt;/h1>
-&lt;p>Since &lt;strong>0.10.3&lt;/strong>
-自 0.10.3 起&lt;/p>
-&lt;p>Buffalo allows for the easily handling of files uploaded from a form. Storing those files, such as to disk or S3, is up to you the end developer: Buffalo just gives you easy access to the file from the request.&lt;/p>
-&lt;p>​	Buffalo 允许轻松处理从表单上传的文件。存储这些文件（例如，存储到磁盘或 S3）由您作为最终开发者决定：Buffalo 只让您可以轻松地从请求中访问文件。&lt;/p></description></item><item><title>后台作业工作者</title><link>https://before80.github.io/go_docs/buffalo/guides/backgroundJobWorkers/</link><pubDate>Sun, 04 Feb 2024 21:16:50 +0800</pubDate><guid>https://before80.github.io/go_docs/buffalo/guides/backgroundJobWorkers/</guid><description>&lt;blockquote>
-&lt;p>原文：&lt;a href="https://before80.github.io/go_docs/buffalo/guides/backgroundJobWorkers/">https://gobuffalo.io/documentation/guides/workers/&lt;/a>&lt;/p>&lt;/blockquote>
-&lt;h1 id="background-job-workers-后台作业工作者">Background Job Workers 后台作业工作者&lt;a class="td-heading-self-link" href="#background-job-workers-%e5%90%8e%e5%8f%b0%e4%bd%9c%e4%b8%9a%e5%b7%a5%e4%bd%9c%e8%80%85" aria-label="Heading self-link">&lt;/a>&lt;/h1>
-&lt;p>When building complex applications it is often nice to be able to run things in the “background”. While Go provides beautiful concurrency features, like the famed Goroutine, often one wants to run these on different machines, persist them using Redis, or any number of potential reasons why a simple Goroutine isn’t sufficient.&lt;/p></description></item><item><title>邮件发送器</title><link>https://before80.github.io/go_docs/buffalo/guides/mailers/</link><pubDate>Sun, 04 Feb 2024 21:17:02 +0800</pubDate><guid>https://before80.github.io/go_docs/buffalo/guides/mailers/</guid><description>&lt;blockquote>
-&lt;p>原文：&lt;a href="https://before80.github.io/go_docs/buffalo/guides/mailers/">https://gobuffalo.io/documentation/guides/mailers/&lt;/a>&lt;/p>&lt;/blockquote>
-&lt;h1 id="mailers-邮件发送器">Mailers 邮件发送器&lt;a class="td-heading-self-link" href="#mailers-%e9%82%ae%e4%bb%b6%e5%8f%91%e9%80%81%e5%99%a8" aria-label="Heading self-link">&lt;/a>&lt;/h1>
-&lt;p>E-mails are part of most (web) systems. It’s a standard way to inform users about platform news, confirmations, marketing stuff, and so on.&lt;/p>
-&lt;p>​	电子邮件是大多数（网络）系统的一部分。这是通知用户有关平台新闻、确认、营销内容等的一种标准方式。&lt;/p></description></item><item><title>任务</title><link>https://before80.github.io/go_docs/buffalo/guides/tasks/</link><pubDate>Sun, 04 Feb 2024 22:22:23 +0800</pubDate><guid>https://before80.github.io/go_docs/buffalo/guides/tasks/</guid><description>&lt;blockquote>
-&lt;p>原文：&lt;a href="https://before80.github.io/go_docs/buffalo/guides/tasks/">https://gobuffalo.io/documentation/guides/tasks/&lt;/a>&lt;/p>&lt;/blockquote>
-&lt;h1 id="tasks-任务">Tasks 任务&lt;a class="td-heading-self-link" href="#tasks-%e4%bb%bb%e5%8a%a1" aria-label="Heading self-link">&lt;/a>&lt;/h1>
-&lt;p>Tasks are small scripts that are often needed when writing an application. These tasks might be along the lines of seeding a database, parsing a log file, or even a release script. Buffalo uses the &lt;a href="https://github.com/gobuffalo/grift">grift&lt;/a> package to make writing these tasks simple.&lt;/p>
-&lt;p>​	任务通常是在编写应用程序时经常需要的脚本。这些任务可能包括填充数据库、解析日志文件，甚至发布脚本。Buffalo 使用 grift 包来简化编写这些任务。&lt;/p></description></item><item><title>插件</title><link>https://before80.github.io/go_docs/buffalo/guides/plugins/</link><pubDate>Sun, 04 Feb 2024 21:17:12 +0800</pubDate><guid>https://before80.github.io/go_docs/buffalo/guides/plugins/</guid><description>&lt;blockquote>
-&lt;p>原文：&lt;a href="https://before80.github.io/go_docs/buffalo/guides/plugins/">https://gobuffalo.io/documentation/guides/plugins/&lt;/a>&lt;/p>&lt;/blockquote>
-&lt;h1 id="plugins-插件">Plugins 插件&lt;a class="td-heading-self-link" href="#plugins-%e6%8f%92%e4%bb%b6" aria-label="Heading self-link">&lt;/a>&lt;/h1>
-&lt;p>Since &lt;strong>0.9.1&lt;/strong>
-自 0.9.1 起&lt;/p>
-&lt;p>Plugins allow for 3rd party code to extend the &lt;code>buffalo&lt;/code> command as well as its sub-commands.&lt;/p>
-&lt;p>​	插件允许第三方代码扩展 &lt;code>buffalo&lt;/code> 命令及其子命令。&lt;/p>
-&lt;h2 id="installing-the-buffalo-plugins-plugin-安装-buffalo-plugins-插件">Installing the buffalo-plugins Plugin 安装 buffalo-plugins 插件&lt;a class="td-heading-self-link" href="#installing-the-buffalo-plugins-plugin-%e5%ae%89%e8%a3%85-buffalo-plugins-%e6%8f%92%e4%bb%b6" aria-label="Heading self-link">&lt;/a>&lt;/h2>
-&lt;div class="highlight">&lt;div style="color:#b0c4de;background-color:#282c34;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">
-&lt;table style="border-spacing:0;padding:0;margin:0;border:0;">&lt;tr>&lt;td style="vertical-align:top;padding:0;margin:0;border:0;">
-&lt;pre tabindex="0" style="color:#b0c4de;background-color:#282c34;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code>&lt;span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#58626f">1
-&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
-&lt;td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
-&lt;pre tabindex="0" style="color:#b0c4de;background-color:#282c34;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-bash" data-lang="bash">&lt;span style="display:flex;">&lt;span>$ go get -u -v github.com/gobuffalo/buffalo-plugins
-&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
-&lt;/div>
-&lt;/div>&lt;h2 id="finding-available-plugins-查找可用插件">Finding Available Plugins 查找可用插件&lt;a class="td-heading-self-link" href="#finding-available-plugins-%e6%9f%a5%e6%89%be%e5%8f%af%e7%94%a8%e6%8f%92%e4%bb%b6" aria-label="Heading self-link">&lt;/a>&lt;/h2>
-&lt;p>A full list of Plugins can be found at &lt;a href="https://toolkit.gobuffalo.io/tools?topic=plugin">https://toolkit.gobuffalo.io/tools?topic=plugin&lt;/a>.&lt;/p></description></item><item><title>本地身份验证</title><link>https://before80.github.io/go_docs/buffalo/guides/localAuthentication/</link><pubDate>Sun, 04 Feb 2024 21:17:27 +0800</pubDate><guid>https://before80.github.io/go_docs/buffalo/guides/localAuthentication/</guid><description>&lt;blockquote>
-&lt;p>原文：&lt;a href="https://before80.github.io/go_docs/buffalo/guides/localAuthentication/">https://gobuffalo.io/documentation/guides/auth/&lt;/a>&lt;/p>&lt;/blockquote>
-&lt;h1 id="local-authentication-本地身份验证">Local Authentication 本地身份验证&lt;a class="td-heading-self-link" href="#local-authentication-%e6%9c%ac%e5%9c%b0%e8%ba%ab%e4%bb%bd%e9%aa%8c%e8%af%81" aria-label="Heading self-link">&lt;/a>&lt;/h1>
-&lt;p>In many use-cases, you’ll need to implement user authentication in your apps.&lt;/p>
-&lt;p>​	在许多用例中，您需要在应用中实现用户身份验证。&lt;/p>
-&lt;p>Buffalo had a native support for Auth until version &lt;code>v0.9.4&lt;/code>. Since then, it was moved into it’s own plugin, &lt;a href="https://github.com/gobuffalo/buffalo-auth">https://github.com/gobuffalo/buffalo-auth&lt;/a>.&lt;/p></description></item><item><title>第三方认证</title><link>https://before80.github.io/go_docs/buffalo/guides/thirdPartyAuthentication/</link><pubDate>Sun, 04 Feb 2024 21:17:48 +0800</pubDate><guid>https://before80.github.io/go_docs/buffalo/guides/thirdPartyAuthentication/</guid><description>&lt;blockquote>
-&lt;p>原文：&lt;a href="https://before80.github.io/go_docs/buffalo/guides/thirdPartyAuthentication/">https://gobuffalo.io/documentation/guides/goth/&lt;/a>&lt;/p>&lt;/blockquote>
-&lt;h1 id="third-party-authentication-第三方认证">Third Party Authentication 第三方认证&lt;a class="td-heading-self-link" href="#third-party-authentication-%e7%ac%ac%e4%b8%89%e6%96%b9%e8%ae%a4%e8%af%81" aria-label="Heading self-link">&lt;/a>&lt;/h1>
-&lt;p>In many use-cases, you’ll need to implement user authentication in your apps. &lt;a href="https://github.com/markbates/goth">Goth&lt;/a> provides a simple, clean, and idiomatic way to write authentication packages for Go web applications.&lt;/p>
-&lt;p>​	在许多用例中，您需要在应用程序中实现用户认证。Goth 为编写适用于 Go Web 应用程序的认证包提供了一种简单、干净且惯用的方式。&lt;/p></description></item><item><title>事件</title><link>https://before80.github.io/go_docs/buffalo/guides/events/</link><pubDate>Sun, 04 Feb 2024 21:18:02 +0800</pubDate><guid>https://before80.github.io/go_docs/buffalo/guides/events/</guid><description>&lt;blockquote>
-&lt;p>原文：&lt;a href="https://before80.github.io/go_docs/buffalo/guides/events/">https://gobuffalo.io/documentation/guides/events/&lt;/a>&lt;/p>&lt;/blockquote>
-&lt;h1 id="events-事件">Events 事件&lt;a class="td-heading-self-link" href="#events-%e4%ba%8b%e4%bb%b6" aria-label="Heading self-link">&lt;/a>&lt;/h1>
-&lt;p>Since &lt;strong>0.13.0-beta.2&lt;/strong>
-自 0.13.0-beta.2 起&lt;/p>
-&lt;p>The &lt;a href="https://pkg.go.dev/github.com/gobuffalo/events">events&lt;/a> package allows for Go applications, including Buffalo applications, to listen, and emit, global event messages.&lt;/p>
-&lt;p>​	事件包允许 Go 应用程序（包括 Buffalo 应用程序）监听和发出全局事件消息。&lt;/p>
-&lt;h2 id="listening-for-events-监听事件">Listening for Events 监听事件&lt;a class="td-heading-self-link" href="#listening-for-events-%e7%9b%91%e5%90%ac%e4%ba%8b%e4%bb%b6" aria-label="Heading self-link">&lt;/a>&lt;/h2>
-&lt;p>To start listening for events a &lt;a href="https://pkg.go.dev/github.com/gobuffalo/events#Listener">events#Listener&lt;/a> must first be registered with the &lt;a href="https://pkg.go.dev/github.com/gobuffalo/events">events&lt;/a> package.&lt;/p></description></item><item><title>Go 模块</title><link>https://before80.github.io/go_docs/buffalo/guides/goModules/</link><pubDate>Sun, 04 Feb 2024 21:18:12 +0800</pubDate><guid>https://before80.github.io/go_docs/buffalo/guides/goModules/</guid><description>&lt;blockquote>
-&lt;p>原文：&lt;a href="https://before80.github.io/go_docs/buffalo/guides/goModules/">https://gobuffalo.io/documentation/guides/gomods/&lt;/a>&lt;/p>&lt;/blockquote>
-&lt;h1 id="go-modules-go-模块">Go Modules Go 模块&lt;a class="td-heading-self-link" href="#go-modules-go-%e6%a8%a1%e5%9d%97" aria-label="Heading self-link">&lt;/a>&lt;/h1>
-&lt;p>&lt;strong>NOTE&lt;/strong>: Please read &lt;a href="https://github.com/golang/go/wiki/Modules">https://github.com/golang/go/wiki/Modules&lt;/a> to understand more about Go Modules &lt;strong>before&lt;/strong> using them.&lt;/p>
-&lt;p>​	注意：在使用 Go 模块之前，请阅读 &lt;a href="https://github.com/golang/go/wiki/Modules">https://github.com/golang/go/wiki/Modules&lt;/a> 以便更多地了解 Go 模块。&lt;/p>
-&lt;h2 id="enabling-go-module-support-启用-go-模块支持">Enabling Go Module Support 启用 Go 模块支持&lt;a class="td-heading-self-link" href="#enabling-go-module-support-%e5%90%af%e7%94%a8-go-%e6%a8%a1%e5%9d%97%e6%94%af%e6%8c%81" aria-label="Heading self-link">&lt;/a>&lt;/h2>
-&lt;p>Since &lt;strong>v0.13.0&lt;/strong>
-自 v0.13.0 起&lt;/p></description></item><item><title>本地化</title><link>https://before80.github.io/go_docs/buffalo/guides/localization/</link><pubDate>Sun, 04 Feb 2024 21:18:22 +0800</pubDate><guid>https://before80.github.io/go_docs/buffalo/guides/localization/</guid><description>&lt;blockquote>
-&lt;p>原文：&lt;a href="https://before80.github.io/go_docs/buffalo/guides/localization/">https://gobuffalo.io/documentation/guides/localization/&lt;/a>&lt;/p>&lt;/blockquote>
-&lt;h1 id="localization-本地化">Localization 本地化&lt;a class="td-heading-self-link" href="#localization-%e6%9c%ac%e5%9c%b0%e5%8c%96" aria-label="Heading self-link">&lt;/a>&lt;/h1>
-&lt;p>Translating your app is an effective way to &lt;strong>make it understandable to the many people&lt;/strong> around the globe! Buffalo uses the &lt;a href="https://github.com/nicksnyder/go-i18n">go-i18n&lt;/a> project to provide the i18n (adapting the software to make it translatable without code change) and l10n (providing translation strings and specific formats) of your app.&lt;/p>
-&lt;p>​	翻译您的应用是让全球各地的人们理解它的有效方法！Buffalo 使用 go-i18n 项目来提供应用的 i18n（调整软件使其可翻译，无需更改代码）和 l10n（提供翻译字符串和特定格式）。&lt;/p></description></item><item><title>日志记录</title><link>https://before80.github.io/go_docs/buffalo/guides/logging/</link><pubDate>Sun, 04 Feb 2024 21:18:32 +0800</pubDate><guid>https://before80.github.io/go_docs/buffalo/guides/logging/</guid><description>&lt;blockquote>
-&lt;p>原文：&lt;a href="https://before80.github.io/go_docs/buffalo/guides/templateEngines/">https://gobuffalo.io/documentation/guides/logging/&lt;/a>&lt;/p>&lt;/blockquote>
-&lt;h1 id="logging-日志记录">Logging 日志记录&lt;a class="td-heading-self-link" href="#logging-%e6%97%a5%e5%bf%97%e8%ae%b0%e5%bd%95" aria-label="Heading self-link">&lt;/a>&lt;/h1>
-&lt;p>Buffalo logs are managed using the &lt;a href="https://github.com/sirupsen/logrus">logrus&lt;/a> package.&lt;/p>
-&lt;p>​	Buffalo 日志使用 logrus 包进行管理。&lt;/p>
-&lt;h2 id="defaults-默认值">Defaults 默认值&lt;a class="td-heading-self-link" href="#defaults-%e9%bb%98%e8%ae%a4%e5%80%bc" aria-label="Heading self-link">&lt;/a>&lt;/h2>
-&lt;p>The default logger outputs logs in a human-readable format:&lt;/p>
-&lt;p>​	默认记录器以人类可读的格式输出日志：&lt;/p>
-&lt;div class="highlight">&lt;div style="color:#b0c4de;background-color:#282c34;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">
-&lt;table style="border-spacing:0;padding:0;margin:0;border:0;">&lt;tr>&lt;td style="vertical-align:top;padding:0;margin:0;border:0;">
-&lt;pre tabindex="0" style="color:#b0c4de;background-color:#282c34;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code>&lt;span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#58626f">1
-&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
-&lt;td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
-&lt;pre tabindex="0" style="color:#b0c4de;background-color:#282c34;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-plain" data-lang="plain">&lt;span style="display:flex;">&lt;span>INFO[2020-02-21T07:42:34+01:00] /en/ content_type=text/html duration=26.189949ms human_size=&amp;#34;21 kB&amp;#34; method=GET params=&amp;#34;{\&amp;#34;lang\&amp;#34;:[\&amp;#34;en\&amp;#34;]}&amp;#34; path=/en/ render=22.730816ms request_id=9b8d9260225fe99609a2-7cc679f4ae458b9925e3 size=21182 status=200
-&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
-&lt;/div>
-&lt;/div>&lt;h2 id="customize-the-logger-自定义记录器">Customize the logger 自定义记录器&lt;a class="td-heading-self-link" href="#customize-the-logger-%e8%87%aa%e5%ae%9a%e4%b9%89%e8%ae%b0%e5%bd%95%e5%99%a8" aria-label="Heading self-link">&lt;/a>&lt;/h2>
-&lt;div class="highlight">&lt;div style="color:#b0c4de;background-color:#282c34;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">
-&lt;table style="border-spacing:0;padding:0;margin:0;border:0;">&lt;tr>&lt;td style="vertical-align:top;padding:0;margin:0;border:0;">
-&lt;pre tabindex="0" style="color:#b0c4de;background-color:#282c34;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code>&lt;span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#58626f"> 1
-&lt;/span>&lt;span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#58626f"> 2
-&lt;/span>&lt;span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#58626f"> 3
-&lt;/span>&lt;span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#58626f"> 4
-&lt;/span>&lt;span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#58626f"> 5
-&lt;/span>&lt;span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#58626f"> 6
-&lt;/span>&lt;span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#58626f"> 7
-&lt;/span>&lt;span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#58626f"> 8
-&lt;/span>&lt;span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#58626f"> 9
-&lt;/span>&lt;span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#58626f">10
-&lt;/span>&lt;span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#58626f">11
-&lt;/span>&lt;span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#58626f">12
-&lt;/span>&lt;span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#58626f">13
-&lt;/span>&lt;span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#58626f">14
-&lt;/span>&lt;span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#58626f">15
-&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
-&lt;td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
-&lt;pre tabindex="0" style="color:#b0c4de;background-color:#282c34;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-go" data-lang="go">&lt;span style="display:flex;">&lt;span>&lt;span style="color:#8a93a5;font-style:italic">// JSONLogger wraps a logrus JSON logger into a buffalo Logger&lt;/span>
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#76a9f9">func&lt;/span> &lt;span style="color:#00b1f7">JSONLogger&lt;/span>&lt;span style="color:#abb2bf">(&lt;/span>&lt;span style="color:#aa89ea">lvl&lt;/span> &lt;span style="color:#aa89ea">logger&lt;/span>&lt;span style="color:#abb2bf">.&lt;/span>&lt;span style="color:#aa89ea">Level&lt;/span>&lt;span style="color:#abb2bf">)&lt;/span> &lt;span style="color:#aa89ea">logger&lt;/span>&lt;span style="color:#abb2bf">.&lt;/span>&lt;span style="color:#aa89ea">FieldLogger&lt;/span> &lt;span style="color:#abb2bf">{&lt;/span>
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#aa89ea">l&lt;/span> &lt;span style="color:#54b1c7">:=&lt;/span> &lt;span style="color:#aa89ea">logrus&lt;/span>&lt;span style="color:#abb2bf">.&lt;/span>&lt;span style="color:#00b1f7">New&lt;/span>&lt;span style="color:#abb2bf">()&lt;/span>
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#aa89ea">l&lt;/span>&lt;span style="color:#abb2bf">.&lt;/span>&lt;span style="color:#aa89ea">Level&lt;/span> &lt;span style="color:#abb2bf">=&lt;/span> &lt;span style="color:#aa89ea">lvl&lt;/span>
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#aa89ea">l&lt;/span>&lt;span style="color:#abb2bf">.&lt;/span>&lt;span style="color:#00b1f7">SetFormatter&lt;/span>&lt;span style="color:#abb2bf">(&lt;/span>&lt;span style="color:#54b1c7">&amp;amp;&lt;/span>&lt;span style="color:#aa89ea">logrus&lt;/span>&lt;span style="color:#abb2bf">.&lt;/span>&lt;span style="color:#aa89ea">JSONFormatter&lt;/span>&lt;span style="color:#abb2bf">{})&lt;/span>
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#aa89ea">l&lt;/span>&lt;span style="color:#abb2bf">.&lt;/span>&lt;span style="color:#00b1f7">SetOutput&lt;/span>&lt;span style="color:#abb2bf">(&lt;/span>&lt;span style="color:#aa89ea">os&lt;/span>&lt;span style="color:#abb2bf">.&lt;/span>&lt;span style="color:#aa89ea">Stdout&lt;/span>&lt;span style="color:#abb2bf">)&lt;/span>
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#76a9f9">return&lt;/span> &lt;span style="color:#aa89ea">logger&lt;/span>&lt;span style="color:#abb2bf">.&lt;/span>&lt;span style="color:#aa89ea">Logrus&lt;/span>&lt;span style="color:#abb2bf">{&lt;/span>&lt;span style="color:#aa89ea">FieldLogger&lt;/span>&lt;span style="color:#abb2bf">:&lt;/span> &lt;span style="color:#aa89ea">l&lt;/span>&lt;span style="color:#abb2bf">}&lt;/span>
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#abb2bf">}&lt;/span>
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#8a93a5;font-style:italic">//... &lt;/span>
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#aa89ea">app&lt;/span> &lt;span style="color:#abb2bf">=&lt;/span> &lt;span style="color:#aa89ea">buffalo&lt;/span>&lt;span style="color:#abb2bf">.&lt;/span>&lt;span style="color:#00b1f7">New&lt;/span>&lt;span style="color:#abb2bf">(&lt;/span>&lt;span style="color:#aa89ea">buffalo&lt;/span>&lt;span style="color:#abb2bf">.&lt;/span>&lt;span style="color:#aa89ea">Options&lt;/span>&lt;span style="color:#abb2bf">{&lt;/span>
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#8a93a5;font-style:italic">// ...&lt;/span>
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#aa89ea">Logger&lt;/span>&lt;span style="color:#abb2bf">:&lt;/span> &lt;span style="color:#00b1f7">JSONLogger&lt;/span>&lt;span style="color:#abb2bf">(&lt;/span>&lt;span style="color:#aa89ea">logger&lt;/span>&lt;span style="color:#abb2bf">.&lt;/span>&lt;span style="color:#aa89ea">DebugLevel&lt;/span>&lt;span style="color:#abb2bf">),&lt;/span>
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#abb2bf">}&lt;/span>
-&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
-&lt;/div>
-&lt;/div></description></item><item><title>模板引擎</title><link>https://before80.github.io/go_docs/buffalo/guides/templateEngines/</link><pubDate>Sun, 04 Feb 2024 21:18:46 +0800</pubDate><guid>https://before80.github.io/go_docs/buffalo/guides/templateEngines/</guid><description>&lt;blockquote>
-&lt;p>原文：&lt;a href="https://before80.github.io/go_docs/buffalo/guides/templateEngines/">https://gobuffalo.io/documentation/guides/logging/&lt;/a>&lt;/p>&lt;/blockquote>
-&lt;h1 id="template-engines-模板引擎">Template Engines 模板引擎&lt;a class="td-heading-self-link" href="#template-engines-%e6%a8%a1%e6%9d%bf%e5%bc%95%e6%93%8e" aria-label="Heading self-link">&lt;/a>&lt;/h1>
-&lt;h2 id="map-template-engines-by-extension-按扩展名映射模板引擎">Map Template Engines by Extension 按扩展名映射模板引擎&lt;a class="td-heading-self-link" href="#map-template-engines-by-extension-%e6%8c%89%e6%89%a9%e5%b1%95%e5%90%8d%e6%98%a0%e5%b0%84%e6%a8%a1%e6%9d%bf%e5%bc%95%e6%93%8e" aria-label="Heading self-link">&lt;/a>&lt;/h2>
-&lt;p>Since &lt;strong>0.10.0&lt;/strong>
-自 0.10.0 起&lt;/p>
-&lt;p>Previously you were able to define a single implementation of &lt;a href="https://godoc.org/github.com/gobuffalo/buffalo/render#TemplateEngine">&lt;code>render.TemplateEngine&lt;/code>&lt;/a> per &lt;a href="https://godoc.org/github.com/gobuffalo/buffalo/render#Engine">&lt;code>render.Engine&lt;/code>&lt;/a>. This has been removed in favor of a map of &lt;code>render.TemplateEngine&lt;/code>. Now you can map a file extension to an implementation of &lt;code>render.TemplateEngine&lt;/code>. This means, not only, can you now use multiple template engines in one application, but you can also chain them together.&lt;/p></description></item><item><title>测试</title><link>https://before80.github.io/go_docs/buffalo/guides/testing/</link><pubDate>Sun, 04 Feb 2024 21:18:56 +0800</pubDate><guid>https://before80.github.io/go_docs/buffalo/guides/testing/</guid><description>&lt;blockquote>
-&lt;p>原文：&lt;a href="https://before80.github.io/go_docs/buffalo/guides/testing/">https://gobuffalo.io/documentation/guides/testing/&lt;/a>&lt;/p>&lt;/blockquote>
-&lt;h1 id="testing-测试">Testing 测试&lt;a class="td-heading-self-link" href="#testing-%e6%b5%8b%e8%af%95" aria-label="Heading self-link">&lt;/a>&lt;/h1>
-&lt;h2 id="running-tests-运行测试">Running Tests 运行测试&lt;a class="td-heading-self-link" href="#running-tests-%e8%bf%90%e8%a1%8c%e6%b5%8b%e8%af%95" aria-label="Heading self-link">&lt;/a>&lt;/h2>
-&lt;p>The Buffalo test runner will make sure your test environment is correct, and run your tests.&lt;/p>
-&lt;p>​	Buffalo 测试运行器将确保您的测试环境正确无误，并运行您的测试。&lt;/p>
-&lt;p>For example, if using Pop (database), it will first try to setup your test database by using the schema from the development database. If that doesn’t exist (CI, for example), it will run the migrations against the test database.&lt;/p></description></item><item><title>视频</title><link>https://before80.github.io/go_docs/buffalo/guides/videos/</link><pubDate>Sun, 04 Feb 2024 21:19:04 +0800</pubDate><guid>https://before80.github.io/go_docs/buffalo/guides/videos/</guid><description>&lt;blockquote>
-&lt;p>原文：&lt;a href="https://before80.github.io/go_docs/buffalo/guides/videos/">https://gobuffalo.io/documentation/guides/videos/&lt;/a>&lt;/p>&lt;/blockquote>
-&lt;h1 id="videos-视频">Videos 视频&lt;a class="td-heading-self-link" href="#videos-%e8%a7%86%e9%a2%91" aria-label="Heading self-link">&lt;/a>&lt;/h1>
-&lt;h2 id="collection-from-other-pages-其他页面中的集合">Collection from Other Pages 其他页面中的集合&lt;a class="td-heading-self-link" href="#collection-from-other-pages-%e5%85%b6%e4%bb%96%e9%a1%b5%e9%9d%a2%e4%b8%ad%e7%9a%84%e9%9b%86%e5%90%88" aria-label="Heading self-link">&lt;/a>&lt;/h2>
-&lt;h3 id="buffalo--goth">Buffalo &amp;amp; Goth&lt;a class="td-heading-self-link" href="#buffalo--goth" aria-label="Heading self-link">&lt;/a>&lt;/h3>
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>指南 on Go 中文档集</title><link>https://before80.github.io/go_docs/buffalo/guides/</link><description>Recent content in 指南 on Go 中文档集</description><generator>Hugo</generator><language>zh-cn</language><lastBuildDate>Thu, 10 Oct 2024 15:07:50 +0800</lastBuildDate><atom:link href="https://before80.github.io/go_docs/buffalo/guides/index.xml" rel="self" type="application/rss+xml"/><item><title>API 应用程序</title><link>https://before80.github.io/go_docs/buffalo/guides/APIApplications/</link><pubDate>Sun, 04 Feb 2024 21:16:19 +0800</pubDate><guid>https://before80.github.io/go_docs/buffalo/guides/APIApplications/</guid><description>&lt;blockquote&gt;
+&lt;p&gt;原文：&lt;a href="https://before80.github.io/go_docs/buffalo/guides/APIApplications/"&gt;https://gobuffalo.io/documentation/guides/apis/&lt;/a&gt;&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;h1 id="api-applications-api-应用程序"&gt;API Applications API 应用程序&lt;/h1&gt;
+&lt;p&gt;Applications that only serve API end-points, typically JSON, are very different from those that serve HTML, JavaScript, and CSS. In this guide, you’ll learn how to build an API-only app, using Buffalo.&lt;/p&gt;
+&lt;p&gt;​	仅提供 API 端点（通常为 JSON）的应用程序与提供 HTML、JavaScript 和 CSS 的应用程序非常不同。在本指南中，您将学习如何使用 Buffalo 构建仅限 API 的应用程序。&lt;/p&gt;</description></item><item><title>文件上传</title><link>https://before80.github.io/go_docs/buffalo/guides/fileUploads/</link><pubDate>Sun, 04 Feb 2024 21:16:31 +0800</pubDate><guid>https://before80.github.io/go_docs/buffalo/guides/fileUploads/</guid><description>&lt;blockquote&gt;
+&lt;p&gt;原文：&lt;a href="https://before80.github.io/go_docs/buffalo/guides/fileUploads/"&gt;https://gobuffalo.io/documentation/guides/file-uploads/&lt;/a&gt;&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;h1 id="file-uploads-文件上传"&gt;File Uploads 文件上传&lt;/h1&gt;
+&lt;p&gt;Since &lt;strong&gt;0.10.3&lt;/strong&gt;
+自 0.10.3 起&lt;/p&gt;
+&lt;p&gt;Buffalo allows for the easily handling of files uploaded from a form. Storing those files, such as to disk or S3, is up to you the end developer: Buffalo just gives you easy access to the file from the request.&lt;/p&gt;
+&lt;p&gt;​	Buffalo 允许轻松处理从表单上传的文件。存储这些文件（例如，存储到磁盘或 S3）由您作为最终开发者决定：Buffalo 只让您可以轻松地从请求中访问文件。&lt;/p&gt;</description></item><item><title>后台作业工作者</title><link>https://before80.github.io/go_docs/buffalo/guides/backgroundJobWorkers/</link><pubDate>Sun, 04 Feb 2024 21:16:50 +0800</pubDate><guid>https://before80.github.io/go_docs/buffalo/guides/backgroundJobWorkers/</guid><description>&lt;blockquote&gt;
+&lt;p&gt;原文：&lt;a href="https://before80.github.io/go_docs/buffalo/guides/backgroundJobWorkers/"&gt;https://gobuffalo.io/documentation/guides/workers/&lt;/a&gt;&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;h1 id="background-job-workers-后台作业工作者"&gt;Background Job Workers 后台作业工作者&lt;/h1&gt;
+&lt;p&gt;When building complex applications it is often nice to be able to run things in the “background”. While Go provides beautiful concurrency features, like the famed Goroutine, often one wants to run these on different machines, persist them using Redis, or any number of potential reasons why a simple Goroutine isn’t sufficient.&lt;/p&gt;</description></item><item><title>邮件发送器</title><link>https://before80.github.io/go_docs/buffalo/guides/mailers/</link><pubDate>Sun, 04 Feb 2024 21:17:02 +0800</pubDate><guid>https://before80.github.io/go_docs/buffalo/guides/mailers/</guid><description>&lt;blockquote&gt;
+&lt;p&gt;原文：&lt;a href="https://before80.github.io/go_docs/buffalo/guides/mailers/"&gt;https://gobuffalo.io/documentation/guides/mailers/&lt;/a&gt;&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;h1 id="mailers-邮件发送器"&gt;Mailers 邮件发送器&lt;/h1&gt;
+&lt;p&gt;E-mails are part of most (web) systems. It’s a standard way to inform users about platform news, confirmations, marketing stuff, and so on.&lt;/p&gt;
+&lt;p&gt;​	电子邮件是大多数（网络）系统的一部分。这是通知用户有关平台新闻、确认、营销内容等的一种标准方式。&lt;/p&gt;</description></item><item><title>任务</title><link>https://before80.github.io/go_docs/buffalo/guides/tasks/</link><pubDate>Sun, 04 Feb 2024 22:22:23 +0800</pubDate><guid>https://before80.github.io/go_docs/buffalo/guides/tasks/</guid><description>&lt;blockquote&gt;
+&lt;p&gt;原文：&lt;a href="https://before80.github.io/go_docs/buffalo/guides/tasks/"&gt;https://gobuffalo.io/documentation/guides/tasks/&lt;/a&gt;&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;h1 id="tasks-任务"&gt;Tasks 任务&lt;/h1&gt;
+&lt;p&gt;Tasks are small scripts that are often needed when writing an application. These tasks might be along the lines of seeding a database, parsing a log file, or even a release script. Buffalo uses the &lt;a href="https://github.com/gobuffalo/grift"&gt;grift&lt;/a&gt; package to make writing these tasks simple.&lt;/p&gt;
+&lt;p&gt;​	任务通常是在编写应用程序时经常需要的脚本。这些任务可能包括填充数据库、解析日志文件，甚至发布脚本。Buffalo 使用 grift 包来简化编写这些任务。&lt;/p&gt;</description></item><item><title>插件</title><link>https://before80.github.io/go_docs/buffalo/guides/plugins/</link><pubDate>Sun, 04 Feb 2024 21:17:12 +0800</pubDate><guid>https://before80.github.io/go_docs/buffalo/guides/plugins/</guid><description>&lt;blockquote&gt;
+&lt;p&gt;原文：&lt;a href="https://before80.github.io/go_docs/buffalo/guides/plugins/"&gt;https://gobuffalo.io/documentation/guides/plugins/&lt;/a&gt;&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;h1 id="plugins-插件"&gt;Plugins 插件&lt;/h1&gt;
+&lt;p&gt;Since &lt;strong&gt;0.9.1&lt;/strong&gt;
+自 0.9.1 起&lt;/p&gt;
+&lt;p&gt;Plugins allow for 3rd party code to extend the &lt;code&gt;buffalo&lt;/code&gt; command as well as its sub-commands.&lt;/p&gt;
+&lt;p&gt;​	插件允许第三方代码扩展 &lt;code&gt;buffalo&lt;/code&gt; 命令及其子命令。&lt;/p&gt;
+&lt;h2 id="installing-the-buffalo-plugins-plugin-安装-buffalo-plugins-插件"&gt;Installing the buffalo-plugins Plugin 安装 buffalo-plugins 插件&lt;/h2&gt;
+&lt;div class="highlight"&gt;&lt;div style="color:#b0c4de;background-color:#282c34;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"&gt;
+&lt;table style="border-spacing:0;padding:0;margin:0;border:0;"&gt;&lt;tr&gt;&lt;td style="vertical-align:top;padding:0;margin:0;border:0;"&gt;
+&lt;pre tabindex="0" style="color:#b0c4de;background-color:#282c34;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"&gt;&lt;code&gt;&lt;span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#58626f"&gt;1
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
+&lt;td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%"&gt;
+&lt;pre tabindex="0" style="color:#b0c4de;background-color:#282c34;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"&gt;&lt;code class="language-bash" data-lang="bash"&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;$ go get -u -v github.com/gobuffalo/buffalo-plugins
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+&lt;/div&gt;
+&lt;/div&gt;&lt;h2 id="finding-available-plugins-查找可用插件"&gt;Finding Available Plugins 查找可用插件&lt;/h2&gt;
+&lt;p&gt;A full list of Plugins can be found at &lt;a href="https://toolkit.gobuffalo.io/tools?topic=plugin"&gt;https://toolkit.gobuffalo.io/tools?topic=plugin&lt;/a&gt;.&lt;/p&gt;</description></item><item><title>本地身份验证</title><link>https://before80.github.io/go_docs/buffalo/guides/localAuthentication/</link><pubDate>Sun, 04 Feb 2024 21:17:27 +0800</pubDate><guid>https://before80.github.io/go_docs/buffalo/guides/localAuthentication/</guid><description>&lt;blockquote&gt;
+&lt;p&gt;原文：&lt;a href="https://before80.github.io/go_docs/buffalo/guides/localAuthentication/"&gt;https://gobuffalo.io/documentation/guides/auth/&lt;/a&gt;&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;h1 id="local-authentication-本地身份验证"&gt;Local Authentication 本地身份验证&lt;/h1&gt;
+&lt;p&gt;In many use-cases, you’ll need to implement user authentication in your apps.&lt;/p&gt;
+&lt;p&gt;​	在许多用例中，您需要在应用中实现用户身份验证。&lt;/p&gt;
+&lt;p&gt;Buffalo had a native support for Auth until version &lt;code&gt;v0.9.4&lt;/code&gt;. Since then, it was moved into it’s own plugin, &lt;a href="https://github.com/gobuffalo/buffalo-auth"&gt;https://github.com/gobuffalo/buffalo-auth&lt;/a&gt;.&lt;/p&gt;</description></item><item><title>第三方认证</title><link>https://before80.github.io/go_docs/buffalo/guides/thirdPartyAuthentication/</link><pubDate>Sun, 04 Feb 2024 21:17:48 +0800</pubDate><guid>https://before80.github.io/go_docs/buffalo/guides/thirdPartyAuthentication/</guid><description>&lt;blockquote&gt;
+&lt;p&gt;原文：&lt;a href="https://before80.github.io/go_docs/buffalo/guides/thirdPartyAuthentication/"&gt;https://gobuffalo.io/documentation/guides/goth/&lt;/a&gt;&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;h1 id="third-party-authentication-第三方认证"&gt;Third Party Authentication 第三方认证&lt;/h1&gt;
+&lt;p&gt;In many use-cases, you’ll need to implement user authentication in your apps. &lt;a href="https://github.com/markbates/goth"&gt;Goth&lt;/a&gt; provides a simple, clean, and idiomatic way to write authentication packages for Go web applications.&lt;/p&gt;
+&lt;p&gt;​	在许多用例中，您需要在应用程序中实现用户认证。Goth 为编写适用于 Go Web 应用程序的认证包提供了一种简单、干净且惯用的方式。&lt;/p&gt;</description></item><item><title>事件</title><link>https://before80.github.io/go_docs/buffalo/guides/events/</link><pubDate>Sun, 04 Feb 2024 21:18:02 +0800</pubDate><guid>https://before80.github.io/go_docs/buffalo/guides/events/</guid><description>&lt;blockquote&gt;
+&lt;p&gt;原文：&lt;a href="https://before80.github.io/go_docs/buffalo/guides/events/"&gt;https://gobuffalo.io/documentation/guides/events/&lt;/a&gt;&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;h1 id="events-事件"&gt;Events 事件&lt;/h1&gt;
+&lt;p&gt;Since &lt;strong&gt;0.13.0-beta.2&lt;/strong&gt;
+自 0.13.0-beta.2 起&lt;/p&gt;
+&lt;p&gt;The &lt;a href="https://pkg.go.dev/github.com/gobuffalo/events"&gt;events&lt;/a&gt; package allows for Go applications, including Buffalo applications, to listen, and emit, global event messages.&lt;/p&gt;
+&lt;p&gt;​	事件包允许 Go 应用程序（包括 Buffalo 应用程序）监听和发出全局事件消息。&lt;/p&gt;
+&lt;h2 id="listening-for-events-监听事件"&gt;Listening for Events 监听事件&lt;/h2&gt;
+&lt;p&gt;To start listening for events a &lt;a href="https://pkg.go.dev/github.com/gobuffalo/events#Listener"&gt;events#Listener&lt;/a&gt; must first be registered with the &lt;a href="https://pkg.go.dev/github.com/gobuffalo/events"&gt;events&lt;/a&gt; package.&lt;/p&gt;</description></item><item><title>Go 模块</title><link>https://before80.github.io/go_docs/buffalo/guides/goModules/</link><pubDate>Sun, 04 Feb 2024 21:18:12 +0800</pubDate><guid>https://before80.github.io/go_docs/buffalo/guides/goModules/</guid><description>&lt;blockquote&gt;
+&lt;p&gt;原文：&lt;a href="https://before80.github.io/go_docs/buffalo/guides/goModules/"&gt;https://gobuffalo.io/documentation/guides/gomods/&lt;/a&gt;&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;h1 id="go-modules-go-模块"&gt;Go Modules Go 模块&lt;/h1&gt;
+&lt;p&gt;&lt;strong&gt;NOTE&lt;/strong&gt;: Please read &lt;a href="https://github.com/golang/go/wiki/Modules"&gt;https://github.com/golang/go/wiki/Modules&lt;/a&gt; to understand more about Go Modules &lt;strong&gt;before&lt;/strong&gt; using them.&lt;/p&gt;
+&lt;p&gt;​	注意：在使用 Go 模块之前，请阅读 &lt;a href="https://github.com/golang/go/wiki/Modules"&gt;https://github.com/golang/go/wiki/Modules&lt;/a&gt; 以便更多地了解 Go 模块。&lt;/p&gt;
+&lt;h2 id="enabling-go-module-support-启用-go-模块支持"&gt;Enabling Go Module Support 启用 Go 模块支持&lt;/h2&gt;
+&lt;p&gt;Since &lt;strong&gt;v0.13.0&lt;/strong&gt;
+自 v0.13.0 起&lt;/p&gt;
+&lt;p&gt;The support for Go Modules in “Buffalo” packages is experimental, as are Go Modules (as of &lt;code&gt;v1.11.x&lt;/code&gt;). To “opt-in” to using Go Modules you need to turn them using the &lt;code&gt;GO111MODULE&lt;/code&gt; environment variable and setting it to &lt;code&gt;on&lt;/code&gt;.&lt;/p&gt;</description></item><item><title>本地化</title><link>https://before80.github.io/go_docs/buffalo/guides/localization/</link><pubDate>Sun, 04 Feb 2024 21:18:22 +0800</pubDate><guid>https://before80.github.io/go_docs/buffalo/guides/localization/</guid><description>&lt;blockquote&gt;
+&lt;p&gt;原文：&lt;a href="https://before80.github.io/go_docs/buffalo/guides/localization/"&gt;https://gobuffalo.io/documentation/guides/localization/&lt;/a&gt;&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;h1 id="localization-本地化"&gt;Localization 本地化&lt;/h1&gt;
+&lt;p&gt;Translating your app is an effective way to &lt;strong&gt;make it understandable to the many people&lt;/strong&gt; around the globe! Buffalo uses the &lt;a href="https://github.com/nicksnyder/go-i18n"&gt;go-i18n&lt;/a&gt; project to provide the i18n (adapting the software to make it translatable without code change) and l10n (providing translation strings and specific formats) of your app.&lt;/p&gt;
+&lt;p&gt;​	翻译您的应用是让全球各地的人们理解它的有效方法！Buffalo 使用 go-i18n 项目来提供应用的 i18n（调整软件使其可翻译，无需更改代码）和 l10n（提供翻译字符串和特定格式）。&lt;/p&gt;</description></item><item><title>日志记录</title><link>https://before80.github.io/go_docs/buffalo/guides/logging/</link><pubDate>Sun, 04 Feb 2024 21:18:32 +0800</pubDate><guid>https://before80.github.io/go_docs/buffalo/guides/logging/</guid><description>&lt;blockquote&gt;
+&lt;p&gt;原文：&lt;a href="https://before80.github.io/go_docs/buffalo/guides/templateEngines/"&gt;https://gobuffalo.io/documentation/guides/logging/&lt;/a&gt;&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;h1 id="logging-日志记录"&gt;Logging 日志记录&lt;/h1&gt;
+&lt;p&gt;Buffalo logs are managed using the &lt;a href="https://github.com/sirupsen/logrus"&gt;logrus&lt;/a&gt; package.&lt;/p&gt;
+&lt;p&gt;​	Buffalo 日志使用 logrus 包进行管理。&lt;/p&gt;
+&lt;h2 id="defaults-默认值"&gt;Defaults 默认值&lt;/h2&gt;
+&lt;p&gt;The default logger outputs logs in a human-readable format:&lt;/p&gt;
+&lt;p&gt;​	默认记录器以人类可读的格式输出日志：&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;div style="color:#b0c4de;background-color:#282c34;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"&gt;
+&lt;table style="border-spacing:0;padding:0;margin:0;border:0;"&gt;&lt;tr&gt;&lt;td style="vertical-align:top;padding:0;margin:0;border:0;"&gt;
+&lt;pre tabindex="0" style="color:#b0c4de;background-color:#282c34;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"&gt;&lt;code&gt;&lt;span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#58626f"&gt;1
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
+&lt;td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%"&gt;
+&lt;pre tabindex="0" style="color:#b0c4de;background-color:#282c34;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"&gt;&lt;code class="language-plain" data-lang="plain"&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;INFO[2020-02-21T07:42:34+01:00] /en/ content_type=text/html duration=26.189949ms human_size=&amp;#34;21 kB&amp;#34; method=GET params=&amp;#34;{\&amp;#34;lang\&amp;#34;:[\&amp;#34;en\&amp;#34;]}&amp;#34; path=/en/ render=22.730816ms request_id=9b8d9260225fe99609a2-7cc679f4ae458b9925e3 size=21182 status=200
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+&lt;/div&gt;
+&lt;/div&gt;&lt;h2 id="customize-the-logger-自定义记录器"&gt;Customize the logger 自定义记录器&lt;/h2&gt;
+&lt;div class="highlight"&gt;&lt;div style="color:#b0c4de;background-color:#282c34;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"&gt;
+&lt;table style="border-spacing:0;padding:0;margin:0;border:0;"&gt;&lt;tr&gt;&lt;td style="vertical-align:top;padding:0;margin:0;border:0;"&gt;
+&lt;pre tabindex="0" style="color:#b0c4de;background-color:#282c34;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"&gt;&lt;code&gt;&lt;span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#58626f"&gt; 1
+&lt;/span&gt;&lt;span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#58626f"&gt; 2
+&lt;/span&gt;&lt;span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#58626f"&gt; 3
+&lt;/span&gt;&lt;span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#58626f"&gt; 4
+&lt;/span&gt;&lt;span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#58626f"&gt; 5
+&lt;/span&gt;&lt;span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#58626f"&gt; 6
+&lt;/span&gt;&lt;span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#58626f"&gt; 7
+&lt;/span&gt;&lt;span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#58626f"&gt; 8
+&lt;/span&gt;&lt;span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#58626f"&gt; 9
+&lt;/span&gt;&lt;span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#58626f"&gt;10
+&lt;/span&gt;&lt;span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#58626f"&gt;11
+&lt;/span&gt;&lt;span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#58626f"&gt;12
+&lt;/span&gt;&lt;span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#58626f"&gt;13
+&lt;/span&gt;&lt;span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#58626f"&gt;14
+&lt;/span&gt;&lt;span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#58626f"&gt;15
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
+&lt;td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%"&gt;
+&lt;pre tabindex="0" style="color:#b0c4de;background-color:#282c34;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"&gt;&lt;code class="language-go" data-lang="go"&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;&lt;span style="color:#8a93a5;font-style:italic"&gt;// JSONLogger wraps a logrus JSON logger into a buffalo Logger&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;&lt;span style="color:#76a9f9"&gt;func&lt;/span&gt; &lt;span style="color:#00b1f7"&gt;JSONLogger&lt;/span&gt;&lt;span style="color:#abb2bf"&gt;(&lt;/span&gt;&lt;span style="color:#aa89ea"&gt;lvl&lt;/span&gt; &lt;span style="color:#aa89ea"&gt;logger&lt;/span&gt;&lt;span style="color:#abb2bf"&gt;.&lt;/span&gt;&lt;span style="color:#aa89ea"&gt;Level&lt;/span&gt;&lt;span style="color:#abb2bf"&gt;)&lt;/span&gt; &lt;span style="color:#aa89ea"&gt;logger&lt;/span&gt;&lt;span style="color:#abb2bf"&gt;.&lt;/span&gt;&lt;span style="color:#aa89ea"&gt;FieldLogger&lt;/span&gt; &lt;span style="color:#abb2bf"&gt;{&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; &lt;span style="color:#aa89ea"&gt;l&lt;/span&gt; &lt;span style="color:#54b1c7"&gt;:=&lt;/span&gt; &lt;span style="color:#aa89ea"&gt;logrus&lt;/span&gt;&lt;span style="color:#abb2bf"&gt;.&lt;/span&gt;&lt;span style="color:#00b1f7"&gt;New&lt;/span&gt;&lt;span style="color:#abb2bf"&gt;()&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; &lt;span style="color:#aa89ea"&gt;l&lt;/span&gt;&lt;span style="color:#abb2bf"&gt;.&lt;/span&gt;&lt;span style="color:#aa89ea"&gt;Level&lt;/span&gt; &lt;span style="color:#abb2bf"&gt;=&lt;/span&gt; &lt;span style="color:#aa89ea"&gt;lvl&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; &lt;span style="color:#aa89ea"&gt;l&lt;/span&gt;&lt;span style="color:#abb2bf"&gt;.&lt;/span&gt;&lt;span style="color:#00b1f7"&gt;SetFormatter&lt;/span&gt;&lt;span style="color:#abb2bf"&gt;(&lt;/span&gt;&lt;span style="color:#54b1c7"&gt;&amp;amp;&lt;/span&gt;&lt;span style="color:#aa89ea"&gt;logrus&lt;/span&gt;&lt;span style="color:#abb2bf"&gt;.&lt;/span&gt;&lt;span style="color:#aa89ea"&gt;JSONFormatter&lt;/span&gt;&lt;span style="color:#abb2bf"&gt;{})&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; &lt;span style="color:#aa89ea"&gt;l&lt;/span&gt;&lt;span style="color:#abb2bf"&gt;.&lt;/span&gt;&lt;span style="color:#00b1f7"&gt;SetOutput&lt;/span&gt;&lt;span style="color:#abb2bf"&gt;(&lt;/span&gt;&lt;span style="color:#aa89ea"&gt;os&lt;/span&gt;&lt;span style="color:#abb2bf"&gt;.&lt;/span&gt;&lt;span style="color:#aa89ea"&gt;Stdout&lt;/span&gt;&lt;span style="color:#abb2bf"&gt;)&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; &lt;span style="color:#76a9f9"&gt;return&lt;/span&gt; &lt;span style="color:#aa89ea"&gt;logger&lt;/span&gt;&lt;span style="color:#abb2bf"&gt;.&lt;/span&gt;&lt;span style="color:#aa89ea"&gt;Logrus&lt;/span&gt;&lt;span style="color:#abb2bf"&gt;{&lt;/span&gt;&lt;span style="color:#aa89ea"&gt;FieldLogger&lt;/span&gt;&lt;span style="color:#abb2bf"&gt;:&lt;/span&gt; &lt;span style="color:#aa89ea"&gt;l&lt;/span&gt;&lt;span style="color:#abb2bf"&gt;}&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;&lt;span style="color:#abb2bf"&gt;}&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;&lt;span style="color:#8a93a5;font-style:italic"&gt;//... &lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;&lt;span style="color:#aa89ea"&gt;app&lt;/span&gt; &lt;span style="color:#abb2bf"&gt;=&lt;/span&gt; &lt;span style="color:#aa89ea"&gt;buffalo&lt;/span&gt;&lt;span style="color:#abb2bf"&gt;.&lt;/span&gt;&lt;span style="color:#00b1f7"&gt;New&lt;/span&gt;&lt;span style="color:#abb2bf"&gt;(&lt;/span&gt;&lt;span style="color:#aa89ea"&gt;buffalo&lt;/span&gt;&lt;span style="color:#abb2bf"&gt;.&lt;/span&gt;&lt;span style="color:#aa89ea"&gt;Options&lt;/span&gt;&lt;span style="color:#abb2bf"&gt;{&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;&lt;span style="color:#8a93a5;font-style:italic"&gt;// ...&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; &lt;span style="color:#aa89ea"&gt;Logger&lt;/span&gt;&lt;span style="color:#abb2bf"&gt;:&lt;/span&gt; &lt;span style="color:#00b1f7"&gt;JSONLogger&lt;/span&gt;&lt;span style="color:#abb2bf"&gt;(&lt;/span&gt;&lt;span style="color:#aa89ea"&gt;logger&lt;/span&gt;&lt;span style="color:#abb2bf"&gt;.&lt;/span&gt;&lt;span style="color:#aa89ea"&gt;DebugLevel&lt;/span&gt;&lt;span style="color:#abb2bf"&gt;),&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;&lt;span style="color:#abb2bf"&gt;}&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+&lt;/div&gt;
+&lt;/div&gt;</description></item><item><title>模板引擎</title><link>https://before80.github.io/go_docs/buffalo/guides/templateEngines/</link><pubDate>Sun, 04 Feb 2024 21:18:46 +0800</pubDate><guid>https://before80.github.io/go_docs/buffalo/guides/templateEngines/</guid><description>&lt;blockquote&gt;
+&lt;p&gt;原文：&lt;a href="https://before80.github.io/go_docs/buffalo/guides/templateEngines/"&gt;https://gobuffalo.io/documentation/guides/logging/&lt;/a&gt;&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;h1 id="template-engines-模板引擎"&gt;Template Engines 模板引擎&lt;/h1&gt;
+&lt;h2 id="map-template-engines-by-extension-按扩展名映射模板引擎"&gt;Map Template Engines by Extension 按扩展名映射模板引擎&lt;/h2&gt;
+&lt;p&gt;Since &lt;strong&gt;0.10.0&lt;/strong&gt;
+自 0.10.0 起&lt;/p&gt;
+&lt;p&gt;Previously you were able to define a single implementation of &lt;a href="https://godoc.org/github.com/gobuffalo/buffalo/render#TemplateEngine"&gt;&lt;code&gt;render.TemplateEngine&lt;/code&gt;&lt;/a&gt; per &lt;a href="https://godoc.org/github.com/gobuffalo/buffalo/render#Engine"&gt;&lt;code&gt;render.Engine&lt;/code&gt;&lt;/a&gt;. This has been removed in favor of a map of &lt;code&gt;render.TemplateEngine&lt;/code&gt;. Now you can map a file extension to an implementation of &lt;code&gt;render.TemplateEngine&lt;/code&gt;. This means, not only, can you now use multiple template engines in one application, but you can also chain them together.&lt;/p&gt;</description></item><item><title>测试</title><link>https://before80.github.io/go_docs/buffalo/guides/testing/</link><pubDate>Sun, 04 Feb 2024 21:18:56 +0800</pubDate><guid>https://before80.github.io/go_docs/buffalo/guides/testing/</guid><description>&lt;blockquote&gt;
+&lt;p&gt;原文：&lt;a href="https://before80.github.io/go_docs/buffalo/guides/testing/"&gt;https://gobuffalo.io/documentation/guides/testing/&lt;/a&gt;&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;h1 id="testing-测试"&gt;Testing 测试&lt;/h1&gt;
+&lt;h2 id="running-tests-运行测试"&gt;Running Tests 运行测试&lt;/h2&gt;
+&lt;p&gt;The Buffalo test runner will make sure your test environment is correct, and run your tests.&lt;/p&gt;
+&lt;p&gt;​	Buffalo 测试运行器将确保您的测试环境正确无误，并运行您的测试。&lt;/p&gt;
+&lt;p&gt;For example, if using Pop (database), it will first try to setup your test database by using the schema from the development database. If that doesn’t exist (CI, for example), it will run the migrations against the test database.&lt;/p&gt;</description></item><item><title>视频</title><link>https://before80.github.io/go_docs/buffalo/guides/videos/</link><pubDate>Sun, 04 Feb 2024 21:19:04 +0800</pubDate><guid>https://before80.github.io/go_docs/buffalo/guides/videos/</guid><description>&lt;blockquote&gt;
+&lt;p&gt;原文：&lt;a href="https://before80.github.io/go_docs/buffalo/guides/videos/"&gt;https://gobuffalo.io/documentation/guides/videos/&lt;/a&gt;&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;h1 id="videos-视频"&gt;Videos 视频&lt;/h1&gt;
+&lt;h2 id="collection-from-other-pages-其他页面中的集合"&gt;Collection from Other Pages 其他页面中的集合&lt;/h2&gt;
+&lt;h3 id="buffalo--goth"&gt;Buffalo &amp;amp; Goth&lt;/h3&gt;
 
  &lt;div
- style="position: relative; padding-bottom: 56.25%; height: 0; overflow: hidden;">
+ style="position: relative; padding-bottom: 56.25%; height: 0; overflow: hidden;"&gt;
  &lt;iframe
  src="https://player.vimeo.com/video/223666374?dnt=0"
- style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; border:0;" allow="fullscreen">
- &lt;/iframe>
- &lt;/div>
+ style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; border:0;" allow="fullscreen"&gt;
+ &lt;/iframe&gt;
+ &lt;/div&gt;
 
-&lt;h3 id="grift-task-overview-grift-任务概述">Grift Task Overview Grift 任务概述&lt;a class="td-heading-self-link" href="#grift-task-overview-grift-%e4%bb%bb%e5%8a%a1%e6%a6%82%e8%bf%b0" aria-label="Heading self-link">&lt;/a>&lt;/h3>
+&lt;h3 id="grift-task-overview-grift-任务概述"&gt;Grift Task Overview Grift 任务概述&lt;/h3&gt;
 
  &lt;div
- style="position: relative; padding-bottom: 56.25%; height: 0; overflow: hidden;">
+ style="position: relative; padding-bottom: 56.25%; height: 0; overflow: hidden;"&gt;
  &lt;iframe
  src="https://player.vimeo.com/video/213096302?dnt=0"
- style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; border:0;" allow="fullscreen">
- &lt;/iframe>
- &lt;/div>
+ style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; border:0;" allow="fullscreen"&gt;
+ &lt;/iframe&gt;
+ &lt;/div&gt;
 
-&lt;h3 id="buffalo-v081---resource-generation-buffalo-v081---资源生成">Buffalo v0.8.1 - Resource Generation Buffalo v0.8.1 - 资源生成&lt;a class="td-heading-self-link" href="#buffalo-v081---resource-generation-buffalo-v081---%e8%b5%84%e6%ba%90%e7%94%9f%e6%88%90" aria-label="Heading self-link">&lt;/a>&lt;/h3>
+&lt;h3 id="buffalo-v081---resource-generation-buffalo-v081---资源生成"&gt;Buffalo v0.8.1 - Resource Generation Buffalo v0.8.1 - 资源生成&lt;/h3&gt;
 
  &lt;div
- style="position: relative; padding-bottom: 56.25%; height: 0; overflow: hidden;">
+ style="position: relative; padding-bottom: 56.25%; height: 0; overflow: hidden;"&gt;
  &lt;iframe
  src="https://player.vimeo.com/video/212302823?dnt=0"
- style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; border:0;" allow="fullscreen">
- &lt;/iframe>
- &lt;/div>
+ style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; border:0;" allow="fullscreen"&gt;
+ &lt;/iframe&gt;
+ &lt;/div&gt;
 
-&lt;h3 id="pop-association-demo-流行关联演示">Pop Association Demo 流行关联演示&lt;a class="td-heading-self-link" href="#pop-association-demo-%e6%b5%81%e8%a1%8c%e5%85%b3%e8%81%94%e6%bc%94%e7%a4%ba" aria-label="Heading self-link">&lt;/a>&lt;/h3>
+&lt;h3 id="pop-association-demo-流行关联演示"&gt;Pop Association Demo 流行关联演示&lt;/h3&gt;
 
  &lt;div
- style="position: relative; padding-bottom: 56.25%; height: 0; overflow: hidden;">
+ style="position: relative; padding-bottom: 56.25%; height: 0; overflow: hidden;"&gt;
  &lt;iframe
  src="https://player.vimeo.com/video/253683926?dnt=0"
- style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; border:0;" allow="fullscreen">
- &lt;/iframe>
- &lt;/div>
+ style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; border:0;" allow="fullscreen"&gt;
+ &lt;/iframe&gt;
+ &lt;/div&gt;
 
-&lt;h3 id="custom-template-helpers-in-buffalo-buffalo-中的自定义模板助手">Custom Template Helpers in Buffalo Buffalo 中的自定义模板助手&lt;a class="td-heading-self-link" href="#custom-template-helpers-in-buffalo-buffalo-%e4%b8%ad%e7%9a%84%e8%87%aa%e5%ae%9a%e4%b9%89%e6%a8%a1%e6%9d%bf%e5%8a%a9%e6%89%8b" aria-label="Heading self-link">&lt;/a>&lt;/h3>
+&lt;h3 id="custom-template-helpers-in-buffalo-buffalo-中的自定义模板助手"&gt;Custom Template Helpers in Buffalo Buffalo 中的自定义模板助手&lt;/h3&gt;
 
  &lt;div
- style="position: relative; padding-bottom: 56.25%; height: 0; overflow: hidden;">
+ style="position: relative; padding-bottom: 56.25%; height: 0; overflow: hidden;"&gt;
  &lt;iframe
  src="https://player.vimeo.com/video/229572343?dnt=0"
- style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; border:0;" allow="fullscreen">
- &lt;/iframe>
- &lt;/div>
+ style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; border:0;" allow="fullscreen"&gt;
+ &lt;/iframe&gt;
+ &lt;/div&gt;
 
-&lt;h3 id="buffalo-v0110---render-auto-preview-buffalo-v0110---渲染自动预览">Buffalo v0.11.0 - Render Auto (Preview) Buffalo v0.11.0 - 渲染自动（预览）&lt;a class="td-heading-self-link" href="#buffalo-v0110---render-auto-preview-buffalo-v0110---%e6%b8%b2%e6%9f%93%e8%87%aa%e5%8a%a8%e9%a2%84%e8%a7%88" aria-label="Heading self-link">&lt;/a>&lt;/h3>
+&lt;h3 id="buffalo-v0110---render-auto-preview-buffalo-v0110---渲染自动预览"&gt;Buffalo v0.11.0 - Render Auto (Preview) Buffalo v0.11.0 - 渲染自动（预览）&lt;/h3&gt;
 
  &lt;div
- style="position: relative; padding-bottom: 56.25%; height: 0; overflow: hidden;">
+ style="position: relative; padding-bottom: 56.25%; height: 0; overflow: hidden;"&gt;
  &lt;iframe
  src="https://player.vimeo.com/video/257736901?dnt=0"
- style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; border:0;" allow="fullscreen">
- &lt;/iframe>
- &lt;/div>
+ style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; border:0;" allow="fullscreen"&gt;
+ &lt;/iframe&gt;
+ &lt;/div&gt;
 
-&lt;h3 id="introduction-to-plush-plush-简介">Introduction to Plush Plush 简介&lt;a class="td-heading-self-link" href="#introduction-to-plush-plush-%e7%ae%80%e4%bb%8b" aria-label="Heading self-link">&lt;/a>&lt;/h3>
+&lt;h3 id="introduction-to-plush-plush-简介"&gt;Introduction to Plush Plush 简介&lt;/h3&gt;
 
  &lt;div
- style="position: relative; padding-bottom: 56.25%; height: 0; overflow: hidden;">
+ style="position: relative; padding-bottom: 56.25%; height: 0; overflow: hidden;"&gt;
  &lt;iframe
  src="https://player.vimeo.com/video/207200621?dnt=0"
- style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; border:0;" allow="fullscreen">
- &lt;/iframe>
- &lt;/div>
+ style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; border:0;" allow="fullscreen"&gt;
+ &lt;/iframe&gt;
+ &lt;/div&gt;
 
-&lt;h3 id="plush-tips-tricks-and-testing-plush技巧窍门和测试">Plush: Tips, Tricks, and Testing Plush：技巧、窍门和测试&lt;a class="td-heading-self-link" href="#plush-tips-tricks-and-testing-plush%e6%8a%80%e5%b7%a7%e7%aa%8d%e9%97%a8%e5%92%8c%e6%b5%8b%e8%af%95" aria-label="Heading self-link">&lt;/a>&lt;/h3>
+&lt;h3 id="plush-tips-tricks-and-testing-plush技巧窍门和测试"&gt;Plush: Tips, Tricks, and Testing Plush：技巧、窍门和测试&lt;/h3&gt;
 
  &lt;div
- style="position: relative; padding-bottom: 56.25%; height: 0; overflow: hidden;">
+ style="position: relative; padding-bottom: 56.25%; height: 0; overflow: hidden;"&gt;
  &lt;iframe
  src="https://player.vimeo.com/video/267643588?dnt=0"
- style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; border:0;" allow="fullscreen">
- &lt;/iframe>
- &lt;/div>
+ style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; border:0;" allow="fullscreen"&gt;
+ &lt;/iframe&gt;
+ &lt;/div&gt;
 
-&lt;h3 id="buffalo--vue-buffalo-和-vue">Buffalo &amp;amp; Vue Buffalo 和 Vue&lt;a class="td-heading-self-link" href="#buffalo--vue-buffalo-%e5%92%8c-vue" aria-label="Heading self-link">&lt;/a>&lt;/h3>
+&lt;h3 id="buffalo--vue-buffalo-和-vue"&gt;Buffalo &amp;amp; Vue Buffalo 和 Vue&lt;/h3&gt;
 
  &lt;div
- style="position: relative; padding-bottom: 56.25%; height: 0; overflow: hidden;">
+ style="position: relative; padding-bottom: 56.25%; height: 0; overflow: hidden;"&gt;
  &lt;iframe
  src="https://player.vimeo.com/video/238650365?dnt=0"
- style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; border:0;" allow="fullscreen">
- &lt;/iframe>
- &lt;/div>
+ style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; border:0;" allow="fullscreen"&gt;
+ &lt;/iframe&gt;
+ &lt;/div&gt;
 
-&lt;h3 id="building-a-url-shortner-with-buffalo-使用-buffalo-构建-url-缩短器">Building a URL Shortner with Buffalo 使用 Buffalo 构建 URL 缩短器&lt;a class="td-heading-self-link" href="#building-a-url-shortner-with-buffalo-%e4%bd%bf%e7%94%a8-buffalo-%e6%9e%84%e5%bb%ba-url-%e7%bc%a9%e7%9f%ad%e5%99%a8" aria-label="Heading self-link">&lt;/a>&lt;/h3>
+&lt;h3 id="building-a-url-shortner-with-buffalo-使用-buffalo-构建-url-缩短器"&gt;Building a URL Shortner with Buffalo 使用 Buffalo 构建 URL 缩短器&lt;/h3&gt;
 
  &lt;div
- style="position: relative; padding-bottom: 56.25%; height: 0; overflow: hidden;">
+ style="position: relative; padding-bottom: 56.25%; height: 0; overflow: hidden;"&gt;
  &lt;iframe
  src="https://player.vimeo.com/video/234908859?dnt=0"
- style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; border:0;" allow="fullscreen">
- &lt;/iframe>
- &lt;/div>
+ style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; border:0;" allow="fullscreen"&gt;
+ &lt;/iframe&gt;
+ &lt;/div&gt;
 
-&lt;h2 id="some-more-videos-更多视频">Some More Videos 更多视频&lt;a class="td-heading-self-link" href="#some-more-videos-%e6%9b%b4%e5%a4%9a%e8%a7%86%e9%a2%91" aria-label="Heading self-link">&lt;/a>&lt;/h2>
-&lt;h3 id="writing-buffalo-plugins-编写-buffalo-插件">Writing Buffalo Plugins 编写 Buffalo 插件&lt;a class="td-heading-self-link" href="#writing-buffalo-plugins-%e7%bc%96%e5%86%99-buffalo-%e6%8f%92%e4%bb%b6" aria-label="Heading self-link">&lt;/a>&lt;/h3>
+&lt;h2 id="some-more-videos-更多视频"&gt;Some More Videos 更多视频&lt;/h2&gt;
+&lt;h3 id="writing-buffalo-plugins-编写-buffalo-插件"&gt;Writing Buffalo Plugins 编写 Buffalo 插件&lt;/h3&gt;
 
  &lt;div
- style="position: relative; padding-bottom: 56.25%; height: 0; overflow: hidden;">
+ style="position: relative; padding-bottom: 56.25%; height: 0; overflow: hidden;"&gt;
  &lt;iframe
  src="https://player.vimeo.com/video/295673065?dnt=0"
- style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; border:0;" allow="fullscreen">
- &lt;/iframe>
- &lt;/div>
+ style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; border:0;" allow="fullscreen"&gt;
+ &lt;/iframe&gt;
+ &lt;/div&gt;
 
-&lt;h3 id="buffalo---v0130-tour-buffalo---v0130-游览">Buffalo - v0.13.0 Tour Buffalo - v0.13.0 游览&lt;a class="td-heading-self-link" href="#buffalo---v0130-tour-buffalo---v0130-%e6%b8%b8%e8%a7%88" aria-label="Heading self-link">&lt;/a>&lt;/h3>
+&lt;h3 id="buffalo---v0130-tour-buffalo---v0130-游览"&gt;Buffalo - v0.13.0 Tour Buffalo - v0.13.0 游览&lt;/h3&gt;
 
  &lt;div
- style="position: relative; padding-bottom: 56.25%; height: 0; overflow: hidden;">
+ style="position: relative; padding-bottom: 56.25%; height: 0; overflow: hidden;"&gt;
  &lt;iframe
  src="https://player.vimeo.com/video/291517947?dnt=0"
- style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; border:0;" allow="fullscreen">
- &lt;/iframe>
- &lt;/div>
+ style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; border:0;" allow="fullscreen"&gt;
+ &lt;/iframe&gt;
+ &lt;/div&gt;
 
-&lt;h3 id="buffalo---go-modules-support-buffalo---go-模块支持">Buffalo - Go Modules Support Buffalo - Go 模块支持&lt;a class="td-heading-self-link" href="#buffalo---go-modules-support-buffalo---go-%e6%a8%a1%e5%9d%97%e6%94%af%e6%8c%81" aria-label="Heading self-link">&lt;/a>&lt;/h3>
+&lt;h3 id="buffalo---go-modules-support-buffalo---go-模块支持"&gt;Buffalo - Go Modules Support Buffalo - Go 模块支持&lt;/h3&gt;
 
  &lt;div
- style="position: relative; padding-bottom: 56.25%; height: 0; overflow: hidden;">
+ style="position: relative; padding-bottom: 56.25%; height: 0; overflow: hidden;"&gt;
  &lt;iframe
  src="https://player.vimeo.com/video/286080946?dnt=0"
- style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; border:0;" allow="fullscreen">
- &lt;/iframe>
- &lt;/div>
+ style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; border:0;" allow="fullscreen"&gt;
+ &lt;/iframe&gt;
+ &lt;/div&gt;
 
-&lt;h3 id="buffalo-v0110---update-command-buffalo-v0110---更新命令">Buffalo v0.11.0 - Update Command Buffalo v0.11.0 - 更新命令&lt;a class="td-heading-self-link" href="#buffalo-v0110---update-command-buffalo-v0110---%e6%9b%b4%e6%96%b0%e5%91%bd%e4%bb%a4" aria-label="Heading self-link">&lt;/a>&lt;/h3>
+&lt;h3 id="buffalo-v0110---update-command-buffalo-v0110---更新命令"&gt;Buffalo v0.11.0 - Update Command Buffalo v0.11.0 - 更新命令&lt;/h3&gt;
 
  &lt;div
- style="position: relative; padding-bottom: 56.25%; height: 0; overflow: hidden;">
+ style="position: relative; padding-bottom: 56.25%; height: 0; overflow: hidden;"&gt;
  &lt;iframe
  src="https://player.vimeo.com/video/257734284?dnt=0"
- style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; border:0;" allow="fullscreen">
- &lt;/iframe>
- &lt;/div>
+ style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; border:0;" allow="fullscreen"&gt;
+ &lt;/iframe&gt;
+ &lt;/div&gt;
 
-&lt;h3 id="buffalo-v0103---file-uploads-preview-buffalo-v0103---文件上传预览">Buffalo v0.10.3 - File Uploads (Preview) Buffalo v0.10.3 - 文件上传（预览）&lt;a class="td-heading-self-link" href="#buffalo-v0103---file-uploads-preview-buffalo-v0103---%e6%96%87%e4%bb%b6%e4%b8%8a%e4%bc%a0%e9%a2%84%e8%a7%88" aria-label="Heading self-link">&lt;/a>&lt;/h3>
+&lt;h3 id="buffalo-v0103---file-uploads-preview-buffalo-v0103---文件上传预览"&gt;Buffalo v0.10.3 - File Uploads (Preview) Buffalo v0.10.3 - 文件上传（预览）&lt;/h3&gt;
 
  &lt;div
- style="position: relative; padding-bottom: 56.25%; height: 0; overflow: hidden;">
+ style="position: relative; padding-bottom: 56.25%; height: 0; overflow: hidden;"&gt;
  &lt;iframe
  src="https://player.vimeo.com/video/247866894?dnt=0"
- style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; border:0;" allow="fullscreen">
- &lt;/iframe>
- &lt;/div>
+ style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; border:0;" allow="fullscreen"&gt;
+ &lt;/iframe&gt;
+ &lt;/div&gt;
 
-&lt;h2 id="others-其他">Others 其他&lt;a class="td-heading-self-link" href="#others-%e5%85%b6%e4%bb%96" aria-label="Heading self-link">&lt;/a>&lt;/h2>
-&lt;h3 id="buffalo-managing-plugins-buffalo管理插件">Buffalo: Managing Plugins Buffalo：管理插件&lt;a class="td-heading-self-link" href="#buffalo-managing-plugins-buffalo%e7%ae%a1%e7%90%86%e6%8f%92%e4%bb%b6" aria-label="Heading self-link">&lt;/a>&lt;/h3>
-&lt;p>In this video Mark Bates will walk you through understanding how Buffalo Plugins work, and how to use the Buffalo Plugin Manager.&lt;/p></description></item></channel></rss>
+&lt;h2 id="others-其他"&gt;Others 其他&lt;/h2&gt;
+&lt;h3 id="buffalo-managing-plugins-buffalo管理插件"&gt;Buffalo: Managing Plugins Buffalo：管理插件&lt;/h3&gt;
+&lt;p&gt;In this video Mark Bates will walk you through understanding how Buffalo Plugins work, and how to use the Buffalo Plugin Manager.&lt;/p&gt;</description></item></channel></rss>

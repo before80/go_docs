@@ -1,17 +1,17 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>参考 on Go 中文档集</title><link>https://before80.github.io/go_docs/asu/refs/</link><description>Recent content in 参考 on Go 中文档集</description><generator>Hugo</generator><language>zh-cn</language><lastBuildDate>Thu, 10 Oct 2024 15:07:50 +0800</lastBuildDate><atom:link href="https://before80.github.io/go_docs/asu/refs/index.xml" rel="self" type="application/rss+xml"/><item><title>MySQL</title><link>https://before80.github.io/go_docs/asu/refs/mysql/</link><pubDate>Mon, 29 Jul 2024 10:13:55 +0800</pubDate><guid>https://before80.github.io/go_docs/asu/refs/mysql/</guid><description>&lt;h2 id="安装mysql">安装MySQL&lt;a class="td-heading-self-link" href="#%e5%ae%89%e8%a3%85mysql" aria-label="Heading self-link">&lt;/a>&lt;/h2>
-&lt;h3 id="使用docker安装">使用Docker安装&lt;a class="td-heading-self-link" href="#%e4%bd%bf%e7%94%a8docker%e5%ae%89%e8%a3%85" aria-label="Heading self-link">&lt;/a>&lt;/h3>
-&lt;h2 id="事务的4大特性">事务的4大特性&lt;a class="td-heading-self-link" href="#%e4%ba%8b%e5%8a%a1%e7%9a%844%e5%a4%a7%e7%89%b9%e6%80%a7" aria-label="Heading self-link">&lt;/a>&lt;/h2></description></item><item><title>工具软件</title><link>https://before80.github.io/go_docs/asu/refs/tools/</link><pubDate>Mon, 29 Jul 2024 08:33:05 +0800</pubDate><guid>https://before80.github.io/go_docs/asu/refs/tools/</guid><description>&lt;h2 id="测试">测试&lt;a class="td-heading-self-link" href="#%e6%b5%8b%e8%af%95" aria-label="Heading self-link">&lt;/a>&lt;/h2>
-&lt;h3 id="ab">ab&lt;a class="td-heading-self-link" href="#ab" aria-label="Heading self-link">&lt;/a>&lt;/h3>
-&lt;h2 id="访问">访问&lt;a class="td-heading-self-link" href="#%e8%ae%bf%e9%97%ae" aria-label="Heading self-link">&lt;/a>&lt;/h2>
-&lt;h3 id="curl">curl&lt;a class="td-heading-self-link" href="#curl" aria-label="Heading self-link">&lt;/a>&lt;/h3>
-&lt;h2 id="docker">docker&lt;a class="td-heading-self-link" href="#docker" aria-label="Heading self-link">&lt;/a>&lt;/h2>
-&lt;p>命令&lt;/p></description></item><item><title>第三方包</title><link>https://before80.github.io/go_docs/asu/refs/pkgs/</link><pubDate>Mon, 29 Jul 2024 08:05:29 +0800</pubDate><guid>https://before80.github.io/go_docs/asu/refs/pkgs/</guid><description>&lt;h2 id="框架">框架&lt;a class="td-heading-self-link" href="#%e6%a1%86%e6%9e%b6" aria-label="Heading self-link">&lt;/a>&lt;/h2>
-&lt;h3 id="web框架">web框架&lt;a class="td-heading-self-link" href="#web%e6%a1%86%e6%9e%b6" aria-label="Heading self-link">&lt;/a>&lt;/h3>
-&lt;h4 id="gin">gin&lt;a class="td-heading-self-link" href="#gin" aria-label="Heading self-link">&lt;/a>&lt;/h4>
-&lt;p>&lt;a href="https://github.com/gin-gonic/gin">https://github.com/gin-gonic/gin&lt;/a>&lt;/p>
-&lt;p>Gin is a web framework written in &lt;a href="https://go.dev/">Go&lt;/a>. It features a martini-like API with performance that is up to 40 times faster thanks to &lt;a href="https://github.com/julienschmidt/httprouter">httprouter&lt;/a>. If you need performance and good productivity, you will love Gin.&lt;/p>
-&lt;h2 id="概况型">概况型&lt;a class="td-heading-self-link" href="#%e6%a6%82%e5%86%b5%e5%9e%8b" aria-label="Heading self-link">&lt;/a>&lt;/h2>
-&lt;h3 id="数据类型">数据类型&lt;a class="td-heading-self-link" href="#%e6%95%b0%e6%8d%ae%e7%b1%bb%e5%9e%8b" aria-label="Heading self-link">&lt;/a>&lt;/h3>
-&lt;h4 id="constraints">constraints&lt;a class="td-heading-self-link" href="#constraints" aria-label="Heading self-link">&lt;/a>&lt;/h4>
-&lt;blockquote>
-&lt;p>import方式：&amp;ldquo;golang.org/x/exp/constraints&amp;rdquo;&lt;/p></description></item></channel></rss>
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>参考 on Go 中文档集</title><link>https://before80.github.io/go_docs/asu/refs/</link><description>Recent content in 参考 on Go 中文档集</description><generator>Hugo</generator><language>zh-cn</language><lastBuildDate>Thu, 10 Oct 2024 15:07:50 +0800</lastBuildDate><atom:link href="https://before80.github.io/go_docs/asu/refs/index.xml" rel="self" type="application/rss+xml"/><item><title>MySQL</title><link>https://before80.github.io/go_docs/asu/refs/mysql/</link><pubDate>Mon, 29 Jul 2024 10:13:55 +0800</pubDate><guid>https://before80.github.io/go_docs/asu/refs/mysql/</guid><description>&lt;h2 id="安装mysql"&gt;安装MySQL&lt;/h2&gt;
+&lt;h3 id="使用docker安装"&gt;使用Docker安装&lt;/h3&gt;
+&lt;h2 id="事务的4大特性"&gt;事务的4大特性&lt;/h2&gt;</description></item><item><title>工具软件</title><link>https://before80.github.io/go_docs/asu/refs/tools/</link><pubDate>Mon, 29 Jul 2024 08:33:05 +0800</pubDate><guid>https://before80.github.io/go_docs/asu/refs/tools/</guid><description>&lt;h2 id="测试"&gt;测试&lt;/h2&gt;
+&lt;h3 id="ab"&gt;ab&lt;/h3&gt;
+&lt;h2 id="访问"&gt;访问&lt;/h2&gt;
+&lt;h3 id="curl"&gt;curl&lt;/h3&gt;
+&lt;h2 id="docker"&gt;docker&lt;/h2&gt;
+&lt;p&gt;命令&lt;/p&gt;</description></item><item><title>第三方包</title><link>https://before80.github.io/go_docs/asu/refs/pkgs/</link><pubDate>Mon, 29 Jul 2024 08:05:29 +0800</pubDate><guid>https://before80.github.io/go_docs/asu/refs/pkgs/</guid><description>&lt;h2 id="框架"&gt;框架&lt;/h2&gt;
+&lt;h3 id="web框架"&gt;web框架&lt;/h3&gt;
+&lt;h4 id="gin"&gt;gin&lt;/h4&gt;
+&lt;p&gt;&lt;a href="https://github.com/gin-gonic/gin"&gt;https://github.com/gin-gonic/gin&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;Gin is a web framework written in &lt;a href="https://go.dev/"&gt;Go&lt;/a&gt;. It features a martini-like API with performance that is up to 40 times faster thanks to &lt;a href="https://github.com/julienschmidt/httprouter"&gt;httprouter&lt;/a&gt;. If you need performance and good productivity, you will love Gin.&lt;/p&gt;
+&lt;h2 id="概况型"&gt;概况型&lt;/h2&gt;
+&lt;h3 id="数据类型"&gt;数据类型&lt;/h3&gt;
+&lt;h4 id="constraints"&gt;constraints&lt;/h4&gt;
+&lt;blockquote&gt;
+&lt;p&gt;import方式：&amp;ldquo;golang.org/x/exp/constraints&amp;rdquo;&lt;/p&gt;</description></item></channel></rss>

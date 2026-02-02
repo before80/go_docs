@@ -1,22 +1,24 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>unicode on Go 中文档集</title><link>https://before80.github.io/go_docs/stdLib/unicode/</link><description>Recent content in unicode on Go 中文档集</description><generator>Hugo</generator><language>zh-cn</language><lastBuildDate>Wed, 02 Apr 2025 16:27:58 +0800</lastBuildDate><atom:link href="https://before80.github.io/go_docs/stdLib/unicode/index.xml" rel="self" type="application/rss+xml"/><item><title>utf16</title><link>https://before80.github.io/go_docs/stdLib/unicode/utf16/</link><pubDate>Wed, 17 May 2023 09:59:21 +0800</pubDate><guid>https://before80.github.io/go_docs/stdLib/unicode/utf16/</guid><description>&lt;blockquote>
-&lt;p>原文：&lt;a href="https://pkg.go.dev/unicode/utf16@go1.24.2">https://pkg.go.dev/unicode/utf16@go1.24.2&lt;/a>&lt;/p>&lt;/blockquote>
-&lt;p>Package utf16 implements encoding and decoding of UTF-16 sequences.&lt;/p>
-&lt;p>​	&lt;code>utf16&lt;/code>包实现了UTF-16序列的编码和解码。&lt;/p>
-&lt;h2 id="常量">常量&lt;a class="td-heading-self-link" href="#%e5%b8%b8%e9%87%8f" aria-label="Heading self-link">&lt;/a>&lt;/h2>
-&lt;p>This section is empty.&lt;/p>
-&lt;h2 id="变量">变量&lt;a class="td-heading-self-link" href="#%e5%8f%98%e9%87%8f" aria-label="Heading self-link">&lt;/a>&lt;/h2>
-&lt;p>This section is empty.&lt;/p>
-&lt;h2 id="函数">函数&lt;a class="td-heading-self-link" href="#%e5%87%bd%e6%95%b0" aria-label="Heading self-link">&lt;/a>&lt;/h2>
-&lt;h3 id="func-appendrune----go120">func AppendRune &amp;lt;- go1.20&lt;a class="td-heading-self-link" href="#func-appendrune----go120" aria-label="Heading self-link">&lt;/a>&lt;/h3>
-&lt;div class="highlight">&lt;div style="color:#b0c4de;background-color:#282c34;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">
-&lt;table style="border-spacing:0;padding:0;margin:0;border:0;">&lt;tr>&lt;td style="vertical-align:top;padding:0;margin:0;border:0;">
-&lt;pre tabindex="0" style="color:#b0c4de;background-color:#282c34;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code>&lt;span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#58626f">1
-&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
-&lt;td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
-&lt;pre tabindex="0" style="color:#b0c4de;background-color:#282c34;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-go" data-lang="go">&lt;span style="display:flex;">&lt;span>&lt;span style="color:#76a9f9">func&lt;/span> &lt;span style="color:#00b1f7">AppendRune&lt;/span>&lt;span style="color:#abb2bf">(&lt;/span>&lt;span style="color:#aa89ea">a&lt;/span> &lt;span style="color:#abb2bf">[]&lt;/span>&lt;span style="color:#e5c07b">uint16&lt;/span>&lt;span style="color:#abb2bf">,&lt;/span> &lt;span style="color:#aa89ea">r&lt;/span> &lt;span style="color:#e5c07b">rune&lt;/span>&lt;span style="color:#abb2bf">)&lt;/span> &lt;span style="color:#abb2bf">[]&lt;/span>&lt;span style="color:#e5c07b">uint16&lt;/span>
-&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
-&lt;/div>
-&lt;/div>&lt;p>AppendRune appends the UTF-16 encoding of the Unicode code point r to the end of p and returns the extended buffer. If the rune is not a valid Unicode code point, it appends the encoding of U+FFFD.&lt;/p></description></item><item><title>utf8</title><link>https://before80.github.io/go_docs/stdLib/unicode/utf8/</link><pubDate>Wed, 17 May 2023 09:59:21 +0800</pubDate><guid>https://before80.github.io/go_docs/stdLib/unicode/utf8/</guid><description>&lt;blockquote>
-&lt;p>原文：&lt;a href="https://pkg.go.dev/unicode/utf8@go1.24.2">https://pkg.go.dev/unicode/utf8@go1.24.2&lt;/a>&lt;/p>&lt;/blockquote>
-&lt;p>Package utf8 implements functions and constants to support text encoded in UTF-8. It includes functions to translate between runes and UTF-8 byte sequences. See &lt;a href="https://en.wikipedia.org/wiki/UTF-8">https://en.wikipedia.org/wiki/UTF-8&lt;/a>&lt;/p>
-&lt;p>​	&lt;code>utf8&lt;/code>包实现了支持使用 UTF-8 编码的文本的函数和常量。它包括了在符文和 UTF-8 字节序列之间进行转换的函数。参见 &lt;a href="https://en.wikipedia.org/wiki/UTF-8">https://en.wikipedia.org/wiki/UTF-8&lt;/a>。&lt;/p></description></item></channel></rss>
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>unicode on Go 中文档集</title><link>https://before80.github.io/go_docs/stdLib/unicode/</link><description>Recent content in unicode on Go 中文档集</description><generator>Hugo</generator><language>zh-cn</language><lastBuildDate>Wed, 02 Apr 2025 16:27:58 +0800</lastBuildDate><atom:link href="https://before80.github.io/go_docs/stdLib/unicode/index.xml" rel="self" type="application/rss+xml"/><item><title>utf16</title><link>https://before80.github.io/go_docs/stdLib/unicode/utf16/</link><pubDate>Wed, 17 May 2023 09:59:21 +0800</pubDate><guid>https://before80.github.io/go_docs/stdLib/unicode/utf16/</guid><description>&lt;blockquote&gt;
+&lt;p&gt;原文：&lt;a href="https://pkg.go.dev/unicode/utf16@go1.24.2"&gt;https://pkg.go.dev/unicode/utf16@go1.24.2&lt;/a&gt;&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;Package utf16 implements encoding and decoding of UTF-16 sequences.&lt;/p&gt;
+&lt;p&gt;​	&lt;code&gt;utf16&lt;/code&gt;包实现了UTF-16序列的编码和解码。&lt;/p&gt;
+&lt;h2 id="常量"&gt;常量&lt;/h2&gt;
+&lt;p&gt;This section is empty.&lt;/p&gt;
+&lt;h2 id="变量"&gt;变量&lt;/h2&gt;
+&lt;p&gt;This section is empty.&lt;/p&gt;
+&lt;h2 id="函数"&gt;函数&lt;/h2&gt;
+&lt;h3 id="func-appendrune----go120"&gt;func AppendRune &amp;lt;- go1.20&lt;/h3&gt;
+&lt;div class="highlight"&gt;&lt;div style="color:#b0c4de;background-color:#282c34;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"&gt;
+&lt;table style="border-spacing:0;padding:0;margin:0;border:0;"&gt;&lt;tr&gt;&lt;td style="vertical-align:top;padding:0;margin:0;border:0;"&gt;
+&lt;pre tabindex="0" style="color:#b0c4de;background-color:#282c34;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"&gt;&lt;code&gt;&lt;span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#58626f"&gt;1
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
+&lt;td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%"&gt;
+&lt;pre tabindex="0" style="color:#b0c4de;background-color:#282c34;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"&gt;&lt;code class="language-go" data-lang="go"&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;&lt;span style="color:#76a9f9"&gt;func&lt;/span&gt; &lt;span style="color:#00b1f7"&gt;AppendRune&lt;/span&gt;&lt;span style="color:#abb2bf"&gt;(&lt;/span&gt;&lt;span style="color:#aa89ea"&gt;a&lt;/span&gt; &lt;span style="color:#abb2bf"&gt;[]&lt;/span&gt;&lt;span style="color:#e5c07b"&gt;uint16&lt;/span&gt;&lt;span style="color:#abb2bf"&gt;,&lt;/span&gt; &lt;span style="color:#aa89ea"&gt;r&lt;/span&gt; &lt;span style="color:#e5c07b"&gt;rune&lt;/span&gt;&lt;span style="color:#abb2bf"&gt;)&lt;/span&gt; &lt;span style="color:#abb2bf"&gt;[]&lt;/span&gt;&lt;span style="color:#e5c07b"&gt;uint16&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+&lt;/div&gt;
+&lt;/div&gt;&lt;p&gt;AppendRune appends the UTF-16 encoding of the Unicode code point r to the end of p and returns the extended buffer. If the rune is not a valid Unicode code point, it appends the encoding of U+FFFD.&lt;/p&gt;</description></item><item><title>utf8</title><link>https://before80.github.io/go_docs/stdLib/unicode/utf8/</link><pubDate>Wed, 17 May 2023 09:59:21 +0800</pubDate><guid>https://before80.github.io/go_docs/stdLib/unicode/utf8/</guid><description>&lt;blockquote&gt;
+&lt;p&gt;原文：&lt;a href="https://pkg.go.dev/unicode/utf8@go1.24.2"&gt;https://pkg.go.dev/unicode/utf8@go1.24.2&lt;/a&gt;&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;Package utf8 implements functions and constants to support text encoded in UTF-8. It includes functions to translate between runes and UTF-8 byte sequences. See &lt;a href="https://en.wikipedia.org/wiki/UTF-8"&gt;https://en.wikipedia.org/wiki/UTF-8&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;​	&lt;code&gt;utf8&lt;/code&gt;包实现了支持使用 UTF-8 编码的文本的函数和常量。它包括了在符文和 UTF-8 字节序列之间进行转换的函数。参见 &lt;a href="https://en.wikipedia.org/wiki/UTF-8"&gt;https://en.wikipedia.org/wiki/UTF-8&lt;/a&gt;。&lt;/p&gt;</description></item></channel></rss>

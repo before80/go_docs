@@ -1,35 +1,77 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>cli on Go 中文档集</title><link>https://before80.github.io/go_docs/delve/cli/</link><description>Recent content in cli on Go 中文档集</description><generator>Hugo</generator><language>zh-cn</language><lastBuildDate>Mon, 09 Dec 2024 16:01:59 +0800</lastBuildDate><atom:link href="https://before80.github.io/go_docs/delve/cli/index.xml" rel="self" type="application/rss+xml"/><item><title>路径替换</title><link>https://before80.github.io/go_docs/delve/cli/substitutepath/</link><pubDate>Mon, 09 Dec 2024 08:00:12 +0800</pubDate><guid>https://before80.github.io/go_docs/delve/cli/substitutepath/</guid><description>&lt;blockquote>
-&lt;p>原文：&lt;a href="https://github.com/go-delve/delve/blob/master/Documentation/cli/substitutepath.md">https://github.com/go-delve/delve/blob/master/Documentation/cli/substitutepath.md&lt;/a>&lt;/p>
-&lt;p>收录该文档时间： &lt;code>2024-12-09T08:00:12+08:00&lt;/code>&lt;/p>&lt;/blockquote>
-&lt;h2 id="路径替换配置-path-substitution-configuration">路径替换配置 Path substitution configuration&lt;a class="td-heading-self-link" href="#%e8%b7%af%e5%be%84%e6%9b%bf%e6%8d%a2%e9%85%8d%e7%bd%ae-path-substitution-configuration" aria-label="Heading self-link">&lt;/a>&lt;/h2>
-&lt;p>Normally Delve finds the path to the source code that was used to produce an executable by looking at the debug symbols of the executable. However, under &lt;a href="https://github.com/go-delve/delve/blob/master/Documentation/faq.md#substpath">some circumstances&lt;/a>, the paths that end up inside the executable will be different from the paths to the source code on the machine that is running the debugger. If that is the case Delve will need extra configuration to convert the paths stored inside the executable to paths in your local filesystem.&lt;/p></description></item><item><title>starlark</title><link>https://before80.github.io/go_docs/delve/cli/starlark/</link><pubDate>Mon, 09 Dec 2024 07:59:50 +0800</pubDate><guid>https://before80.github.io/go_docs/delve/cli/starlark/</guid><description>&lt;blockquote>
-&lt;p>原文：&lt;a href="https://github.com/go-delve/delve/blob/master/Documentation/cli/starlark.md">https://github.com/go-delve/delve/blob/master/Documentation/cli/starlark.md&lt;/a>&lt;/p>
-&lt;p>收录该文档时间： &lt;code>2024-12-09T07:59:50+08:00&lt;/code>&lt;/p>&lt;/blockquote>
-&lt;h1 id="introduction">Introduction&lt;a class="td-heading-self-link" href="#introduction" aria-label="Heading self-link">&lt;/a>&lt;/h1>
-&lt;p>Passing a file with the .star extension to the &lt;code>source&lt;/code> command will cause delve to interpret it as a starlark script.&lt;/p>
-&lt;p>​	将扩展名为 &lt;code>.star&lt;/code> 的文件传递给 &lt;code>source&lt;/code> 命令，将导致 delve 将其解释为 Starlark 脚本。&lt;/p>
-&lt;p>Starlark is a dialect of python, a &lt;a href="https://github.com/google/starlark-go/blob/master/doc/spec.md">specification of its syntax can be found here&lt;/a>.&lt;/p></description></item><item><title>位置说明符</title><link>https://before80.github.io/go_docs/delve/cli/locspec/</link><pubDate>Mon, 09 Dec 2024 07:59:34 +0800</pubDate><guid>https://before80.github.io/go_docs/delve/cli/locspec/</guid><description>&lt;blockquote>
-&lt;p>原文：&lt;a href="https://github.com/go-delve/delve/blob/master/Documentation/cli/locspec.md">https://github.com/go-delve/delve/blob/master/Documentation/cli/locspec.md&lt;/a>&lt;/p>
-&lt;p>收录该文档时间： &lt;code>2024-12-09T07:59:34+08:00&lt;/code>&lt;/p>&lt;/blockquote>
-&lt;h1 id="location-specifiers---位置说明符">Location Specifiers - 位置说明符&lt;a class="td-heading-self-link" href="#location-specifiers---%e4%bd%8d%e7%bd%ae%e8%af%b4%e6%98%8e%e7%ac%a6" aria-label="Heading self-link">&lt;/a>&lt;/h1>
-&lt;p>Several delve commands take a program location as an argument, the syntax accepted by this commands is:&lt;/p>
-&lt;p>​	多个 delve 命令接受程序位置作为参数，以下是这些命令接受的语法：&lt;/p></description></item><item><title>快速入门</title><link>https://before80.github.io/go_docs/delve/cli/getting-started/</link><pubDate>Mon, 09 Dec 2024 07:59:19 +0800</pubDate><guid>https://before80.github.io/go_docs/delve/cli/getting-started/</guid><description>&lt;blockquote>
-&lt;p>原文：&lt;a href="https://github.com/go-delve/delve/blob/master/Documentation/cli/getting_started.md">https://github.com/go-delve/delve/blob/master/Documentation/cli/getting_started.md&lt;/a>&lt;/p>
-&lt;p>收录该文档时间： &lt;code>2024-12-09T07:59:19+08:00&lt;/code>&lt;/p>&lt;/blockquote>
-&lt;h1 id="getting-started---快速入门">Getting Started - 快速入门&lt;a class="td-heading-self-link" href="#getting-started---%e5%bf%ab%e9%80%9f%e5%85%a5%e9%97%a8" aria-label="Heading self-link">&lt;/a>&lt;/h1>
-&lt;p>Delve aims to be a very simple and powerful tool, but can be confusing if you&amp;rsquo;re not used to using a source level debugger in a compiled language. This document will provide all the information you need to get started debugging your Go programs.&lt;/p>
-&lt;p>​	Delve 旨在成为一个非常简单而强大的工具，但如果你不习惯使用编译语言中的源代码级调试器，它可能会让人感到困惑。本文档将提供所有你需要的信息，帮助你开始调试 Go 程序。&lt;/p></description></item><item><title>表达式</title><link>https://before80.github.io/go_docs/delve/cli/expr/</link><pubDate>Mon, 09 Dec 2024 07:59:02 +0800</pubDate><guid>https://before80.github.io/go_docs/delve/cli/expr/</guid><description>&lt;blockquote>
-&lt;p>原文：&lt;a href="https://github.com/go-delve/delve/blob/master/Documentation/cli/expr.md">https://github.com/go-delve/delve/blob/master/Documentation/cli/expr.md&lt;/a>&lt;/p>
-&lt;p>收录该文档时间： &lt;code>2024-12-09T07:59:02+08:00&lt;/code>&lt;/p>&lt;/blockquote>
-&lt;h1 id="expressions">Expressions&lt;a class="td-heading-self-link" href="#expressions" aria-label="Heading self-link">&lt;/a>&lt;/h1>
-&lt;p>Delve can evaluate a subset of go expression language, specifically the following features are supported:&lt;/p>
-&lt;p>​	Delve 可以评估 Go 表达式语言的一个子集，具体支持以下功能：&lt;/p>
-&lt;ul>
-&lt;li>
-&lt;p>All (binary and unary) on basic types except &amp;lt;-, ++ and &amp;ndash;&lt;/p>
-&lt;ul>
-&lt;li>所有基本类型上的二元和一元操作符，除了 &lt;code>&amp;lt;-&lt;/code>、&lt;code>++&lt;/code> 和 &lt;code>--&lt;/code>&lt;/li>
-&lt;/ul>
-&lt;/li>
-&lt;li>
-&lt;p>Comparison operators on any type&lt;/p></description></item></channel></rss>
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>cli on Go 中文档集</title><link>https://before80.github.io/go_docs/delve/cli/</link><description>Recent content in cli on Go 中文档集</description><generator>Hugo</generator><language>zh-cn</language><lastBuildDate>Mon, 09 Dec 2024 16:01:59 +0800</lastBuildDate><atom:link href="https://before80.github.io/go_docs/delve/cli/index.xml" rel="self" type="application/rss+xml"/><item><title>路径替换</title><link>https://before80.github.io/go_docs/delve/cli/substitutepath/</link><pubDate>Mon, 09 Dec 2024 08:00:12 +0800</pubDate><guid>https://before80.github.io/go_docs/delve/cli/substitutepath/</guid><description>&lt;blockquote&gt;
+&lt;p&gt;原文：&lt;a href="https://github.com/go-delve/delve/blob/master/Documentation/cli/substitutepath.md"&gt;https://github.com/go-delve/delve/blob/master/Documentation/cli/substitutepath.md&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;收录该文档时间： &lt;code&gt;2024-12-09T08:00:12+08:00&lt;/code&gt;&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;h2 id="路径替换配置-path-substitution-configuration"&gt;路径替换配置 Path substitution configuration&lt;/h2&gt;
+&lt;p&gt;Normally Delve finds the path to the source code that was used to produce an executable by looking at the debug symbols of the executable. However, under &lt;a href="https://github.com/go-delve/delve/blob/master/Documentation/faq.md#substpath"&gt;some circumstances&lt;/a&gt;, the paths that end up inside the executable will be different from the paths to the source code on the machine that is running the debugger. If that is the case Delve will need extra configuration to convert the paths stored inside the executable to paths in your local filesystem.&lt;/p&gt;</description></item><item><title>starlark</title><link>https://before80.github.io/go_docs/delve/cli/starlark/</link><pubDate>Mon, 09 Dec 2024 07:59:50 +0800</pubDate><guid>https://before80.github.io/go_docs/delve/cli/starlark/</guid><description>&lt;blockquote&gt;
+&lt;p&gt;原文：&lt;a href="https://github.com/go-delve/delve/blob/master/Documentation/cli/starlark.md"&gt;https://github.com/go-delve/delve/blob/master/Documentation/cli/starlark.md&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;收录该文档时间： &lt;code&gt;2024-12-09T07:59:50+08:00&lt;/code&gt;&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;h1 id="introduction"&gt;Introduction&lt;/h1&gt;
+&lt;p&gt;Passing a file with the .star extension to the &lt;code&gt;source&lt;/code&gt; command will cause delve to interpret it as a starlark script.&lt;/p&gt;
+&lt;p&gt;​	将扩展名为 &lt;code&gt;.star&lt;/code&gt; 的文件传递给 &lt;code&gt;source&lt;/code&gt; 命令，将导致 delve 将其解释为 Starlark 脚本。&lt;/p&gt;
+&lt;p&gt;Starlark is a dialect of python, a &lt;a href="https://github.com/google/starlark-go/blob/master/doc/spec.md"&gt;specification of its syntax can be found here&lt;/a&gt;.&lt;/p&gt;</description></item><item><title>位置说明符</title><link>https://before80.github.io/go_docs/delve/cli/locspec/</link><pubDate>Mon, 09 Dec 2024 07:59:34 +0800</pubDate><guid>https://before80.github.io/go_docs/delve/cli/locspec/</guid><description>&lt;blockquote&gt;
+&lt;p&gt;原文：&lt;a href="https://github.com/go-delve/delve/blob/master/Documentation/cli/locspec.md"&gt;https://github.com/go-delve/delve/blob/master/Documentation/cli/locspec.md&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;收录该文档时间： &lt;code&gt;2024-12-09T07:59:34+08:00&lt;/code&gt;&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;h1 id="location-specifiers---位置说明符"&gt;Location Specifiers - 位置说明符&lt;/h1&gt;
+&lt;p&gt;Several delve commands take a program location as an argument, the syntax accepted by this commands is:&lt;/p&gt;
+&lt;p&gt;​	多个 delve 命令接受程序位置作为参数，以下是这些命令接受的语法：&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;code&gt;*&amp;lt;address&amp;gt;&lt;/code&gt; Specifies the location of memory address &lt;em&gt;address&lt;/em&gt;. &lt;em&gt;address&lt;/em&gt; can be specified as a decimal, hexadecimal or octal number
+&lt;ul&gt;
+&lt;li&gt;&lt;code&gt;*&amp;lt;address&amp;gt;&lt;/code&gt; 指定内存地址 &lt;em&gt;address&lt;/em&gt; 的位置。&lt;em&gt;address&lt;/em&gt; 可以是十进制、十六进制或八进制数字。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;&amp;lt;filename&amp;gt;:&amp;lt;line&amp;gt;&lt;/code&gt; Specifies the line &lt;em&gt;line&lt;/em&gt; in &lt;em&gt;filename&lt;/em&gt;. &lt;em&gt;filename&lt;/em&gt; can be the partial path to a file or even just the base name as long as the expression remains unambiguous.
+&lt;ul&gt;
+&lt;li&gt;&lt;code&gt;&amp;lt;filename&amp;gt;:&amp;lt;line&amp;gt;&lt;/code&gt; 指定 &lt;em&gt;filename&lt;/em&gt; 中的 &lt;em&gt;line&lt;/em&gt; 行。&lt;em&gt;filename&lt;/em&gt; 可以是文件的部分路径，甚至仅仅是文件的基本名称，只要表达式没有歧义。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;&amp;lt;line&amp;gt;&lt;/code&gt; Specifies the line &lt;em&gt;line&lt;/em&gt; in the current file
+&lt;ul&gt;
+&lt;li&gt;&lt;code&gt;&amp;lt;line&amp;gt;&lt;/code&gt; 指定当前文件中的 &lt;em&gt;line&lt;/em&gt; 行。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;+&amp;lt;offset&amp;gt;&lt;/code&gt; Specifies the line &lt;em&gt;offset&lt;/em&gt; lines after the current one
+&lt;ul&gt;
+&lt;li&gt;&lt;code&gt;+&amp;lt;offset&amp;gt;&lt;/code&gt; 指定当前行后 &lt;em&gt;offset&lt;/em&gt; 行。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;-&amp;lt;offset&amp;gt;&lt;/code&gt; Specifies the line &lt;em&gt;offset&lt;/em&gt; lines before the current one
+&lt;ul&gt;
+&lt;li&gt;&lt;code&gt;-&amp;lt;offset&amp;gt;&lt;/code&gt; 指定当前行前 &lt;em&gt;offset&lt;/em&gt; 行。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;&amp;lt;function&amp;gt;[:&amp;lt;line&amp;gt;]&lt;/code&gt; Specifies the line &lt;em&gt;line&lt;/em&gt; inside &lt;em&gt;function&lt;/em&gt;. The full syntax for &lt;em&gt;function&lt;/em&gt; is &lt;code&gt;&amp;lt;package&amp;gt;.(*&amp;lt;receiver type&amp;gt;).&amp;lt;function name&amp;gt;&lt;/code&gt; however the only required element is the function name, everything else can be omitted as long as the expression remains unambiguous. For setting a breakpoint on an init function (ex: main.init), the &lt;code&gt;&amp;lt;filename&amp;gt;:&amp;lt;line&amp;gt;&lt;/code&gt; syntax should be used to break in the correct init function at the correct location.
+&lt;ul&gt;
+&lt;li&gt;&lt;code&gt;&amp;lt;function&amp;gt;[:&amp;lt;line&amp;gt;]&lt;/code&gt; 指定 &lt;em&gt;function&lt;/em&gt; 内的 &lt;em&gt;line&lt;/em&gt; 行。&lt;em&gt;function&lt;/em&gt; 的完整语法是 &lt;code&gt;&amp;lt;package&amp;gt;.(*&amp;lt;receiver type&amp;gt;).&amp;lt;function name&amp;gt;&lt;/code&gt;，但仅需提供函数名，其他部分可以省略，只要表达式没有歧义。要在 init 函数（例如：main.init）上设置断点，应使用 &lt;code&gt;&amp;lt;filename&amp;gt;:&amp;lt;line&amp;gt;&lt;/code&gt; 语法来在正确的位置断开正确的 init 函数。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;/&amp;lt;regex&amp;gt;/&lt;/code&gt; Specifies the location of all the functions matching &lt;em&gt;regex&lt;/em&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;code&gt;/&amp;lt;regex&amp;gt;/&lt;/code&gt; 指定所有匹配 &lt;em&gt;regex&lt;/em&gt; 的函数的位置。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;/ul&gt;</description></item><item><title>快速入门</title><link>https://before80.github.io/go_docs/delve/cli/getting-started/</link><pubDate>Mon, 09 Dec 2024 07:59:19 +0800</pubDate><guid>https://before80.github.io/go_docs/delve/cli/getting-started/</guid><description>&lt;blockquote&gt;
+&lt;p&gt;原文：&lt;a href="https://github.com/go-delve/delve/blob/master/Documentation/cli/getting_started.md"&gt;https://github.com/go-delve/delve/blob/master/Documentation/cli/getting_started.md&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;收录该文档时间： &lt;code&gt;2024-12-09T07:59:19+08:00&lt;/code&gt;&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;h1 id="getting-started---快速入门"&gt;Getting Started - 快速入门&lt;/h1&gt;
+&lt;p&gt;Delve aims to be a very simple and powerful tool, but can be confusing if you&amp;rsquo;re not used to using a source level debugger in a compiled language. This document will provide all the information you need to get started debugging your Go programs.&lt;/p&gt;
+&lt;p&gt;​	Delve 旨在成为一个非常简单而强大的工具，但如果你不习惯使用编译语言中的源代码级调试器，它可能会让人感到困惑。本文档将提供所有你需要的信息，帮助你开始调试 Go 程序。&lt;/p&gt;</description></item><item><title>表达式</title><link>https://before80.github.io/go_docs/delve/cli/expr/</link><pubDate>Mon, 09 Dec 2024 07:59:02 +0800</pubDate><guid>https://before80.github.io/go_docs/delve/cli/expr/</guid><description>&lt;blockquote&gt;
+&lt;p&gt;原文：&lt;a href="https://github.com/go-delve/delve/blob/master/Documentation/cli/expr.md"&gt;https://github.com/go-delve/delve/blob/master/Documentation/cli/expr.md&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;收录该文档时间： &lt;code&gt;2024-12-09T07:59:02+08:00&lt;/code&gt;&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;h1 id="expressions"&gt;Expressions&lt;/h1&gt;
+&lt;p&gt;Delve can evaluate a subset of go expression language, specifically the following features are supported:&lt;/p&gt;
+&lt;p&gt;​	Delve 可以评估 Go 表达式语言的一个子集，具体支持以下功能：&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;
+&lt;p&gt;All (binary and unary) on basic types except &amp;lt;-, ++ and &amp;ndash;&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;所有基本类型上的二元和一元操作符，除了 &lt;code&gt;&amp;lt;-&lt;/code&gt;、&lt;code&gt;++&lt;/code&gt; 和 &lt;code&gt;--&lt;/code&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;Comparison operators on any type&lt;/p&gt;</description></item></channel></rss>

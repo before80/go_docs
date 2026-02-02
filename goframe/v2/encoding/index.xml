@@ -1,248 +1,323 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>encoding on Go 中文档集</title><link>https://before80.github.io/go_docs/goframe/v2/encoding/</link><description>Recent content in encoding on Go 中文档集</description><generator>Hugo</generator><language>zh-cn</language><lastBuildDate>Thu, 10 Oct 2024 15:07:50 +0800</lastBuildDate><atom:link href="https://before80.github.io/go_docs/goframe/v2/encoding/index.xml" rel="self" type="application/rss+xml"/><item><title>gyaml</title><link>https://before80.github.io/go_docs/goframe/v2/encoding/gyaml/</link><pubDate>Thu, 21 Mar 2024 17:50:29 +0800</pubDate><guid>https://before80.github.io/go_docs/goframe/v2/encoding/gyaml/</guid><description>&lt;blockquote>
-&lt;p>原文：&lt;a href="https://pkg.go.dev/github.com/gogf/gf/v2@v2.6.4/encoding/gyaml">https://pkg.go.dev/github.com/gogf/gf/v2@v2.6.4/encoding/gyaml&lt;/a>&lt;/p>&lt;/blockquote>
-&lt;p>Package gyaml provides accessing and converting for YAML content.&lt;/p>
-&lt;p>​	Package gyaml 提供对 YAML 内容的访问和转换。&lt;/p>
-&lt;h2 id="常量">常量&lt;a class="td-heading-self-link" href="#%e5%b8%b8%e9%87%8f" aria-label="Heading self-link">&lt;/a>&lt;/h2>
-&lt;p>This section is empty.&lt;/p>
-&lt;h2 id="变量">变量&lt;a class="td-heading-self-link" href="#%e5%8f%98%e9%87%8f" aria-label="Heading self-link">&lt;/a>&lt;/h2>
-&lt;p>This section is empty.&lt;/p>
-&lt;h2 id="函数">函数&lt;a class="td-heading-self-link" href="#%e5%87%bd%e6%95%b0" aria-label="Heading self-link">&lt;/a>&lt;/h2>
-&lt;h4 id="func-decode">func Decode&lt;a class="td-heading-self-link" href="#func-decode" aria-label="Heading self-link">&lt;/a>&lt;/h4>
-&lt;div class="highlight">&lt;div style="color:#b0c4de;background-color:#282c34;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">
-&lt;table style="border-spacing:0;padding:0;margin:0;border:0;">&lt;tr>&lt;td style="vertical-align:top;padding:0;margin:0;border:0;">
-&lt;pre tabindex="0" style="color:#b0c4de;background-color:#282c34;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code>&lt;span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#58626f">1
-&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
-&lt;td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
-&lt;pre tabindex="0" style="color:#b0c4de;background-color:#282c34;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-go" data-lang="go">&lt;span style="display:flex;">&lt;span>&lt;span style="color:#76a9f9">func&lt;/span> &lt;span style="color:#00b1f7">Decode&lt;/span>&lt;span style="color:#abb2bf">(&lt;/span>&lt;span style="color:#aa89ea">content&lt;/span> &lt;span style="color:#abb2bf">[]&lt;/span>&lt;span style="color:#e5c07b">byte&lt;/span>&lt;span style="color:#abb2bf">)&lt;/span> &lt;span style="color:#abb2bf">(&lt;/span>&lt;span style="color:#76a9f9">map&lt;/span>&lt;span style="color:#abb2bf">[&lt;/span>&lt;span style="color:#e5c07b">string&lt;/span>&lt;span style="color:#abb2bf">]&lt;/span>&lt;span style="color:#76a9f9">interface&lt;/span>&lt;span style="color:#abb2bf">{},&lt;/span> &lt;span style="color:#e5c07b">error&lt;/span>&lt;span style="color:#abb2bf">)&lt;/span>
-&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
-&lt;/div>
-&lt;/div>&lt;p>Decode parses &lt;code>content&lt;/code> into and returns as map.&lt;/p>
-&lt;p>​	解码解 &lt;code>content&lt;/code> 析为映射并返回。&lt;/p></description></item><item><title>gxml</title><link>https://before80.github.io/go_docs/goframe/v2/encoding/gxml/</link><pubDate>Thu, 21 Mar 2024 17:50:21 +0800</pubDate><guid>https://before80.github.io/go_docs/goframe/v2/encoding/gxml/</guid><description>&lt;blockquote>
-&lt;p>原文：&lt;a href="https://pkg.go.dev/github.com/gogf/gf/v2@v2.6.4/encoding/gxml">https://pkg.go.dev/github.com/gogf/gf/v2@v2.6.4/encoding/gxml&lt;/a>&lt;/p>&lt;/blockquote>
-&lt;p>Package gxml provides accessing and converting for XML content.&lt;/p>
-&lt;p>​	软件包 gxml 提供对 XML 内容的访问和转换。&lt;/p>
-&lt;h2 id="常量">常量&lt;a class="td-heading-self-link" href="#%e5%b8%b8%e9%87%8f" aria-label="Heading self-link">&lt;/a>&lt;/h2>
-&lt;p>This section is empty.&lt;/p>
-&lt;h2 id="变量">变量&lt;a class="td-heading-self-link" href="#%e5%8f%98%e9%87%8f" aria-label="Heading self-link">&lt;/a>&lt;/h2>
-&lt;p>This section is empty.&lt;/p>
-&lt;h2 id="函数">函数&lt;a class="td-heading-self-link" href="#%e5%87%bd%e6%95%b0" aria-label="Heading self-link">&lt;/a>&lt;/h2>
-&lt;h4 id="func-decode">func Decode&lt;a class="td-heading-self-link" href="#func-decode" aria-label="Heading self-link">&lt;/a>&lt;/h4>
-&lt;div class="highlight">&lt;div style="color:#b0c4de;background-color:#282c34;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">
-&lt;table style="border-spacing:0;padding:0;margin:0;border:0;">&lt;tr>&lt;td style="vertical-align:top;padding:0;margin:0;border:0;">
-&lt;pre tabindex="0" style="color:#b0c4de;background-color:#282c34;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code>&lt;span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#58626f">1
-&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
-&lt;td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
-&lt;pre tabindex="0" style="color:#b0c4de;background-color:#282c34;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-go" data-lang="go">&lt;span style="display:flex;">&lt;span>&lt;span style="color:#76a9f9">func&lt;/span> &lt;span style="color:#00b1f7">Decode&lt;/span>&lt;span style="color:#abb2bf">(&lt;/span>&lt;span style="color:#aa89ea">content&lt;/span> &lt;span style="color:#abb2bf">[]&lt;/span>&lt;span style="color:#e5c07b">byte&lt;/span>&lt;span style="color:#abb2bf">)&lt;/span> &lt;span style="color:#abb2bf">(&lt;/span>&lt;span style="color:#76a9f9">map&lt;/span>&lt;span style="color:#abb2bf">[&lt;/span>&lt;span style="color:#e5c07b">string&lt;/span>&lt;span style="color:#abb2bf">]&lt;/span>&lt;span style="color:#76a9f9">interface&lt;/span>&lt;span style="color:#abb2bf">{},&lt;/span> &lt;span style="color:#e5c07b">error&lt;/span>&lt;span style="color:#abb2bf">)&lt;/span>
-&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
-&lt;/div>
-&lt;/div>&lt;p>Decode parses &lt;code>content&lt;/code> into and returns as map.&lt;/p>
-&lt;p>​	解码解 &lt;code>content&lt;/code> 析为映射并返回。&lt;/p></description></item><item><title>gurl</title><link>https://before80.github.io/go_docs/goframe/v2/encoding/gurl/</link><pubDate>Thu, 21 Mar 2024 17:50:13 +0800</pubDate><guid>https://before80.github.io/go_docs/goframe/v2/encoding/gurl/</guid><description>&lt;blockquote>
-&lt;p>原文：&lt;a href="https://pkg.go.dev/github.com/gogf/gf/v2@v2.6.4/encoding/gurl">https://pkg.go.dev/github.com/gogf/gf/v2@v2.6.4/encoding/gurl&lt;/a>&lt;/p>&lt;/blockquote>
-&lt;p>Package gurl provides useful API for URL handling.&lt;/p>
-&lt;p>​	Package girl 为 URL 处理提供了有用的 API。&lt;/p>
-&lt;h2 id="常量">常量&lt;a class="td-heading-self-link" href="#%e5%b8%b8%e9%87%8f" aria-label="Heading self-link">&lt;/a>&lt;/h2>
-&lt;p>This section is empty.&lt;/p>
-&lt;h2 id="变量">变量&lt;a class="td-heading-self-link" href="#%e5%8f%98%e9%87%8f" aria-label="Heading self-link">&lt;/a>&lt;/h2>
-&lt;p>This section is empty.&lt;/p>
-&lt;h2 id="函数">函数&lt;a class="td-heading-self-link" href="#%e5%87%bd%e6%95%b0" aria-label="Heading self-link">&lt;/a>&lt;/h2>
-&lt;h4 id="func-buildquery">func BuildQuery&lt;a class="td-heading-self-link" href="#func-buildquery" aria-label="Heading self-link">&lt;/a>&lt;/h4>
-&lt;div class="highlight">&lt;div style="color:#b0c4de;background-color:#282c34;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">
-&lt;table style="border-spacing:0;padding:0;margin:0;border:0;">&lt;tr>&lt;td style="vertical-align:top;padding:0;margin:0;border:0;">
-&lt;pre tabindex="0" style="color:#b0c4de;background-color:#282c34;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code>&lt;span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#58626f">1
-&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
-&lt;td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
-&lt;pre tabindex="0" style="color:#b0c4de;background-color:#282c34;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-go" data-lang="go">&lt;span style="display:flex;">&lt;span>&lt;span style="color:#76a9f9">func&lt;/span> &lt;span style="color:#00b1f7">BuildQuery&lt;/span>&lt;span style="color:#abb2bf">(&lt;/span>&lt;span style="color:#aa89ea">queryData&lt;/span> &lt;span style="color:#aa89ea">url&lt;/span>&lt;span style="color:#abb2bf">.&lt;/span>&lt;span style="color:#aa89ea">Values&lt;/span>&lt;span style="color:#abb2bf">)&lt;/span> &lt;span style="color:#e5c07b">string&lt;/span>
-&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
-&lt;/div>
-&lt;/div>&lt;p>BuildQuery Generate URL-encoded query string. See &lt;a href="http://php.net/manual/en/function.http-build-query.php">http://php.net/manual/en/function.http-build-query.php&lt;/a>.&lt;/p>
-&lt;p>​	BuildQuery 生成 URL 编码的查询字符串。请参见 &lt;a href="http://php.net/manual/en/function.http-build-query.php">http://php.net/manual/en/function.http-build-query.php&lt;/a>。&lt;/p></description></item><item><title>gtoml</title><link>https://before80.github.io/go_docs/goframe/v2/encoding/gtoml/</link><pubDate>Thu, 21 Mar 2024 17:50:06 +0800</pubDate><guid>https://before80.github.io/go_docs/goframe/v2/encoding/gtoml/</guid><description>&lt;blockquote>
-&lt;p>原文：&lt;a href="https://pkg.go.dev/github.com/gogf/gf/v2@v2.6.4/encoding/gtoml">https://pkg.go.dev/github.com/gogf/gf/v2@v2.6.4/encoding/gtoml&lt;/a>&lt;/p>&lt;/blockquote>
-&lt;p>Package gtoml provides accessing and converting for TOML content.&lt;/p>
-&lt;p>​	软件包 gtoml 提供对 TOML 内容的访问和转换。&lt;/p>
-&lt;h2 id="常量">常量&lt;a class="td-heading-self-link" href="#%e5%b8%b8%e9%87%8f" aria-label="Heading self-link">&lt;/a>&lt;/h2>
-&lt;p>This section is empty.&lt;/p>
-&lt;h2 id="变量">变量&lt;a class="td-heading-self-link" href="#%e5%8f%98%e9%87%8f" aria-label="Heading self-link">&lt;/a>&lt;/h2>
-&lt;p>This section is empty.&lt;/p>
-&lt;h2 id="函数">函数&lt;a class="td-heading-self-link" href="#%e5%87%bd%e6%95%b0" aria-label="Heading self-link">&lt;/a>&lt;/h2>
-&lt;h4 id="func-decode">func Decode&lt;a class="td-heading-self-link" href="#func-decode" aria-label="Heading self-link">&lt;/a>&lt;/h4>
-&lt;div class="highlight">&lt;div style="color:#b0c4de;background-color:#282c34;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">
-&lt;table style="border-spacing:0;padding:0;margin:0;border:0;">&lt;tr>&lt;td style="vertical-align:top;padding:0;margin:0;border:0;">
-&lt;pre tabindex="0" style="color:#b0c4de;background-color:#282c34;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code>&lt;span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#58626f">1
-&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
-&lt;td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
-&lt;pre tabindex="0" style="color:#b0c4de;background-color:#282c34;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-go" data-lang="go">&lt;span style="display:flex;">&lt;span>&lt;span style="color:#76a9f9">func&lt;/span> &lt;span style="color:#00b1f7">Decode&lt;/span>&lt;span style="color:#abb2bf">(&lt;/span>&lt;span style="color:#aa89ea">v&lt;/span> &lt;span style="color:#abb2bf">[]&lt;/span>&lt;span style="color:#e5c07b">byte&lt;/span>&lt;span style="color:#abb2bf">)&lt;/span> &lt;span style="color:#abb2bf">(&lt;/span>&lt;span style="color:#76a9f9">interface&lt;/span>&lt;span style="color:#abb2bf">{},&lt;/span> &lt;span style="color:#e5c07b">error&lt;/span>&lt;span style="color:#abb2bf">)&lt;/span>
-&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
-&lt;/div>
-&lt;/div>&lt;h4 id="func-decodeto">func DecodeTo&lt;a class="td-heading-self-link" href="#func-decodeto" aria-label="Heading self-link">&lt;/a>&lt;/h4>
-&lt;div class="highlight">&lt;div style="color:#b0c4de;background-color:#282c34;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">
-&lt;table style="border-spacing:0;padding:0;margin:0;border:0;">&lt;tr>&lt;td style="vertical-align:top;padding:0;margin:0;border:0;">
-&lt;pre tabindex="0" style="color:#b0c4de;background-color:#282c34;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code>&lt;span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#58626f">1
-&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
-&lt;td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
-&lt;pre tabindex="0" style="color:#b0c4de;background-color:#282c34;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-go" data-lang="go">&lt;span style="display:flex;">&lt;span>&lt;span style="color:#76a9f9">func&lt;/span> &lt;span style="color:#00b1f7">DecodeTo&lt;/span>&lt;span style="color:#abb2bf">(&lt;/span>&lt;span style="color:#aa89ea">v&lt;/span> &lt;span style="color:#abb2bf">[]&lt;/span>&lt;span style="color:#e5c07b">byte&lt;/span>&lt;span style="color:#abb2bf">,&lt;/span> &lt;span style="color:#aa89ea">result&lt;/span> &lt;span style="color:#76a9f9">interface&lt;/span>&lt;span style="color:#abb2bf">{})&lt;/span> &lt;span style="color:#abb2bf">(&lt;/span>&lt;span style="color:#aa89ea">err&lt;/span> &lt;span style="color:#e5c07b">error&lt;/span>&lt;span style="color:#abb2bf">)&lt;/span>
-&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
-&lt;/div>
-&lt;/div>&lt;h4 id="func-encode">func Encode&lt;a class="td-heading-self-link" href="#func-encode" aria-label="Heading self-link">&lt;/a>&lt;/h4>
-&lt;div class="highlight">&lt;div style="color:#b0c4de;background-color:#282c34;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">
-&lt;table style="border-spacing:0;padding:0;margin:0;border:0;">&lt;tr>&lt;td style="vertical-align:top;padding:0;margin:0;border:0;">
-&lt;pre tabindex="0" style="color:#b0c4de;background-color:#282c34;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code>&lt;span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#58626f">1
-&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
-&lt;td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
-&lt;pre tabindex="0" style="color:#b0c4de;background-color:#282c34;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-go" data-lang="go">&lt;span style="display:flex;">&lt;span>&lt;span style="color:#76a9f9">func&lt;/span> &lt;span style="color:#00b1f7">Encode&lt;/span>&lt;span style="color:#abb2bf">(&lt;/span>&lt;span style="color:#aa89ea">v&lt;/span> &lt;span style="color:#76a9f9">interface&lt;/span>&lt;span style="color:#abb2bf">{})&lt;/span> &lt;span style="color:#abb2bf">([]&lt;/span>&lt;span style="color:#e5c07b">byte&lt;/span>&lt;span style="color:#abb2bf">,&lt;/span> &lt;span style="color:#e5c07b">error&lt;/span>&lt;span style="color:#abb2bf">)&lt;/span>
-&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
-&lt;/div>
-&lt;/div>&lt;h4 id="func-tojson">func ToJson&lt;a class="td-heading-self-link" href="#func-tojson" aria-label="Heading self-link">&lt;/a>&lt;/h4>
-&lt;div class="highlight">&lt;div style="color:#b0c4de;background-color:#282c34;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">
-&lt;table style="border-spacing:0;padding:0;margin:0;border:0;">&lt;tr>&lt;td style="vertical-align:top;padding:0;margin:0;border:0;">
-&lt;pre tabindex="0" style="color:#b0c4de;background-color:#282c34;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code>&lt;span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#58626f">1
-&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
-&lt;td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
-&lt;pre tabindex="0" style="color:#b0c4de;background-color:#282c34;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-go" data-lang="go">&lt;span style="display:flex;">&lt;span>&lt;span style="color:#76a9f9">func&lt;/span> &lt;span style="color:#00b1f7">ToJson&lt;/span>&lt;span style="color:#abb2bf">(&lt;/span>&lt;span style="color:#aa89ea">v&lt;/span> &lt;span style="color:#abb2bf">[]&lt;/span>&lt;span style="color:#e5c07b">byte&lt;/span>&lt;span style="color:#abb2bf">)&lt;/span> &lt;span style="color:#abb2bf">([]&lt;/span>&lt;span style="color:#e5c07b">byte&lt;/span>&lt;span style="color:#abb2bf">,&lt;/span> &lt;span style="color:#e5c07b">error&lt;/span>&lt;span style="color:#abb2bf">)&lt;/span>
-&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
-&lt;/div>
-&lt;/div>&lt;h2 id="类型">类型&lt;a class="td-heading-self-link" href="#%e7%b1%bb%e5%9e%8b" aria-label="Heading self-link">&lt;/a>&lt;/h2>
-&lt;p>This section is empty.&lt;/p></description></item><item><title>gproperties</title><link>https://before80.github.io/go_docs/goframe/v2/encoding/gproperties/</link><pubDate>Thu, 21 Mar 2024 17:49:57 +0800</pubDate><guid>https://before80.github.io/go_docs/goframe/v2/encoding/gproperties/</guid><description>&lt;blockquote>
-&lt;p>原文：&lt;a href="https://pkg.go.dev/github.com/gogf/gf/v2@v2.6.4/encoding/gproperties">https://pkg.go.dev/github.com/gogf/gf/v2@v2.6.4/encoding/gproperties&lt;/a>&lt;/p>&lt;/blockquote>
-&lt;p>Package gproperties provides accessing and converting for .properties content.&lt;/p>
-&lt;p>​	软件包 gproperties 提供对 .properties 内容的访问和转换。&lt;/p>
-&lt;h2 id="常量">常量&lt;a class="td-heading-self-link" href="#%e5%b8%b8%e9%87%8f" aria-label="Heading self-link">&lt;/a>&lt;/h2>
-&lt;p>This section is empty.&lt;/p>
-&lt;h2 id="变量">变量&lt;a class="td-heading-self-link" href="#%e5%8f%98%e9%87%8f" aria-label="Heading self-link">&lt;/a>&lt;/h2>
-&lt;p>This section is empty.&lt;/p>
-&lt;h2 id="函数">函数&lt;a class="td-heading-self-link" href="#%e5%87%bd%e6%95%b0" aria-label="Heading self-link">&lt;/a>&lt;/h2>
-&lt;h4 id="func-decode">func Decode&lt;a class="td-heading-self-link" href="#func-decode" aria-label="Heading self-link">&lt;/a>&lt;/h4>
-&lt;div class="highlight">&lt;div style="color:#b0c4de;background-color:#282c34;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">
-&lt;table style="border-spacing:0;padding:0;margin:0;border:0;">&lt;tr>&lt;td style="vertical-align:top;padding:0;margin:0;border:0;">
-&lt;pre tabindex="0" style="color:#b0c4de;background-color:#282c34;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code>&lt;span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#58626f">1
-&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
-&lt;td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
-&lt;pre tabindex="0" style="color:#b0c4de;background-color:#282c34;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-go" data-lang="go">&lt;span style="display:flex;">&lt;span>&lt;span style="color:#76a9f9">func&lt;/span> &lt;span style="color:#00b1f7">Decode&lt;/span>&lt;span style="color:#abb2bf">(&lt;/span>&lt;span style="color:#aa89ea">data&lt;/span> &lt;span style="color:#abb2bf">[]&lt;/span>&lt;span style="color:#e5c07b">byte&lt;/span>&lt;span style="color:#abb2bf">)&lt;/span> &lt;span style="color:#abb2bf">(&lt;/span>&lt;span style="color:#aa89ea">res&lt;/span> &lt;span style="color:#76a9f9">map&lt;/span>&lt;span style="color:#abb2bf">[&lt;/span>&lt;span style="color:#e5c07b">string&lt;/span>&lt;span style="color:#abb2bf">]&lt;/span>&lt;span style="color:#76a9f9">interface&lt;/span>&lt;span style="color:#abb2bf">{},&lt;/span> &lt;span style="color:#aa89ea">err&lt;/span> &lt;span style="color:#e5c07b">error&lt;/span>&lt;span style="color:#abb2bf">)&lt;/span>
-&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
-&lt;/div>
-&lt;/div>&lt;p>Decode converts properties format to map.&lt;/p>
-&lt;p>​	解码将属性格式转换为映射。&lt;/p></description></item><item><title>gjson</title><link>https://before80.github.io/go_docs/goframe/v2/encoding/gjson/</link><pubDate>Thu, 21 Mar 2024 17:49:47 +0800</pubDate><guid>https://before80.github.io/go_docs/goframe/v2/encoding/gjson/</guid><description>&lt;blockquote>
-&lt;p>原文：&lt;a href="https://pkg.go.dev/github.com/gogf/gf/v2@v2.6.4/encoding/gjson">https://pkg.go.dev/github.com/gogf/gf/v2@v2.6.4/encoding/gjson&lt;/a>&lt;/p>&lt;/blockquote>
-&lt;p>Package gjson provides convenient API for JSON/XML/INI/YAML/TOML data handling.&lt;/p>
-&lt;p>​	软件包 gjson 为 JSON/XML/INI/YAML/TOML 数据处理提供了方便的 API。&lt;/p>
-&lt;h2 id="常量">常量&lt;a class="td-heading-self-link" href="#%e5%b8%b8%e9%87%8f" aria-label="Heading self-link">&lt;/a>&lt;/h2>
-&lt;p>This section is empty.&lt;/p>
-&lt;h2 id="变量">变量&lt;a class="td-heading-self-link" href="#%e5%8f%98%e9%87%8f" aria-label="Heading self-link">&lt;/a>&lt;/h2>
-&lt;p>This section is empty.&lt;/p>
-&lt;h2 id="函数">函数&lt;a class="td-heading-self-link" href="#%e5%87%bd%e6%95%b0" aria-label="Heading self-link">&lt;/a>&lt;/h2>
-&lt;h4 id="func-decode">func Decode&lt;a class="td-heading-self-link" href="#func-decode" aria-label="Heading self-link">&lt;/a>&lt;/h4>
-&lt;div class="highlight">&lt;div style="color:#b0c4de;background-color:#282c34;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">
-&lt;table style="border-spacing:0;padding:0;margin:0;border:0;">&lt;tr>&lt;td style="vertical-align:top;padding:0;margin:0;border:0;">
-&lt;pre tabindex="0" style="color:#b0c4de;background-color:#282c34;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code>&lt;span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#58626f">1
-&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
-&lt;td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
-&lt;pre tabindex="0" style="color:#b0c4de;background-color:#282c34;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-go" data-lang="go">&lt;span style="display:flex;">&lt;span>&lt;span style="color:#76a9f9">func&lt;/span> &lt;span style="color:#00b1f7">Decode&lt;/span>&lt;span style="color:#abb2bf">(&lt;/span>&lt;span style="color:#aa89ea">data&lt;/span> &lt;span style="color:#76a9f9">interface&lt;/span>&lt;span style="color:#abb2bf">{},&lt;/span> &lt;span style="color:#aa89ea">options&lt;/span> &lt;span style="color:#54b1c7">...&lt;/span>&lt;span style="color:#aa89ea">Options&lt;/span>&lt;span style="color:#abb2bf">)&lt;/span> &lt;span style="color:#abb2bf">(&lt;/span>&lt;span style="color:#76a9f9">interface&lt;/span>&lt;span style="color:#abb2bf">{},&lt;/span> &lt;span style="color:#e5c07b">error&lt;/span>&lt;span style="color:#abb2bf">)&lt;/span>
-&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
-&lt;/div>
-&lt;/div>&lt;p>Decode decodes json format &lt;code>data&lt;/code> to golang variable. The parameter &lt;code>data&lt;/code> can be either bytes or string type.&lt;/p></description></item><item><title>gini</title><link>https://before80.github.io/go_docs/goframe/v2/encoding/gini/</link><pubDate>Thu, 21 Mar 2024 17:49:41 +0800</pubDate><guid>https://before80.github.io/go_docs/goframe/v2/encoding/gini/</guid><description>&lt;blockquote>
-&lt;p>原文：&lt;a href="https://pkg.go.dev/github.com/gogf/gf/v2@v2.6.4/encoding/gini">https://pkg.go.dev/github.com/gogf/gf/v2@v2.6.4/encoding/gini&lt;/a>&lt;/p>&lt;/blockquote>
-&lt;p>Package gini provides accessing and converting for INI content.&lt;/p>
-&lt;p>​	软件包 gini 提供对 INI 内容的访问和转换。&lt;/p>
-&lt;h2 id="常量">常量&lt;a class="td-heading-self-link" href="#%e5%b8%b8%e9%87%8f" aria-label="Heading self-link">&lt;/a>&lt;/h2>
-&lt;p>This section is empty.&lt;/p>
-&lt;h2 id="变量">变量&lt;a class="td-heading-self-link" href="#%e5%8f%98%e9%87%8f" aria-label="Heading self-link">&lt;/a>&lt;/h2>
-&lt;p>This section is empty.&lt;/p>
-&lt;h2 id="函数">函数&lt;a class="td-heading-self-link" href="#%e5%87%bd%e6%95%b0" aria-label="Heading self-link">&lt;/a>&lt;/h2>
-&lt;h4 id="func-decode">func Decode&lt;a class="td-heading-self-link" href="#func-decode" aria-label="Heading self-link">&lt;/a>&lt;/h4>
-&lt;div class="highlight">&lt;div style="color:#b0c4de;background-color:#282c34;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">
-&lt;table style="border-spacing:0;padding:0;margin:0;border:0;">&lt;tr>&lt;td style="vertical-align:top;padding:0;margin:0;border:0;">
-&lt;pre tabindex="0" style="color:#b0c4de;background-color:#282c34;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code>&lt;span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#58626f">1
-&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
-&lt;td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
-&lt;pre tabindex="0" style="color:#b0c4de;background-color:#282c34;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-go" data-lang="go">&lt;span style="display:flex;">&lt;span>&lt;span style="color:#76a9f9">func&lt;/span> &lt;span style="color:#00b1f7">Decode&lt;/span>&lt;span style="color:#abb2bf">(&lt;/span>&lt;span style="color:#aa89ea">data&lt;/span> &lt;span style="color:#abb2bf">[]&lt;/span>&lt;span style="color:#e5c07b">byte&lt;/span>&lt;span style="color:#abb2bf">)&lt;/span> &lt;span style="color:#abb2bf">(&lt;/span>&lt;span style="color:#aa89ea">res&lt;/span> &lt;span style="color:#76a9f9">map&lt;/span>&lt;span style="color:#abb2bf">[&lt;/span>&lt;span style="color:#e5c07b">string&lt;/span>&lt;span style="color:#abb2bf">]&lt;/span>&lt;span style="color:#76a9f9">interface&lt;/span>&lt;span style="color:#abb2bf">{},&lt;/span> &lt;span style="color:#aa89ea">err&lt;/span> &lt;span style="color:#e5c07b">error&lt;/span>&lt;span style="color:#abb2bf">)&lt;/span>
-&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
-&lt;/div>
-&lt;/div>&lt;p>Decode converts INI format to map.&lt;/p>
-&lt;p>​	Decode 将 INI 格式转换为映射。&lt;/p></description></item><item><title>ghtml</title><link>https://before80.github.io/go_docs/goframe/v2/encoding/ghtml/</link><pubDate>Thu, 21 Mar 2024 17:49:34 +0800</pubDate><guid>https://before80.github.io/go_docs/goframe/v2/encoding/ghtml/</guid><description>&lt;blockquote>
-&lt;p>原文：&lt;a href="https://pkg.go.dev/github.com/gogf/gf/v2@v2.6.4/encoding/ghtml">https://pkg.go.dev/github.com/gogf/gf/v2@v2.6.4/encoding/ghtml&lt;/a>&lt;/p>&lt;/blockquote>
-&lt;p>Package ghtml provides useful API for HTML content handling.&lt;/p>
-&lt;p>​	软件包 ghtml 为 HTML 内容处理提供了有用的 API。&lt;/p>
-&lt;h2 id="常量">常量&lt;a class="td-heading-self-link" href="#%e5%b8%b8%e9%87%8f" aria-label="Heading self-link">&lt;/a>&lt;/h2>
-&lt;p>This section is empty.&lt;/p>
-&lt;h2 id="变量">变量&lt;a class="td-heading-self-link" href="#%e5%8f%98%e9%87%8f" aria-label="Heading self-link">&lt;/a>&lt;/h2>
-&lt;p>This section is empty.&lt;/p>
-&lt;h2 id="函数">函数&lt;a class="td-heading-self-link" href="#%e5%87%bd%e6%95%b0" aria-label="Heading self-link">&lt;/a>&lt;/h2>
-&lt;h4 id="func-entities">func Entities&lt;a class="td-heading-self-link" href="#func-entities" aria-label="Heading self-link">&lt;/a>&lt;/h4>
-&lt;div class="highlight">&lt;div style="color:#b0c4de;background-color:#282c34;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">
-&lt;table style="border-spacing:0;padding:0;margin:0;border:0;">&lt;tr>&lt;td style="vertical-align:top;padding:0;margin:0;border:0;">
-&lt;pre tabindex="0" style="color:#b0c4de;background-color:#282c34;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code>&lt;span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#58626f">1
-&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
-&lt;td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
-&lt;pre tabindex="0" style="color:#b0c4de;background-color:#282c34;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-go" data-lang="go">&lt;span style="display:flex;">&lt;span>&lt;span style="color:#76a9f9">func&lt;/span> &lt;span style="color:#00b1f7">Entities&lt;/span>&lt;span style="color:#abb2bf">(&lt;/span>&lt;span style="color:#aa89ea">s&lt;/span> &lt;span style="color:#e5c07b">string&lt;/span>&lt;span style="color:#abb2bf">)&lt;/span> &lt;span style="color:#e5c07b">string&lt;/span>
-&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
-&lt;/div>
-&lt;/div>&lt;p>Entities encodes all HTML chars for content. Referer: &lt;a href="http://php.net/manual/zh/function.htmlentities.php">http://php.net/manual/zh/function.htmlentities.php&lt;/a>&lt;/p>
-&lt;p>​	实体对内容的所有 HTML 字符进行编码。推荐人： &lt;a href="http://php.net/manual/zh/function.htmlentities.php">http://php.net/manual/zh/function.htmlentities.php&lt;/a>&lt;/p></description></item><item><title>ghash</title><link>https://before80.github.io/go_docs/goframe/v2/encoding/ghash/</link><pubDate>Thu, 21 Mar 2024 17:49:28 +0800</pubDate><guid>https://before80.github.io/go_docs/goframe/v2/encoding/ghash/</guid><description>&lt;blockquote>
-&lt;p>原文：&lt;a href="https://pkg.go.dev/github.com/gogf/gf/v2@v2.6.4/encoding/ghash">https://pkg.go.dev/github.com/gogf/gf/v2@v2.6.4/encoding/ghash&lt;/a>&lt;/p>&lt;/blockquote>
-&lt;p>Package ghash provides some classic hash functions(uint32/uint64) in go.&lt;/p>
-&lt;p>​	软件包 ghash 在 go 中提供了一些经典的哈希函数（uint32/uint64）。&lt;/p>
-&lt;h2 id="常量">常量&lt;a class="td-heading-self-link" href="#%e5%b8%b8%e9%87%8f" aria-label="Heading self-link">&lt;/a>&lt;/h2>
-&lt;p>This section is empty.&lt;/p>
-&lt;h2 id="变量">变量&lt;a class="td-heading-self-link" href="#%e5%8f%98%e9%87%8f" aria-label="Heading self-link">&lt;/a>&lt;/h2>
-&lt;p>This section is empty.&lt;/p>
-&lt;h2 id="函数">函数&lt;a class="td-heading-self-link" href="#%e5%87%bd%e6%95%b0" aria-label="Heading self-link">&lt;/a>&lt;/h2>
-&lt;h4 id="func-ap">func AP&lt;a class="td-heading-self-link" href="#func-ap" aria-label="Heading self-link">&lt;/a>&lt;/h4>
-&lt;div class="highlight">&lt;div style="color:#b0c4de;background-color:#282c34;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">
-&lt;table style="border-spacing:0;padding:0;margin:0;border:0;">&lt;tr>&lt;td style="vertical-align:top;padding:0;margin:0;border:0;">
-&lt;pre tabindex="0" style="color:#b0c4de;background-color:#282c34;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code>&lt;span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#58626f">1
-&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
-&lt;td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
-&lt;pre tabindex="0" style="color:#b0c4de;background-color:#282c34;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-go" data-lang="go">&lt;span style="display:flex;">&lt;span>&lt;span style="color:#76a9f9">func&lt;/span> &lt;span style="color:#00b1f7">AP&lt;/span>&lt;span style="color:#abb2bf">(&lt;/span>&lt;span style="color:#aa89ea">str&lt;/span> &lt;span style="color:#abb2bf">[]&lt;/span>&lt;span style="color:#e5c07b">byte&lt;/span>&lt;span style="color:#abb2bf">)&lt;/span> &lt;span style="color:#e5c07b">uint32&lt;/span>
-&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
-&lt;/div>
-&lt;/div>&lt;p>AP implements the classic AP hash algorithm for 32 bits.&lt;/p></description></item><item><title>gcompress</title><link>https://before80.github.io/go_docs/goframe/v2/encoding/gcompress/</link><pubDate>Thu, 21 Mar 2024 17:49:19 +0800</pubDate><guid>https://before80.github.io/go_docs/goframe/v2/encoding/gcompress/</guid><description>&lt;blockquote>
-&lt;p>原文：&lt;a href="https://pkg.go.dev/github.com/gogf/gf/v2@v2.6.4/encoding/gcompress">https://pkg.go.dev/github.com/gogf/gf/v2@v2.6.4/encoding/gcompress&lt;/a>&lt;/p>&lt;/blockquote>
-&lt;p>Package gcompress provides kinds of compression algorithms for binary/bytes data.&lt;/p>
-&lt;p>​	软件包 gcompress 为二进制/字节数据提供了多种压缩算法。&lt;/p>
-&lt;h2 id="常量">常量&lt;a class="td-heading-self-link" href="#%e5%b8%b8%e9%87%8f" aria-label="Heading self-link">&lt;/a>&lt;/h2>
-&lt;p>This section is empty.&lt;/p>
-&lt;h2 id="变量">变量&lt;a class="td-heading-self-link" href="#%e5%8f%98%e9%87%8f" aria-label="Heading self-link">&lt;/a>&lt;/h2>
-&lt;p>This section is empty.&lt;/p>
-&lt;h2 id="函数">函数&lt;a class="td-heading-self-link" href="#%e5%87%bd%e6%95%b0" aria-label="Heading self-link">&lt;/a>&lt;/h2>
-&lt;h4 id="func-gzip">func Gzip&lt;a class="td-heading-self-link" href="#func-gzip" aria-label="Heading self-link">&lt;/a>&lt;/h4>
-&lt;div class="highlight">&lt;div style="color:#b0c4de;background-color:#282c34;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">
-&lt;table style="border-spacing:0;padding:0;margin:0;border:0;">&lt;tr>&lt;td style="vertical-align:top;padding:0;margin:0;border:0;">
-&lt;pre tabindex="0" style="color:#b0c4de;background-color:#282c34;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code>&lt;span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#58626f">1
-&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
-&lt;td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
-&lt;pre tabindex="0" style="color:#b0c4de;background-color:#282c34;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-go" data-lang="go">&lt;span style="display:flex;">&lt;span>&lt;span style="color:#76a9f9">func&lt;/span> &lt;span style="color:#00b1f7">Gzip&lt;/span>&lt;span style="color:#abb2bf">(&lt;/span>&lt;span style="color:#aa89ea">data&lt;/span> &lt;span style="color:#abb2bf">[]&lt;/span>&lt;span style="color:#e5c07b">byte&lt;/span>&lt;span style="color:#abb2bf">,&lt;/span> &lt;span style="color:#aa89ea">level&lt;/span> &lt;span style="color:#54b1c7">...&lt;/span>&lt;span style="color:#e5c07b">int&lt;/span>&lt;span style="color:#abb2bf">)&lt;/span> &lt;span style="color:#abb2bf">([]&lt;/span>&lt;span style="color:#e5c07b">byte&lt;/span>&lt;span style="color:#abb2bf">,&lt;/span> &lt;span style="color:#e5c07b">error&lt;/span>&lt;span style="color:#abb2bf">)&lt;/span>
-&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
-&lt;/div>
-&lt;/div>&lt;p>Gzip compresses &lt;code>data&lt;/code> using gzip algorithm. The optional parameter &lt;code>level&lt;/code> specifies the compression level from 1 to 9 which means from none to the best compression.&lt;/p></description></item><item><title>gcharset</title><link>https://before80.github.io/go_docs/goframe/v2/encoding/gcharset/</link><pubDate>Thu, 21 Mar 2024 17:49:10 +0800</pubDate><guid>https://before80.github.io/go_docs/goframe/v2/encoding/gcharset/</guid><description>&lt;blockquote>
-&lt;p>原文：&lt;a href="https://pkg.go.dev/github.com/gogf/gf/v2@v2.6.4/encoding/gcharset">https://pkg.go.dev/github.com/gogf/gf/v2@v2.6.4/encoding/gcharset&lt;/a>&lt;/p>&lt;/blockquote>
-&lt;p>Package gcharset implements character-set conversion functionality.&lt;/p>
-&lt;p>​	Package gcharset 实现了字符集转换功能。&lt;/p>
-&lt;p>Supported Character Set:&lt;/p>
-&lt;p>​	支持的字符集：&lt;/p>
-&lt;p>Chinese : GBK/GB18030/GB2312/Big5&lt;/p>
-&lt;p>​	中文 ： GBK/GB18030/GB2312/Big5&lt;/p>
-&lt;p>Japanese: EUCJP/ISO2022JP/ShiftJIS&lt;/p>
-&lt;p>​	日语：EUCJP/ISO2022JP/ShiftJIS&lt;/p></description></item><item><title>gbinary</title><link>https://before80.github.io/go_docs/goframe/v2/encoding/gbinary/</link><pubDate>Thu, 21 Mar 2024 17:49:00 +0800</pubDate><guid>https://before80.github.io/go_docs/goframe/v2/encoding/gbinary/</guid><description>&lt;blockquote>
-&lt;p>原文：&lt;a href="https://pkg.go.dev/github.com/gogf/gf/v2@v2.6.4/encoding/gbinary">https://pkg.go.dev/github.com/gogf/gf/v2@v2.6.4/encoding/gbinary&lt;/a>&lt;/p>&lt;/blockquote>
-&lt;p>Package gbinary provides useful API for handling binary/bytes data.&lt;/p>
-&lt;p>​	软件包 gbinary 提供了用于处理二进制/字节数据的有用 API。&lt;/p>
-&lt;p>Note that package gbinary encodes the data using LittleEndian in default.&lt;/p>
-&lt;p>​	请注意，默认情况下，软件包 gbinary 使用 LittleEndian 对数据进行编码。&lt;/p></description></item><item><title>gbase64</title><link>https://before80.github.io/go_docs/goframe/v2/encoding/gbase64/</link><pubDate>Thu, 21 Mar 2024 17:48:52 +0800</pubDate><guid>https://before80.github.io/go_docs/goframe/v2/encoding/gbase64/</guid><description>&lt;blockquote>
-&lt;p>原文：&lt;a href="https://pkg.go.dev/github.com/gogf/gf/v2@v2.6.4/encoding/gbase64">https://pkg.go.dev/github.com/gogf/gf/v2@v2.6.4/encoding/gbase64&lt;/a>&lt;/p>&lt;/blockquote>
-&lt;p>Package gbase64 provides useful API for BASE64 encoding/decoding algorithm.&lt;/p>
-&lt;p>​	软件包 gbase64 为 BASE64 编码/解码算法提供了有用的 API。&lt;/p>
-&lt;h2 id="常量">常量&lt;a class="td-heading-self-link" href="#%e5%b8%b8%e9%87%8f" aria-label="Heading self-link">&lt;/a>&lt;/h2>
-&lt;p>This section is empty.&lt;/p>
-&lt;h2 id="变量">变量&lt;a class="td-heading-self-link" href="#%e5%8f%98%e9%87%8f" aria-label="Heading self-link">&lt;/a>&lt;/h2>
-&lt;p>This section is empty.&lt;/p>
-&lt;h2 id="函数">函数&lt;a class="td-heading-self-link" href="#%e5%87%bd%e6%95%b0" aria-label="Heading self-link">&lt;/a>&lt;/h2>
-&lt;h4 id="func-decode">func Decode&lt;a class="td-heading-self-link" href="#func-decode" aria-label="Heading self-link">&lt;/a>&lt;/h4>
-&lt;div class="highlight">&lt;div style="color:#b0c4de;background-color:#282c34;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">
-&lt;table style="border-spacing:0;padding:0;margin:0;border:0;">&lt;tr>&lt;td style="vertical-align:top;padding:0;margin:0;border:0;">
-&lt;pre tabindex="0" style="color:#b0c4de;background-color:#282c34;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code>&lt;span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#58626f">1
-&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
-&lt;td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
-&lt;pre tabindex="0" style="color:#b0c4de;background-color:#282c34;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-go" data-lang="go">&lt;span style="display:flex;">&lt;span>&lt;span style="color:#76a9f9">func&lt;/span> &lt;span style="color:#00b1f7">Decode&lt;/span>&lt;span style="color:#abb2bf">(&lt;/span>&lt;span style="color:#aa89ea">data&lt;/span> &lt;span style="color:#abb2bf">[]&lt;/span>&lt;span style="color:#e5c07b">byte&lt;/span>&lt;span style="color:#abb2bf">)&lt;/span> &lt;span style="color:#abb2bf">([]&lt;/span>&lt;span style="color:#e5c07b">byte&lt;/span>&lt;span style="color:#abb2bf">,&lt;/span> &lt;span style="color:#e5c07b">error&lt;/span>&lt;span style="color:#abb2bf">)&lt;/span>
-&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
-&lt;/div>
-&lt;/div>&lt;p>Decode decodes bytes with BASE64 algorithm.&lt;/p>
-&lt;p>​	Decode 使用 BASE64 算法解码字节。&lt;/p></description></item></channel></rss>
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>encoding on Go 中文档集</title><link>https://before80.github.io/go_docs/goframe/v2/encoding/</link><description>Recent content in encoding on Go 中文档集</description><generator>Hugo</generator><language>zh-cn</language><lastBuildDate>Thu, 10 Oct 2024 15:07:50 +0800</lastBuildDate><atom:link href="https://before80.github.io/go_docs/goframe/v2/encoding/index.xml" rel="self" type="application/rss+xml"/><item><title>gyaml</title><link>https://before80.github.io/go_docs/goframe/v2/encoding/gyaml/</link><pubDate>Thu, 21 Mar 2024 17:50:29 +0800</pubDate><guid>https://before80.github.io/go_docs/goframe/v2/encoding/gyaml/</guid><description>&lt;blockquote&gt;
+&lt;p&gt;原文：&lt;a href="https://pkg.go.dev/github.com/gogf/gf/v2@v2.6.4/encoding/gyaml"&gt;https://pkg.go.dev/github.com/gogf/gf/v2@v2.6.4/encoding/gyaml&lt;/a&gt;&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;Package gyaml provides accessing and converting for YAML content.&lt;/p&gt;
+&lt;p&gt;​	Package gyaml 提供对 YAML 内容的访问和转换。&lt;/p&gt;
+&lt;h2 id="常量"&gt;常量&lt;/h2&gt;
+&lt;p&gt;This section is empty.&lt;/p&gt;
+&lt;h2 id="变量"&gt;变量&lt;/h2&gt;
+&lt;p&gt;This section is empty.&lt;/p&gt;
+&lt;h2 id="函数"&gt;函数&lt;/h2&gt;
+&lt;h4 id="func-decode"&gt;func Decode&lt;/h4&gt;
+&lt;div class="highlight"&gt;&lt;div style="color:#b0c4de;background-color:#282c34;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"&gt;
+&lt;table style="border-spacing:0;padding:0;margin:0;border:0;"&gt;&lt;tr&gt;&lt;td style="vertical-align:top;padding:0;margin:0;border:0;"&gt;
+&lt;pre tabindex="0" style="color:#b0c4de;background-color:#282c34;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"&gt;&lt;code&gt;&lt;span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#58626f"&gt;1
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
+&lt;td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%"&gt;
+&lt;pre tabindex="0" style="color:#b0c4de;background-color:#282c34;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"&gt;&lt;code class="language-go" data-lang="go"&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;&lt;span style="color:#76a9f9"&gt;func&lt;/span&gt; &lt;span style="color:#00b1f7"&gt;Decode&lt;/span&gt;&lt;span style="color:#abb2bf"&gt;(&lt;/span&gt;&lt;span style="color:#aa89ea"&gt;content&lt;/span&gt; &lt;span style="color:#abb2bf"&gt;[]&lt;/span&gt;&lt;span style="color:#e5c07b"&gt;byte&lt;/span&gt;&lt;span style="color:#abb2bf"&gt;)&lt;/span&gt; &lt;span style="color:#abb2bf"&gt;(&lt;/span&gt;&lt;span style="color:#76a9f9"&gt;map&lt;/span&gt;&lt;span style="color:#abb2bf"&gt;[&lt;/span&gt;&lt;span style="color:#e5c07b"&gt;string&lt;/span&gt;&lt;span style="color:#abb2bf"&gt;]&lt;/span&gt;&lt;span style="color:#76a9f9"&gt;interface&lt;/span&gt;&lt;span style="color:#abb2bf"&gt;{},&lt;/span&gt; &lt;span style="color:#e5c07b"&gt;error&lt;/span&gt;&lt;span style="color:#abb2bf"&gt;)&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+&lt;/div&gt;
+&lt;/div&gt;&lt;p&gt;Decode parses &lt;code&gt;content&lt;/code&gt; into and returns as map.&lt;/p&gt;
+&lt;p&gt;​	解码解 &lt;code&gt;content&lt;/code&gt; 析为映射并返回。&lt;/p&gt;
+&lt;h4 id="func-decodeto"&gt;func DecodeTo&lt;/h4&gt;
+&lt;div class="highlight"&gt;&lt;div style="color:#b0c4de;background-color:#282c34;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"&gt;
+&lt;table style="border-spacing:0;padding:0;margin:0;border:0;"&gt;&lt;tr&gt;&lt;td style="vertical-align:top;padding:0;margin:0;border:0;"&gt;
+&lt;pre tabindex="0" style="color:#b0c4de;background-color:#282c34;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"&gt;&lt;code&gt;&lt;span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#58626f"&gt;1
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
+&lt;td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%"&gt;
+&lt;pre tabindex="0" style="color:#b0c4de;background-color:#282c34;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"&gt;&lt;code class="language-go" data-lang="go"&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;&lt;span style="color:#76a9f9"&gt;func&lt;/span&gt; &lt;span style="color:#00b1f7"&gt;DecodeTo&lt;/span&gt;&lt;span style="color:#abb2bf"&gt;(&lt;/span&gt;&lt;span style="color:#aa89ea"&gt;value&lt;/span&gt; &lt;span style="color:#abb2bf"&gt;[]&lt;/span&gt;&lt;span style="color:#e5c07b"&gt;byte&lt;/span&gt;&lt;span style="color:#abb2bf"&gt;,&lt;/span&gt; &lt;span style="color:#aa89ea"&gt;result&lt;/span&gt; &lt;span style="color:#76a9f9"&gt;interface&lt;/span&gt;&lt;span style="color:#abb2bf"&gt;{})&lt;/span&gt; &lt;span style="color:#abb2bf"&gt;(&lt;/span&gt;&lt;span style="color:#aa89ea"&gt;err&lt;/span&gt; &lt;span style="color:#e5c07b"&gt;error&lt;/span&gt;&lt;span style="color:#abb2bf"&gt;)&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+&lt;/div&gt;
+&lt;/div&gt;&lt;p&gt;DecodeTo parses &lt;code&gt;content&lt;/code&gt; into &lt;code&gt;result&lt;/code&gt;.&lt;/p&gt;</description></item><item><title>gxml</title><link>https://before80.github.io/go_docs/goframe/v2/encoding/gxml/</link><pubDate>Thu, 21 Mar 2024 17:50:21 +0800</pubDate><guid>https://before80.github.io/go_docs/goframe/v2/encoding/gxml/</guid><description>&lt;blockquote&gt;
+&lt;p&gt;原文：&lt;a href="https://pkg.go.dev/github.com/gogf/gf/v2@v2.6.4/encoding/gxml"&gt;https://pkg.go.dev/github.com/gogf/gf/v2@v2.6.4/encoding/gxml&lt;/a&gt;&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;Package gxml provides accessing and converting for XML content.&lt;/p&gt;
+&lt;p&gt;​	软件包 gxml 提供对 XML 内容的访问和转换。&lt;/p&gt;
+&lt;h2 id="常量"&gt;常量&lt;/h2&gt;
+&lt;p&gt;This section is empty.&lt;/p&gt;
+&lt;h2 id="变量"&gt;变量&lt;/h2&gt;
+&lt;p&gt;This section is empty.&lt;/p&gt;
+&lt;h2 id="函数"&gt;函数&lt;/h2&gt;
+&lt;h4 id="func-decode"&gt;func Decode&lt;/h4&gt;
+&lt;div class="highlight"&gt;&lt;div style="color:#b0c4de;background-color:#282c34;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"&gt;
+&lt;table style="border-spacing:0;padding:0;margin:0;border:0;"&gt;&lt;tr&gt;&lt;td style="vertical-align:top;padding:0;margin:0;border:0;"&gt;
+&lt;pre tabindex="0" style="color:#b0c4de;background-color:#282c34;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"&gt;&lt;code&gt;&lt;span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#58626f"&gt;1
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
+&lt;td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%"&gt;
+&lt;pre tabindex="0" style="color:#b0c4de;background-color:#282c34;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"&gt;&lt;code class="language-go" data-lang="go"&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;&lt;span style="color:#76a9f9"&gt;func&lt;/span&gt; &lt;span style="color:#00b1f7"&gt;Decode&lt;/span&gt;&lt;span style="color:#abb2bf"&gt;(&lt;/span&gt;&lt;span style="color:#aa89ea"&gt;content&lt;/span&gt; &lt;span style="color:#abb2bf"&gt;[]&lt;/span&gt;&lt;span style="color:#e5c07b"&gt;byte&lt;/span&gt;&lt;span style="color:#abb2bf"&gt;)&lt;/span&gt; &lt;span style="color:#abb2bf"&gt;(&lt;/span&gt;&lt;span style="color:#76a9f9"&gt;map&lt;/span&gt;&lt;span style="color:#abb2bf"&gt;[&lt;/span&gt;&lt;span style="color:#e5c07b"&gt;string&lt;/span&gt;&lt;span style="color:#abb2bf"&gt;]&lt;/span&gt;&lt;span style="color:#76a9f9"&gt;interface&lt;/span&gt;&lt;span style="color:#abb2bf"&gt;{},&lt;/span&gt; &lt;span style="color:#e5c07b"&gt;error&lt;/span&gt;&lt;span style="color:#abb2bf"&gt;)&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+&lt;/div&gt;
+&lt;/div&gt;&lt;p&gt;Decode parses &lt;code&gt;content&lt;/code&gt; into and returns as map.&lt;/p&gt;
+&lt;p&gt;​	解码解 &lt;code&gt;content&lt;/code&gt; 析为映射并返回。&lt;/p&gt;
+&lt;h4 id="func-decodewithoutroot"&gt;func DecodeWithoutRoot&lt;/h4&gt;
+&lt;div class="highlight"&gt;&lt;div style="color:#b0c4de;background-color:#282c34;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"&gt;
+&lt;table style="border-spacing:0;padding:0;margin:0;border:0;"&gt;&lt;tr&gt;&lt;td style="vertical-align:top;padding:0;margin:0;border:0;"&gt;
+&lt;pre tabindex="0" style="color:#b0c4de;background-color:#282c34;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"&gt;&lt;code&gt;&lt;span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#58626f"&gt;1
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
+&lt;td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%"&gt;
+&lt;pre tabindex="0" style="color:#b0c4de;background-color:#282c34;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"&gt;&lt;code class="language-go" data-lang="go"&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;&lt;span style="color:#76a9f9"&gt;func&lt;/span&gt; &lt;span style="color:#00b1f7"&gt;DecodeWithoutRoot&lt;/span&gt;&lt;span style="color:#abb2bf"&gt;(&lt;/span&gt;&lt;span style="color:#aa89ea"&gt;content&lt;/span&gt; &lt;span style="color:#abb2bf"&gt;[]&lt;/span&gt;&lt;span style="color:#e5c07b"&gt;byte&lt;/span&gt;&lt;span style="color:#abb2bf"&gt;)&lt;/span&gt; &lt;span style="color:#abb2bf"&gt;(&lt;/span&gt;&lt;span style="color:#76a9f9"&gt;map&lt;/span&gt;&lt;span style="color:#abb2bf"&gt;[&lt;/span&gt;&lt;span style="color:#e5c07b"&gt;string&lt;/span&gt;&lt;span style="color:#abb2bf"&gt;]&lt;/span&gt;&lt;span style="color:#76a9f9"&gt;interface&lt;/span&gt;&lt;span style="color:#abb2bf"&gt;{},&lt;/span&gt; &lt;span style="color:#e5c07b"&gt;error&lt;/span&gt;&lt;span style="color:#abb2bf"&gt;)&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+&lt;/div&gt;
+&lt;/div&gt;&lt;p&gt;DecodeWithoutRoot parses &lt;code&gt;content&lt;/code&gt; into a map, and returns the map without root level.&lt;/p&gt;</description></item><item><title>gurl</title><link>https://before80.github.io/go_docs/goframe/v2/encoding/gurl/</link><pubDate>Thu, 21 Mar 2024 17:50:13 +0800</pubDate><guid>https://before80.github.io/go_docs/goframe/v2/encoding/gurl/</guid><description>&lt;blockquote&gt;
+&lt;p&gt;原文：&lt;a href="https://pkg.go.dev/github.com/gogf/gf/v2@v2.6.4/encoding/gurl"&gt;https://pkg.go.dev/github.com/gogf/gf/v2@v2.6.4/encoding/gurl&lt;/a&gt;&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;Package gurl provides useful API for URL handling.&lt;/p&gt;
+&lt;p&gt;​	Package girl 为 URL 处理提供了有用的 API。&lt;/p&gt;
+&lt;h2 id="常量"&gt;常量&lt;/h2&gt;
+&lt;p&gt;This section is empty.&lt;/p&gt;
+&lt;h2 id="变量"&gt;变量&lt;/h2&gt;
+&lt;p&gt;This section is empty.&lt;/p&gt;
+&lt;h2 id="函数"&gt;函数&lt;/h2&gt;
+&lt;h4 id="func-buildquery"&gt;func BuildQuery&lt;/h4&gt;
+&lt;div class="highlight"&gt;&lt;div style="color:#b0c4de;background-color:#282c34;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"&gt;
+&lt;table style="border-spacing:0;padding:0;margin:0;border:0;"&gt;&lt;tr&gt;&lt;td style="vertical-align:top;padding:0;margin:0;border:0;"&gt;
+&lt;pre tabindex="0" style="color:#b0c4de;background-color:#282c34;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"&gt;&lt;code&gt;&lt;span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#58626f"&gt;1
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
+&lt;td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%"&gt;
+&lt;pre tabindex="0" style="color:#b0c4de;background-color:#282c34;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"&gt;&lt;code class="language-go" data-lang="go"&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;&lt;span style="color:#76a9f9"&gt;func&lt;/span&gt; &lt;span style="color:#00b1f7"&gt;BuildQuery&lt;/span&gt;&lt;span style="color:#abb2bf"&gt;(&lt;/span&gt;&lt;span style="color:#aa89ea"&gt;queryData&lt;/span&gt; &lt;span style="color:#aa89ea"&gt;url&lt;/span&gt;&lt;span style="color:#abb2bf"&gt;.&lt;/span&gt;&lt;span style="color:#aa89ea"&gt;Values&lt;/span&gt;&lt;span style="color:#abb2bf"&gt;)&lt;/span&gt; &lt;span style="color:#e5c07b"&gt;string&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+&lt;/div&gt;
+&lt;/div&gt;&lt;p&gt;BuildQuery Generate URL-encoded query string. See &lt;a href="http://php.net/manual/en/function.http-build-query.php"&gt;http://php.net/manual/en/function.http-build-query.php&lt;/a&gt;.&lt;/p&gt;
+&lt;p&gt;​	BuildQuery 生成 URL 编码的查询字符串。请参见 &lt;a href="http://php.net/manual/en/function.http-build-query.php"&gt;http://php.net/manual/en/function.http-build-query.php&lt;/a&gt;。&lt;/p&gt;
+&lt;h4 id="func-decode"&gt;func Decode&lt;/h4&gt;
+&lt;div class="highlight"&gt;&lt;div style="color:#b0c4de;background-color:#282c34;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"&gt;
+&lt;table style="border-spacing:0;padding:0;margin:0;border:0;"&gt;&lt;tr&gt;&lt;td style="vertical-align:top;padding:0;margin:0;border:0;"&gt;
+&lt;pre tabindex="0" style="color:#b0c4de;background-color:#282c34;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"&gt;&lt;code&gt;&lt;span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#58626f"&gt;1
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
+&lt;td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%"&gt;
+&lt;pre tabindex="0" style="color:#b0c4de;background-color:#282c34;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"&gt;&lt;code class="language-go" data-lang="go"&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;&lt;span style="color:#76a9f9"&gt;func&lt;/span&gt; &lt;span style="color:#00b1f7"&gt;Decode&lt;/span&gt;&lt;span style="color:#abb2bf"&gt;(&lt;/span&gt;&lt;span style="color:#aa89ea"&gt;str&lt;/span&gt; &lt;span style="color:#e5c07b"&gt;string&lt;/span&gt;&lt;span style="color:#abb2bf"&gt;)&lt;/span&gt; &lt;span style="color:#abb2bf"&gt;(&lt;/span&gt;&lt;span style="color:#e5c07b"&gt;string&lt;/span&gt;&lt;span style="color:#abb2bf"&gt;,&lt;/span&gt; &lt;span style="color:#e5c07b"&gt;error&lt;/span&gt;&lt;span style="color:#abb2bf"&gt;)&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+&lt;/div&gt;
+&lt;/div&gt;&lt;p&gt;Decode does the inverse transformation of Encode, converting each 3-byte encoded substring of the form “%AB” into the hex-decoded byte 0xAB. It returns an error if any % is not followed by two hexadecimal digits.&lt;/p&gt;</description></item><item><title>gtoml</title><link>https://before80.github.io/go_docs/goframe/v2/encoding/gtoml/</link><pubDate>Thu, 21 Mar 2024 17:50:06 +0800</pubDate><guid>https://before80.github.io/go_docs/goframe/v2/encoding/gtoml/</guid><description>&lt;blockquote&gt;
+&lt;p&gt;原文：&lt;a href="https://pkg.go.dev/github.com/gogf/gf/v2@v2.6.4/encoding/gtoml"&gt;https://pkg.go.dev/github.com/gogf/gf/v2@v2.6.4/encoding/gtoml&lt;/a&gt;&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;Package gtoml provides accessing and converting for TOML content.&lt;/p&gt;
+&lt;p&gt;​	软件包 gtoml 提供对 TOML 内容的访问和转换。&lt;/p&gt;
+&lt;h2 id="常量"&gt;常量&lt;/h2&gt;
+&lt;p&gt;This section is empty.&lt;/p&gt;
+&lt;h2 id="变量"&gt;变量&lt;/h2&gt;
+&lt;p&gt;This section is empty.&lt;/p&gt;
+&lt;h2 id="函数"&gt;函数&lt;/h2&gt;
+&lt;h4 id="func-decode"&gt;func Decode&lt;/h4&gt;
+&lt;div class="highlight"&gt;&lt;div style="color:#b0c4de;background-color:#282c34;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"&gt;
+&lt;table style="border-spacing:0;padding:0;margin:0;border:0;"&gt;&lt;tr&gt;&lt;td style="vertical-align:top;padding:0;margin:0;border:0;"&gt;
+&lt;pre tabindex="0" style="color:#b0c4de;background-color:#282c34;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"&gt;&lt;code&gt;&lt;span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#58626f"&gt;1
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
+&lt;td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%"&gt;
+&lt;pre tabindex="0" style="color:#b0c4de;background-color:#282c34;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"&gt;&lt;code class="language-go" data-lang="go"&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;&lt;span style="color:#76a9f9"&gt;func&lt;/span&gt; &lt;span style="color:#00b1f7"&gt;Decode&lt;/span&gt;&lt;span style="color:#abb2bf"&gt;(&lt;/span&gt;&lt;span style="color:#aa89ea"&gt;v&lt;/span&gt; &lt;span style="color:#abb2bf"&gt;[]&lt;/span&gt;&lt;span style="color:#e5c07b"&gt;byte&lt;/span&gt;&lt;span style="color:#abb2bf"&gt;)&lt;/span&gt; &lt;span style="color:#abb2bf"&gt;(&lt;/span&gt;&lt;span style="color:#76a9f9"&gt;interface&lt;/span&gt;&lt;span style="color:#abb2bf"&gt;{},&lt;/span&gt; &lt;span style="color:#e5c07b"&gt;error&lt;/span&gt;&lt;span style="color:#abb2bf"&gt;)&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+&lt;/div&gt;
+&lt;/div&gt;&lt;h4 id="func-decodeto"&gt;func DecodeTo&lt;/h4&gt;
+&lt;div class="highlight"&gt;&lt;div style="color:#b0c4de;background-color:#282c34;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"&gt;
+&lt;table style="border-spacing:0;padding:0;margin:0;border:0;"&gt;&lt;tr&gt;&lt;td style="vertical-align:top;padding:0;margin:0;border:0;"&gt;
+&lt;pre tabindex="0" style="color:#b0c4de;background-color:#282c34;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"&gt;&lt;code&gt;&lt;span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#58626f"&gt;1
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
+&lt;td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%"&gt;
+&lt;pre tabindex="0" style="color:#b0c4de;background-color:#282c34;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"&gt;&lt;code class="language-go" data-lang="go"&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;&lt;span style="color:#76a9f9"&gt;func&lt;/span&gt; &lt;span style="color:#00b1f7"&gt;DecodeTo&lt;/span&gt;&lt;span style="color:#abb2bf"&gt;(&lt;/span&gt;&lt;span style="color:#aa89ea"&gt;v&lt;/span&gt; &lt;span style="color:#abb2bf"&gt;[]&lt;/span&gt;&lt;span style="color:#e5c07b"&gt;byte&lt;/span&gt;&lt;span style="color:#abb2bf"&gt;,&lt;/span&gt; &lt;span style="color:#aa89ea"&gt;result&lt;/span&gt; &lt;span style="color:#76a9f9"&gt;interface&lt;/span&gt;&lt;span style="color:#abb2bf"&gt;{})&lt;/span&gt; &lt;span style="color:#abb2bf"&gt;(&lt;/span&gt;&lt;span style="color:#aa89ea"&gt;err&lt;/span&gt; &lt;span style="color:#e5c07b"&gt;error&lt;/span&gt;&lt;span style="color:#abb2bf"&gt;)&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+&lt;/div&gt;
+&lt;/div&gt;&lt;h4 id="func-encode"&gt;func Encode&lt;/h4&gt;
+&lt;div class="highlight"&gt;&lt;div style="color:#b0c4de;background-color:#282c34;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"&gt;
+&lt;table style="border-spacing:0;padding:0;margin:0;border:0;"&gt;&lt;tr&gt;&lt;td style="vertical-align:top;padding:0;margin:0;border:0;"&gt;
+&lt;pre tabindex="0" style="color:#b0c4de;background-color:#282c34;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"&gt;&lt;code&gt;&lt;span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#58626f"&gt;1
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
+&lt;td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%"&gt;
+&lt;pre tabindex="0" style="color:#b0c4de;background-color:#282c34;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"&gt;&lt;code class="language-go" data-lang="go"&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;&lt;span style="color:#76a9f9"&gt;func&lt;/span&gt; &lt;span style="color:#00b1f7"&gt;Encode&lt;/span&gt;&lt;span style="color:#abb2bf"&gt;(&lt;/span&gt;&lt;span style="color:#aa89ea"&gt;v&lt;/span&gt; &lt;span style="color:#76a9f9"&gt;interface&lt;/span&gt;&lt;span style="color:#abb2bf"&gt;{})&lt;/span&gt; &lt;span style="color:#abb2bf"&gt;([]&lt;/span&gt;&lt;span style="color:#e5c07b"&gt;byte&lt;/span&gt;&lt;span style="color:#abb2bf"&gt;,&lt;/span&gt; &lt;span style="color:#e5c07b"&gt;error&lt;/span&gt;&lt;span style="color:#abb2bf"&gt;)&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+&lt;/div&gt;
+&lt;/div&gt;&lt;h4 id="func-tojson"&gt;func ToJson&lt;/h4&gt;
+&lt;div class="highlight"&gt;&lt;div style="color:#b0c4de;background-color:#282c34;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"&gt;
+&lt;table style="border-spacing:0;padding:0;margin:0;border:0;"&gt;&lt;tr&gt;&lt;td style="vertical-align:top;padding:0;margin:0;border:0;"&gt;
+&lt;pre tabindex="0" style="color:#b0c4de;background-color:#282c34;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"&gt;&lt;code&gt;&lt;span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#58626f"&gt;1
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
+&lt;td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%"&gt;
+&lt;pre tabindex="0" style="color:#b0c4de;background-color:#282c34;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"&gt;&lt;code class="language-go" data-lang="go"&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;&lt;span style="color:#76a9f9"&gt;func&lt;/span&gt; &lt;span style="color:#00b1f7"&gt;ToJson&lt;/span&gt;&lt;span style="color:#abb2bf"&gt;(&lt;/span&gt;&lt;span style="color:#aa89ea"&gt;v&lt;/span&gt; &lt;span style="color:#abb2bf"&gt;[]&lt;/span&gt;&lt;span style="color:#e5c07b"&gt;byte&lt;/span&gt;&lt;span style="color:#abb2bf"&gt;)&lt;/span&gt; &lt;span style="color:#abb2bf"&gt;([]&lt;/span&gt;&lt;span style="color:#e5c07b"&gt;byte&lt;/span&gt;&lt;span style="color:#abb2bf"&gt;,&lt;/span&gt; &lt;span style="color:#e5c07b"&gt;error&lt;/span&gt;&lt;span style="color:#abb2bf"&gt;)&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+&lt;/div&gt;
+&lt;/div&gt;&lt;h2 id="类型"&gt;类型&lt;/h2&gt;
+&lt;p&gt;This section is empty.&lt;/p&gt;</description></item><item><title>gproperties</title><link>https://before80.github.io/go_docs/goframe/v2/encoding/gproperties/</link><pubDate>Thu, 21 Mar 2024 17:49:57 +0800</pubDate><guid>https://before80.github.io/go_docs/goframe/v2/encoding/gproperties/</guid><description>&lt;blockquote&gt;
+&lt;p&gt;原文：&lt;a href="https://pkg.go.dev/github.com/gogf/gf/v2@v2.6.4/encoding/gproperties"&gt;https://pkg.go.dev/github.com/gogf/gf/v2@v2.6.4/encoding/gproperties&lt;/a&gt;&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;Package gproperties provides accessing and converting for .properties content.&lt;/p&gt;
+&lt;p&gt;​	软件包 gproperties 提供对 .properties 内容的访问和转换。&lt;/p&gt;
+&lt;h2 id="常量"&gt;常量&lt;/h2&gt;
+&lt;p&gt;This section is empty.&lt;/p&gt;
+&lt;h2 id="变量"&gt;变量&lt;/h2&gt;
+&lt;p&gt;This section is empty.&lt;/p&gt;
+&lt;h2 id="函数"&gt;函数&lt;/h2&gt;
+&lt;h4 id="func-decode"&gt;func Decode&lt;/h4&gt;
+&lt;div class="highlight"&gt;&lt;div style="color:#b0c4de;background-color:#282c34;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"&gt;
+&lt;table style="border-spacing:0;padding:0;margin:0;border:0;"&gt;&lt;tr&gt;&lt;td style="vertical-align:top;padding:0;margin:0;border:0;"&gt;
+&lt;pre tabindex="0" style="color:#b0c4de;background-color:#282c34;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"&gt;&lt;code&gt;&lt;span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#58626f"&gt;1
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
+&lt;td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%"&gt;
+&lt;pre tabindex="0" style="color:#b0c4de;background-color:#282c34;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"&gt;&lt;code class="language-go" data-lang="go"&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;&lt;span style="color:#76a9f9"&gt;func&lt;/span&gt; &lt;span style="color:#00b1f7"&gt;Decode&lt;/span&gt;&lt;span style="color:#abb2bf"&gt;(&lt;/span&gt;&lt;span style="color:#aa89ea"&gt;data&lt;/span&gt; &lt;span style="color:#abb2bf"&gt;[]&lt;/span&gt;&lt;span style="color:#e5c07b"&gt;byte&lt;/span&gt;&lt;span style="color:#abb2bf"&gt;)&lt;/span&gt; &lt;span style="color:#abb2bf"&gt;(&lt;/span&gt;&lt;span style="color:#aa89ea"&gt;res&lt;/span&gt; &lt;span style="color:#76a9f9"&gt;map&lt;/span&gt;&lt;span style="color:#abb2bf"&gt;[&lt;/span&gt;&lt;span style="color:#e5c07b"&gt;string&lt;/span&gt;&lt;span style="color:#abb2bf"&gt;]&lt;/span&gt;&lt;span style="color:#76a9f9"&gt;interface&lt;/span&gt;&lt;span style="color:#abb2bf"&gt;{},&lt;/span&gt; &lt;span style="color:#aa89ea"&gt;err&lt;/span&gt; &lt;span style="color:#e5c07b"&gt;error&lt;/span&gt;&lt;span style="color:#abb2bf"&gt;)&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+&lt;/div&gt;
+&lt;/div&gt;&lt;p&gt;Decode converts properties format to map.&lt;/p&gt;
+&lt;p&gt;​	解码将属性格式转换为映射。&lt;/p&gt;
+&lt;h4 id="func-encode"&gt;func Encode&lt;/h4&gt;
+&lt;div class="highlight"&gt;&lt;div style="color:#b0c4de;background-color:#282c34;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"&gt;
+&lt;table style="border-spacing:0;padding:0;margin:0;border:0;"&gt;&lt;tr&gt;&lt;td style="vertical-align:top;padding:0;margin:0;border:0;"&gt;
+&lt;pre tabindex="0" style="color:#b0c4de;background-color:#282c34;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"&gt;&lt;code&gt;&lt;span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#58626f"&gt;1
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
+&lt;td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%"&gt;
+&lt;pre tabindex="0" style="color:#b0c4de;background-color:#282c34;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"&gt;&lt;code class="language-go" data-lang="go"&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;&lt;span style="color:#76a9f9"&gt;func&lt;/span&gt; &lt;span style="color:#00b1f7"&gt;Encode&lt;/span&gt;&lt;span style="color:#abb2bf"&gt;(&lt;/span&gt;&lt;span style="color:#aa89ea"&gt;data&lt;/span&gt; &lt;span style="color:#76a9f9"&gt;map&lt;/span&gt;&lt;span style="color:#abb2bf"&gt;[&lt;/span&gt;&lt;span style="color:#e5c07b"&gt;string&lt;/span&gt;&lt;span style="color:#abb2bf"&gt;]&lt;/span&gt;&lt;span style="color:#76a9f9"&gt;interface&lt;/span&gt;&lt;span style="color:#abb2bf"&gt;{})&lt;/span&gt; &lt;span style="color:#abb2bf"&gt;(&lt;/span&gt;&lt;span style="color:#aa89ea"&gt;res&lt;/span&gt; &lt;span style="color:#abb2bf"&gt;[]&lt;/span&gt;&lt;span style="color:#e5c07b"&gt;byte&lt;/span&gt;&lt;span style="color:#abb2bf"&gt;,&lt;/span&gt; &lt;span style="color:#aa89ea"&gt;err&lt;/span&gt; &lt;span style="color:#e5c07b"&gt;error&lt;/span&gt;&lt;span style="color:#abb2bf"&gt;)&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+&lt;/div&gt;
+&lt;/div&gt;&lt;p&gt;Encode converts map to properties format.&lt;/p&gt;</description></item><item><title>gjson</title><link>https://before80.github.io/go_docs/goframe/v2/encoding/gjson/</link><pubDate>Thu, 21 Mar 2024 17:49:47 +0800</pubDate><guid>https://before80.github.io/go_docs/goframe/v2/encoding/gjson/</guid><description>&lt;blockquote&gt;
+&lt;p&gt;原文：&lt;a href="https://pkg.go.dev/github.com/gogf/gf/v2@v2.6.4/encoding/gjson"&gt;https://pkg.go.dev/github.com/gogf/gf/v2@v2.6.4/encoding/gjson&lt;/a&gt;&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;Package gjson provides convenient API for JSON/XML/INI/YAML/TOML data handling.&lt;/p&gt;
+&lt;p&gt;​	软件包 gjson 为 JSON/XML/INI/YAML/TOML 数据处理提供了方便的 API。&lt;/p&gt;
+&lt;h2 id="常量"&gt;常量&lt;/h2&gt;
+&lt;p&gt;This section is empty.&lt;/p&gt;
+&lt;h2 id="变量"&gt;变量&lt;/h2&gt;
+&lt;p&gt;This section is empty.&lt;/p&gt;
+&lt;h2 id="函数"&gt;函数&lt;/h2&gt;
+&lt;h4 id="func-decode"&gt;func Decode&lt;/h4&gt;
+&lt;div class="highlight"&gt;&lt;div style="color:#b0c4de;background-color:#282c34;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"&gt;
+&lt;table style="border-spacing:0;padding:0;margin:0;border:0;"&gt;&lt;tr&gt;&lt;td style="vertical-align:top;padding:0;margin:0;border:0;"&gt;
+&lt;pre tabindex="0" style="color:#b0c4de;background-color:#282c34;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"&gt;&lt;code&gt;&lt;span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#58626f"&gt;1
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
+&lt;td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%"&gt;
+&lt;pre tabindex="0" style="color:#b0c4de;background-color:#282c34;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"&gt;&lt;code class="language-go" data-lang="go"&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;&lt;span style="color:#76a9f9"&gt;func&lt;/span&gt; &lt;span style="color:#00b1f7"&gt;Decode&lt;/span&gt;&lt;span style="color:#abb2bf"&gt;(&lt;/span&gt;&lt;span style="color:#aa89ea"&gt;data&lt;/span&gt; &lt;span style="color:#76a9f9"&gt;interface&lt;/span&gt;&lt;span style="color:#abb2bf"&gt;{},&lt;/span&gt; &lt;span style="color:#aa89ea"&gt;options&lt;/span&gt; &lt;span style="color:#54b1c7"&gt;...&lt;/span&gt;&lt;span style="color:#aa89ea"&gt;Options&lt;/span&gt;&lt;span style="color:#abb2bf"&gt;)&lt;/span&gt; &lt;span style="color:#abb2bf"&gt;(&lt;/span&gt;&lt;span style="color:#76a9f9"&gt;interface&lt;/span&gt;&lt;span style="color:#abb2bf"&gt;{},&lt;/span&gt; &lt;span style="color:#e5c07b"&gt;error&lt;/span&gt;&lt;span style="color:#abb2bf"&gt;)&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+&lt;/div&gt;
+&lt;/div&gt;&lt;p&gt;Decode decodes json format &lt;code&gt;data&lt;/code&gt; to golang variable. The parameter &lt;code&gt;data&lt;/code&gt; can be either bytes or string type.&lt;/p&gt;
+&lt;p&gt;​	Decode 将 json 格式 &lt;code&gt;data&lt;/code&gt; 解码为 golang 变量。参数 &lt;code&gt;data&lt;/code&gt; 可以是字节类型，也可以是字符串类型。&lt;/p&gt;</description></item><item><title>gini</title><link>https://before80.github.io/go_docs/goframe/v2/encoding/gini/</link><pubDate>Thu, 21 Mar 2024 17:49:41 +0800</pubDate><guid>https://before80.github.io/go_docs/goframe/v2/encoding/gini/</guid><description>&lt;blockquote&gt;
+&lt;p&gt;原文：&lt;a href="https://pkg.go.dev/github.com/gogf/gf/v2@v2.6.4/encoding/gini"&gt;https://pkg.go.dev/github.com/gogf/gf/v2@v2.6.4/encoding/gini&lt;/a&gt;&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;Package gini provides accessing and converting for INI content.&lt;/p&gt;
+&lt;p&gt;​	软件包 gini 提供对 INI 内容的访问和转换。&lt;/p&gt;
+&lt;h2 id="常量"&gt;常量&lt;/h2&gt;
+&lt;p&gt;This section is empty.&lt;/p&gt;
+&lt;h2 id="变量"&gt;变量&lt;/h2&gt;
+&lt;p&gt;This section is empty.&lt;/p&gt;
+&lt;h2 id="函数"&gt;函数&lt;/h2&gt;
+&lt;h4 id="func-decode"&gt;func Decode&lt;/h4&gt;
+&lt;div class="highlight"&gt;&lt;div style="color:#b0c4de;background-color:#282c34;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"&gt;
+&lt;table style="border-spacing:0;padding:0;margin:0;border:0;"&gt;&lt;tr&gt;&lt;td style="vertical-align:top;padding:0;margin:0;border:0;"&gt;
+&lt;pre tabindex="0" style="color:#b0c4de;background-color:#282c34;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"&gt;&lt;code&gt;&lt;span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#58626f"&gt;1
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
+&lt;td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%"&gt;
+&lt;pre tabindex="0" style="color:#b0c4de;background-color:#282c34;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"&gt;&lt;code class="language-go" data-lang="go"&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;&lt;span style="color:#76a9f9"&gt;func&lt;/span&gt; &lt;span style="color:#00b1f7"&gt;Decode&lt;/span&gt;&lt;span style="color:#abb2bf"&gt;(&lt;/span&gt;&lt;span style="color:#aa89ea"&gt;data&lt;/span&gt; &lt;span style="color:#abb2bf"&gt;[]&lt;/span&gt;&lt;span style="color:#e5c07b"&gt;byte&lt;/span&gt;&lt;span style="color:#abb2bf"&gt;)&lt;/span&gt; &lt;span style="color:#abb2bf"&gt;(&lt;/span&gt;&lt;span style="color:#aa89ea"&gt;res&lt;/span&gt; &lt;span style="color:#76a9f9"&gt;map&lt;/span&gt;&lt;span style="color:#abb2bf"&gt;[&lt;/span&gt;&lt;span style="color:#e5c07b"&gt;string&lt;/span&gt;&lt;span style="color:#abb2bf"&gt;]&lt;/span&gt;&lt;span style="color:#76a9f9"&gt;interface&lt;/span&gt;&lt;span style="color:#abb2bf"&gt;{},&lt;/span&gt; &lt;span style="color:#aa89ea"&gt;err&lt;/span&gt; &lt;span style="color:#e5c07b"&gt;error&lt;/span&gt;&lt;span style="color:#abb2bf"&gt;)&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+&lt;/div&gt;
+&lt;/div&gt;&lt;p&gt;Decode converts INI format to map.&lt;/p&gt;
+&lt;p&gt;​	Decode 将 INI 格式转换为映射。&lt;/p&gt;
+&lt;h4 id="func-encode"&gt;func Encode&lt;/h4&gt;
+&lt;div class="highlight"&gt;&lt;div style="color:#b0c4de;background-color:#282c34;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"&gt;
+&lt;table style="border-spacing:0;padding:0;margin:0;border:0;"&gt;&lt;tr&gt;&lt;td style="vertical-align:top;padding:0;margin:0;border:0;"&gt;
+&lt;pre tabindex="0" style="color:#b0c4de;background-color:#282c34;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"&gt;&lt;code&gt;&lt;span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#58626f"&gt;1
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
+&lt;td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%"&gt;
+&lt;pre tabindex="0" style="color:#b0c4de;background-color:#282c34;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"&gt;&lt;code class="language-go" data-lang="go"&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;&lt;span style="color:#76a9f9"&gt;func&lt;/span&gt; &lt;span style="color:#00b1f7"&gt;Encode&lt;/span&gt;&lt;span style="color:#abb2bf"&gt;(&lt;/span&gt;&lt;span style="color:#aa89ea"&gt;data&lt;/span&gt; &lt;span style="color:#76a9f9"&gt;map&lt;/span&gt;&lt;span style="color:#abb2bf"&gt;[&lt;/span&gt;&lt;span style="color:#e5c07b"&gt;string&lt;/span&gt;&lt;span style="color:#abb2bf"&gt;]&lt;/span&gt;&lt;span style="color:#76a9f9"&gt;interface&lt;/span&gt;&lt;span style="color:#abb2bf"&gt;{})&lt;/span&gt; &lt;span style="color:#abb2bf"&gt;(&lt;/span&gt;&lt;span style="color:#aa89ea"&gt;res&lt;/span&gt; &lt;span style="color:#abb2bf"&gt;[]&lt;/span&gt;&lt;span style="color:#e5c07b"&gt;byte&lt;/span&gt;&lt;span style="color:#abb2bf"&gt;,&lt;/span&gt; &lt;span style="color:#aa89ea"&gt;err&lt;/span&gt; &lt;span style="color:#e5c07b"&gt;error&lt;/span&gt;&lt;span style="color:#abb2bf"&gt;)&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+&lt;/div&gt;
+&lt;/div&gt;&lt;p&gt;Encode converts map to INI format.&lt;/p&gt;</description></item><item><title>ghtml</title><link>https://before80.github.io/go_docs/goframe/v2/encoding/ghtml/</link><pubDate>Thu, 21 Mar 2024 17:49:34 +0800</pubDate><guid>https://before80.github.io/go_docs/goframe/v2/encoding/ghtml/</guid><description>&lt;blockquote&gt;
+&lt;p&gt;原文：&lt;a href="https://pkg.go.dev/github.com/gogf/gf/v2@v2.6.4/encoding/ghtml"&gt;https://pkg.go.dev/github.com/gogf/gf/v2@v2.6.4/encoding/ghtml&lt;/a&gt;&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;Package ghtml provides useful API for HTML content handling.&lt;/p&gt;
+&lt;p&gt;​	软件包 ghtml 为 HTML 内容处理提供了有用的 API。&lt;/p&gt;
+&lt;h2 id="常量"&gt;常量&lt;/h2&gt;
+&lt;p&gt;This section is empty.&lt;/p&gt;
+&lt;h2 id="变量"&gt;变量&lt;/h2&gt;
+&lt;p&gt;This section is empty.&lt;/p&gt;
+&lt;h2 id="函数"&gt;函数&lt;/h2&gt;
+&lt;h4 id="func-entities"&gt;func Entities&lt;/h4&gt;
+&lt;div class="highlight"&gt;&lt;div style="color:#b0c4de;background-color:#282c34;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"&gt;
+&lt;table style="border-spacing:0;padding:0;margin:0;border:0;"&gt;&lt;tr&gt;&lt;td style="vertical-align:top;padding:0;margin:0;border:0;"&gt;
+&lt;pre tabindex="0" style="color:#b0c4de;background-color:#282c34;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"&gt;&lt;code&gt;&lt;span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#58626f"&gt;1
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
+&lt;td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%"&gt;
+&lt;pre tabindex="0" style="color:#b0c4de;background-color:#282c34;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"&gt;&lt;code class="language-go" data-lang="go"&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;&lt;span style="color:#76a9f9"&gt;func&lt;/span&gt; &lt;span style="color:#00b1f7"&gt;Entities&lt;/span&gt;&lt;span style="color:#abb2bf"&gt;(&lt;/span&gt;&lt;span style="color:#aa89ea"&gt;s&lt;/span&gt; &lt;span style="color:#e5c07b"&gt;string&lt;/span&gt;&lt;span style="color:#abb2bf"&gt;)&lt;/span&gt; &lt;span style="color:#e5c07b"&gt;string&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+&lt;/div&gt;
+&lt;/div&gt;&lt;p&gt;Entities encodes all HTML chars for content. Referer: &lt;a href="http://php.net/manual/zh/function.htmlentities.php"&gt;http://php.net/manual/zh/function.htmlentities.php&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;​	实体对内容的所有 HTML 字符进行编码。推荐人： &lt;a href="http://php.net/manual/zh/function.htmlentities.php"&gt;http://php.net/manual/zh/function.htmlentities.php&lt;/a&gt;&lt;/p&gt;</description></item><item><title>ghash</title><link>https://before80.github.io/go_docs/goframe/v2/encoding/ghash/</link><pubDate>Thu, 21 Mar 2024 17:49:28 +0800</pubDate><guid>https://before80.github.io/go_docs/goframe/v2/encoding/ghash/</guid><description>&lt;blockquote&gt;
+&lt;p&gt;原文：&lt;a href="https://pkg.go.dev/github.com/gogf/gf/v2@v2.6.4/encoding/ghash"&gt;https://pkg.go.dev/github.com/gogf/gf/v2@v2.6.4/encoding/ghash&lt;/a&gt;&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;Package ghash provides some classic hash functions(uint32/uint64) in go.&lt;/p&gt;
+&lt;p&gt;​	软件包 ghash 在 go 中提供了一些经典的哈希函数（uint32/uint64）。&lt;/p&gt;
+&lt;h2 id="常量"&gt;常量&lt;/h2&gt;
+&lt;p&gt;This section is empty.&lt;/p&gt;
+&lt;h2 id="变量"&gt;变量&lt;/h2&gt;
+&lt;p&gt;This section is empty.&lt;/p&gt;
+&lt;h2 id="函数"&gt;函数&lt;/h2&gt;
+&lt;h4 id="func-ap"&gt;func AP&lt;/h4&gt;
+&lt;div class="highlight"&gt;&lt;div style="color:#b0c4de;background-color:#282c34;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"&gt;
+&lt;table style="border-spacing:0;padding:0;margin:0;border:0;"&gt;&lt;tr&gt;&lt;td style="vertical-align:top;padding:0;margin:0;border:0;"&gt;
+&lt;pre tabindex="0" style="color:#b0c4de;background-color:#282c34;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"&gt;&lt;code&gt;&lt;span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#58626f"&gt;1
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
+&lt;td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%"&gt;
+&lt;pre tabindex="0" style="color:#b0c4de;background-color:#282c34;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"&gt;&lt;code class="language-go" data-lang="go"&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;&lt;span style="color:#76a9f9"&gt;func&lt;/span&gt; &lt;span style="color:#00b1f7"&gt;AP&lt;/span&gt;&lt;span style="color:#abb2bf"&gt;(&lt;/span&gt;&lt;span style="color:#aa89ea"&gt;str&lt;/span&gt; &lt;span style="color:#abb2bf"&gt;[]&lt;/span&gt;&lt;span style="color:#e5c07b"&gt;byte&lt;/span&gt;&lt;span style="color:#abb2bf"&gt;)&lt;/span&gt; &lt;span style="color:#e5c07b"&gt;uint32&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+&lt;/div&gt;
+&lt;/div&gt;&lt;p&gt;AP implements the classic AP hash algorithm for 32 bits.&lt;/p&gt;</description></item><item><title>gcompress</title><link>https://before80.github.io/go_docs/goframe/v2/encoding/gcompress/</link><pubDate>Thu, 21 Mar 2024 17:49:19 +0800</pubDate><guid>https://before80.github.io/go_docs/goframe/v2/encoding/gcompress/</guid><description>&lt;blockquote&gt;
+&lt;p&gt;原文：&lt;a href="https://pkg.go.dev/github.com/gogf/gf/v2@v2.6.4/encoding/gcompress"&gt;https://pkg.go.dev/github.com/gogf/gf/v2@v2.6.4/encoding/gcompress&lt;/a&gt;&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;Package gcompress provides kinds of compression algorithms for binary/bytes data.&lt;/p&gt;
+&lt;p&gt;​	软件包 gcompress 为二进制/字节数据提供了多种压缩算法。&lt;/p&gt;
+&lt;h2 id="常量"&gt;常量&lt;/h2&gt;
+&lt;p&gt;This section is empty.&lt;/p&gt;
+&lt;h2 id="变量"&gt;变量&lt;/h2&gt;
+&lt;p&gt;This section is empty.&lt;/p&gt;
+&lt;h2 id="函数"&gt;函数&lt;/h2&gt;
+&lt;h4 id="func-gzip"&gt;func Gzip&lt;/h4&gt;
+&lt;div class="highlight"&gt;&lt;div style="color:#b0c4de;background-color:#282c34;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"&gt;
+&lt;table style="border-spacing:0;padding:0;margin:0;border:0;"&gt;&lt;tr&gt;&lt;td style="vertical-align:top;padding:0;margin:0;border:0;"&gt;
+&lt;pre tabindex="0" style="color:#b0c4de;background-color:#282c34;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"&gt;&lt;code&gt;&lt;span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#58626f"&gt;1
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
+&lt;td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%"&gt;
+&lt;pre tabindex="0" style="color:#b0c4de;background-color:#282c34;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"&gt;&lt;code class="language-go" data-lang="go"&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;&lt;span style="color:#76a9f9"&gt;func&lt;/span&gt; &lt;span style="color:#00b1f7"&gt;Gzip&lt;/span&gt;&lt;span style="color:#abb2bf"&gt;(&lt;/span&gt;&lt;span style="color:#aa89ea"&gt;data&lt;/span&gt; &lt;span style="color:#abb2bf"&gt;[]&lt;/span&gt;&lt;span style="color:#e5c07b"&gt;byte&lt;/span&gt;&lt;span style="color:#abb2bf"&gt;,&lt;/span&gt; &lt;span style="color:#aa89ea"&gt;level&lt;/span&gt; &lt;span style="color:#54b1c7"&gt;...&lt;/span&gt;&lt;span style="color:#e5c07b"&gt;int&lt;/span&gt;&lt;span style="color:#abb2bf"&gt;)&lt;/span&gt; &lt;span style="color:#abb2bf"&gt;([]&lt;/span&gt;&lt;span style="color:#e5c07b"&gt;byte&lt;/span&gt;&lt;span style="color:#abb2bf"&gt;,&lt;/span&gt; &lt;span style="color:#e5c07b"&gt;error&lt;/span&gt;&lt;span style="color:#abb2bf"&gt;)&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+&lt;/div&gt;
+&lt;/div&gt;&lt;p&gt;Gzip compresses &lt;code&gt;data&lt;/code&gt; using gzip algorithm. The optional parameter &lt;code&gt;level&lt;/code&gt; specifies the compression level from 1 to 9 which means from none to the best compression.&lt;/p&gt;</description></item><item><title>gcharset</title><link>https://before80.github.io/go_docs/goframe/v2/encoding/gcharset/</link><pubDate>Thu, 21 Mar 2024 17:49:10 +0800</pubDate><guid>https://before80.github.io/go_docs/goframe/v2/encoding/gcharset/</guid><description>&lt;blockquote&gt;
+&lt;p&gt;原文：&lt;a href="https://pkg.go.dev/github.com/gogf/gf/v2@v2.6.4/encoding/gcharset"&gt;https://pkg.go.dev/github.com/gogf/gf/v2@v2.6.4/encoding/gcharset&lt;/a&gt;&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;Package gcharset implements character-set conversion functionality.&lt;/p&gt;
+&lt;p&gt;​	Package gcharset 实现了字符集转换功能。&lt;/p&gt;
+&lt;p&gt;Supported Character Set:&lt;/p&gt;
+&lt;p&gt;​	支持的字符集：&lt;/p&gt;
+&lt;p&gt;Chinese : GBK/GB18030/GB2312/Big5&lt;/p&gt;
+&lt;p&gt;​	中文 ： GBK/GB18030/GB2312/Big5&lt;/p&gt;
+&lt;p&gt;Japanese: EUCJP/ISO2022JP/ShiftJIS&lt;/p&gt;
+&lt;p&gt;​	日语：EUCJP/ISO2022JP/ShiftJIS&lt;/p&gt;
+&lt;p&gt;Korean : EUCKR&lt;/p&gt;</description></item><item><title>gbinary</title><link>https://before80.github.io/go_docs/goframe/v2/encoding/gbinary/</link><pubDate>Thu, 21 Mar 2024 17:49:00 +0800</pubDate><guid>https://before80.github.io/go_docs/goframe/v2/encoding/gbinary/</guid><description>&lt;blockquote&gt;
+&lt;p&gt;原文：&lt;a href="https://pkg.go.dev/github.com/gogf/gf/v2@v2.6.4/encoding/gbinary"&gt;https://pkg.go.dev/github.com/gogf/gf/v2@v2.6.4/encoding/gbinary&lt;/a&gt;&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;Package gbinary provides useful API for handling binary/bytes data.&lt;/p&gt;
+&lt;p&gt;​	软件包 gbinary 提供了用于处理二进制/字节数据的有用 API。&lt;/p&gt;
+&lt;p&gt;Note that package gbinary encodes the data using LittleEndian in default.&lt;/p&gt;
+&lt;p&gt;​	请注意，默认情况下，软件包 gbinary 使用 LittleEndian 对数据进行编码。&lt;/p&gt;</description></item><item><title>gbase64</title><link>https://before80.github.io/go_docs/goframe/v2/encoding/gbase64/</link><pubDate>Thu, 21 Mar 2024 17:48:52 +0800</pubDate><guid>https://before80.github.io/go_docs/goframe/v2/encoding/gbase64/</guid><description>&lt;blockquote&gt;
+&lt;p&gt;原文：&lt;a href="https://pkg.go.dev/github.com/gogf/gf/v2@v2.6.4/encoding/gbase64"&gt;https://pkg.go.dev/github.com/gogf/gf/v2@v2.6.4/encoding/gbase64&lt;/a&gt;&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;Package gbase64 provides useful API for BASE64 encoding/decoding algorithm.&lt;/p&gt;
+&lt;p&gt;​	软件包 gbase64 为 BASE64 编码/解码算法提供了有用的 API。&lt;/p&gt;
+&lt;h2 id="常量"&gt;常量&lt;/h2&gt;
+&lt;p&gt;This section is empty.&lt;/p&gt;
+&lt;h2 id="变量"&gt;变量&lt;/h2&gt;
+&lt;p&gt;This section is empty.&lt;/p&gt;
+&lt;h2 id="函数"&gt;函数&lt;/h2&gt;
+&lt;h4 id="func-decode"&gt;func Decode&lt;/h4&gt;
+&lt;div class="highlight"&gt;&lt;div style="color:#b0c4de;background-color:#282c34;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"&gt;
+&lt;table style="border-spacing:0;padding:0;margin:0;border:0;"&gt;&lt;tr&gt;&lt;td style="vertical-align:top;padding:0;margin:0;border:0;"&gt;
+&lt;pre tabindex="0" style="color:#b0c4de;background-color:#282c34;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"&gt;&lt;code&gt;&lt;span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#58626f"&gt;1
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
+&lt;td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%"&gt;
+&lt;pre tabindex="0" style="color:#b0c4de;background-color:#282c34;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"&gt;&lt;code class="language-go" data-lang="go"&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;&lt;span style="color:#76a9f9"&gt;func&lt;/span&gt; &lt;span style="color:#00b1f7"&gt;Decode&lt;/span&gt;&lt;span style="color:#abb2bf"&gt;(&lt;/span&gt;&lt;span style="color:#aa89ea"&gt;data&lt;/span&gt; &lt;span style="color:#abb2bf"&gt;[]&lt;/span&gt;&lt;span style="color:#e5c07b"&gt;byte&lt;/span&gt;&lt;span style="color:#abb2bf"&gt;)&lt;/span&gt; &lt;span style="color:#abb2bf"&gt;([]&lt;/span&gt;&lt;span style="color:#e5c07b"&gt;byte&lt;/span&gt;&lt;span style="color:#abb2bf"&gt;,&lt;/span&gt; &lt;span style="color:#e5c07b"&gt;error&lt;/span&gt;&lt;span style="color:#abb2bf"&gt;)&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+&lt;/div&gt;
+&lt;/div&gt;&lt;p&gt;Decode decodes bytes with BASE64 algorithm.&lt;/p&gt;
+&lt;p&gt;​	Decode 使用 BASE64 算法解码字节。&lt;/p&gt;
+&lt;h4 id="func-decodestring"&gt;func DecodeString&lt;/h4&gt;
+&lt;div class="highlight"&gt;&lt;div style="color:#b0c4de;background-color:#282c34;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"&gt;
+&lt;table style="border-spacing:0;padding:0;margin:0;border:0;"&gt;&lt;tr&gt;&lt;td style="vertical-align:top;padding:0;margin:0;border:0;"&gt;
+&lt;pre tabindex="0" style="color:#b0c4de;background-color:#282c34;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"&gt;&lt;code&gt;&lt;span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#58626f"&gt;1
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
+&lt;td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%"&gt;
+&lt;pre tabindex="0" style="color:#b0c4de;background-color:#282c34;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"&gt;&lt;code class="language-go" data-lang="go"&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;&lt;span style="color:#76a9f9"&gt;func&lt;/span&gt; &lt;span style="color:#00b1f7"&gt;DecodeString&lt;/span&gt;&lt;span style="color:#abb2bf"&gt;(&lt;/span&gt;&lt;span style="color:#aa89ea"&gt;data&lt;/span&gt; &lt;span style="color:#e5c07b"&gt;string&lt;/span&gt;&lt;span style="color:#abb2bf"&gt;)&lt;/span&gt; &lt;span style="color:#abb2bf"&gt;([]&lt;/span&gt;&lt;span style="color:#e5c07b"&gt;byte&lt;/span&gt;&lt;span style="color:#abb2bf"&gt;,&lt;/span&gt; &lt;span style="color:#e5c07b"&gt;error&lt;/span&gt;&lt;span style="color:#abb2bf"&gt;)&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+&lt;/div&gt;
+&lt;/div&gt;&lt;p&gt;DecodeString decodes string with BASE64 algorithm.&lt;/p&gt;</description></item></channel></rss>

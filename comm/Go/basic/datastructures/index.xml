@@ -1,13 +1,13 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>数据结构 on Go 中文档集</title><link>https://before80.github.io/go_docs/comm/Go/basic/datastructures/</link><description>Recent content in 数据结构 on Go 中文档集</description><generator>Hugo</generator><language>zh-cn</language><lastBuildDate>Thu, 10 Oct 2024 15:07:50 +0800</lastBuildDate><atom:link href="https://before80.github.io/go_docs/comm/Go/basic/datastructures/index.xml" rel="self" type="application/rss+xml"/><item><title>map</title><link>https://before80.github.io/go_docs/comm/Go/basic/datastructures/map/</link><pubDate>Mon, 19 Aug 2024 19:27:33 +0800</pubDate><guid>https://before80.github.io/go_docs/comm/Go/basic/datastructures/map/</guid><description>&lt;blockquote>
-&lt;p>说明&lt;/p>
-&lt;p>​	以下实例代码中：&lt;/p>
-&lt;p>​	&lt;code>verbs&lt;/code>的定义是：&lt;code>var verbs = []string{&amp;quot;T&amp;quot;, &amp;quot;v&amp;quot;, &amp;quot;#v&amp;quot;} &lt;/code>&lt;/p>
-&lt;p>​	&lt;code>mfp&lt;/code>来自：&lt;code>&amp;quot;github.com/before80/utils/mfp&amp;quot;&lt;/code>&lt;/p></description></item><item><title>数组</title><link>https://before80.github.io/go_docs/comm/Go/basic/datastructures/array/</link><pubDate>Mon, 19 Aug 2024 19:26:32 +0800</pubDate><guid>https://before80.github.io/go_docs/comm/Go/basic/datastructures/array/</guid><description>&lt;blockquote>
-&lt;p>说明&lt;/p>
-&lt;p>​	以下实例代码中：&lt;/p>
-&lt;p>​	&lt;code>verbs&lt;/code>的定义是：&lt;code>var verbs = []string{&amp;quot;T&amp;quot;, &amp;quot;v&amp;quot;, &amp;quot;#v&amp;quot;} &lt;/code>&lt;/p>
-&lt;p>​	&lt;code>mfp&lt;/code>来自：&lt;code>&amp;quot;github.com/before80/utils/mfp&amp;quot;&lt;/code>&lt;/p></description></item><item><title>切片</title><link>https://before80.github.io/go_docs/comm/Go/basic/datastructures/slice/</link><pubDate>Mon, 19 Aug 2024 19:26:59 +0800</pubDate><guid>https://before80.github.io/go_docs/comm/Go/basic/datastructures/slice/</guid><description>&lt;blockquote>
-&lt;p>说明&lt;/p>
-&lt;p>​	以下实例代码中：&lt;/p>
-&lt;p>​	&lt;code>verbs&lt;/code>的定义是：&lt;code>var verbs = []string{&amp;quot;T&amp;quot;, &amp;quot;v&amp;quot;, &amp;quot;#v&amp;quot;} &lt;/code>&lt;/p>
-&lt;p>​	&lt;code>mfp&lt;/code>来自：&lt;code>&amp;quot;github.com/before80/utils/mfp&amp;quot;&lt;/code>&lt;/p></description></item></channel></rss>
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>数据结构 on Go 中文档集</title><link>https://before80.github.io/go_docs/comm/Go/basic/datastructures/</link><description>Recent content in 数据结构 on Go 中文档集</description><generator>Hugo</generator><language>zh-cn</language><lastBuildDate>Thu, 10 Oct 2024 15:07:50 +0800</lastBuildDate><atom:link href="https://before80.github.io/go_docs/comm/Go/basic/datastructures/index.xml" rel="self" type="application/rss+xml"/><item><title>map</title><link>https://before80.github.io/go_docs/comm/Go/basic/datastructures/map/</link><pubDate>Mon, 19 Aug 2024 19:27:33 +0800</pubDate><guid>https://before80.github.io/go_docs/comm/Go/basic/datastructures/map/</guid><description>&lt;blockquote&gt;
+&lt;p&gt;说明&lt;/p&gt;
+&lt;p&gt;​	以下实例代码中：&lt;/p&gt;
+&lt;p&gt;​	&lt;code&gt;verbs&lt;/code&gt;的定义是：&lt;code&gt;var verbs = []string{&amp;quot;T&amp;quot;, &amp;quot;v&amp;quot;, &amp;quot;#v&amp;quot;} &lt;/code&gt;&lt;/p&gt;
+&lt;p&gt;​	&lt;code&gt;mfp&lt;/code&gt;来自：&lt;code&gt;&amp;quot;github.com/before80/utils/mfp&amp;quot;&lt;/code&gt;&lt;/p&gt;</description></item><item><title>数组</title><link>https://before80.github.io/go_docs/comm/Go/basic/datastructures/array/</link><pubDate>Mon, 19 Aug 2024 19:26:32 +0800</pubDate><guid>https://before80.github.io/go_docs/comm/Go/basic/datastructures/array/</guid><description>&lt;blockquote&gt;
+&lt;p&gt;说明&lt;/p&gt;
+&lt;p&gt;​	以下实例代码中：&lt;/p&gt;
+&lt;p&gt;​	&lt;code&gt;verbs&lt;/code&gt;的定义是：&lt;code&gt;var verbs = []string{&amp;quot;T&amp;quot;, &amp;quot;v&amp;quot;, &amp;quot;#v&amp;quot;} &lt;/code&gt;&lt;/p&gt;
+&lt;p&gt;​	&lt;code&gt;mfp&lt;/code&gt;来自：&lt;code&gt;&amp;quot;github.com/before80/utils/mfp&amp;quot;&lt;/code&gt;&lt;/p&gt;</description></item><item><title>切片</title><link>https://before80.github.io/go_docs/comm/Go/basic/datastructures/slice/</link><pubDate>Mon, 19 Aug 2024 19:26:59 +0800</pubDate><guid>https://before80.github.io/go_docs/comm/Go/basic/datastructures/slice/</guid><description>&lt;blockquote&gt;
+&lt;p&gt;说明&lt;/p&gt;
+&lt;p&gt;​	以下实例代码中：&lt;/p&gt;
+&lt;p&gt;​	&lt;code&gt;verbs&lt;/code&gt;的定义是：&lt;code&gt;var verbs = []string{&amp;quot;T&amp;quot;, &amp;quot;v&amp;quot;, &amp;quot;#v&amp;quot;} &lt;/code&gt;&lt;/p&gt;
+&lt;p&gt;​	&lt;code&gt;mfp&lt;/code&gt;来自：&lt;code&gt;&amp;quot;github.com/before80/utils/mfp&amp;quot;&lt;/code&gt;&lt;/p&gt;</description></item></channel></rss>

@@ -1,275 +1,294 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>数据库 on Go 中文档集</title><link>https://before80.github.io/go_docs/buffalo/database/</link><description>Recent content in 数据库 on Go 中文档集</description><generator>Hugo</generator><language>zh-cn</language><lastBuildDate>Thu, 10 Oct 2024 15:07:50 +0800</lastBuildDate><atom:link href="https://before80.github.io/go_docs/buffalo/database/index.xml" rel="self" type="application/rss+xml"/><item><title>Pop入门</title><link>https://before80.github.io/go_docs/buffalo/database/gettingStartedWithPop/</link><pubDate>Sun, 04 Feb 2024 21:12:02 +0800</pubDate><guid>https://before80.github.io/go_docs/buffalo/database/gettingStartedWithPop/</guid><description>&lt;blockquote>
-&lt;p>原文：&lt;a href="https://before80.github.io/go_docs/buffalo/database/gettingStartedWithPop/">https://gobuffalo.io/documentation/database/pop/&lt;/a>&lt;/p>&lt;/blockquote>
-&lt;h1 id="getting-started-with-pop-pop入门">Getting Started with Pop Pop入门&lt;a class="td-heading-self-link" href="#getting-started-with-pop-pop%e5%85%a5%e9%97%a8" aria-label="Heading self-link">&lt;/a>&lt;/h1>
-&lt;p>The &lt;a href="https://godoc.org/github.com/gobuffalo/pop">pop&lt;/a> package is included with Buffalo by default, but you can use it outside of Buffalo. It wraps the absolutely amazing &lt;a href="https://github.com/jmoiron/sqlx">https://github.com/jmoiron/sqlx&lt;/a> library, cleans up some of the common patterns and work flows usually associated with dealing with databases in Go.&lt;/p>
-&lt;p>​	pop包默认包含在Buffalo中，但您可以在Buffalo之外使用它。它包装了非常棒的https://github.com/jmoiton/sqlx库，清理了一些通常与在Go中使用数据库相关的常见模型和工作流。&lt;/p></description></item><item><title>Soda CLI</title><link>https://before80.github.io/go_docs/buffalo/database/sodaCLI/</link><pubDate>Sun, 04 Feb 2024 21:12:13 +0800</pubDate><guid>https://before80.github.io/go_docs/buffalo/database/sodaCLI/</guid><description>&lt;blockquote>
-&lt;p>原文：&lt;a href="https://before80.github.io/go_docs/buffalo/database/sodaCLI/">https://gobuffalo.io/documentation/database/soda/&lt;/a>&lt;/p>&lt;/blockquote>
-&lt;h1 id="soda-cli">Soda CLI&lt;a class="td-heading-self-link" href="#soda-cli" aria-label="Heading self-link">&lt;/a>&lt;/h1>
-&lt;p>Pop helps you to manage database connections, but it also provides &lt;code>soda&lt;/code>, a small CLI toolbox to manage your database. It can help you to create a new database, drop existing ones, and so on.&lt;/p>
-&lt;p>​	Pop 帮助您管理数据库连接，但它还提供 &lt;code>soda&lt;/code> ，一个用于管理数据库的小型 CLI 工具箱。它可以帮助您创建新数据库、删除现有数据库，等等。&lt;/p></description></item><item><title>数据库配置</title><link>https://before80.github.io/go_docs/buffalo/database/databaseConfiguration/</link><pubDate>Sun, 04 Feb 2024 21:12:29 +0800</pubDate><guid>https://before80.github.io/go_docs/buffalo/database/databaseConfiguration/</guid><description>&lt;blockquote>
-&lt;p>原文：&lt;a href="https://before80.github.io/go_docs/buffalo/database/databaseConfiguration/">https://gobuffalo.io/documentation/database/configuration/&lt;/a>&lt;/p>&lt;/blockquote>
-&lt;h1 id="database-configuration-数据库配置">Database Configuration 数据库配置&lt;a class="td-heading-self-link" href="#database-configuration-%e6%95%b0%e6%8d%ae%e5%ba%93%e9%85%8d%e7%bd%ae" aria-label="Heading self-link">&lt;/a>&lt;/h1>
-&lt;p>Pop configuration is managed by a &lt;code>database.yml&lt;/code> file, located at the root of your project. This file is generated for you if you use Buffalo – if you choose to use Pop – and contains a basic configuration for the database you selected on generation with the &lt;code>--db-type&lt;/code> flag. PostgreSQL is considered as the default.&lt;/p></description></item><item><title>Buffalo 集成</title><link>https://before80.github.io/go_docs/buffalo/database/buffaloIntegration/</link><pubDate>Sun, 04 Feb 2024 21:13:08 +0800</pubDate><guid>https://before80.github.io/go_docs/buffalo/database/buffaloIntegration/</guid><description>&lt;blockquote>
-&lt;p>原文：&lt;a href="https://before80.github.io/go_docs/buffalo/database/buffaloIntegration/">https://gobuffalo.io/documentation/database/buffalo-integration/&lt;/a>&lt;/p>&lt;/blockquote>
-&lt;h1 id="buffalo-integration-buffalo-集成">Buffalo Integration Buffalo 集成&lt;a class="td-heading-self-link" href="#buffalo-integration-buffalo-%e9%9b%86%e6%88%90" aria-label="Heading self-link">&lt;/a>&lt;/h1>
-&lt;h2 id="generate-a-new-app-生成新应用">Generate a New App 生成新应用&lt;a class="td-heading-self-link" href="#generate-a-new-app-%e7%94%9f%e6%88%90%e6%96%b0%e5%ba%94%e7%94%a8" aria-label="Heading self-link">&lt;/a>&lt;/h2>
-&lt;p>When you generate a new Buffalo application you can choose the target database with the &lt;code>--db-type&lt;/code> flag. For instance, to generate a new app with MySQL database support, you can write the following:&lt;/p>
-&lt;p>​	生成新的 Buffalo 应用程序时，可以使用 &lt;code>--db-type&lt;/code> 标志选择目标数据库。例如，要生成一个支持 MySQL 数据库的新应用，可以编写以下内容：&lt;/p></description></item><item><title>模型</title><link>https://before80.github.io/go_docs/buffalo/database/models/</link><pubDate>Sun, 04 Feb 2024 21:13:19 +0800</pubDate><guid>https://before80.github.io/go_docs/buffalo/database/models/</guid><description>&lt;blockquote>
-&lt;p>原文：&lt;a href="https://before80.github.io/go_docs/buffalo/database/models/">https://gobuffalo.io/documentation/database/models/&lt;/a>&lt;/p>&lt;/blockquote>
-&lt;h1 id="models-模型">Models 模型&lt;a class="td-heading-self-link" href="#models-%e6%a8%a1%e5%9e%8b" aria-label="Heading self-link">&lt;/a>&lt;/h1>
-&lt;p>Pop, as an ORM, allows you to translate database tables into Go structs. This way, you can manipulate Go structs instead of writing SQL statements. The Go code managing this part is named “models”, as a reference to the MVC architecture.&lt;/p>
-&lt;p>​	Pop 作为 ORM，允许您将数据库表转换为 Go 结构。这样，您可以操作 Go 结构，而无需编写 SQL 语句。管理此部分的 Go 代码被命名为“模型”，作为对 MVC 架构的引用。&lt;/p></description></item><item><title>生成器</title><link>https://before80.github.io/go_docs/buffalo/database/generators/</link><pubDate>Sun, 04 Feb 2024 21:13:42 +0800</pubDate><guid>https://before80.github.io/go_docs/buffalo/database/generators/</guid><description>&lt;blockquote>
-&lt;p>原文：&lt;a href="https://before80.github.io/go_docs/buffalo/database/generators/">https://gobuffalo.io/documentation/database/generators/&lt;/a>&lt;/p>&lt;/blockquote>
-&lt;h1 id="generators-生成器">Generators 生成器&lt;a class="td-heading-self-link" href="#generators-%e7%94%9f%e6%88%90%e5%99%a8" aria-label="Heading self-link">&lt;/a>&lt;/h1>
-&lt;div class="highlight">&lt;div style="color:#b0c4de;background-color:#282c34;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">
-&lt;table style="border-spacing:0;padding:0;margin:0;border:0;">&lt;tr>&lt;td style="vertical-align:top;padding:0;margin:0;border:0;">
-&lt;pre tabindex="0" style="color:#b0c4de;background-color:#282c34;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code>&lt;span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#58626f"> 1
-&lt;/span>&lt;span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#58626f"> 2
-&lt;/span>&lt;span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#58626f"> 3
-&lt;/span>&lt;span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#58626f"> 4
-&lt;/span>&lt;span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#58626f"> 5
-&lt;/span>&lt;span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#58626f"> 6
-&lt;/span>&lt;span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#58626f"> 7
-&lt;/span>&lt;span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#58626f"> 8
-&lt;/span>&lt;span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#58626f"> 9
-&lt;/span>&lt;span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#58626f">10
-&lt;/span>&lt;span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#58626f">11
-&lt;/span>&lt;span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#58626f">12
-&lt;/span>&lt;span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#58626f">13
-&lt;/span>&lt;span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#58626f">14
-&lt;/span>&lt;span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#58626f">15
-&lt;/span>&lt;span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#58626f">16
-&lt;/span>&lt;span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#58626f">17
-&lt;/span>&lt;span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#58626f">18
-&lt;/span>&lt;span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#58626f">19
-&lt;/span>&lt;span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#58626f">20
-&lt;/span>&lt;span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#58626f">21
-&lt;/span>&lt;span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#58626f">22
-&lt;/span>&lt;span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#58626f">23
-&lt;/span>&lt;span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#58626f">24
-&lt;/span>&lt;span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#58626f">25
-&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
-&lt;td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
-&lt;pre tabindex="0" style="color:#b0c4de;background-color:#282c34;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-bash" data-lang="bash">&lt;span style="display:flex;">&lt;span>$ buffalo pop g --help
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>Generates config, model, and migrations files.
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>Usage:
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> buffalo-pop pop generate &lt;span style="color:#54b1c7">[&lt;/span>command&lt;span style="color:#54b1c7">]&lt;/span>
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>Aliases:
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> generate, g
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>Available Commands:
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> config Generates a database.yml file &lt;span style="color:#76a9f9">for&lt;/span> your project.
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> fizz Generates Up/Down migrations &lt;span style="color:#76a9f9">for&lt;/span> your database using fizz.
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> model Generates a model &lt;span style="color:#76a9f9">for&lt;/span> your database
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> sql Generates Up/Down migrations &lt;span style="color:#76a9f9">for&lt;/span> your database using SQL.
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>Flags:
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> -h, --help &lt;span style="color:#e5c07b">help&lt;/span> &lt;span style="color:#76a9f9">for&lt;/span> generate
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>Global Flags:
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> -c, --config string The configuration file you would like to use.
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> -d, --debug Use debug/verbose mode
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> -e, --env string The environment you want to run migrations against. Will use &lt;span style="color:#dcaeea">$GO_ENV&lt;/span> &lt;span style="color:#76a9f9">if&lt;/span> set. &lt;span style="color:#54b1c7">(&lt;/span>default &lt;span style="color:#63c381">&amp;#34;development&amp;#34;&lt;/span>&lt;span style="color:#54b1c7">)&lt;/span>
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> -p, --path string Path to the migrations folder &lt;span style="color:#54b1c7">(&lt;/span>default &lt;span style="color:#63c381">&amp;#34;./migrations&amp;#34;&lt;/span>&lt;span style="color:#54b1c7">)&lt;/span>
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>Use &lt;span style="color:#63c381">&amp;#34;buffalo-pop pop generate [command] --help&amp;#34;&lt;/span> &lt;span style="color:#76a9f9">for&lt;/span> more information about a command.
-&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
-&lt;/div>
-&lt;/div>&lt;h2 id="migrations-迁移">Migrations 迁移&lt;a class="td-heading-self-link" href="#migrations-%e8%bf%81%e7%a7%bb" aria-label="Heading self-link">&lt;/a>&lt;/h2>
-&lt;p>For information on generating migrations see &lt;a href="https://before80.github.io/go_docs/buffalo/database/migrations/">Migrations&lt;/a>.&lt;/p></description></item><item><title>迁移</title><link>https://before80.github.io/go_docs/buffalo/database/migrations/</link><pubDate>Sun, 04 Feb 2024 21:13:55 +0800</pubDate><guid>https://before80.github.io/go_docs/buffalo/database/migrations/</guid><description>&lt;blockquote>
-&lt;p>原文：&lt;a href="https://before80.github.io/go_docs/buffalo/database/migrations/">https://gobuffalo.io/documentation/database/migrations/&lt;/a>&lt;/p>&lt;/blockquote>
-&lt;h1 id="migrations-迁移">Migrations 迁移&lt;a class="td-heading-self-link" href="#migrations-%e8%bf%81%e7%a7%bb" aria-label="Heading self-link">&lt;/a>&lt;/h1>
-&lt;p>Software maintenance is a hard task, and you’ll probably need to patch your database to add, modify or remove some fields. The way to handle that with Pop is to use &lt;strong>migrations&lt;/strong>.&lt;/p>
-&lt;p>​	软件维护是一项艰巨的任务，您可能需要修补数据库以添加、修改或删除某些字段。使用 Pop 处理此问题的方法是使用迁移。&lt;/p></description></item><item><title>Fizz</title><link>https://before80.github.io/go_docs/buffalo/database/fizz/</link><pubDate>Sun, 04 Feb 2024 21:14:06 +0800</pubDate><guid>https://before80.github.io/go_docs/buffalo/database/fizz/</guid><description>&lt;blockquote>
-&lt;p>原文：&lt;a href="https://before80.github.io/go_docs/buffalo/database/fizz/">https://gobuffalo.io/documentation/database/fizz/&lt;/a>&lt;/p>&lt;/blockquote>
-&lt;h1 id="fizz">Fizz&lt;a class="td-heading-self-link" href="#fizz" aria-label="Heading self-link">&lt;/a>&lt;/h1>
-&lt;p>Fizz is a common DSL for migrating databases. It tries to be as database-agnostic as possible. This is the default language used by Pop to define &lt;a href="https://before80.github.io/go_docs/buffalo/database/migrations/">database migrations&lt;/a>.&lt;/p>
-&lt;p>​	Fizz 是一种用于迁移数据库的通用 DSL。它尝试尽可能地与数据库无关。这是 Pop 用于定义数据库迁移的默认语言。&lt;/p></description></item><item><title>突变</title><link>https://before80.github.io/go_docs/buffalo/database/mutations/</link><pubDate>Sun, 04 Feb 2024 21:14:14 +0800</pubDate><guid>https://before80.github.io/go_docs/buffalo/database/mutations/</guid><description>&lt;blockquote>
-&lt;p>原文：&lt;a href="https://before80.github.io/go_docs/buffalo/database/mutations/">https://gobuffalo.io/documentation/database/mutations/&lt;/a>&lt;/p>&lt;/blockquote>
-&lt;h1 id="mutations-突变">Mutations 突变&lt;a class="td-heading-self-link" href="#mutations-%e7%aa%81%e5%8f%98" aria-label="Heading self-link">&lt;/a>&lt;/h1>
-&lt;p>In this chapter, you’ll learn how to create, update and delete objects from you database using Pop.&lt;/p>
-&lt;p>​	在本章中，您将学习如何使用 Pop 创建、更新和删除数据库中的对象。&lt;/p>
-&lt;h2 id="create-创建">Create 创建&lt;a class="td-heading-self-link" href="#create-%e5%88%9b%e5%bb%ba" aria-label="Heading self-link">&lt;/a>&lt;/h2>
-&lt;h3 id="without-validation-无验证">Without validation 无验证&lt;a class="td-heading-self-link" href="#without-validation-%e6%97%a0%e9%aa%8c%e8%af%81" aria-label="Heading self-link">&lt;/a>&lt;/h3>
-&lt;div class="highlight">&lt;div style="color:#b0c4de;background-color:#282c34;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">
-&lt;table style="border-spacing:0;padding:0;margin:0;border:0;">&lt;tr>&lt;td style="vertical-align:top;padding:0;margin:0;border:0;">
-&lt;pre tabindex="0" style="color:#b0c4de;background-color:#282c34;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code>&lt;span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#58626f">1
-&lt;/span>&lt;span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#58626f">2
-&lt;/span>&lt;span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#58626f">3
-&lt;/span>&lt;span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#58626f">4
-&lt;/span>&lt;span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#58626f">5
-&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
-&lt;td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
-&lt;pre tabindex="0" style="color:#b0c4de;background-color:#282c34;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-go" data-lang="go">&lt;span style="display:flex;">&lt;span>&lt;span style="color:#aa89ea">c&lt;/span>&lt;span style="color:#abb2bf">,&lt;/span> &lt;span style="color:#aa89ea">err&lt;/span> &lt;span style="color:#54b1c7">:=&lt;/span> &lt;span style="color:#aa89ea">pop&lt;/span>&lt;span style="color:#abb2bf">.&lt;/span>&lt;span style="color:#00b1f7">Connect&lt;/span>&lt;span style="color:#abb2bf">(&lt;/span>&lt;span style="color:#98c379">&amp;#34;development&amp;#34;&lt;/span>&lt;span style="color:#abb2bf">)&lt;/span>
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#8a93a5;font-style:italic">// [...]&lt;/span>
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#aa89ea">fruit&lt;/span> &lt;span style="color:#54b1c7">:=&lt;/span> &lt;span style="color:#54b1c7">&amp;amp;&lt;/span>&lt;span style="color:#aa89ea">models&lt;/span>&lt;span style="color:#abb2bf">.&lt;/span>&lt;span style="color:#aa89ea">Fruit&lt;/span>&lt;span style="color:#abb2bf">{}&lt;/span>
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#8a93a5;font-style:italic">// Create a fruit without running validations&lt;/span>
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#aa89ea">err&lt;/span> &lt;span style="color:#54b1c7">:=&lt;/span> &lt;span style="color:#aa89ea">c&lt;/span>&lt;span style="color:#abb2bf">.&lt;/span>&lt;span style="color:#00b1f7">Create&lt;/span>&lt;span style="color:#abb2bf">(&lt;/span>&lt;span style="color:#aa89ea">fruit&lt;/span>&lt;span style="color:#abb2bf">)&lt;/span>
-&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
-&lt;/div>
-&lt;/div>&lt;h3 id="with-validation-有验证">With validation 有验证&lt;a class="td-heading-self-link" href="#with-validation-%e6%9c%89%e9%aa%8c%e8%af%81" aria-label="Heading self-link">&lt;/a>&lt;/h3>
-&lt;div class="highlight">&lt;div style="color:#b0c4de;background-color:#282c34;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">
-&lt;table style="border-spacing:0;padding:0;margin:0;border:0;">&lt;tr>&lt;td style="vertical-align:top;padding:0;margin:0;border:0;">
-&lt;pre tabindex="0" style="color:#b0c4de;background-color:#282c34;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code>&lt;span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#58626f">1
-&lt;/span>&lt;span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#58626f">2
-&lt;/span>&lt;span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#58626f">3
-&lt;/span>&lt;span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#58626f">4
-&lt;/span>&lt;span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#58626f">5
-&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
-&lt;td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
-&lt;pre tabindex="0" style="color:#b0c4de;background-color:#282c34;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-go" data-lang="go">&lt;span style="display:flex;">&lt;span>&lt;span style="color:#aa89ea">c&lt;/span>&lt;span style="color:#abb2bf">,&lt;/span> &lt;span style="color:#aa89ea">err&lt;/span> &lt;span style="color:#54b1c7">:=&lt;/span> &lt;span style="color:#aa89ea">pop&lt;/span>&lt;span style="color:#abb2bf">.&lt;/span>&lt;span style="color:#00b1f7">Connect&lt;/span>&lt;span style="color:#abb2bf">(&lt;/span>&lt;span style="color:#98c379">&amp;#34;development&amp;#34;&lt;/span>&lt;span style="color:#abb2bf">)&lt;/span>
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#8a93a5;font-style:italic">// [...]&lt;/span>
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#aa89ea">fruit&lt;/span> &lt;span style="color:#54b1c7">:=&lt;/span> &lt;span style="color:#54b1c7">&amp;amp;&lt;/span>&lt;span style="color:#aa89ea">models&lt;/span>&lt;span style="color:#abb2bf">.&lt;/span>&lt;span style="color:#aa89ea">Fruit&lt;/span>&lt;span style="color:#abb2bf">{}&lt;/span>
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#8a93a5;font-style:italic">// Run validations and create if all validations passed&lt;/span>
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#aa89ea">vErrors&lt;/span>&lt;span style="color:#abb2bf">,&lt;/span> &lt;span style="color:#aa89ea">err&lt;/span> &lt;span style="color:#54b1c7">:=&lt;/span> &lt;span style="color:#aa89ea">c&lt;/span>&lt;span style="color:#abb2bf">.&lt;/span>&lt;span style="color:#00b1f7">ValidateAndCreate&lt;/span>&lt;span style="color:#abb2bf">(&lt;/span>&lt;span style="color:#aa89ea">fruit&lt;/span>&lt;span style="color:#abb2bf">)&lt;/span>
-&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
-&lt;/div>
-&lt;/div>&lt;h2 id="update-更新">Update 更新&lt;a class="td-heading-self-link" href="#update-%e6%9b%b4%e6%96%b0" aria-label="Heading self-link">&lt;/a>&lt;/h2>
-&lt;h3 id="without-validation-无验证-1">Without validation 无验证&lt;a class="td-heading-self-link" href="#without-validation-%e6%97%a0%e9%aa%8c%e8%af%81-1" aria-label="Heading self-link">&lt;/a>&lt;/h3>
-&lt;div class="highlight">&lt;div style="color:#b0c4de;background-color:#282c34;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">
-&lt;table style="border-spacing:0;padding:0;margin:0;border:0;">&lt;tr>&lt;td style="vertical-align:top;padding:0;margin:0;border:0;">
-&lt;pre tabindex="0" style="color:#b0c4de;background-color:#282c34;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code>&lt;span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#58626f">1
-&lt;/span>&lt;span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#58626f">2
-&lt;/span>&lt;span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#58626f">3
-&lt;/span>&lt;span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#58626f">4
-&lt;/span>&lt;span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#58626f">5
-&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
-&lt;td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
-&lt;pre tabindex="0" style="color:#b0c4de;background-color:#282c34;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-go" data-lang="go">&lt;span style="display:flex;">&lt;span>&lt;span style="color:#aa89ea">c&lt;/span>&lt;span style="color:#abb2bf">,&lt;/span> &lt;span style="color:#aa89ea">err&lt;/span> &lt;span style="color:#54b1c7">:=&lt;/span> &lt;span style="color:#aa89ea">pop&lt;/span>&lt;span style="color:#abb2bf">.&lt;/span>&lt;span style="color:#00b1f7">Connect&lt;/span>&lt;span style="color:#abb2bf">(&lt;/span>&lt;span style="color:#98c379">&amp;#34;development&amp;#34;&lt;/span>&lt;span style="color:#abb2bf">)&lt;/span>
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#8a93a5;font-style:italic">// [...]&lt;/span>
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#aa89ea">fruit&lt;/span> &lt;span style="color:#54b1c7">:=&lt;/span> &lt;span style="color:#54b1c7">&amp;amp;&lt;/span>&lt;span style="color:#aa89ea">models&lt;/span>&lt;span style="color:#abb2bf">.&lt;/span>&lt;span style="color:#aa89ea">Fruit&lt;/span>&lt;span style="color:#abb2bf">{}&lt;/span>
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#8a93a5;font-style:italic">// Update a fruit without running validations&lt;/span>
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#aa89ea">err&lt;/span> &lt;span style="color:#54b1c7">:=&lt;/span> &lt;span style="color:#aa89ea">c&lt;/span>&lt;span style="color:#abb2bf">.&lt;/span>&lt;span style="color:#00b1f7">Update&lt;/span>&lt;span style="color:#abb2bf">(&lt;/span>&lt;span style="color:#aa89ea">fruit&lt;/span>&lt;span style="color:#abb2bf">)&lt;/span>
-&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
-&lt;/div>
-&lt;/div>&lt;h3 id="with-validation-有验证-1">With validation 有验证&lt;a class="td-heading-self-link" href="#with-validation-%e6%9c%89%e9%aa%8c%e8%af%81-1" aria-label="Heading self-link">&lt;/a>&lt;/h3>
-&lt;div class="highlight">&lt;div style="color:#b0c4de;background-color:#282c34;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">
-&lt;table style="border-spacing:0;padding:0;margin:0;border:0;">&lt;tr>&lt;td style="vertical-align:top;padding:0;margin:0;border:0;">
-&lt;pre tabindex="0" style="color:#b0c4de;background-color:#282c34;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code>&lt;span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#58626f">1
-&lt;/span>&lt;span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#58626f">2
-&lt;/span>&lt;span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#58626f">3
-&lt;/span>&lt;span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#58626f">4
-&lt;/span>&lt;span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#58626f">5
-&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
-&lt;td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
-&lt;pre tabindex="0" style="color:#b0c4de;background-color:#282c34;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-go" data-lang="go">&lt;span style="display:flex;">&lt;span>&lt;span style="color:#aa89ea">c&lt;/span>&lt;span style="color:#abb2bf">,&lt;/span> &lt;span style="color:#aa89ea">err&lt;/span> &lt;span style="color:#54b1c7">:=&lt;/span> &lt;span style="color:#aa89ea">pop&lt;/span>&lt;span style="color:#abb2bf">.&lt;/span>&lt;span style="color:#00b1f7">Connect&lt;/span>&lt;span style="color:#abb2bf">(&lt;/span>&lt;span style="color:#98c379">&amp;#34;development&amp;#34;&lt;/span>&lt;span style="color:#abb2bf">)&lt;/span>
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#8a93a5;font-style:italic">// [...]&lt;/span>
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#aa89ea">fruit&lt;/span> &lt;span style="color:#54b1c7">:=&lt;/span> &lt;span style="color:#54b1c7">&amp;amp;&lt;/span>&lt;span style="color:#aa89ea">models&lt;/span>&lt;span style="color:#abb2bf">.&lt;/span>&lt;span style="color:#aa89ea">Fruit&lt;/span>&lt;span style="color:#abb2bf">{}&lt;/span>
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#8a93a5;font-style:italic">// Run validations and update if all validations passed&lt;/span>
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#aa89ea">vErrors&lt;/span>&lt;span style="color:#abb2bf">,&lt;/span> &lt;span style="color:#aa89ea">err&lt;/span> &lt;span style="color:#54b1c7">:=&lt;/span> &lt;span style="color:#aa89ea">c&lt;/span>&lt;span style="color:#abb2bf">.&lt;/span>&lt;span style="color:#00b1f7">ValidateAndUpdate&lt;/span>&lt;span style="color:#abb2bf">(&lt;/span>&lt;span style="color:#aa89ea">fruit&lt;/span>&lt;span style="color:#abb2bf">)&lt;/span>
-&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
-&lt;/div>
-&lt;/div>&lt;h2 id="save-保存">Save 保存&lt;a class="td-heading-self-link" href="#save-%e4%bf%9d%e5%ad%98" aria-label="Heading self-link">&lt;/a>&lt;/h2>
-&lt;p>Save checks for the ID in you model: if the ID is the zero value of the type (so for example if it’s an &lt;code>int&lt;/code> and its value is &lt;code>0&lt;/code>), &lt;code>Save&lt;/code> calls &lt;code>Create&lt;/code>. Otherwise, it calls &lt;code>Update&lt;/code>.&lt;/p></description></item><item><title>查询</title><link>https://before80.github.io/go_docs/buffalo/database/querying/</link><pubDate>Sun, 04 Feb 2024 21:14:28 +0800</pubDate><guid>https://before80.github.io/go_docs/buffalo/database/querying/</guid><description>&lt;blockquote>
-&lt;p>原文：&lt;a href="https://before80.github.io/go_docs/buffalo/database/querying/">https://gobuffalo.io/documentation/database/querying/&lt;/a>&lt;/p>&lt;/blockquote>
-&lt;h1 id="querying-查询">Querying 查询&lt;a class="td-heading-self-link" href="#querying-%e6%9f%a5%e8%af%a2" aria-label="Heading self-link">&lt;/a>&lt;/h1>
-&lt;p>In this chapter, you’ll learn how to retrieve data from your database using Pop.&lt;/p>
-&lt;p>​	在本章中，您将学习如何使用 Pop 从数据库中检索数据。&lt;/p>
-&lt;h3 id="find-by-id-按-id-查找">Find By ID 按 ID 查找&lt;a class="td-heading-self-link" href="#find-by-id-%e6%8c%89-id-%e6%9f%a5%e6%89%be" aria-label="Heading self-link">&lt;/a>&lt;/h3>
-&lt;div class="highlight">&lt;div style="color:#b0c4de;background-color:#282c34;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">
-&lt;table style="border-spacing:0;padding:0;margin:0;border:0;">&lt;tr>&lt;td style="vertical-align:top;padding:0;margin:0;border:0;">
-&lt;pre tabindex="0" style="color:#b0c4de;background-color:#282c34;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code>&lt;span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#58626f">1
-&lt;/span>&lt;span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#58626f">2
-&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
-&lt;td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
-&lt;pre tabindex="0" style="color:#b0c4de;background-color:#282c34;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-go" data-lang="go">&lt;span style="display:flex;">&lt;span>&lt;span style="color:#aa89ea">user&lt;/span> &lt;span style="color:#54b1c7">:=&lt;/span> &lt;span style="color:#aa89ea">User&lt;/span>&lt;span style="color:#abb2bf">{}&lt;/span>
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#aa89ea">err&lt;/span> &lt;span style="color:#54b1c7">:=&lt;/span> &lt;span style="color:#aa89ea">models&lt;/span>&lt;span style="color:#abb2bf">.&lt;/span>&lt;span style="color:#aa89ea">DB&lt;/span>&lt;span style="color:#abb2bf">.&lt;/span>&lt;span style="color:#00b1f7">Find&lt;/span>&lt;span style="color:#abb2bf">(&lt;/span>&lt;span style="color:#54b1c7">&amp;amp;&lt;/span>&lt;span style="color:#aa89ea">user&lt;/span>&lt;span style="color:#abb2bf">,&lt;/span> &lt;span style="color:#aa89ea">id&lt;/span>&lt;span style="color:#abb2bf">)&lt;/span>
-&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
-&lt;/div>
-&lt;/div>&lt;h3 id="find-all-查找全部">Find All 查找全部&lt;a class="td-heading-self-link" href="#find-all-%e6%9f%a5%e6%89%be%e5%85%a8%e9%83%a8" aria-label="Heading self-link">&lt;/a>&lt;/h3>
-&lt;div class="highlight">&lt;div style="color:#b0c4de;background-color:#282c34;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">
-&lt;table style="border-spacing:0;padding:0;margin:0;border:0;">&lt;tr>&lt;td style="vertical-align:top;padding:0;margin:0;border:0;">
-&lt;pre tabindex="0" style="color:#b0c4de;background-color:#282c34;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code>&lt;span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#58626f">1
-&lt;/span>&lt;span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#58626f">2
-&lt;/span>&lt;span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#58626f">3
-&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
-&lt;td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
-&lt;pre tabindex="0" style="color:#b0c4de;background-color:#282c34;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-go" data-lang="go">&lt;span style="display:flex;">&lt;span>&lt;span style="color:#aa89ea">users&lt;/span> &lt;span style="color:#54b1c7">:=&lt;/span> &lt;span style="color:#abb2bf">[]&lt;/span>&lt;span style="color:#aa89ea">User&lt;/span>&lt;span style="color:#abb2bf">{}&lt;/span>
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#aa89ea">err&lt;/span> &lt;span style="color:#54b1c7">:=&lt;/span> &lt;span style="color:#aa89ea">models&lt;/span>&lt;span style="color:#abb2bf">.&lt;/span>&lt;span style="color:#aa89ea">DB&lt;/span>&lt;span style="color:#abb2bf">.&lt;/span>&lt;span style="color:#00b1f7">All&lt;/span>&lt;span style="color:#abb2bf">(&lt;/span>&lt;span style="color:#54b1c7">&amp;amp;&lt;/span>&lt;span style="color:#aa89ea">users&lt;/span>&lt;span style="color:#abb2bf">)&lt;/span>
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#aa89ea">err&lt;/span> &lt;span style="color:#abb2bf">=&lt;/span> &lt;span style="color:#aa89ea">models&lt;/span>&lt;span style="color:#abb2bf">.&lt;/span>&lt;span style="color:#aa89ea">DB&lt;/span>&lt;span style="color:#abb2bf">.&lt;/span>&lt;span style="color:#00b1f7">Where&lt;/span>&lt;span style="color:#abb2bf">(&lt;/span>&lt;span style="color:#98c379">&amp;#34;id in (?)&amp;#34;&lt;/span>&lt;span style="color:#abb2bf">,&lt;/span> &lt;span style="color:#d19a66">1&lt;/span>&lt;span style="color:#abb2bf">,&lt;/span> &lt;span style="color:#d19a66">2&lt;/span>&lt;span style="color:#abb2bf">,&lt;/span> &lt;span style="color:#d19a66">3&lt;/span>&lt;span style="color:#abb2bf">).&lt;/span>&lt;span style="color:#00b1f7">All&lt;/span>&lt;span style="color:#abb2bf">(&lt;/span>&lt;span style="color:#54b1c7">&amp;amp;&lt;/span>&lt;span style="color:#aa89ea">users&lt;/span>&lt;span style="color:#abb2bf">)&lt;/span>
-&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
-&lt;/div>
-&lt;/div>&lt;h3 id="find-all-with-order-按顺序查找全部">Find All with Order 按顺序查找全部&lt;a class="td-heading-self-link" href="#find-all-with-order-%e6%8c%89%e9%a1%ba%e5%ba%8f%e6%9f%a5%e6%89%be%e5%85%a8%e9%83%a8" aria-label="Heading self-link">&lt;/a>&lt;/h3>
-&lt;div class="highlight">&lt;div style="color:#b0c4de;background-color:#282c34;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">
-&lt;table style="border-spacing:0;padding:0;margin:0;border:0;">&lt;tr>&lt;td style="vertical-align:top;padding:0;margin:0;border:0;">
-&lt;pre tabindex="0" style="color:#b0c4de;background-color:#282c34;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code>&lt;span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#58626f">1
-&lt;/span>&lt;span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#58626f">2
-&lt;/span>&lt;span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#58626f">3
-&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
-&lt;td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
-&lt;pre tabindex="0" style="color:#b0c4de;background-color:#282c34;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-go" data-lang="go">&lt;span style="display:flex;">&lt;span>&lt;span style="color:#8a93a5;font-style:italic">// To retrieve records from the database in a specific order, you can use the Order method&lt;/span>
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#aa89ea">users&lt;/span> &lt;span style="color:#54b1c7">:=&lt;/span> &lt;span style="color:#abb2bf">[]&lt;/span>&lt;span style="color:#aa89ea">User&lt;/span>&lt;span style="color:#abb2bf">{}&lt;/span>
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#aa89ea">err&lt;/span> &lt;span style="color:#54b1c7">:=&lt;/span> &lt;span style="color:#aa89ea">models&lt;/span>&lt;span style="color:#abb2bf">.&lt;/span>&lt;span style="color:#aa89ea">DB&lt;/span>&lt;span style="color:#abb2bf">.&lt;/span>&lt;span style="color:#00b1f7">Order&lt;/span>&lt;span style="color:#abb2bf">(&lt;/span>&lt;span style="color:#98c379">&amp;#34;id desc&amp;#34;&lt;/span>&lt;span style="color:#abb2bf">).&lt;/span>&lt;span style="color:#00b1f7">All&lt;/span>&lt;span style="color:#abb2bf">(&lt;/span>&lt;span style="color:#54b1c7">&amp;amp;&lt;/span>&lt;span style="color:#aa89ea">users&lt;/span>&lt;span style="color:#abb2bf">)&lt;/span>
-&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
-&lt;/div>
-&lt;/div>&lt;h3 id="find-last-查找最后一条">Find Last 查找最后一条&lt;a class="td-heading-self-link" href="#find-last-%e6%9f%a5%e6%89%be%e6%9c%80%e5%90%8e%e4%b8%80%e6%9d%a1" aria-label="Heading self-link">&lt;/a>&lt;/h3>
-&lt;div class="highlight">&lt;div style="color:#b0c4de;background-color:#282c34;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">
-&lt;table style="border-spacing:0;padding:0;margin:0;border:0;">&lt;tr>&lt;td style="vertical-align:top;padding:0;margin:0;border:0;">
-&lt;pre tabindex="0" style="color:#b0c4de;background-color:#282c34;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code>&lt;span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#58626f">1
-&lt;/span>&lt;span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#58626f">2
-&lt;/span>&lt;span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#58626f">3
-&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
-&lt;td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
-&lt;pre tabindex="0" style="color:#b0c4de;background-color:#282c34;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-go" data-lang="go">&lt;span style="display:flex;">&lt;span>&lt;span style="color:#8a93a5;font-style:italic">// Last() orders by created_at&lt;/span>
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#aa89ea">user&lt;/span> &lt;span style="color:#54b1c7">:=&lt;/span> &lt;span style="color:#aa89ea">models&lt;/span>&lt;span style="color:#abb2bf">.&lt;/span>&lt;span style="color:#aa89ea">User&lt;/span>&lt;span style="color:#abb2bf">{}&lt;/span>
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#aa89ea">err&lt;/span> &lt;span style="color:#54b1c7">:=&lt;/span> &lt;span style="color:#aa89ea">tx&lt;/span>&lt;span style="color:#abb2bf">.&lt;/span>&lt;span style="color:#00b1f7">Last&lt;/span>&lt;span style="color:#abb2bf">(&lt;/span>&lt;span style="color:#54b1c7">&amp;amp;&lt;/span>&lt;span style="color:#aa89ea">user&lt;/span>&lt;span style="color:#abb2bf">)&lt;/span>
-&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
-&lt;/div>
-&lt;/div>&lt;h3 id="find-where-按条件查找">Find Where 按条件查找&lt;a class="td-heading-self-link" href="#find-where-%e6%8c%89%e6%9d%a1%e4%bb%b6%e6%9f%a5%e6%89%be" aria-label="Heading self-link">&lt;/a>&lt;/h3>
-&lt;div class="highlight">&lt;div style="color:#b0c4de;background-color:#282c34;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">
-&lt;table style="border-spacing:0;padding:0;margin:0;border:0;">&lt;tr>&lt;td style="vertical-align:top;padding:0;margin:0;border:0;">
-&lt;pre tabindex="0" style="color:#b0c4de;background-color:#282c34;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code>&lt;span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#58626f">1
-&lt;/span>&lt;span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#58626f">2
-&lt;/span>&lt;span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#58626f">3
-&lt;/span>&lt;span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#58626f">4
-&lt;/span>&lt;span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#58626f">5
-&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
-&lt;td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
-&lt;pre tabindex="0" style="color:#b0c4de;background-color:#282c34;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-go" data-lang="go">&lt;span style="display:flex;">&lt;span>&lt;span style="color:#aa89ea">users&lt;/span> &lt;span style="color:#54b1c7">:=&lt;/span> &lt;span style="color:#abb2bf">[]&lt;/span>&lt;span style="color:#aa89ea">models&lt;/span>&lt;span style="color:#abb2bf">.&lt;/span>&lt;span style="color:#aa89ea">User&lt;/span>&lt;span style="color:#abb2bf">{}&lt;/span>
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#aa89ea">query&lt;/span> &lt;span style="color:#54b1c7">:=&lt;/span> &lt;span style="color:#aa89ea">models&lt;/span>&lt;span style="color:#abb2bf">.&lt;/span>&lt;span style="color:#aa89ea">DB&lt;/span>&lt;span style="color:#abb2bf">.&lt;/span>&lt;span style="color:#00b1f7">Where&lt;/span>&lt;span style="color:#abb2bf">(&lt;/span>&lt;span style="color:#98c379">&amp;#34;id = 1&amp;#34;&lt;/span>&lt;span style="color:#abb2bf">).&lt;/span>&lt;span style="color:#00b1f7">Where&lt;/span>&lt;span style="color:#abb2bf">(&lt;/span>&lt;span style="color:#98c379">&amp;#34;name = &amp;#39;Mark&amp;#39;&amp;#34;&lt;/span>&lt;span style="color:#abb2bf">)&lt;/span>
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#aa89ea">err&lt;/span> &lt;span style="color:#54b1c7">:=&lt;/span> &lt;span style="color:#aa89ea">query&lt;/span>&lt;span style="color:#abb2bf">.&lt;/span>&lt;span style="color:#00b1f7">All&lt;/span>&lt;span style="color:#abb2bf">(&lt;/span>&lt;span style="color:#54b1c7">&amp;amp;&lt;/span>&lt;span style="color:#aa89ea">users&lt;/span>&lt;span style="color:#abb2bf">)&lt;/span>
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#aa89ea">err&lt;/span> &lt;span style="color:#abb2bf">=&lt;/span> &lt;span style="color:#aa89ea">tx&lt;/span>&lt;span style="color:#abb2bf">.&lt;/span>&lt;span style="color:#00b1f7">Where&lt;/span>&lt;span style="color:#abb2bf">(&lt;/span>&lt;span style="color:#98c379">&amp;#34;id in (?)&amp;#34;&lt;/span>&lt;span style="color:#abb2bf">,&lt;/span> &lt;span style="color:#d19a66">1&lt;/span>&lt;span style="color:#abb2bf">,&lt;/span> &lt;span style="color:#d19a66">2&lt;/span>&lt;span style="color:#abb2bf">,&lt;/span> &lt;span style="color:#d19a66">3&lt;/span>&lt;span style="color:#abb2bf">).&lt;/span>&lt;span style="color:#00b1f7">All&lt;/span>&lt;span style="color:#abb2bf">(&lt;/span>&lt;span style="color:#54b1c7">&amp;amp;&lt;/span>&lt;span style="color:#aa89ea">users&lt;/span>&lt;span style="color:#abb2bf">)&lt;/span>
-&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
-&lt;/div>
-&lt;/div>&lt;h3 id="using-in-queries-使用-in-查询--遗憾的是由于各种原因您无法在同一个-调用中同时使用-in-查询和-查询">Using &lt;code>in&lt;/code> Queries 使用 &lt;code>in&lt;/code> 查询 # 遗憾的是，由于各种原因，您无法在同一个 调用中同时使用 &lt;code>in&lt;/code> 查询和 查询。&lt;a class="td-heading-self-link" href="#using-in-queries-%e4%bd%bf%e7%94%a8-in-%e6%9f%a5%e8%af%a2--%e9%81%97%e6%86%be%e7%9a%84%e6%98%af%e7%94%b1%e4%ba%8e%e5%90%84%e7%a7%8d%e5%8e%9f%e5%9b%a0%e6%82%a8%e6%97%a0%e6%b3%95%e5%9c%a8%e5%90%8c%e4%b8%80%e4%b8%aa-%e8%b0%83%e7%94%a8%e4%b8%ad%e5%90%8c%e6%97%b6%e4%bd%bf%e7%94%a8-in-%e6%9f%a5%e8%af%a2%e5%92%8c-%e6%9f%a5%e8%af%a2" aria-label="Heading self-link">&lt;/a>&lt;/h3>
-&lt;div class="highlight">&lt;div style="color:#b0c4de;background-color:#282c34;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">
-&lt;table style="border-spacing:0;padding:0;margin:0;border:0;">&lt;tr>&lt;td style="vertical-align:top;padding:0;margin:0;border:0;">
-&lt;pre tabindex="0" style="color:#b0c4de;background-color:#282c34;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code>&lt;span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#58626f">1
-&lt;/span>&lt;span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#58626f">2
-&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
-&lt;td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
-&lt;pre tabindex="0" style="color:#b0c4de;background-color:#282c34;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-go" data-lang="go">&lt;span style="display:flex;">&lt;span>&lt;span style="color:#aa89ea">err&lt;/span> &lt;span style="color:#abb2bf">=&lt;/span> &lt;span style="color:#aa89ea">models&lt;/span>&lt;span style="color:#abb2bf">.&lt;/span>&lt;span style="color:#aa89ea">DB&lt;/span>&lt;span style="color:#abb2bf">.&lt;/span>&lt;span style="color:#00b1f7">Where&lt;/span>&lt;span style="color:#abb2bf">(&lt;/span>&lt;span style="color:#98c379">&amp;#34;id in (?)&amp;#34;&lt;/span>&lt;span style="color:#abb2bf">,&lt;/span> &lt;span style="color:#d19a66">1&lt;/span>&lt;span style="color:#abb2bf">,&lt;/span> &lt;span style="color:#d19a66">2&lt;/span>&lt;span style="color:#abb2bf">,&lt;/span> &lt;span style="color:#d19a66">3&lt;/span>&lt;span style="color:#abb2bf">).&lt;/span>&lt;span style="color:#00b1f7">All&lt;/span>&lt;span style="color:#abb2bf">(&lt;/span>&lt;span style="color:#54b1c7">&amp;amp;&lt;/span>&lt;span style="color:#aa89ea">users&lt;/span>&lt;span style="color:#abb2bf">)&lt;/span>
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#aa89ea">err&lt;/span> &lt;span style="color:#abb2bf">=&lt;/span> &lt;span style="color:#aa89ea">models&lt;/span>&lt;span style="color:#abb2bf">.&lt;/span>&lt;span style="color:#aa89ea">DB&lt;/span>&lt;span style="color:#abb2bf">.&lt;/span>&lt;span style="color:#00b1f7">Where&lt;/span>&lt;span style="color:#abb2bf">(&lt;/span>&lt;span style="color:#98c379">&amp;#34;id in (?)&amp;#34;&lt;/span>&lt;span style="color:#abb2bf">,&lt;/span> &lt;span style="color:#d19a66">1&lt;/span>&lt;span style="color:#abb2bf">,&lt;/span> &lt;span style="color:#d19a66">2&lt;/span>&lt;span style="color:#abb2bf">,&lt;/span> &lt;span style="color:#d19a66">3&lt;/span>&lt;span style="color:#abb2bf">).&lt;/span>&lt;span style="color:#00b1f7">Where&lt;/span>&lt;span style="color:#abb2bf">(&lt;/span>&lt;span style="color:#98c379">&amp;#34;foo = ?&amp;#34;&lt;/span>&lt;span style="color:#abb2bf">,&lt;/span> &lt;span style="color:#98c379">&amp;#34;bar&amp;#34;&lt;/span>&lt;span style="color:#abb2bf">).&lt;/span>&lt;span style="color:#00b1f7">All&lt;/span>&lt;span style="color:#abb2bf">(&lt;/span>&lt;span style="color:#54b1c7">&amp;amp;&lt;/span>&lt;span style="color:#aa89ea">users&lt;/span>&lt;span style="color:#abb2bf">)&lt;/span>
-&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
-&lt;/div>
-&lt;/div>&lt;p>Unfortunately, for a variety of reasons you can’t use an &lt;code>and&lt;/code> query in the same &lt;code>Where&lt;/code> call as an &lt;code>in&lt;/code> query.&lt;/p></description></item><item><title>原生查询</title><link>https://before80.github.io/go_docs/buffalo/database/rawQueries/</link><pubDate>Sun, 04 Feb 2024 21:14:42 +0800</pubDate><guid>https://before80.github.io/go_docs/buffalo/database/rawQueries/</guid><description>&lt;blockquote>
-&lt;p>原文：&lt;a href="https://before80.github.io/go_docs/buffalo/database/rawQueries/">https://gobuffalo.io/documentation/database/raw-queries/&lt;/a>&lt;/p>&lt;/blockquote>
-&lt;h1 id="raw-queries-原始查询">Raw Queries 原始查询&lt;a class="td-heading-self-link" href="#raw-queries-%e5%8e%9f%e5%a7%8b%e6%9f%a5%e8%af%a2" aria-label="Heading self-link">&lt;/a>&lt;/h1>
-&lt;p>Sometimes you’ll need to write a custom query instead of letting Pop generate it for you. In this chapter, you’ll learn how to write raw SQL queries using Pop.&lt;/p>
-&lt;p>​	有时，您需要编写自定义查询，而不是让 Pop 为您生成查询。在本章中，您将学习如何使用 Pop 编写原始 SQL 查询。&lt;/p></description></item><item><title>回调</title><link>https://before80.github.io/go_docs/buffalo/database/callbacks/</link><pubDate>Sun, 04 Feb 2024 21:14:52 +0800</pubDate><guid>https://before80.github.io/go_docs/buffalo/database/callbacks/</guid><description>&lt;blockquote>
-&lt;p>原文：&lt;a href="https://before80.github.io/go_docs/buffalo/database/callbacks/">https://gobuffalo.io/documentation/database/callbacks/&lt;/a>&lt;/p>&lt;/blockquote>
-&lt;h1 id="callbacks-回调">Callbacks 回调&lt;a class="td-heading-self-link" href="#callbacks-%e5%9b%9e%e8%b0%83" aria-label="Heading self-link">&lt;/a>&lt;/h1>
-&lt;p>Pop provides a means to execute code before and after database operations. This is done by defining specific methods for your models.&lt;/p>
-&lt;p>​	Pop 提供了一种在数据库操作之前和之后执行代码的方法。这是通过为您的模型定义特定方法来完成的。&lt;/p></description></item><item><title>作用域</title><link>https://before80.github.io/go_docs/buffalo/database/scoping/</link><pubDate>Sun, 04 Feb 2024 21:15:01 +0800</pubDate><guid>https://before80.github.io/go_docs/buffalo/database/scoping/</guid><description>&lt;blockquote>
-&lt;p>原文：&lt;a href="https://before80.github.io/go_docs/buffalo/database/scoping/">https://gobuffalo.io/documentation/database/scoping/&lt;/a>&lt;/p>&lt;/blockquote>
-&lt;h1 id="scoping-作用域">Scoping 作用域&lt;a class="td-heading-self-link" href="#scoping-%e4%bd%9c%e7%94%a8%e5%9f%9f" aria-label="Heading self-link">&lt;/a>&lt;/h1>
-&lt;p>Scoping is a way to structure your DB calls, when it needs the same “base” query. Let’s say you want to create a book store: the store provides books for everyone, but some special editions are reserved to customers with a registered account. It means that for the whole store, you’ll need to filter the books, so the “guest” customers can only see the restricted list of books.&lt;/p></description></item><item><title>关联和关系</title><link>https://before80.github.io/go_docs/buffalo/database/associationsAndRelationships/</link><pubDate>Sun, 04 Feb 2024 21:15:20 +0800</pubDate><guid>https://before80.github.io/go_docs/buffalo/database/associationsAndRelationships/</guid><description>&lt;blockquote>
-&lt;p>原文：&lt;a href="https://before80.github.io/go_docs/buffalo/database/associationsAndRelationships/">https://gobuffalo.io/documentation/database/relations/&lt;/a>&lt;/p>&lt;/blockquote>
-&lt;h1 id="associations-and-relationships-关联和关系">Associations and Relationships 关联和关系&lt;a class="td-heading-self-link" href="#associations-and-relationships-%e5%85%b3%e8%81%94%e5%92%8c%e5%85%b3%e7%b3%bb" aria-label="Heading self-link">&lt;/a>&lt;/h1>
-&lt;p>Associations are the Pop way to define &lt;strong>a relation between two objects in the database&lt;/strong>. In this chapter, you’ll learn how to define associations using struct tags; and how to manipulate them with the &lt;code>Eager()&lt;/code> modifier.&lt;/p>
-&lt;p>​	关联是定义数据库中两个对象之间关系的流行方式。在本章中，您将学习如何使用结构体标签定义关联；以及如何使用 &lt;code>Eager()&lt;/code> 修饰符操作它们。&lt;/p></description></item><item><title>一对一关联</title><link>https://before80.github.io/go_docs/buffalo/database/oneToOneAssociations/</link><pubDate>Sun, 04 Feb 2024 21:15:39 +0800</pubDate><guid>https://before80.github.io/go_docs/buffalo/database/oneToOneAssociations/</guid><description>&lt;blockquote>
-&lt;p>原文：&lt;a href="https://before80.github.io/go_docs/buffalo/database/oneToOneAssociations/">https://gobuffalo.io/documentation/database/relations-one-to-one/&lt;/a>&lt;/p>&lt;/blockquote>
-&lt;h1 id="one-to-one-associations-一对一关联">One to One Associations 一对一关联&lt;a class="td-heading-self-link" href="#one-to-one-associations-%e4%b8%80%e5%af%b9%e4%b8%80%e5%85%b3%e8%81%94" aria-label="Heading self-link">&lt;/a>&lt;/h1>
-&lt;p>In this chapter, you’ll learn how to write a one to one &lt;a href="https://before80.github.io/go_docs/buffalo/database/associationsAndRelationships/">association&lt;/a> in Pop.&lt;/p>
-&lt;p>​	在本章中，您将学习如何在 Pop 中编写一对一关联。&lt;/p>
-&lt;h2 id="tags-标签">Tags 标签&lt;a class="td-heading-self-link" href="#tags-%e6%a0%87%e7%ad%be" aria-label="Heading self-link">&lt;/a>&lt;/h2>
-&lt;p>One to one associations work using a pair of tags:&lt;/p></description></item><item><title>一对多关联</title><link>https://before80.github.io/go_docs/buffalo/database/oneToManyAssociations/</link><pubDate>Sun, 04 Feb 2024 21:15:49 +0800</pubDate><guid>https://before80.github.io/go_docs/buffalo/database/oneToManyAssociations/</guid><description>&lt;blockquote>
-&lt;p>原文：&lt;a href="https://before80.github.io/go_docs/buffalo/database/oneToManyAssociations/">https://gobuffalo.io/documentation/database/relations-one-to-many/&lt;/a>&lt;/p>&lt;/blockquote>
-&lt;h1 id="one-to-many-associations-一对多关联">One to Many Associations 一对多关联&lt;a class="td-heading-self-link" href="#one-to-many-associations-%e4%b8%80%e5%af%b9%e5%a4%9a%e5%85%b3%e8%81%94" aria-label="Heading self-link">&lt;/a>&lt;/h1>
-&lt;p>In this chapter, you’ll learn how to write a one to many &lt;a href="https://before80.github.io/go_docs/buffalo/database/associationsAndRelationships/">association&lt;/a> in Pop.&lt;/p>
-&lt;p>​	在本章中，您将学习如何在 Pop 中编写一对多关联。&lt;/p>
-&lt;h2 id="tags-标签">Tags 标签&lt;a class="td-heading-self-link" href="#tags-%e6%a0%87%e7%ad%be" aria-label="Heading self-link">&lt;/a>&lt;/h2>
-&lt;p>One to many associations work using a pair of tags:&lt;/p></description></item></channel></rss>
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>数据库 on Go 中文档集</title><link>https://before80.github.io/go_docs/buffalo/database/</link><description>Recent content in 数据库 on Go 中文档集</description><generator>Hugo</generator><language>zh-cn</language><lastBuildDate>Thu, 10 Oct 2024 15:07:50 +0800</lastBuildDate><atom:link href="https://before80.github.io/go_docs/buffalo/database/index.xml" rel="self" type="application/rss+xml"/><item><title>Pop入门</title><link>https://before80.github.io/go_docs/buffalo/database/gettingStartedWithPop/</link><pubDate>Sun, 04 Feb 2024 21:12:02 +0800</pubDate><guid>https://before80.github.io/go_docs/buffalo/database/gettingStartedWithPop/</guid><description>&lt;blockquote&gt;
+&lt;p&gt;原文：&lt;a href="https://before80.github.io/go_docs/buffalo/database/gettingStartedWithPop/"&gt;https://gobuffalo.io/documentation/database/pop/&lt;/a&gt;&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;h1 id="getting-started-with-pop-pop入门"&gt;Getting Started with Pop Pop入门&lt;/h1&gt;
+&lt;p&gt;The &lt;a href="https://godoc.org/github.com/gobuffalo/pop"&gt;pop&lt;/a&gt; package is included with Buffalo by default, but you can use it outside of Buffalo. It wraps the absolutely amazing &lt;a href="https://github.com/jmoiron/sqlx"&gt;https://github.com/jmoiron/sqlx&lt;/a&gt; library, cleans up some of the common patterns and work flows usually associated with dealing with databases in Go.&lt;/p&gt;
+&lt;p&gt;​	pop包默认包含在Buffalo中，但您可以在Buffalo之外使用它。它包装了非常棒的https://github.com/jmoiton/sqlx库，清理了一些通常与在Go中使用数据库相关的常见模型和工作流。&lt;/p&gt;</description></item><item><title>Soda CLI</title><link>https://before80.github.io/go_docs/buffalo/database/sodaCLI/</link><pubDate>Sun, 04 Feb 2024 21:12:13 +0800</pubDate><guid>https://before80.github.io/go_docs/buffalo/database/sodaCLI/</guid><description>&lt;blockquote&gt;
+&lt;p&gt;原文：&lt;a href="https://before80.github.io/go_docs/buffalo/database/sodaCLI/"&gt;https://gobuffalo.io/documentation/database/soda/&lt;/a&gt;&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;h1 id="soda-cli"&gt;Soda CLI&lt;/h1&gt;
+&lt;p&gt;Pop helps you to manage database connections, but it also provides &lt;code&gt;soda&lt;/code&gt;, a small CLI toolbox to manage your database. It can help you to create a new database, drop existing ones, and so on.&lt;/p&gt;
+&lt;p&gt;​	Pop 帮助您管理数据库连接，但它还提供 &lt;code&gt;soda&lt;/code&gt; ，一个用于管理数据库的小型 CLI 工具箱。它可以帮助您创建新数据库、删除现有数据库，等等。&lt;/p&gt;</description></item><item><title>数据库配置</title><link>https://before80.github.io/go_docs/buffalo/database/databaseConfiguration/</link><pubDate>Sun, 04 Feb 2024 21:12:29 +0800</pubDate><guid>https://before80.github.io/go_docs/buffalo/database/databaseConfiguration/</guid><description>&lt;blockquote&gt;
+&lt;p&gt;原文：&lt;a href="https://before80.github.io/go_docs/buffalo/database/databaseConfiguration/"&gt;https://gobuffalo.io/documentation/database/configuration/&lt;/a&gt;&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;h1 id="database-configuration-数据库配置"&gt;Database Configuration 数据库配置&lt;/h1&gt;
+&lt;p&gt;Pop configuration is managed by a &lt;code&gt;database.yml&lt;/code&gt; file, located at the root of your project. This file is generated for you if you use Buffalo – if you choose to use Pop – and contains a basic configuration for the database you selected on generation with the &lt;code&gt;--db-type&lt;/code&gt; flag. PostgreSQL is considered as the default.&lt;/p&gt;
+&lt;p&gt;​	Pop 配置由位于项目根目录的 &lt;code&gt;database.yml&lt;/code&gt; 文件管理。如果您使用 Buffalo（如果您选择使用 Pop），则会为您生成此文件，其中包含使用 &lt;code&gt;--db-type&lt;/code&gt; 标志在生成时选择的数据库的基本配置。PostgreSQL 被视为默认值。&lt;/p&gt;</description></item><item><title>Buffalo 集成</title><link>https://before80.github.io/go_docs/buffalo/database/buffaloIntegration/</link><pubDate>Sun, 04 Feb 2024 21:13:08 +0800</pubDate><guid>https://before80.github.io/go_docs/buffalo/database/buffaloIntegration/</guid><description>&lt;blockquote&gt;
+&lt;p&gt;原文：&lt;a href="https://before80.github.io/go_docs/buffalo/database/buffaloIntegration/"&gt;https://gobuffalo.io/documentation/database/buffalo-integration/&lt;/a&gt;&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;h1 id="buffalo-integration-buffalo-集成"&gt;Buffalo Integration Buffalo 集成&lt;/h1&gt;
+&lt;h2 id="generate-a-new-app-生成新应用"&gt;Generate a New App 生成新应用&lt;/h2&gt;
+&lt;p&gt;When you generate a new Buffalo application you can choose the target database with the &lt;code&gt;--db-type&lt;/code&gt; flag. For instance, to generate a new app with MySQL database support, you can write the following:&lt;/p&gt;
+&lt;p&gt;​	生成新的 Buffalo 应用程序时，可以使用 &lt;code&gt;--db-type&lt;/code&gt; 标志选择目标数据库。例如，要生成一个支持 MySQL 数据库的新应用，可以编写以下内容：&lt;/p&gt;</description></item><item><title>模型</title><link>https://before80.github.io/go_docs/buffalo/database/models/</link><pubDate>Sun, 04 Feb 2024 21:13:19 +0800</pubDate><guid>https://before80.github.io/go_docs/buffalo/database/models/</guid><description>&lt;blockquote&gt;
+&lt;p&gt;原文：&lt;a href="https://before80.github.io/go_docs/buffalo/database/models/"&gt;https://gobuffalo.io/documentation/database/models/&lt;/a&gt;&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;h1 id="models-模型"&gt;Models 模型&lt;/h1&gt;
+&lt;p&gt;Pop, as an ORM, allows you to translate database tables into Go structs. This way, you can manipulate Go structs instead of writing SQL statements. The Go code managing this part is named “models”, as a reference to the MVC architecture.&lt;/p&gt;
+&lt;p&gt;​	Pop 作为 ORM，允许您将数据库表转换为 Go 结构。这样，您可以操作 Go 结构，而无需编写 SQL 语句。管理此部分的 Go 代码被命名为“模型”，作为对 MVC 架构的引用。&lt;/p&gt;</description></item><item><title>生成器</title><link>https://before80.github.io/go_docs/buffalo/database/generators/</link><pubDate>Sun, 04 Feb 2024 21:13:42 +0800</pubDate><guid>https://before80.github.io/go_docs/buffalo/database/generators/</guid><description>&lt;blockquote&gt;
+&lt;p&gt;原文：&lt;a href="https://before80.github.io/go_docs/buffalo/database/generators/"&gt;https://gobuffalo.io/documentation/database/generators/&lt;/a&gt;&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;h1 id="generators-生成器"&gt;Generators 生成器&lt;/h1&gt;
+&lt;div class="highlight"&gt;&lt;div style="color:#b0c4de;background-color:#282c34;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"&gt;
+&lt;table style="border-spacing:0;padding:0;margin:0;border:0;"&gt;&lt;tr&gt;&lt;td style="vertical-align:top;padding:0;margin:0;border:0;"&gt;
+&lt;pre tabindex="0" style="color:#b0c4de;background-color:#282c34;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"&gt;&lt;code&gt;&lt;span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#58626f"&gt; 1
+&lt;/span&gt;&lt;span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#58626f"&gt; 2
+&lt;/span&gt;&lt;span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#58626f"&gt; 3
+&lt;/span&gt;&lt;span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#58626f"&gt; 4
+&lt;/span&gt;&lt;span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#58626f"&gt; 5
+&lt;/span&gt;&lt;span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#58626f"&gt; 6
+&lt;/span&gt;&lt;span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#58626f"&gt; 7
+&lt;/span&gt;&lt;span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#58626f"&gt; 8
+&lt;/span&gt;&lt;span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#58626f"&gt; 9
+&lt;/span&gt;&lt;span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#58626f"&gt;10
+&lt;/span&gt;&lt;span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#58626f"&gt;11
+&lt;/span&gt;&lt;span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#58626f"&gt;12
+&lt;/span&gt;&lt;span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#58626f"&gt;13
+&lt;/span&gt;&lt;span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#58626f"&gt;14
+&lt;/span&gt;&lt;span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#58626f"&gt;15
+&lt;/span&gt;&lt;span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#58626f"&gt;16
+&lt;/span&gt;&lt;span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#58626f"&gt;17
+&lt;/span&gt;&lt;span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#58626f"&gt;18
+&lt;/span&gt;&lt;span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#58626f"&gt;19
+&lt;/span&gt;&lt;span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#58626f"&gt;20
+&lt;/span&gt;&lt;span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#58626f"&gt;21
+&lt;/span&gt;&lt;span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#58626f"&gt;22
+&lt;/span&gt;&lt;span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#58626f"&gt;23
+&lt;/span&gt;&lt;span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#58626f"&gt;24
+&lt;/span&gt;&lt;span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#58626f"&gt;25
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
+&lt;td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%"&gt;
+&lt;pre tabindex="0" style="color:#b0c4de;background-color:#282c34;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"&gt;&lt;code class="language-bash" data-lang="bash"&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;$ buffalo pop g --help
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;Generates config, model, and migrations files.
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;Usage:
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; buffalo-pop pop generate &lt;span style="color:#54b1c7"&gt;[&lt;/span&gt;command&lt;span style="color:#54b1c7"&gt;]&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;Aliases:
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; generate, g
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;Available Commands:
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; config Generates a database.yml file &lt;span style="color:#76a9f9"&gt;for&lt;/span&gt; your project.
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; fizz Generates Up/Down migrations &lt;span style="color:#76a9f9"&gt;for&lt;/span&gt; your database using fizz.
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; model Generates a model &lt;span style="color:#76a9f9"&gt;for&lt;/span&gt; your database
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; sql Generates Up/Down migrations &lt;span style="color:#76a9f9"&gt;for&lt;/span&gt; your database using SQL.
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;Flags:
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; -h, --help &lt;span style="color:#e5c07b"&gt;help&lt;/span&gt; &lt;span style="color:#76a9f9"&gt;for&lt;/span&gt; generate
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;Global Flags:
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; -c, --config string The configuration file you would like to use.
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; -d, --debug Use debug/verbose mode
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; -e, --env string The environment you want to run migrations against. Will use &lt;span style="color:#dcaeea"&gt;$GO_ENV&lt;/span&gt; &lt;span style="color:#76a9f9"&gt;if&lt;/span&gt; set. &lt;span style="color:#54b1c7"&gt;(&lt;/span&gt;default &lt;span style="color:#63c381"&gt;&amp;#34;development&amp;#34;&lt;/span&gt;&lt;span style="color:#54b1c7"&gt;)&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; -p, --path string Path to the migrations folder &lt;span style="color:#54b1c7"&gt;(&lt;/span&gt;default &lt;span style="color:#63c381"&gt;&amp;#34;./migrations&amp;#34;&lt;/span&gt;&lt;span style="color:#54b1c7"&gt;)&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;Use &lt;span style="color:#63c381"&gt;&amp;#34;buffalo-pop pop generate [command] --help&amp;#34;&lt;/span&gt; &lt;span style="color:#76a9f9"&gt;for&lt;/span&gt; more information about a command.
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+&lt;/div&gt;
+&lt;/div&gt;&lt;h2 id="migrations-迁移"&gt;Migrations 迁移&lt;/h2&gt;
+&lt;p&gt;For information on generating migrations see &lt;a href="https://before80.github.io/go_docs/buffalo/database/migrations/"&gt;Migrations&lt;/a&gt;.&lt;/p&gt;</description></item><item><title>迁移</title><link>https://before80.github.io/go_docs/buffalo/database/migrations/</link><pubDate>Sun, 04 Feb 2024 21:13:55 +0800</pubDate><guid>https://before80.github.io/go_docs/buffalo/database/migrations/</guid><description>&lt;blockquote&gt;
+&lt;p&gt;原文：&lt;a href="https://before80.github.io/go_docs/buffalo/database/migrations/"&gt;https://gobuffalo.io/documentation/database/migrations/&lt;/a&gt;&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;h1 id="migrations-迁移"&gt;Migrations 迁移&lt;/h1&gt;
+&lt;p&gt;Software maintenance is a hard task, and you’ll probably need to patch your database to add, modify or remove some fields. The way to handle that with Pop is to use &lt;strong&gt;migrations&lt;/strong&gt;.&lt;/p&gt;
+&lt;p&gt;​	软件维护是一项艰巨的任务，您可能需要修补数据库以添加、修改或删除某些字段。使用 Pop 处理此问题的方法是使用迁移。&lt;/p&gt;</description></item><item><title>Fizz</title><link>https://before80.github.io/go_docs/buffalo/database/fizz/</link><pubDate>Sun, 04 Feb 2024 21:14:06 +0800</pubDate><guid>https://before80.github.io/go_docs/buffalo/database/fizz/</guid><description>&lt;blockquote&gt;
+&lt;p&gt;原文：&lt;a href="https://before80.github.io/go_docs/buffalo/database/fizz/"&gt;https://gobuffalo.io/documentation/database/fizz/&lt;/a&gt;&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;h1 id="fizz"&gt;Fizz&lt;/h1&gt;
+&lt;p&gt;Fizz is a common DSL for migrating databases. It tries to be as database-agnostic as possible. This is the default language used by Pop to define &lt;a href="https://before80.github.io/go_docs/buffalo/database/migrations/"&gt;database migrations&lt;/a&gt;.&lt;/p&gt;
+&lt;p&gt;​	Fizz 是一种用于迁移数据库的通用 DSL。它尝试尽可能地与数据库无关。这是 Pop 用于定义数据库迁移的默认语言。&lt;/p&gt;</description></item><item><title>突变</title><link>https://before80.github.io/go_docs/buffalo/database/mutations/</link><pubDate>Sun, 04 Feb 2024 21:14:14 +0800</pubDate><guid>https://before80.github.io/go_docs/buffalo/database/mutations/</guid><description>&lt;blockquote&gt;
+&lt;p&gt;原文：&lt;a href="https://before80.github.io/go_docs/buffalo/database/mutations/"&gt;https://gobuffalo.io/documentation/database/mutations/&lt;/a&gt;&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;h1 id="mutations-突变"&gt;Mutations 突变&lt;/h1&gt;
+&lt;p&gt;In this chapter, you’ll learn how to create, update and delete objects from you database using Pop.&lt;/p&gt;
+&lt;p&gt;​	在本章中，您将学习如何使用 Pop 创建、更新和删除数据库中的对象。&lt;/p&gt;
+&lt;h2 id="create-创建"&gt;Create 创建&lt;/h2&gt;
+&lt;h3 id="without-validation-无验证"&gt;Without validation 无验证&lt;/h3&gt;
+&lt;div class="highlight"&gt;&lt;div style="color:#b0c4de;background-color:#282c34;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"&gt;
+&lt;table style="border-spacing:0;padding:0;margin:0;border:0;"&gt;&lt;tr&gt;&lt;td style="vertical-align:top;padding:0;margin:0;border:0;"&gt;
+&lt;pre tabindex="0" style="color:#b0c4de;background-color:#282c34;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"&gt;&lt;code&gt;&lt;span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#58626f"&gt;1
+&lt;/span&gt;&lt;span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#58626f"&gt;2
+&lt;/span&gt;&lt;span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#58626f"&gt;3
+&lt;/span&gt;&lt;span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#58626f"&gt;4
+&lt;/span&gt;&lt;span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#58626f"&gt;5
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
+&lt;td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%"&gt;
+&lt;pre tabindex="0" style="color:#b0c4de;background-color:#282c34;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"&gt;&lt;code class="language-go" data-lang="go"&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;&lt;span style="color:#aa89ea"&gt;c&lt;/span&gt;&lt;span style="color:#abb2bf"&gt;,&lt;/span&gt; &lt;span style="color:#aa89ea"&gt;err&lt;/span&gt; &lt;span style="color:#54b1c7"&gt;:=&lt;/span&gt; &lt;span style="color:#aa89ea"&gt;pop&lt;/span&gt;&lt;span style="color:#abb2bf"&gt;.&lt;/span&gt;&lt;span style="color:#00b1f7"&gt;Connect&lt;/span&gt;&lt;span style="color:#abb2bf"&gt;(&lt;/span&gt;&lt;span style="color:#98c379"&gt;&amp;#34;development&amp;#34;&lt;/span&gt;&lt;span style="color:#abb2bf"&gt;)&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;&lt;span style="color:#8a93a5;font-style:italic"&gt;// [...]&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;&lt;span style="color:#aa89ea"&gt;fruit&lt;/span&gt; &lt;span style="color:#54b1c7"&gt;:=&lt;/span&gt; &lt;span style="color:#54b1c7"&gt;&amp;amp;&lt;/span&gt;&lt;span style="color:#aa89ea"&gt;models&lt;/span&gt;&lt;span style="color:#abb2bf"&gt;.&lt;/span&gt;&lt;span style="color:#aa89ea"&gt;Fruit&lt;/span&gt;&lt;span style="color:#abb2bf"&gt;{}&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;&lt;span style="color:#8a93a5;font-style:italic"&gt;// Create a fruit without running validations&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;&lt;span style="color:#aa89ea"&gt;err&lt;/span&gt; &lt;span style="color:#54b1c7"&gt;:=&lt;/span&gt; &lt;span style="color:#aa89ea"&gt;c&lt;/span&gt;&lt;span style="color:#abb2bf"&gt;.&lt;/span&gt;&lt;span style="color:#00b1f7"&gt;Create&lt;/span&gt;&lt;span style="color:#abb2bf"&gt;(&lt;/span&gt;&lt;span style="color:#aa89ea"&gt;fruit&lt;/span&gt;&lt;span style="color:#abb2bf"&gt;)&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+&lt;/div&gt;
+&lt;/div&gt;&lt;h3 id="with-validation-有验证"&gt;With validation 有验证&lt;/h3&gt;
+&lt;div class="highlight"&gt;&lt;div style="color:#b0c4de;background-color:#282c34;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"&gt;
+&lt;table style="border-spacing:0;padding:0;margin:0;border:0;"&gt;&lt;tr&gt;&lt;td style="vertical-align:top;padding:0;margin:0;border:0;"&gt;
+&lt;pre tabindex="0" style="color:#b0c4de;background-color:#282c34;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"&gt;&lt;code&gt;&lt;span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#58626f"&gt;1
+&lt;/span&gt;&lt;span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#58626f"&gt;2
+&lt;/span&gt;&lt;span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#58626f"&gt;3
+&lt;/span&gt;&lt;span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#58626f"&gt;4
+&lt;/span&gt;&lt;span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#58626f"&gt;5
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
+&lt;td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%"&gt;
+&lt;pre tabindex="0" style="color:#b0c4de;background-color:#282c34;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"&gt;&lt;code class="language-go" data-lang="go"&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;&lt;span style="color:#aa89ea"&gt;c&lt;/span&gt;&lt;span style="color:#abb2bf"&gt;,&lt;/span&gt; &lt;span style="color:#aa89ea"&gt;err&lt;/span&gt; &lt;span style="color:#54b1c7"&gt;:=&lt;/span&gt; &lt;span style="color:#aa89ea"&gt;pop&lt;/span&gt;&lt;span style="color:#abb2bf"&gt;.&lt;/span&gt;&lt;span style="color:#00b1f7"&gt;Connect&lt;/span&gt;&lt;span style="color:#abb2bf"&gt;(&lt;/span&gt;&lt;span style="color:#98c379"&gt;&amp;#34;development&amp;#34;&lt;/span&gt;&lt;span style="color:#abb2bf"&gt;)&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;&lt;span style="color:#8a93a5;font-style:italic"&gt;// [...]&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;&lt;span style="color:#aa89ea"&gt;fruit&lt;/span&gt; &lt;span style="color:#54b1c7"&gt;:=&lt;/span&gt; &lt;span style="color:#54b1c7"&gt;&amp;amp;&lt;/span&gt;&lt;span style="color:#aa89ea"&gt;models&lt;/span&gt;&lt;span style="color:#abb2bf"&gt;.&lt;/span&gt;&lt;span style="color:#aa89ea"&gt;Fruit&lt;/span&gt;&lt;span style="color:#abb2bf"&gt;{}&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;&lt;span style="color:#8a93a5;font-style:italic"&gt;// Run validations and create if all validations passed&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;&lt;span style="color:#aa89ea"&gt;vErrors&lt;/span&gt;&lt;span style="color:#abb2bf"&gt;,&lt;/span&gt; &lt;span style="color:#aa89ea"&gt;err&lt;/span&gt; &lt;span style="color:#54b1c7"&gt;:=&lt;/span&gt; &lt;span style="color:#aa89ea"&gt;c&lt;/span&gt;&lt;span style="color:#abb2bf"&gt;.&lt;/span&gt;&lt;span style="color:#00b1f7"&gt;ValidateAndCreate&lt;/span&gt;&lt;span style="color:#abb2bf"&gt;(&lt;/span&gt;&lt;span style="color:#aa89ea"&gt;fruit&lt;/span&gt;&lt;span style="color:#abb2bf"&gt;)&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+&lt;/div&gt;
+&lt;/div&gt;&lt;h2 id="update-更新"&gt;Update 更新&lt;/h2&gt;
+&lt;h3 id="without-validation-无验证-1"&gt;Without validation 无验证&lt;/h3&gt;
+&lt;div class="highlight"&gt;&lt;div style="color:#b0c4de;background-color:#282c34;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"&gt;
+&lt;table style="border-spacing:0;padding:0;margin:0;border:0;"&gt;&lt;tr&gt;&lt;td style="vertical-align:top;padding:0;margin:0;border:0;"&gt;
+&lt;pre tabindex="0" style="color:#b0c4de;background-color:#282c34;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"&gt;&lt;code&gt;&lt;span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#58626f"&gt;1
+&lt;/span&gt;&lt;span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#58626f"&gt;2
+&lt;/span&gt;&lt;span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#58626f"&gt;3
+&lt;/span&gt;&lt;span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#58626f"&gt;4
+&lt;/span&gt;&lt;span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#58626f"&gt;5
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
+&lt;td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%"&gt;
+&lt;pre tabindex="0" style="color:#b0c4de;background-color:#282c34;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"&gt;&lt;code class="language-go" data-lang="go"&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;&lt;span style="color:#aa89ea"&gt;c&lt;/span&gt;&lt;span style="color:#abb2bf"&gt;,&lt;/span&gt; &lt;span style="color:#aa89ea"&gt;err&lt;/span&gt; &lt;span style="color:#54b1c7"&gt;:=&lt;/span&gt; &lt;span style="color:#aa89ea"&gt;pop&lt;/span&gt;&lt;span style="color:#abb2bf"&gt;.&lt;/span&gt;&lt;span style="color:#00b1f7"&gt;Connect&lt;/span&gt;&lt;span style="color:#abb2bf"&gt;(&lt;/span&gt;&lt;span style="color:#98c379"&gt;&amp;#34;development&amp;#34;&lt;/span&gt;&lt;span style="color:#abb2bf"&gt;)&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;&lt;span style="color:#8a93a5;font-style:italic"&gt;// [...]&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;&lt;span style="color:#aa89ea"&gt;fruit&lt;/span&gt; &lt;span style="color:#54b1c7"&gt;:=&lt;/span&gt; &lt;span style="color:#54b1c7"&gt;&amp;amp;&lt;/span&gt;&lt;span style="color:#aa89ea"&gt;models&lt;/span&gt;&lt;span style="color:#abb2bf"&gt;.&lt;/span&gt;&lt;span style="color:#aa89ea"&gt;Fruit&lt;/span&gt;&lt;span style="color:#abb2bf"&gt;{}&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;&lt;span style="color:#8a93a5;font-style:italic"&gt;// Update a fruit without running validations&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;&lt;span style="color:#aa89ea"&gt;err&lt;/span&gt; &lt;span style="color:#54b1c7"&gt;:=&lt;/span&gt; &lt;span style="color:#aa89ea"&gt;c&lt;/span&gt;&lt;span style="color:#abb2bf"&gt;.&lt;/span&gt;&lt;span style="color:#00b1f7"&gt;Update&lt;/span&gt;&lt;span style="color:#abb2bf"&gt;(&lt;/span&gt;&lt;span style="color:#aa89ea"&gt;fruit&lt;/span&gt;&lt;span style="color:#abb2bf"&gt;)&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+&lt;/div&gt;
+&lt;/div&gt;&lt;h3 id="with-validation-有验证-1"&gt;With validation 有验证&lt;/h3&gt;
+&lt;div class="highlight"&gt;&lt;div style="color:#b0c4de;background-color:#282c34;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"&gt;
+&lt;table style="border-spacing:0;padding:0;margin:0;border:0;"&gt;&lt;tr&gt;&lt;td style="vertical-align:top;padding:0;margin:0;border:0;"&gt;
+&lt;pre tabindex="0" style="color:#b0c4de;background-color:#282c34;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"&gt;&lt;code&gt;&lt;span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#58626f"&gt;1
+&lt;/span&gt;&lt;span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#58626f"&gt;2
+&lt;/span&gt;&lt;span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#58626f"&gt;3
+&lt;/span&gt;&lt;span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#58626f"&gt;4
+&lt;/span&gt;&lt;span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#58626f"&gt;5
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
+&lt;td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%"&gt;
+&lt;pre tabindex="0" style="color:#b0c4de;background-color:#282c34;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"&gt;&lt;code class="language-go" data-lang="go"&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;&lt;span style="color:#aa89ea"&gt;c&lt;/span&gt;&lt;span style="color:#abb2bf"&gt;,&lt;/span&gt; &lt;span style="color:#aa89ea"&gt;err&lt;/span&gt; &lt;span style="color:#54b1c7"&gt;:=&lt;/span&gt; &lt;span style="color:#aa89ea"&gt;pop&lt;/span&gt;&lt;span style="color:#abb2bf"&gt;.&lt;/span&gt;&lt;span style="color:#00b1f7"&gt;Connect&lt;/span&gt;&lt;span style="color:#abb2bf"&gt;(&lt;/span&gt;&lt;span style="color:#98c379"&gt;&amp;#34;development&amp;#34;&lt;/span&gt;&lt;span style="color:#abb2bf"&gt;)&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;&lt;span style="color:#8a93a5;font-style:italic"&gt;// [...]&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;&lt;span style="color:#aa89ea"&gt;fruit&lt;/span&gt; &lt;span style="color:#54b1c7"&gt;:=&lt;/span&gt; &lt;span style="color:#54b1c7"&gt;&amp;amp;&lt;/span&gt;&lt;span style="color:#aa89ea"&gt;models&lt;/span&gt;&lt;span style="color:#abb2bf"&gt;.&lt;/span&gt;&lt;span style="color:#aa89ea"&gt;Fruit&lt;/span&gt;&lt;span style="color:#abb2bf"&gt;{}&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;&lt;span style="color:#8a93a5;font-style:italic"&gt;// Run validations and update if all validations passed&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;&lt;span style="color:#aa89ea"&gt;vErrors&lt;/span&gt;&lt;span style="color:#abb2bf"&gt;,&lt;/span&gt; &lt;span style="color:#aa89ea"&gt;err&lt;/span&gt; &lt;span style="color:#54b1c7"&gt;:=&lt;/span&gt; &lt;span style="color:#aa89ea"&gt;c&lt;/span&gt;&lt;span style="color:#abb2bf"&gt;.&lt;/span&gt;&lt;span style="color:#00b1f7"&gt;ValidateAndUpdate&lt;/span&gt;&lt;span style="color:#abb2bf"&gt;(&lt;/span&gt;&lt;span style="color:#aa89ea"&gt;fruit&lt;/span&gt;&lt;span style="color:#abb2bf"&gt;)&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+&lt;/div&gt;
+&lt;/div&gt;&lt;h2 id="save-保存"&gt;Save 保存&lt;/h2&gt;
+&lt;p&gt;Save checks for the ID in you model: if the ID is the zero value of the type (so for example if it’s an &lt;code&gt;int&lt;/code&gt; and its value is &lt;code&gt;0&lt;/code&gt;), &lt;code&gt;Save&lt;/code&gt; calls &lt;code&gt;Create&lt;/code&gt;. Otherwise, it calls &lt;code&gt;Update&lt;/code&gt;.&lt;/p&gt;</description></item><item><title>查询</title><link>https://before80.github.io/go_docs/buffalo/database/querying/</link><pubDate>Sun, 04 Feb 2024 21:14:28 +0800</pubDate><guid>https://before80.github.io/go_docs/buffalo/database/querying/</guid><description>&lt;blockquote&gt;
+&lt;p&gt;原文：&lt;a href="https://before80.github.io/go_docs/buffalo/database/querying/"&gt;https://gobuffalo.io/documentation/database/querying/&lt;/a&gt;&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;h1 id="querying-查询"&gt;Querying 查询&lt;/h1&gt;
+&lt;p&gt;In this chapter, you’ll learn how to retrieve data from your database using Pop.&lt;/p&gt;
+&lt;p&gt;​	在本章中，您将学习如何使用 Pop 从数据库中检索数据。&lt;/p&gt;
+&lt;h3 id="find-by-id-按-id-查找"&gt;Find By ID 按 ID 查找&lt;/h3&gt;
+&lt;div class="highlight"&gt;&lt;div style="color:#b0c4de;background-color:#282c34;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"&gt;
+&lt;table style="border-spacing:0;padding:0;margin:0;border:0;"&gt;&lt;tr&gt;&lt;td style="vertical-align:top;padding:0;margin:0;border:0;"&gt;
+&lt;pre tabindex="0" style="color:#b0c4de;background-color:#282c34;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"&gt;&lt;code&gt;&lt;span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#58626f"&gt;1
+&lt;/span&gt;&lt;span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#58626f"&gt;2
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
+&lt;td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%"&gt;
+&lt;pre tabindex="0" style="color:#b0c4de;background-color:#282c34;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"&gt;&lt;code class="language-go" data-lang="go"&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;&lt;span style="color:#aa89ea"&gt;user&lt;/span&gt; &lt;span style="color:#54b1c7"&gt;:=&lt;/span&gt; &lt;span style="color:#aa89ea"&gt;User&lt;/span&gt;&lt;span style="color:#abb2bf"&gt;{}&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;&lt;span style="color:#aa89ea"&gt;err&lt;/span&gt; &lt;span style="color:#54b1c7"&gt;:=&lt;/span&gt; &lt;span style="color:#aa89ea"&gt;models&lt;/span&gt;&lt;span style="color:#abb2bf"&gt;.&lt;/span&gt;&lt;span style="color:#aa89ea"&gt;DB&lt;/span&gt;&lt;span style="color:#abb2bf"&gt;.&lt;/span&gt;&lt;span style="color:#00b1f7"&gt;Find&lt;/span&gt;&lt;span style="color:#abb2bf"&gt;(&lt;/span&gt;&lt;span style="color:#54b1c7"&gt;&amp;amp;&lt;/span&gt;&lt;span style="color:#aa89ea"&gt;user&lt;/span&gt;&lt;span style="color:#abb2bf"&gt;,&lt;/span&gt; &lt;span style="color:#aa89ea"&gt;id&lt;/span&gt;&lt;span style="color:#abb2bf"&gt;)&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+&lt;/div&gt;
+&lt;/div&gt;&lt;h3 id="find-all-查找全部"&gt;Find All 查找全部&lt;/h3&gt;
+&lt;div class="highlight"&gt;&lt;div style="color:#b0c4de;background-color:#282c34;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"&gt;
+&lt;table style="border-spacing:0;padding:0;margin:0;border:0;"&gt;&lt;tr&gt;&lt;td style="vertical-align:top;padding:0;margin:0;border:0;"&gt;
+&lt;pre tabindex="0" style="color:#b0c4de;background-color:#282c34;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"&gt;&lt;code&gt;&lt;span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#58626f"&gt;1
+&lt;/span&gt;&lt;span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#58626f"&gt;2
+&lt;/span&gt;&lt;span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#58626f"&gt;3
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
+&lt;td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%"&gt;
+&lt;pre tabindex="0" style="color:#b0c4de;background-color:#282c34;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"&gt;&lt;code class="language-go" data-lang="go"&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;&lt;span style="color:#aa89ea"&gt;users&lt;/span&gt; &lt;span style="color:#54b1c7"&gt;:=&lt;/span&gt; &lt;span style="color:#abb2bf"&gt;[]&lt;/span&gt;&lt;span style="color:#aa89ea"&gt;User&lt;/span&gt;&lt;span style="color:#abb2bf"&gt;{}&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;&lt;span style="color:#aa89ea"&gt;err&lt;/span&gt; &lt;span style="color:#54b1c7"&gt;:=&lt;/span&gt; &lt;span style="color:#aa89ea"&gt;models&lt;/span&gt;&lt;span style="color:#abb2bf"&gt;.&lt;/span&gt;&lt;span style="color:#aa89ea"&gt;DB&lt;/span&gt;&lt;span style="color:#abb2bf"&gt;.&lt;/span&gt;&lt;span style="color:#00b1f7"&gt;All&lt;/span&gt;&lt;span style="color:#abb2bf"&gt;(&lt;/span&gt;&lt;span style="color:#54b1c7"&gt;&amp;amp;&lt;/span&gt;&lt;span style="color:#aa89ea"&gt;users&lt;/span&gt;&lt;span style="color:#abb2bf"&gt;)&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;&lt;span style="color:#aa89ea"&gt;err&lt;/span&gt; &lt;span style="color:#abb2bf"&gt;=&lt;/span&gt; &lt;span style="color:#aa89ea"&gt;models&lt;/span&gt;&lt;span style="color:#abb2bf"&gt;.&lt;/span&gt;&lt;span style="color:#aa89ea"&gt;DB&lt;/span&gt;&lt;span style="color:#abb2bf"&gt;.&lt;/span&gt;&lt;span style="color:#00b1f7"&gt;Where&lt;/span&gt;&lt;span style="color:#abb2bf"&gt;(&lt;/span&gt;&lt;span style="color:#98c379"&gt;&amp;#34;id in (?)&amp;#34;&lt;/span&gt;&lt;span style="color:#abb2bf"&gt;,&lt;/span&gt; &lt;span style="color:#d19a66"&gt;1&lt;/span&gt;&lt;span style="color:#abb2bf"&gt;,&lt;/span&gt; &lt;span style="color:#d19a66"&gt;2&lt;/span&gt;&lt;span style="color:#abb2bf"&gt;,&lt;/span&gt; &lt;span style="color:#d19a66"&gt;3&lt;/span&gt;&lt;span style="color:#abb2bf"&gt;).&lt;/span&gt;&lt;span style="color:#00b1f7"&gt;All&lt;/span&gt;&lt;span style="color:#abb2bf"&gt;(&lt;/span&gt;&lt;span style="color:#54b1c7"&gt;&amp;amp;&lt;/span&gt;&lt;span style="color:#aa89ea"&gt;users&lt;/span&gt;&lt;span style="color:#abb2bf"&gt;)&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+&lt;/div&gt;
+&lt;/div&gt;&lt;h3 id="find-all-with-order-按顺序查找全部"&gt;Find All with Order 按顺序查找全部&lt;/h3&gt;
+&lt;div class="highlight"&gt;&lt;div style="color:#b0c4de;background-color:#282c34;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"&gt;
+&lt;table style="border-spacing:0;padding:0;margin:0;border:0;"&gt;&lt;tr&gt;&lt;td style="vertical-align:top;padding:0;margin:0;border:0;"&gt;
+&lt;pre tabindex="0" style="color:#b0c4de;background-color:#282c34;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"&gt;&lt;code&gt;&lt;span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#58626f"&gt;1
+&lt;/span&gt;&lt;span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#58626f"&gt;2
+&lt;/span&gt;&lt;span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#58626f"&gt;3
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
+&lt;td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%"&gt;
+&lt;pre tabindex="0" style="color:#b0c4de;background-color:#282c34;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"&gt;&lt;code class="language-go" data-lang="go"&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;&lt;span style="color:#8a93a5;font-style:italic"&gt;// To retrieve records from the database in a specific order, you can use the Order method&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;&lt;span style="color:#aa89ea"&gt;users&lt;/span&gt; &lt;span style="color:#54b1c7"&gt;:=&lt;/span&gt; &lt;span style="color:#abb2bf"&gt;[]&lt;/span&gt;&lt;span style="color:#aa89ea"&gt;User&lt;/span&gt;&lt;span style="color:#abb2bf"&gt;{}&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;&lt;span style="color:#aa89ea"&gt;err&lt;/span&gt; &lt;span style="color:#54b1c7"&gt;:=&lt;/span&gt; &lt;span style="color:#aa89ea"&gt;models&lt;/span&gt;&lt;span style="color:#abb2bf"&gt;.&lt;/span&gt;&lt;span style="color:#aa89ea"&gt;DB&lt;/span&gt;&lt;span style="color:#abb2bf"&gt;.&lt;/span&gt;&lt;span style="color:#00b1f7"&gt;Order&lt;/span&gt;&lt;span style="color:#abb2bf"&gt;(&lt;/span&gt;&lt;span style="color:#98c379"&gt;&amp;#34;id desc&amp;#34;&lt;/span&gt;&lt;span style="color:#abb2bf"&gt;).&lt;/span&gt;&lt;span style="color:#00b1f7"&gt;All&lt;/span&gt;&lt;span style="color:#abb2bf"&gt;(&lt;/span&gt;&lt;span style="color:#54b1c7"&gt;&amp;amp;&lt;/span&gt;&lt;span style="color:#aa89ea"&gt;users&lt;/span&gt;&lt;span style="color:#abb2bf"&gt;)&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+&lt;/div&gt;
+&lt;/div&gt;&lt;h3 id="find-last-查找最后一条"&gt;Find Last 查找最后一条&lt;/h3&gt;
+&lt;div class="highlight"&gt;&lt;div style="color:#b0c4de;background-color:#282c34;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"&gt;
+&lt;table style="border-spacing:0;padding:0;margin:0;border:0;"&gt;&lt;tr&gt;&lt;td style="vertical-align:top;padding:0;margin:0;border:0;"&gt;
+&lt;pre tabindex="0" style="color:#b0c4de;background-color:#282c34;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"&gt;&lt;code&gt;&lt;span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#58626f"&gt;1
+&lt;/span&gt;&lt;span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#58626f"&gt;2
+&lt;/span&gt;&lt;span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#58626f"&gt;3
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
+&lt;td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%"&gt;
+&lt;pre tabindex="0" style="color:#b0c4de;background-color:#282c34;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"&gt;&lt;code class="language-go" data-lang="go"&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;&lt;span style="color:#8a93a5;font-style:italic"&gt;// Last() orders by created_at&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;&lt;span style="color:#aa89ea"&gt;user&lt;/span&gt; &lt;span style="color:#54b1c7"&gt;:=&lt;/span&gt; &lt;span style="color:#aa89ea"&gt;models&lt;/span&gt;&lt;span style="color:#abb2bf"&gt;.&lt;/span&gt;&lt;span style="color:#aa89ea"&gt;User&lt;/span&gt;&lt;span style="color:#abb2bf"&gt;{}&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;&lt;span style="color:#aa89ea"&gt;err&lt;/span&gt; &lt;span style="color:#54b1c7"&gt;:=&lt;/span&gt; &lt;span style="color:#aa89ea"&gt;tx&lt;/span&gt;&lt;span style="color:#abb2bf"&gt;.&lt;/span&gt;&lt;span style="color:#00b1f7"&gt;Last&lt;/span&gt;&lt;span style="color:#abb2bf"&gt;(&lt;/span&gt;&lt;span style="color:#54b1c7"&gt;&amp;amp;&lt;/span&gt;&lt;span style="color:#aa89ea"&gt;user&lt;/span&gt;&lt;span style="color:#abb2bf"&gt;)&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+&lt;/div&gt;
+&lt;/div&gt;&lt;h3 id="find-where-按条件查找"&gt;Find Where 按条件查找&lt;/h3&gt;
+&lt;div class="highlight"&gt;&lt;div style="color:#b0c4de;background-color:#282c34;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"&gt;
+&lt;table style="border-spacing:0;padding:0;margin:0;border:0;"&gt;&lt;tr&gt;&lt;td style="vertical-align:top;padding:0;margin:0;border:0;"&gt;
+&lt;pre tabindex="0" style="color:#b0c4de;background-color:#282c34;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"&gt;&lt;code&gt;&lt;span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#58626f"&gt;1
+&lt;/span&gt;&lt;span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#58626f"&gt;2
+&lt;/span&gt;&lt;span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#58626f"&gt;3
+&lt;/span&gt;&lt;span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#58626f"&gt;4
+&lt;/span&gt;&lt;span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#58626f"&gt;5
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
+&lt;td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%"&gt;
+&lt;pre tabindex="0" style="color:#b0c4de;background-color:#282c34;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"&gt;&lt;code class="language-go" data-lang="go"&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;&lt;span style="color:#aa89ea"&gt;users&lt;/span&gt; &lt;span style="color:#54b1c7"&gt;:=&lt;/span&gt; &lt;span style="color:#abb2bf"&gt;[]&lt;/span&gt;&lt;span style="color:#aa89ea"&gt;models&lt;/span&gt;&lt;span style="color:#abb2bf"&gt;.&lt;/span&gt;&lt;span style="color:#aa89ea"&gt;User&lt;/span&gt;&lt;span style="color:#abb2bf"&gt;{}&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;&lt;span style="color:#aa89ea"&gt;query&lt;/span&gt; &lt;span style="color:#54b1c7"&gt;:=&lt;/span&gt; &lt;span style="color:#aa89ea"&gt;models&lt;/span&gt;&lt;span style="color:#abb2bf"&gt;.&lt;/span&gt;&lt;span style="color:#aa89ea"&gt;DB&lt;/span&gt;&lt;span style="color:#abb2bf"&gt;.&lt;/span&gt;&lt;span style="color:#00b1f7"&gt;Where&lt;/span&gt;&lt;span style="color:#abb2bf"&gt;(&lt;/span&gt;&lt;span style="color:#98c379"&gt;&amp;#34;id = 1&amp;#34;&lt;/span&gt;&lt;span style="color:#abb2bf"&gt;).&lt;/span&gt;&lt;span style="color:#00b1f7"&gt;Where&lt;/span&gt;&lt;span style="color:#abb2bf"&gt;(&lt;/span&gt;&lt;span style="color:#98c379"&gt;&amp;#34;name = &amp;#39;Mark&amp;#39;&amp;#34;&lt;/span&gt;&lt;span style="color:#abb2bf"&gt;)&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;&lt;span style="color:#aa89ea"&gt;err&lt;/span&gt; &lt;span style="color:#54b1c7"&gt;:=&lt;/span&gt; &lt;span style="color:#aa89ea"&gt;query&lt;/span&gt;&lt;span style="color:#abb2bf"&gt;.&lt;/span&gt;&lt;span style="color:#00b1f7"&gt;All&lt;/span&gt;&lt;span style="color:#abb2bf"&gt;(&lt;/span&gt;&lt;span style="color:#54b1c7"&gt;&amp;amp;&lt;/span&gt;&lt;span style="color:#aa89ea"&gt;users&lt;/span&gt;&lt;span style="color:#abb2bf"&gt;)&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;&lt;span style="color:#aa89ea"&gt;err&lt;/span&gt; &lt;span style="color:#abb2bf"&gt;=&lt;/span&gt; &lt;span style="color:#aa89ea"&gt;tx&lt;/span&gt;&lt;span style="color:#abb2bf"&gt;.&lt;/span&gt;&lt;span style="color:#00b1f7"&gt;Where&lt;/span&gt;&lt;span style="color:#abb2bf"&gt;(&lt;/span&gt;&lt;span style="color:#98c379"&gt;&amp;#34;id in (?)&amp;#34;&lt;/span&gt;&lt;span style="color:#abb2bf"&gt;,&lt;/span&gt; &lt;span style="color:#d19a66"&gt;1&lt;/span&gt;&lt;span style="color:#abb2bf"&gt;,&lt;/span&gt; &lt;span style="color:#d19a66"&gt;2&lt;/span&gt;&lt;span style="color:#abb2bf"&gt;,&lt;/span&gt; &lt;span style="color:#d19a66"&gt;3&lt;/span&gt;&lt;span style="color:#abb2bf"&gt;).&lt;/span&gt;&lt;span style="color:#00b1f7"&gt;All&lt;/span&gt;&lt;span style="color:#abb2bf"&gt;(&lt;/span&gt;&lt;span style="color:#54b1c7"&gt;&amp;amp;&lt;/span&gt;&lt;span style="color:#aa89ea"&gt;users&lt;/span&gt;&lt;span style="color:#abb2bf"&gt;)&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+&lt;/div&gt;
+&lt;/div&gt;&lt;h3 id="using-in-queries-使用-in-查询--遗憾的是由于各种原因您无法在同一个-调用中同时使用-in-查询和-查询"&gt;Using &lt;code&gt;in&lt;/code&gt; Queries 使用 &lt;code&gt;in&lt;/code&gt; 查询 # 遗憾的是，由于各种原因，您无法在同一个 调用中同时使用 &lt;code&gt;in&lt;/code&gt; 查询和 查询。&lt;/h3&gt;
+&lt;div class="highlight"&gt;&lt;div style="color:#b0c4de;background-color:#282c34;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"&gt;
+&lt;table style="border-spacing:0;padding:0;margin:0;border:0;"&gt;&lt;tr&gt;&lt;td style="vertical-align:top;padding:0;margin:0;border:0;"&gt;
+&lt;pre tabindex="0" style="color:#b0c4de;background-color:#282c34;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"&gt;&lt;code&gt;&lt;span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#58626f"&gt;1
+&lt;/span&gt;&lt;span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#58626f"&gt;2
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
+&lt;td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%"&gt;
+&lt;pre tabindex="0" style="color:#b0c4de;background-color:#282c34;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"&gt;&lt;code class="language-go" data-lang="go"&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;&lt;span style="color:#aa89ea"&gt;err&lt;/span&gt; &lt;span style="color:#abb2bf"&gt;=&lt;/span&gt; &lt;span style="color:#aa89ea"&gt;models&lt;/span&gt;&lt;span style="color:#abb2bf"&gt;.&lt;/span&gt;&lt;span style="color:#aa89ea"&gt;DB&lt;/span&gt;&lt;span style="color:#abb2bf"&gt;.&lt;/span&gt;&lt;span style="color:#00b1f7"&gt;Where&lt;/span&gt;&lt;span style="color:#abb2bf"&gt;(&lt;/span&gt;&lt;span style="color:#98c379"&gt;&amp;#34;id in (?)&amp;#34;&lt;/span&gt;&lt;span style="color:#abb2bf"&gt;,&lt;/span&gt; &lt;span style="color:#d19a66"&gt;1&lt;/span&gt;&lt;span style="color:#abb2bf"&gt;,&lt;/span&gt; &lt;span style="color:#d19a66"&gt;2&lt;/span&gt;&lt;span style="color:#abb2bf"&gt;,&lt;/span&gt; &lt;span style="color:#d19a66"&gt;3&lt;/span&gt;&lt;span style="color:#abb2bf"&gt;).&lt;/span&gt;&lt;span style="color:#00b1f7"&gt;All&lt;/span&gt;&lt;span style="color:#abb2bf"&gt;(&lt;/span&gt;&lt;span style="color:#54b1c7"&gt;&amp;amp;&lt;/span&gt;&lt;span style="color:#aa89ea"&gt;users&lt;/span&gt;&lt;span style="color:#abb2bf"&gt;)&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;&lt;span style="color:#aa89ea"&gt;err&lt;/span&gt; &lt;span style="color:#abb2bf"&gt;=&lt;/span&gt; &lt;span style="color:#aa89ea"&gt;models&lt;/span&gt;&lt;span style="color:#abb2bf"&gt;.&lt;/span&gt;&lt;span style="color:#aa89ea"&gt;DB&lt;/span&gt;&lt;span style="color:#abb2bf"&gt;.&lt;/span&gt;&lt;span style="color:#00b1f7"&gt;Where&lt;/span&gt;&lt;span style="color:#abb2bf"&gt;(&lt;/span&gt;&lt;span style="color:#98c379"&gt;&amp;#34;id in (?)&amp;#34;&lt;/span&gt;&lt;span style="color:#abb2bf"&gt;,&lt;/span&gt; &lt;span style="color:#d19a66"&gt;1&lt;/span&gt;&lt;span style="color:#abb2bf"&gt;,&lt;/span&gt; &lt;span style="color:#d19a66"&gt;2&lt;/span&gt;&lt;span style="color:#abb2bf"&gt;,&lt;/span&gt; &lt;span style="color:#d19a66"&gt;3&lt;/span&gt;&lt;span style="color:#abb2bf"&gt;).&lt;/span&gt;&lt;span style="color:#00b1f7"&gt;Where&lt;/span&gt;&lt;span style="color:#abb2bf"&gt;(&lt;/span&gt;&lt;span style="color:#98c379"&gt;&amp;#34;foo = ?&amp;#34;&lt;/span&gt;&lt;span style="color:#abb2bf"&gt;,&lt;/span&gt; &lt;span style="color:#98c379"&gt;&amp;#34;bar&amp;#34;&lt;/span&gt;&lt;span style="color:#abb2bf"&gt;).&lt;/span&gt;&lt;span style="color:#00b1f7"&gt;All&lt;/span&gt;&lt;span style="color:#abb2bf"&gt;(&lt;/span&gt;&lt;span style="color:#54b1c7"&gt;&amp;amp;&lt;/span&gt;&lt;span style="color:#aa89ea"&gt;users&lt;/span&gt;&lt;span style="color:#abb2bf"&gt;)&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+&lt;/div&gt;
+&lt;/div&gt;&lt;p&gt;Unfortunately, for a variety of reasons you can’t use an &lt;code&gt;and&lt;/code&gt; query in the same &lt;code&gt;Where&lt;/code&gt; call as an &lt;code&gt;in&lt;/code&gt; query.&lt;/p&gt;</description></item><item><title>原生查询</title><link>https://before80.github.io/go_docs/buffalo/database/rawQueries/</link><pubDate>Sun, 04 Feb 2024 21:14:42 +0800</pubDate><guid>https://before80.github.io/go_docs/buffalo/database/rawQueries/</guid><description>&lt;blockquote&gt;
+&lt;p&gt;原文：&lt;a href="https://before80.github.io/go_docs/buffalo/database/rawQueries/"&gt;https://gobuffalo.io/documentation/database/raw-queries/&lt;/a&gt;&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;h1 id="raw-queries-原始查询"&gt;Raw Queries 原始查询&lt;/h1&gt;
+&lt;p&gt;Sometimes you’ll need to write a custom query instead of letting Pop generate it for you. In this chapter, you’ll learn how to write raw SQL queries using Pop.&lt;/p&gt;
+&lt;p&gt;​	有时，您需要编写自定义查询，而不是让 Pop 为您生成查询。在本章中，您将学习如何使用 Pop 编写原始 SQL 查询。&lt;/p&gt;</description></item><item><title>回调</title><link>https://before80.github.io/go_docs/buffalo/database/callbacks/</link><pubDate>Sun, 04 Feb 2024 21:14:52 +0800</pubDate><guid>https://before80.github.io/go_docs/buffalo/database/callbacks/</guid><description>&lt;blockquote&gt;
+&lt;p&gt;原文：&lt;a href="https://before80.github.io/go_docs/buffalo/database/callbacks/"&gt;https://gobuffalo.io/documentation/database/callbacks/&lt;/a&gt;&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;h1 id="callbacks-回调"&gt;Callbacks 回调&lt;/h1&gt;
+&lt;p&gt;Pop provides a means to execute code before and after database operations. This is done by defining specific methods for your models.&lt;/p&gt;
+&lt;p&gt;​	Pop 提供了一种在数据库操作之前和之后执行代码的方法。这是通过为您的模型定义特定方法来完成的。&lt;/p&gt;</description></item><item><title>作用域</title><link>https://before80.github.io/go_docs/buffalo/database/scoping/</link><pubDate>Sun, 04 Feb 2024 21:15:01 +0800</pubDate><guid>https://before80.github.io/go_docs/buffalo/database/scoping/</guid><description>&lt;blockquote&gt;
+&lt;p&gt;原文：&lt;a href="https://before80.github.io/go_docs/buffalo/database/scoping/"&gt;https://gobuffalo.io/documentation/database/scoping/&lt;/a&gt;&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;h1 id="scoping-作用域"&gt;Scoping 作用域&lt;/h1&gt;
+&lt;p&gt;Scoping is a way to structure your DB calls, when it needs the same “base” query. Let’s say you want to create a book store: the store provides books for everyone, but some special editions are reserved to customers with a registered account. It means that for the whole store, you’ll need to filter the books, so the “guest” customers can only see the restricted list of books.&lt;/p&gt;</description></item><item><title>关联和关系</title><link>https://before80.github.io/go_docs/buffalo/database/associationsAndRelationships/</link><pubDate>Sun, 04 Feb 2024 21:15:20 +0800</pubDate><guid>https://before80.github.io/go_docs/buffalo/database/associationsAndRelationships/</guid><description>&lt;blockquote&gt;
+&lt;p&gt;原文：&lt;a href="https://before80.github.io/go_docs/buffalo/database/associationsAndRelationships/"&gt;https://gobuffalo.io/documentation/database/relations/&lt;/a&gt;&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;h1 id="associations-and-relationships-关联和关系"&gt;Associations and Relationships 关联和关系&lt;/h1&gt;
+&lt;p&gt;Associations are the Pop way to define &lt;strong&gt;a relation between two objects in the database&lt;/strong&gt;. In this chapter, you’ll learn how to define associations using struct tags; and how to manipulate them with the &lt;code&gt;Eager()&lt;/code&gt; modifier.&lt;/p&gt;
+&lt;p&gt;​	关联是定义数据库中两个对象之间关系的流行方式。在本章中，您将学习如何使用结构体标签定义关联；以及如何使用 &lt;code&gt;Eager()&lt;/code&gt; 修饰符操作它们。&lt;/p&gt;</description></item><item><title>一对一关联</title><link>https://before80.github.io/go_docs/buffalo/database/oneToOneAssociations/</link><pubDate>Sun, 04 Feb 2024 21:15:39 +0800</pubDate><guid>https://before80.github.io/go_docs/buffalo/database/oneToOneAssociations/</guid><description>&lt;blockquote&gt;
+&lt;p&gt;原文：&lt;a href="https://before80.github.io/go_docs/buffalo/database/oneToOneAssociations/"&gt;https://gobuffalo.io/documentation/database/relations-one-to-one/&lt;/a&gt;&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;h1 id="one-to-one-associations-一对一关联"&gt;One to One Associations 一对一关联&lt;/h1&gt;
+&lt;p&gt;In this chapter, you’ll learn how to write a one to one &lt;a href="https://before80.github.io/go_docs/buffalo/database/associationsAndRelationships/"&gt;association&lt;/a&gt; in Pop.&lt;/p&gt;
+&lt;p&gt;​	在本章中，您将学习如何在 Pop 中编写一对一关联。&lt;/p&gt;
+&lt;h2 id="tags-标签"&gt;Tags 标签&lt;/h2&gt;
+&lt;p&gt;One to one associations work using a pair of tags:&lt;/p&gt;
+&lt;p&gt;​	一对一关联使用一对标签：&lt;/p&gt;</description></item><item><title>一对多关联</title><link>https://before80.github.io/go_docs/buffalo/database/oneToManyAssociations/</link><pubDate>Sun, 04 Feb 2024 21:15:49 +0800</pubDate><guid>https://before80.github.io/go_docs/buffalo/database/oneToManyAssociations/</guid><description>&lt;blockquote&gt;
+&lt;p&gt;原文：&lt;a href="https://before80.github.io/go_docs/buffalo/database/oneToManyAssociations/"&gt;https://gobuffalo.io/documentation/database/relations-one-to-many/&lt;/a&gt;&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;h1 id="one-to-many-associations-一对多关联"&gt;One to Many Associations 一对多关联&lt;/h1&gt;
+&lt;p&gt;In this chapter, you’ll learn how to write a one to many &lt;a href="https://before80.github.io/go_docs/buffalo/database/associationsAndRelationships/"&gt;association&lt;/a&gt; in Pop.&lt;/p&gt;
+&lt;p&gt;​	在本章中，您将学习如何在 Pop 中编写一对多关联。&lt;/p&gt;
+&lt;h2 id="tags-标签"&gt;Tags 标签&lt;/h2&gt;
+&lt;p&gt;One to many associations work using a pair of tags:&lt;/p&gt;
+&lt;p&gt;​	一对多关联使用一对标签：&lt;/p&gt;</description></item></channel></rss>

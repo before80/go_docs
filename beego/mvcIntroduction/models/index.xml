@@ -1,319 +1,335 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>模型 on Go 中文档集</title><link>https://before80.github.io/go_docs/beego/mvcIntroduction/models/</link><description>Recent content in 模型 on Go 中文档集</description><generator>Hugo</generator><language>zh-cn</language><lastBuildDate>Thu, 10 Oct 2024 15:07:50 +0800</lastBuildDate><atom:link href="https://before80.github.io/go_docs/beego/mvcIntroduction/models/index.xml" rel="self" type="application/rss+xml"/><item><title>overview</title><link>https://before80.github.io/go_docs/beego/mvcIntroduction/models/overview/</link><pubDate>Sun, 04 Feb 2024 09:59:56 +0800</pubDate><guid>https://before80.github.io/go_docs/beego/mvcIntroduction/models/overview/</guid><description>&lt;blockquote>
-&lt;p>原文：&lt;a href="https://before80.github.io/go_docs/beego/mvcIntroduction/models/overview/">https://beego.wiki/docs/mvc/model/overview/&lt;/a>&lt;/p>&lt;/blockquote>
-&lt;h1 id="overview-概述">Overview 概述&lt;a class="td-heading-self-link" href="#overview-%e6%a6%82%e8%bf%b0" aria-label="Heading self-link">&lt;/a>&lt;/h1>
-&lt;h2 id="models--beego-orm-模型--beego-orm">Models － Beego ORM 模型 － Beego ORM&lt;a class="td-heading-self-link" href="#models--beego-orm-%e6%a8%a1%e5%9e%8b--beego-orm" aria-label="Heading self-link">&lt;/a>&lt;/h2>
-&lt;p>Beego ORM is a powerful ORM framework written in Go. It is inspired by Django ORM and SQLAlchemy.&lt;/p>
-&lt;p>​	Beego ORM 是一个用 Go 编写的功能强大的 ORM 框架。它受到 Django ORM 和 SQLAlchemy 的启发。&lt;/p></description></item><item><title>ORM 用法</title><link>https://before80.github.io/go_docs/beego/mvcIntroduction/models/ormUsage/</link><pubDate>Sun, 04 Feb 2024 10:00:11 +0800</pubDate><guid>https://before80.github.io/go_docs/beego/mvcIntroduction/models/ormUsage/</guid><description>&lt;blockquote>
-&lt;p>原文：&lt;a href="https://before80.github.io/go_docs/beego/mvcIntroduction/models/ormUsage/">https://beego.wiki/docs/mvc/model/orm/&lt;/a>&lt;/p>&lt;/blockquote>
-&lt;h1 id="orm-usage---orm-用法">ORM Usage - ORM 用法&lt;a class="td-heading-self-link" href="#orm-usage---orm-%e7%94%a8%e6%b3%95" aria-label="Heading self-link">&lt;/a>&lt;/h1>
-&lt;h2 id="orm-usage-orm-用法">ORM Usage ORM 用法&lt;a class="td-heading-self-link" href="#orm-usage-orm-%e7%94%a8%e6%b3%95" aria-label="Heading self-link">&lt;/a>&lt;/h2>
-&lt;p>An example of beego/orm is set out below.&lt;/p>
-&lt;p>​	下面列出了 beego/orm 的一个示例。&lt;/p>
-&lt;p>All the code samples in this section are based on this example unless otherwise stated.&lt;/p>
-&lt;p>​	除非另有说明，本节中的所有代码示例均基于此示例。&lt;/p></description></item><item><title>CRUD 操作</title><link>https://before80.github.io/go_docs/beego/mvcIntroduction/models/crudOperations/</link><pubDate>Sun, 04 Feb 2024 10:00:25 +0800</pubDate><guid>https://before80.github.io/go_docs/beego/mvcIntroduction/models/crudOperations/</guid><description>&lt;blockquote>
-&lt;p>原文：&lt;a href="https://before80.github.io/go_docs/beego/mvcIntroduction/models/crudOperations/">https://beego.wiki/docs/mvc/model/object/&lt;/a>&lt;/p>&lt;/blockquote>
-&lt;h1 id="crud-operations----crud-操作">CRUD Operations - CRUD 操作&lt;a class="td-heading-self-link" href="#crud-operations----crud-%e6%93%8d%e4%bd%9c" aria-label="Heading self-link">&lt;/a>&lt;/h1>
-&lt;h2 id="crud-of-object-对象的-crud">CRUD of Object 对象的 CRUD&lt;a class="td-heading-self-link" href="#crud-of-object-%e5%af%b9%e8%b1%a1%e7%9a%84-crud" aria-label="Heading self-link">&lt;/a>&lt;/h2>
-&lt;p>If the value of the primary key is already known, &lt;code>Read&lt;/code>, &lt;code>Insert&lt;/code>, &lt;code>Update&lt;/code>, &lt;code>Delete&lt;/code> can be used to manipulate the object.&lt;/p>
-&lt;p>​	如果主键的值已知， &lt;code>Read&lt;/code> 、 &lt;code>Insert&lt;/code> 、 &lt;code>Update&lt;/code> 、 &lt;code>Delete&lt;/code> 可用于操作对象。&lt;/p>
-&lt;div class="highlight">&lt;div style="color:#b0c4de;background-color:#282c34;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">
-&lt;table style="border-spacing:0;padding:0;margin:0;border:0;">&lt;tr>&lt;td style="vertical-align:top;padding:0;margin:0;border:0;">
-&lt;pre tabindex="0" style="color:#b0c4de;background-color:#282c34;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code>&lt;span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#58626f"> 1
-&lt;/span>&lt;span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#58626f"> 2
-&lt;/span>&lt;span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#58626f"> 3
-&lt;/span>&lt;span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#58626f"> 4
-&lt;/span>&lt;span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#58626f"> 5
-&lt;/span>&lt;span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#58626f"> 6
-&lt;/span>&lt;span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#58626f"> 7
-&lt;/span>&lt;span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#58626f"> 8
-&lt;/span>&lt;span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#58626f"> 9
-&lt;/span>&lt;span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#58626f">10
-&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
-&lt;td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
-&lt;pre tabindex="0" style="color:#b0c4de;background-color:#282c34;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-go" data-lang="go">&lt;span style="display:flex;">&lt;span>&lt;span style="color:#aa89ea">o&lt;/span> &lt;span style="color:#54b1c7">:=&lt;/span> &lt;span style="color:#aa89ea">orm&lt;/span>&lt;span style="color:#abb2bf">.&lt;/span>&lt;span style="color:#00b1f7">NewOrm&lt;/span>&lt;span style="color:#abb2bf">()&lt;/span>
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#aa89ea">user&lt;/span> &lt;span style="color:#54b1c7">:=&lt;/span> &lt;span style="color:#e5c07b">new&lt;/span>&lt;span style="color:#abb2bf">(&lt;/span>&lt;span style="color:#aa89ea">User&lt;/span>&lt;span style="color:#abb2bf">)&lt;/span>
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#aa89ea">user&lt;/span>&lt;span style="color:#abb2bf">.&lt;/span>&lt;span style="color:#aa89ea">Name&lt;/span> &lt;span style="color:#abb2bf">=&lt;/span> &lt;span style="color:#98c379">&amp;#34;slene&amp;#34;&lt;/span>
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#aa89ea">fmt&lt;/span>&lt;span style="color:#abb2bf">.&lt;/span>&lt;span style="color:#00b1f7">Println&lt;/span>&lt;span style="color:#abb2bf">(&lt;/span>&lt;span style="color:#aa89ea">o&lt;/span>&lt;span style="color:#abb2bf">.&lt;/span>&lt;span style="color:#00b1f7">Insert&lt;/span>&lt;span style="color:#abb2bf">(&lt;/span>&lt;span style="color:#aa89ea">user&lt;/span>&lt;span style="color:#abb2bf">))&lt;/span>
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#aa89ea">user&lt;/span>&lt;span style="color:#abb2bf">.&lt;/span>&lt;span style="color:#aa89ea">Name&lt;/span> &lt;span style="color:#abb2bf">=&lt;/span> &lt;span style="color:#98c379">&amp;#34;Your&amp;#34;&lt;/span>
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#aa89ea">fmt&lt;/span>&lt;span style="color:#abb2bf">.&lt;/span>&lt;span style="color:#00b1f7">Println&lt;/span>&lt;span style="color:#abb2bf">(&lt;/span>&lt;span style="color:#aa89ea">o&lt;/span>&lt;span style="color:#abb2bf">.&lt;/span>&lt;span style="color:#00b1f7">Update&lt;/span>&lt;span style="color:#abb2bf">(&lt;/span>&lt;span style="color:#aa89ea">user&lt;/span>&lt;span style="color:#abb2bf">))&lt;/span>
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#aa89ea">fmt&lt;/span>&lt;span style="color:#abb2bf">.&lt;/span>&lt;span style="color:#00b1f7">Println&lt;/span>&lt;span style="color:#abb2bf">(&lt;/span>&lt;span style="color:#aa89ea">o&lt;/span>&lt;span style="color:#abb2bf">.&lt;/span>&lt;span style="color:#00b1f7">Read&lt;/span>&lt;span style="color:#abb2bf">(&lt;/span>&lt;span style="color:#aa89ea">user&lt;/span>&lt;span style="color:#abb2bf">))&lt;/span>
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#aa89ea">fmt&lt;/span>&lt;span style="color:#abb2bf">.&lt;/span>&lt;span style="color:#00b1f7">Println&lt;/span>&lt;span style="color:#abb2bf">(&lt;/span>&lt;span style="color:#aa89ea">o&lt;/span>&lt;span style="color:#abb2bf">.&lt;/span>&lt;span style="color:#00b1f7">Delete&lt;/span>&lt;span style="color:#abb2bf">(&lt;/span>&lt;span style="color:#aa89ea">user&lt;/span>&lt;span style="color:#abb2bf">))&lt;/span>
-&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
-&lt;/div>
-&lt;/div>&lt;p>To query the object by conditions see &lt;a href="https://beego.wiki/docs/mvc/model/object/query.md#all">Query in advance&lt;/a>&lt;/p></description></item><item><title>高级查询</title><link>https://before80.github.io/go_docs/beego/mvcIntroduction/models/advancedQueries/</link><pubDate>Sun, 04 Feb 2024 10:00:41 +0800</pubDate><guid>https://before80.github.io/go_docs/beego/mvcIntroduction/models/advancedQueries/</guid><description>&lt;blockquote>
-&lt;p>原文：&lt;a href="https://before80.github.io/go_docs/beego/mvcIntroduction/models/advancedQueries/">https://beego.wiki/docs/mvc/model/query/&lt;/a>&lt;/p>&lt;/blockquote>
-&lt;h1 id="advanced-queries-高级查询">Advanced Queries 高级查询&lt;a class="td-heading-self-link" href="#advanced-queries-%e9%ab%98%e7%ba%a7%e6%9f%a5%e8%af%a2" aria-label="Heading self-link">&lt;/a>&lt;/h1>
-&lt;h2 id="advanced-queries-高级查询-1">Advanced Queries 高级查询&lt;a class="td-heading-self-link" href="#advanced-queries-%e9%ab%98%e7%ba%a7%e6%9f%a5%e8%af%a2-1" aria-label="Heading self-link">&lt;/a>&lt;/h2>
-&lt;p>ORM uses &lt;strong>QuerySeter&lt;/strong> to organize queries. Every method that returns &lt;strong>QuerySeter&lt;/strong> will give you a new &lt;strong>QuerySeter&lt;/strong> object.&lt;/p>
-&lt;p>​	ORM 使用 QuerySeter 来组织查询。每个返回 QuerySeter 的方法都会给你一个新的 QuerySeter 对象。&lt;/p></description></item><item><title>使用原生 SQL 查询</title><link>https://before80.github.io/go_docs/beego/mvcIntroduction/models/rawSQLToQuery/</link><pubDate>Sun, 04 Feb 2024 10:00:58 +0800</pubDate><guid>https://before80.github.io/go_docs/beego/mvcIntroduction/models/rawSQLToQuery/</guid><description>&lt;blockquote>
-&lt;p>原文：&lt;a href="https://before80.github.io/go_docs/beego/mvcIntroduction/models/rawSQLToQuery/">https://beego.wiki/docs/mvc/model/rawsql/&lt;/a>&lt;/p>&lt;/blockquote>
-&lt;h1 id="raw-sql-to-query-使用-raw-sql-查询">Raw SQL to query 使用 Raw SQL 查询&lt;a class="td-heading-self-link" href="#raw-sql-to-query-%e4%bd%bf%e7%94%a8-raw-sql-%e6%9f%a5%e8%af%a2" aria-label="Heading self-link">&lt;/a>&lt;/h1>
-&lt;h2 id="raw-sql-to-query-查询原始-sql">Raw SQL to query 查询原始 SQL&lt;a class="td-heading-self-link" href="#raw-sql-to-query-%e6%9f%a5%e8%af%a2%e5%8e%9f%e5%a7%8b-sql" aria-label="Heading self-link">&lt;/a>&lt;/h2>
-&lt;ul>
-&lt;li>Using Raw SQL to query doesn’t require an ORM definition
-使用 Raw SQL 查询不需要 ORM 定义&lt;/li>
-&lt;li>Multiple databases support &lt;code>?&lt;/code> as placeholders and auto convert.
-多个数据库支持 &lt;code>?&lt;/code> 作为占位符并自动转换。&lt;/li>
-&lt;li>The params of query support Model Struct, Slice and Array
-查询的参数支持模型结构、切片和数组&lt;/li>
-&lt;/ul>
-&lt;div class="highlight">&lt;div style="color:#b0c4de;background-color:#282c34;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">
-&lt;table style="border-spacing:0;padding:0;margin:0;border:0;">&lt;tr>&lt;td style="vertical-align:top;padding:0;margin:0;border:0;">
-&lt;pre tabindex="0" style="color:#b0c4de;background-color:#282c34;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code>&lt;span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#58626f">1
-&lt;/span>&lt;span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#58626f">2
-&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
-&lt;td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
-&lt;pre tabindex="0" style="color:#b0c4de;background-color:#282c34;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-go" data-lang="go">&lt;span style="display:flex;">&lt;span>&lt;span style="color:#aa89ea">ids&lt;/span> &lt;span style="color:#54b1c7">:=&lt;/span> &lt;span style="color:#abb2bf">[]&lt;/span>&lt;span style="color:#e5c07b">int&lt;/span>&lt;span style="color:#abb2bf">{&lt;/span>&lt;span style="color:#d19a66">1&lt;/span>&lt;span style="color:#abb2bf">,&lt;/span> &lt;span style="color:#d19a66">2&lt;/span>&lt;span style="color:#abb2bf">,&lt;/span> &lt;span style="color:#d19a66">3&lt;/span>&lt;span style="color:#abb2bf">}&lt;/span>
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#aa89ea">p&lt;/span>&lt;span style="color:#abb2bf">.&lt;/span>&lt;span style="color:#00b1f7">Raw&lt;/span>&lt;span style="color:#abb2bf">(&lt;/span>&lt;span style="color:#98c379">&amp;#34;SELECT name FROM user WHERE id IN (?, ?, ?)&amp;#34;&lt;/span>&lt;span style="color:#abb2bf">,&lt;/span> &lt;span style="color:#aa89ea">ids&lt;/span>&lt;span style="color:#abb2bf">)&lt;/span>
-&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
-&lt;/div>
-&lt;/div>&lt;p>Create a &lt;strong>RawSeter&lt;/strong>&lt;/p></description></item><item><title>查询构建器</title><link>https://before80.github.io/go_docs/beego/mvcIntroduction/models/queryBuilder/</link><pubDate>Sun, 04 Feb 2024 10:01:16 +0800</pubDate><guid>https://before80.github.io/go_docs/beego/mvcIntroduction/models/queryBuilder/</guid><description>&lt;blockquote>
-&lt;p>原文：&lt;a href="https://before80.github.io/go_docs/beego/mvcIntroduction/models/queryBuilder/">https://beego.wiki/docs/mvc/model/querybuilder/&lt;/a>&lt;/p>&lt;/blockquote>
-&lt;h1 id="query-builder-查询构建器">Query Builder 查询构建器&lt;a class="td-heading-self-link" href="#query-builder-%e6%9f%a5%e8%af%a2%e6%9e%84%e5%bb%ba%e5%99%a8" aria-label="Heading self-link">&lt;/a>&lt;/h1>
-&lt;h2 id="query-builder-查询生成器">Query Builder 查询生成器&lt;a class="td-heading-self-link" href="#query-builder-%e6%9f%a5%e8%af%a2%e7%94%9f%e6%88%90%e5%99%a8" aria-label="Heading self-link">&lt;/a>&lt;/h2>
-&lt;p>&lt;strong>QueryBuilder&lt;/strong> provides an API for convenient and fluent construction of SQL queries. It consists of a set of methods enabling developers to easily construct SQL queries without compromising readability.&lt;/p>
-&lt;p>​	QueryBuilder 提供了一个 API，用于方便且流畅地构建 SQL 查询。它由一组方法组成，使开发人员能够轻松构建 SQL 查询，而不会影响可读性。&lt;/p></description></item><item><title>事务</title><link>https://before80.github.io/go_docs/beego/mvcIntroduction/models/transaction/</link><pubDate>Sun, 04 Feb 2024 10:01:37 +0800</pubDate><guid>https://before80.github.io/go_docs/beego/mvcIntroduction/models/transaction/</guid><description>&lt;blockquote>
-&lt;p>原文：&lt;a href="https://before80.github.io/go_docs/beego/mvcIntroduction/models/transaction/">https://beego.wiki/docs/mvc/model/transaction/&lt;/a>&lt;/p>&lt;/blockquote>
-&lt;h1 id="transaction-事务">Transaction 事务&lt;a class="td-heading-self-link" href="#transaction-%e4%ba%8b%e5%8a%a1" aria-label="Heading self-link">&lt;/a>&lt;/h1>
-&lt;h2 id="transaction-事务-1">Transaction 事务&lt;a class="td-heading-self-link" href="#transaction-%e4%ba%8b%e5%8a%a1-1" aria-label="Heading self-link">&lt;/a>&lt;/h2>
-&lt;p>There are two ways to handle transaction in Beego. One is closure:&lt;/p>
-&lt;p>​	在 Beego 中有两种处理事务的方法。一种是闭包：&lt;/p>
-&lt;div class="highlight">&lt;div style="color:#b0c4de;background-color:#282c34;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">
-&lt;table style="border-spacing:0;padding:0;margin:0;border:0;">&lt;tr>&lt;td style="vertical-align:top;padding:0;margin:0;border:0;">
-&lt;pre tabindex="0" style="color:#b0c4de;background-color:#282c34;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code>&lt;span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#58626f"> 1
-&lt;/span>&lt;span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#58626f"> 2
-&lt;/span>&lt;span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#58626f"> 3
-&lt;/span>&lt;span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#58626f"> 4
-&lt;/span>&lt;span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#58626f"> 5
-&lt;/span>&lt;span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#58626f"> 6
-&lt;/span>&lt;span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#58626f"> 7
-&lt;/span>&lt;span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#58626f"> 8
-&lt;/span>&lt;span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#58626f"> 9
-&lt;/span>&lt;span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#58626f">10
-&lt;/span>&lt;span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#58626f">11
-&lt;/span>&lt;span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#58626f">12
-&lt;/span>&lt;span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#58626f">13
-&lt;/span>&lt;span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#58626f">14
-&lt;/span>&lt;span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#58626f">15
-&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
-&lt;td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
-&lt;pre tabindex="0" style="color:#b0c4de;background-color:#282c34;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-go" data-lang="go">&lt;span style="display:flex;">&lt;span>&lt;span style="color:#8a93a5;font-style:italic">// Beego will manage the transaction&amp;#39;s lifecycle&lt;/span>
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#8a93a5;font-style:italic">// if the @param task return error, the transaction will be rollback&lt;/span>
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#8a93a5;font-style:italic">// or the transaction will be committed&lt;/span>
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#aa89ea">err&lt;/span> &lt;span style="color:#54b1c7">:=&lt;/span> &lt;span style="color:#aa89ea">o&lt;/span>&lt;span style="color:#abb2bf">.&lt;/span>&lt;span style="color:#00b1f7">DoTx&lt;/span>&lt;span style="color:#abb2bf">(&lt;/span>&lt;span style="color:#76a9f9">func&lt;/span>&lt;span style="color:#abb2bf">(&lt;/span>&lt;span style="color:#aa89ea">ctx&lt;/span> &lt;span style="color:#aa89ea">context&lt;/span>&lt;span style="color:#abb2bf">.&lt;/span>&lt;span style="color:#aa89ea">Context&lt;/span>&lt;span style="color:#abb2bf">,&lt;/span> &lt;span style="color:#aa89ea">txOrm&lt;/span> &lt;span style="color:#aa89ea">orm&lt;/span>&lt;span style="color:#abb2bf">.&lt;/span>&lt;span style="color:#aa89ea">TxOrmer&lt;/span>&lt;span style="color:#abb2bf">)&lt;/span> &lt;span style="color:#e5c07b">error&lt;/span> &lt;span style="color:#abb2bf">{&lt;/span>
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>	&lt;span style="color:#8a93a5;font-style:italic">// data&lt;/span>
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>	&lt;span style="color:#aa89ea">user&lt;/span> &lt;span style="color:#54b1c7">:=&lt;/span> &lt;span style="color:#e5c07b">new&lt;/span>&lt;span style="color:#abb2bf">(&lt;/span>&lt;span style="color:#aa89ea">User&lt;/span>&lt;span style="color:#abb2bf">)&lt;/span>
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>	&lt;span style="color:#aa89ea">user&lt;/span>&lt;span style="color:#abb2bf">.&lt;/span>&lt;span style="color:#aa89ea">Name&lt;/span> &lt;span style="color:#abb2bf">=&lt;/span> &lt;span style="color:#98c379">&amp;#34;test_transaction&amp;#34;&lt;/span>
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>	&lt;span style="color:#8a93a5;font-style:italic">// insert data&lt;/span>
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>	&lt;span style="color:#8a93a5;font-style:italic">// Using txOrm to execute SQL&lt;/span>
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>	&lt;span style="color:#aa89ea">_&lt;/span>&lt;span style="color:#abb2bf">,&lt;/span> &lt;span style="color:#aa89ea">e&lt;/span> &lt;span style="color:#54b1c7">:=&lt;/span> &lt;span style="color:#aa89ea">txOrm&lt;/span>&lt;span style="color:#abb2bf">.&lt;/span>&lt;span style="color:#00b1f7">Insert&lt;/span>&lt;span style="color:#abb2bf">(&lt;/span>&lt;span style="color:#aa89ea">user&lt;/span>&lt;span style="color:#abb2bf">)&lt;/span>
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>	&lt;span style="color:#8a93a5;font-style:italic">// if e != nil the transaction will be rollback&lt;/span>
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>	&lt;span style="color:#8a93a5;font-style:italic">// or it will be committed&lt;/span>
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>	&lt;span style="color:#76a9f9">return&lt;/span> &lt;span style="color:#aa89ea">e&lt;/span>
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#abb2bf">})&lt;/span>
-&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
-&lt;/div>
-&lt;/div>&lt;p>In this way, the first parameter is &lt;code>task&lt;/code>, all DB operation should be inside the task.&lt;/p></description></item><item><title>命令行</title><link>https://before80.github.io/go_docs/beego/mvcIntroduction/models/commandLine/</link><pubDate>Sun, 04 Feb 2024 10:02:08 +0800</pubDate><guid>https://before80.github.io/go_docs/beego/mvcIntroduction/models/commandLine/</guid><description>&lt;blockquote>
-&lt;p>原文：&lt;a href="https://before80.github.io/go_docs/beego/mvcIntroduction/models/commandLine/">https://beego.wiki/docs/mvc/model/cmd/&lt;/a>&lt;/p>&lt;/blockquote>
-&lt;h1 id="command-line-命令行">Command Line 命令行&lt;a class="td-heading-self-link" href="#command-line-%e5%91%bd%e4%bb%a4%e8%a1%8c" aria-label="Heading self-link">&lt;/a>&lt;/h1>
-&lt;h2 id="command-line-命令行-1">Command Line 命令行&lt;a class="td-heading-self-link" href="#command-line-%e5%91%bd%e4%bb%a4%e8%a1%8c-1" aria-label="Heading self-link">&lt;/a>&lt;/h2>
-&lt;p>You can call &lt;code>orm.RunCommand()&lt;/code> after you registered models and database(s) as follows:&lt;/p>
-&lt;p>​	在注册模型和数据库后，您可以按如下方式调用 &lt;code>orm.RunCommand()&lt;/code> ：&lt;/p>
-&lt;div class="highlight">&lt;div style="color:#b0c4de;background-color:#282c34;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">
-&lt;table style="border-spacing:0;padding:0;margin:0;border:0;">&lt;tr>&lt;td style="vertical-align:top;padding:0;margin:0;border:0;">
-&lt;pre tabindex="0" style="color:#b0c4de;background-color:#282c34;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code>&lt;span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#58626f"> 1
-&lt;/span>&lt;span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#58626f"> 2
-&lt;/span>&lt;span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#58626f"> 3
-&lt;/span>&lt;span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#58626f"> 4
-&lt;/span>&lt;span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#58626f"> 5
-&lt;/span>&lt;span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#58626f"> 6
-&lt;/span>&lt;span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#58626f"> 7
-&lt;/span>&lt;span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#58626f"> 8
-&lt;/span>&lt;span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#58626f"> 9
-&lt;/span>&lt;span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#58626f">10
-&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
-&lt;td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
-&lt;pre tabindex="0" style="color:#b0c4de;background-color:#282c34;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-go" data-lang="go">&lt;span style="display:flex;">&lt;span>&lt;span style="color:#76a9f9">func&lt;/span> &lt;span style="color:#00b1f7">main&lt;/span>&lt;span style="color:#abb2bf">()&lt;/span> &lt;span style="color:#abb2bf">{&lt;/span>
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>	&lt;span style="color:#8a93a5;font-style:italic">// orm.RegisterModel...&lt;/span>
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>	&lt;span style="color:#8a93a5;font-style:italic">// orm.RegisterDataBase...&lt;/span>
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>	&lt;span style="color:#54b1c7">...&lt;/span>
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>	&lt;span style="color:#aa89ea">orm&lt;/span>&lt;span style="color:#abb2bf">.&lt;/span>&lt;span style="color:#00b1f7">RunCommand&lt;/span>&lt;span style="color:#abb2bf">()&lt;/span>
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#abb2bf">}&lt;/span>
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#76a9f9">go&lt;/span> &lt;span style="color:#aa89ea">build&lt;/span> &lt;span style="color:#aa89ea">main&lt;/span>&lt;span style="color:#abb2bf">.&lt;/span>&lt;span style="color:#76a9f9">go&lt;/span>
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#abb2bf">.&lt;/span>&lt;span style="color:#54b1c7">/&lt;/span>&lt;span style="color:#aa89ea">main&lt;/span> &lt;span style="color:#aa89ea">orm&lt;/span>
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span># &lt;span style="color:#aa89ea">Get&lt;/span> &lt;span style="color:#aa89ea">help&lt;/span> &lt;span style="color:#aa89ea">by&lt;/span> &lt;span style="color:#aa89ea">just&lt;/span> &lt;span style="color:#aa89ea">run&lt;/span> &lt;span style="color:#aa89ea">it&lt;/span>&lt;span style="color:#abb2bf">.&lt;/span>
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span># &lt;span style="color:#aa89ea">If&lt;/span> &lt;span style="color:#aa89ea">possible&lt;/span>&lt;span style="color:#abb2bf">,&lt;/span> &lt;span style="color:#76a9f9">go&lt;/span> &lt;span style="color:#aa89ea">run&lt;/span> &lt;span style="color:#aa89ea">main&lt;/span>&lt;span style="color:#abb2bf">.&lt;/span>&lt;span style="color:#76a9f9">go&lt;/span> &lt;span style="color:#aa89ea">orm&lt;/span> &lt;span style="color:#aa89ea">has&lt;/span> &lt;span style="color:#aa89ea">the&lt;/span> &lt;span style="color:#aa89ea">same&lt;/span> &lt;span style="color:#aa89ea">result&lt;/span>&lt;span style="color:#abb2bf">.&lt;/span>
-&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
-&lt;/div>
-&lt;/div>&lt;h2 id="database-schema-generation-数据库架构生成">Database Schema Generation 数据库架构生成&lt;a class="td-heading-self-link" href="#database-schema-generation-%e6%95%b0%e6%8d%ae%e5%ba%93%e6%9e%b6%e6%9e%84%e7%94%9f%e6%88%90" aria-label="Heading self-link">&lt;/a>&lt;/h2>
-&lt;div class="highlight">&lt;div style="color:#b0c4de;background-color:#282c34;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">
-&lt;table style="border-spacing:0;padding:0;margin:0;border:0;">&lt;tr>&lt;td style="vertical-align:top;padding:0;margin:0;border:0;">
-&lt;pre tabindex="0" style="color:#b0c4de;background-color:#282c34;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code>&lt;span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#58626f">1
-&lt;/span>&lt;span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#58626f">2
-&lt;/span>&lt;span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#58626f">3
-&lt;/span>&lt;span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#58626f">4
-&lt;/span>&lt;span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#58626f">5
-&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
-&lt;td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
-&lt;pre tabindex="0" style="color:#b0c4de;background-color:#282c34;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-bash" data-lang="bash">&lt;span style="display:flex;">&lt;span>./main orm syncdb -h
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>Usage of orm command: syncdb:
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> -db&lt;span style="color:#54b1c7">=&lt;/span>&lt;span style="color:#63c381">&amp;#34;default&amp;#34;&lt;/span>: DataBase &lt;span style="color:#e5c07b">alias&lt;/span>
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> -force&lt;span style="color:#54b1c7">=&lt;/span>false: drop tables before create
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> -v&lt;span style="color:#54b1c7">=&lt;/span>false: verbose info
-&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
-&lt;/div>
-&lt;/div>&lt;p>Use the &lt;code>-force=1&lt;/code> flag to force drop tables and re-create.&lt;/p></description></item><item><title>模型定义</title><link>https://before80.github.io/go_docs/beego/mvcIntroduction/models/modelDefinition/</link><pubDate>Sun, 04 Feb 2024 10:01:55 +0800</pubDate><guid>https://before80.github.io/go_docs/beego/mvcIntroduction/models/modelDefinition/</guid><description>&lt;blockquote>
-&lt;p>原文：&lt;a href="https://before80.github.io/go_docs/beego/mvcIntroduction/models/modelDefinition/">https://beego.wiki/docs/mvc/model/models/&lt;/a>&lt;/p>&lt;/blockquote>
-&lt;h1 id="model-definition-模型定义">Model Definition 模型定义&lt;a class="td-heading-self-link" href="#model-definition-%e6%a8%a1%e5%9e%8b%e5%ae%9a%e4%b9%89" aria-label="Heading self-link">&lt;/a>&lt;/h1>
-&lt;h2 id="model-definition-模型定义-1">Model Definition 模型定义&lt;a class="td-heading-self-link" href="#model-definition-%e6%a8%a1%e5%9e%8b%e5%ae%9a%e4%b9%89-1" aria-label="Heading self-link">&lt;/a>&lt;/h2>
-&lt;p>Model names are used for database data conversion and &lt;a href="https://beego.wiki/docs/mvc/model/models/cmd.md#database-schema-generation">Database Schema Generation&lt;/a>&lt;/p>
-&lt;p>​	模型名称用于数据库数据转换和数据库模式生成&lt;/p>
-&lt;h2 id="naming-conventions-命名约定">Naming conventions 命名约定&lt;a class="td-heading-self-link" href="#naming-conventions-%e5%91%bd%e5%90%8d%e7%ba%a6%e5%ae%9a" aria-label="Heading self-link">&lt;/a>&lt;/h2>
-&lt;p>Table name conversion consists in translating camel case used for model names to snake case for table names as follows:&lt;/p></description></item><item><title>测试用例</title><link>https://before80.github.io/go_docs/beego/mvcIntroduction/models/testCases/</link><pubDate>Sun, 04 Feb 2024 10:02:18 +0800</pubDate><guid>https://before80.github.io/go_docs/beego/mvcIntroduction/models/testCases/</guid><description>&lt;blockquote>
-&lt;p>原文：&lt;a href="https://before80.github.io/go_docs/beego/mvcIntroduction/models/testCases/">https://beego.wiki/docs/mvc/model/test/&lt;/a>&lt;/p>&lt;/blockquote>
-&lt;h1 id="test-cases-测试用例">Test Cases 测试用例&lt;a class="td-heading-self-link" href="#test-cases-%e6%b5%8b%e8%af%95%e7%94%a8%e4%be%8b" aria-label="Heading self-link">&lt;/a>&lt;/h1>
-&lt;h2 id="orm-test-orm-测试">ORM Test ORM 测试&lt;a class="td-heading-self-link" href="#orm-test-orm-%e6%b5%8b%e8%af%95" aria-label="Heading self-link">&lt;/a>&lt;/h2>
-&lt;p>Testing code:
-测试代码：&lt;/p>
-&lt;ul>
-&lt;li>Model definition &lt;a href="https://github.com/beego/beego/blob/develop/client/orm/models_test.go">models_test.go&lt;/a>
-模型定义 models_test.go&lt;/li>
-&lt;li>Test cases &lt;a href="https://github.com/beego/beego/blob/develop/client/orm/orm_test.go">orm_test.go&lt;/a>
-测试用例 orm_test.go&lt;/li>
-&lt;/ul>
-&lt;h4 id="mysql">MySQL&lt;a class="td-heading-self-link" href="#mysql" aria-label="Heading self-link">&lt;/a>&lt;/h4>
-&lt;div class="highlight">&lt;div style="color:#b0c4de;background-color:#282c34;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">
-&lt;table style="border-spacing:0;padding:0;margin:0;border:0;">&lt;tr>&lt;td style="vertical-align:top;padding:0;margin:0;border:0;">
-&lt;pre tabindex="0" style="color:#b0c4de;background-color:#282c34;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code>&lt;span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#58626f">1
-&lt;/span>&lt;span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#58626f">2
-&lt;/span>&lt;span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#58626f">3
-&lt;/span>&lt;span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#58626f">4
-&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
-&lt;td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
-&lt;pre tabindex="0" style="color:#b0c4de;background-color:#282c34;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-bash" data-lang="bash">&lt;span style="display:flex;">&lt;span>mysql -u root -e &lt;span style="color:#98c379">&amp;#39;create database orm_test;&amp;#39;&lt;/span>
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#e5c07b">export&lt;/span> &lt;span style="color:#dcaeea">ORM_DRIVER&lt;/span>&lt;span style="color:#54b1c7">=&lt;/span>mysql
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#e5c07b">export&lt;/span> &lt;span style="color:#dcaeea">ORM_SOURCE&lt;/span>&lt;span style="color:#54b1c7">=&lt;/span>&lt;span style="color:#63c381">&amp;#34;root:@/orm_test?charset=utf8&amp;#34;&lt;/span>
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>go &lt;span style="color:#e5c07b">test&lt;/span> -v github.com/beego/beego/v2/core/client/orm
-&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
-&lt;/div>
-&lt;/div>&lt;h4 id="sqlite3">Sqlite3&lt;a class="td-heading-self-link" href="#sqlite3" aria-label="Heading self-link">&lt;/a>&lt;/h4>
-&lt;div class="highlight">&lt;div style="color:#b0c4de;background-color:#282c34;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">
-&lt;table style="border-spacing:0;padding:0;margin:0;border:0;">&lt;tr>&lt;td style="vertical-align:top;padding:0;margin:0;border:0;">
-&lt;pre tabindex="0" style="color:#b0c4de;background-color:#282c34;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code>&lt;span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#58626f">1
-&lt;/span>&lt;span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#58626f">2
-&lt;/span>&lt;span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#58626f">3
-&lt;/span>&lt;span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#58626f">4
-&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
-&lt;td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
-&lt;pre tabindex="0" style="color:#b0c4de;background-color:#282c34;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-bash" data-lang="bash">&lt;span style="display:flex;">&lt;span>touch /path/to/orm_test.db
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#e5c07b">export&lt;/span> &lt;span style="color:#dcaeea">ORM_DRIVER&lt;/span>&lt;span style="color:#54b1c7">=&lt;/span>sqlite3
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#e5c07b">export&lt;/span> &lt;span style="color:#dcaeea">ORM_SOURCE&lt;/span>&lt;span style="color:#54b1c7">=&lt;/span>/path/to/orm_test.db
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>go &lt;span style="color:#e5c07b">test&lt;/span> -v github.com/beego/beego/v2/core/client/orm
-&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
-&lt;/div>
-&lt;/div>&lt;h4 id="postgresql">PostgreSQL&lt;a class="td-heading-self-link" href="#postgresql" aria-label="Heading self-link">&lt;/a>&lt;/h4>
-&lt;div class="highlight">&lt;div style="color:#b0c4de;background-color:#282c34;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">
-&lt;table style="border-spacing:0;padding:0;margin:0;border:0;">&lt;tr>&lt;td style="vertical-align:top;padding:0;margin:0;border:0;">
-&lt;pre tabindex="0" style="color:#b0c4de;background-color:#282c34;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code>&lt;span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#58626f">1
-&lt;/span>&lt;span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#58626f">2
-&lt;/span>&lt;span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#58626f">3
-&lt;/span>&lt;span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#58626f">4
-&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
-&lt;td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
-&lt;pre tabindex="0" style="color:#b0c4de;background-color:#282c34;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-bash" data-lang="bash">&lt;span style="display:flex;">&lt;span>psql -c &lt;span style="color:#98c379">&amp;#39;create database orm_test;&amp;#39;&lt;/span> -U postgres
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#e5c07b">export&lt;/span> &lt;span style="color:#dcaeea">ORM_DRIVER&lt;/span>&lt;span style="color:#54b1c7">=&lt;/span>postgres
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#e5c07b">export&lt;/span> &lt;span style="color:#dcaeea">ORM_SOURCE&lt;/span>&lt;span style="color:#54b1c7">=&lt;/span>&lt;span style="color:#63c381">&amp;#34;user=postgres dbname=orm_test sslmode=disable&amp;#34;&lt;/span>
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>go &lt;span style="color:#e5c07b">test&lt;/span> -v github.com/beego/beego/v2/core/client/orm
-&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
-&lt;/div>
-&lt;/div></description></item><item><title>自定义字段</title><link>https://before80.github.io/go_docs/beego/mvcIntroduction/models/customFileds/</link><pubDate>Sun, 04 Feb 2024 10:02:31 +0800</pubDate><guid>https://before80.github.io/go_docs/beego/mvcIntroduction/models/customFileds/</guid><description>&lt;blockquote>
-&lt;p>原文：&lt;a href="https://before80.github.io/go_docs/beego/mvcIntroduction/models/customFileds/">https://beego.wiki/docs/mvc/model/custom_fields/&lt;/a>&lt;/p>&lt;/blockquote>
-&lt;h1 id="custom-fields-自定义字段">Custom Fields 自定义字段&lt;a class="td-heading-self-link" href="#custom-fields-%e8%87%aa%e5%ae%9a%e4%b9%89%e5%ad%97%e6%ae%b5" aria-label="Heading self-link">&lt;/a>&lt;/h1>
-&lt;h2 id="custom-fields-自定义字段-1">Custom Fields 自定义字段&lt;a class="td-heading-self-link" href="#custom-fields-%e8%87%aa%e5%ae%9a%e4%b9%89%e5%ad%97%e6%ae%b5-1" aria-label="Heading self-link">&lt;/a>&lt;/h2>
-&lt;div class="highlight">&lt;div style="color:#b0c4de;background-color:#282c34;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">
-&lt;table style="border-spacing:0;padding:0;margin:0;border:0;">&lt;tr>&lt;td style="vertical-align:top;padding:0;margin:0;border:0;">
-&lt;pre tabindex="0" style="color:#b0c4de;background-color:#282c34;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code>&lt;span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#58626f"> 1
-&lt;/span>&lt;span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#58626f"> 2
-&lt;/span>&lt;span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#58626f"> 3
-&lt;/span>&lt;span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#58626f"> 4
-&lt;/span>&lt;span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#58626f"> 5
-&lt;/span>&lt;span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#58626f"> 6
-&lt;/span>&lt;span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#58626f"> 7
-&lt;/span>&lt;span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#58626f"> 8
-&lt;/span>&lt;span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#58626f"> 9
-&lt;/span>&lt;span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#58626f">10
-&lt;/span>&lt;span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#58626f">11
-&lt;/span>&lt;span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#58626f">12
-&lt;/span>&lt;span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#58626f">13
-&lt;/span>&lt;span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#58626f">14
-&lt;/span>&lt;span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#58626f">15
-&lt;/span>&lt;span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#58626f">16
-&lt;/span>&lt;span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#58626f">17
-&lt;/span>&lt;span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#58626f">18
-&lt;/span>&lt;span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#58626f">19
-&lt;/span>&lt;span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#58626f">20
-&lt;/span>&lt;span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#58626f">21
-&lt;/span>&lt;span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#58626f">22
-&lt;/span>&lt;span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#58626f">23
-&lt;/span>&lt;span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#58626f">24
-&lt;/span>&lt;span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#58626f">25
-&lt;/span>&lt;span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#58626f">26
-&lt;/span>&lt;span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#58626f">27
-&lt;/span>&lt;span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#58626f">28
-&lt;/span>&lt;span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#58626f">29
-&lt;/span>&lt;span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#58626f">30
-&lt;/span>&lt;span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#58626f">31
-&lt;/span>&lt;span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#58626f">32
-&lt;/span>&lt;span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#58626f">33
-&lt;/span>&lt;span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#58626f">34
-&lt;/span>&lt;span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#58626f">35
-&lt;/span>&lt;span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#58626f">36
-&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
-&lt;td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
-&lt;pre tabindex="0" style="color:#b0c4de;background-color:#282c34;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-go" data-lang="go">&lt;span style="display:flex;">&lt;span>&lt;span style="color:#aa89ea">TypeBooleanField&lt;/span> &lt;span style="color:#abb2bf">=&lt;/span> &lt;span style="color:#d19a66">1&lt;/span> &lt;span style="color:#54b1c7">&amp;lt;&amp;lt;&lt;/span> &lt;span style="color:#e5c07b">iota&lt;/span>
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#8a93a5;font-style:italic">// string&lt;/span>
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#aa89ea">TypeCharField&lt;/span>
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#8a93a5;font-style:italic">// string&lt;/span>
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#aa89ea">TypeTextField&lt;/span>
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#8a93a5;font-style:italic">// time.Time&lt;/span>
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#aa89ea">TypeDateField&lt;/span>
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#8a93a5;font-style:italic">// time.Time&lt;/span>
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#aa89ea">TypeDateTimeField&lt;/span>
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#8a93a5;font-style:italic">// int16&lt;/span>
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#aa89ea">TypeSmallIntegerField&lt;/span>
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#8a93a5;font-style:italic">// int32&lt;/span>
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#aa89ea">TypeIntegerField&lt;/span>
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#8a93a5;font-style:italic">// int64&lt;/span>
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#aa89ea">TypeBigIntegerField&lt;/span>
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#8a93a5;font-style:italic">// uint16&lt;/span>
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#aa89ea">TypePositiveSmallIntegerField&lt;/span>
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#8a93a5;font-style:italic">// uint32&lt;/span>
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#aa89ea">TypePositiveIntegerField&lt;/span>
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#8a93a5;font-style:italic">// uint64&lt;/span>
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#aa89ea">TypePositiveBigIntegerField&lt;/span>
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#8a93a5;font-style:italic">// float64&lt;/span>
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#aa89ea">TypeFloatField&lt;/span>
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#8a93a5;font-style:italic">// float64&lt;/span>
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#aa89ea">TypeDecimalField&lt;/span>
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#aa89ea">RelForeignKey&lt;/span>
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#aa89ea">RelOneToOne&lt;/span>
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#aa89ea">RelManyToMany&lt;/span>
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#aa89ea">RelReverseOne&lt;/span>
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#aa89ea">RelReverseMany&lt;/span>
-&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
-&lt;/div>
-&lt;/div></description></item><item><title>FAQ</title><link>https://before80.github.io/go_docs/beego/mvcIntroduction/models/faq/</link><pubDate>Sun, 04 Feb 2024 10:02:38 +0800</pubDate><guid>https://before80.github.io/go_docs/beego/mvcIntroduction/models/faq/</guid><description>&lt;blockquote>
-&lt;p>原文：&lt;a href="https://before80.github.io/go_docs/beego/mvcIntroduction/models/faq/">https://beego.wiki/docs/mvc/model/faq/&lt;/a>&lt;/p>&lt;/blockquote>
-&lt;h1 id="faq">FAQ&lt;a class="td-heading-self-link" href="#faq" aria-label="Heading self-link">&lt;/a>&lt;/h1>
-&lt;h2 id="faq-1">FAQ&lt;a class="td-heading-self-link" href="#faq-1" aria-label="Heading self-link">&lt;/a>&lt;/h2>
-&lt;p>Q: My application need to support multiple database type. How can I check current database type when I am using Raw SQL?&lt;/p>
-&lt;p>​	问：我的应用程序需要支持多种数据库类型。当我使用原始 SQL 时，如何检查当前数据库类型？&lt;/p></description></item></channel></rss>
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>模型 on Go 中文档集</title><link>https://before80.github.io/go_docs/beego/mvcIntroduction/models/</link><description>Recent content in 模型 on Go 中文档集</description><generator>Hugo</generator><language>zh-cn</language><lastBuildDate>Thu, 10 Oct 2024 15:07:50 +0800</lastBuildDate><atom:link href="https://before80.github.io/go_docs/beego/mvcIntroduction/models/index.xml" rel="self" type="application/rss+xml"/><item><title>overview</title><link>https://before80.github.io/go_docs/beego/mvcIntroduction/models/overview/</link><pubDate>Sun, 04 Feb 2024 09:59:56 +0800</pubDate><guid>https://before80.github.io/go_docs/beego/mvcIntroduction/models/overview/</guid><description>&lt;blockquote&gt;
+&lt;p&gt;原文：&lt;a href="https://before80.github.io/go_docs/beego/mvcIntroduction/models/overview/"&gt;https://beego.wiki/docs/mvc/model/overview/&lt;/a&gt;&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;h1 id="overview-概述"&gt;Overview 概述&lt;/h1&gt;
+&lt;h2 id="models--beego-orm-模型--beego-orm"&gt;Models － Beego ORM 模型 － Beego ORM&lt;/h2&gt;
+&lt;p&gt;Beego ORM is a powerful ORM framework written in Go. It is inspired by Django ORM and SQLAlchemy.&lt;/p&gt;
+&lt;p&gt;​	Beego ORM 是一个用 Go 编写的功能强大的 ORM 框架。它受到 Django ORM 和 SQLAlchemy 的启发。&lt;/p&gt;
+&lt;p&gt;This framework is still under development so compatibility is not guaranteed.&lt;/p&gt;</description></item><item><title>ORM 用法</title><link>https://before80.github.io/go_docs/beego/mvcIntroduction/models/ormUsage/</link><pubDate>Sun, 04 Feb 2024 10:00:11 +0800</pubDate><guid>https://before80.github.io/go_docs/beego/mvcIntroduction/models/ormUsage/</guid><description>&lt;blockquote&gt;
+&lt;p&gt;原文：&lt;a href="https://before80.github.io/go_docs/beego/mvcIntroduction/models/ormUsage/"&gt;https://beego.wiki/docs/mvc/model/orm/&lt;/a&gt;&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;h1 id="orm-usage---orm-用法"&gt;ORM Usage - ORM 用法&lt;/h1&gt;
+&lt;h2 id="orm-usage-orm-用法"&gt;ORM Usage ORM 用法&lt;/h2&gt;
+&lt;p&gt;An example of beego/orm is set out below.&lt;/p&gt;
+&lt;p&gt;​	下面列出了 beego/orm 的一个示例。&lt;/p&gt;
+&lt;p&gt;All the code samples in this section are based on this example unless otherwise stated.&lt;/p&gt;
+&lt;p&gt;​	除非另有说明，本节中的所有代码示例均基于此示例。&lt;/p&gt;</description></item><item><title>CRUD 操作</title><link>https://before80.github.io/go_docs/beego/mvcIntroduction/models/crudOperations/</link><pubDate>Sun, 04 Feb 2024 10:00:25 +0800</pubDate><guid>https://before80.github.io/go_docs/beego/mvcIntroduction/models/crudOperations/</guid><description>&lt;blockquote&gt;
+&lt;p&gt;原文：&lt;a href="https://before80.github.io/go_docs/beego/mvcIntroduction/models/crudOperations/"&gt;https://beego.wiki/docs/mvc/model/object/&lt;/a&gt;&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;h1 id="crud-operations----crud-操作"&gt;CRUD Operations - CRUD 操作&lt;/h1&gt;
+&lt;h2 id="crud-of-object-对象的-crud"&gt;CRUD of Object 对象的 CRUD&lt;/h2&gt;
+&lt;p&gt;If the value of the primary key is already known, &lt;code&gt;Read&lt;/code&gt;, &lt;code&gt;Insert&lt;/code&gt;, &lt;code&gt;Update&lt;/code&gt;, &lt;code&gt;Delete&lt;/code&gt; can be used to manipulate the object.&lt;/p&gt;
+&lt;p&gt;​	如果主键的值已知， &lt;code&gt;Read&lt;/code&gt; 、 &lt;code&gt;Insert&lt;/code&gt; 、 &lt;code&gt;Update&lt;/code&gt; 、 &lt;code&gt;Delete&lt;/code&gt; 可用于操作对象。&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;div style="color:#b0c4de;background-color:#282c34;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"&gt;
+&lt;table style="border-spacing:0;padding:0;margin:0;border:0;"&gt;&lt;tr&gt;&lt;td style="vertical-align:top;padding:0;margin:0;border:0;"&gt;
+&lt;pre tabindex="0" style="color:#b0c4de;background-color:#282c34;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"&gt;&lt;code&gt;&lt;span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#58626f"&gt; 1
+&lt;/span&gt;&lt;span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#58626f"&gt; 2
+&lt;/span&gt;&lt;span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#58626f"&gt; 3
+&lt;/span&gt;&lt;span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#58626f"&gt; 4
+&lt;/span&gt;&lt;span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#58626f"&gt; 5
+&lt;/span&gt;&lt;span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#58626f"&gt; 6
+&lt;/span&gt;&lt;span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#58626f"&gt; 7
+&lt;/span&gt;&lt;span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#58626f"&gt; 8
+&lt;/span&gt;&lt;span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#58626f"&gt; 9
+&lt;/span&gt;&lt;span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#58626f"&gt;10
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
+&lt;td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%"&gt;
+&lt;pre tabindex="0" style="color:#b0c4de;background-color:#282c34;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"&gt;&lt;code class="language-go" data-lang="go"&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;&lt;span style="color:#aa89ea"&gt;o&lt;/span&gt; &lt;span style="color:#54b1c7"&gt;:=&lt;/span&gt; &lt;span style="color:#aa89ea"&gt;orm&lt;/span&gt;&lt;span style="color:#abb2bf"&gt;.&lt;/span&gt;&lt;span style="color:#00b1f7"&gt;NewOrm&lt;/span&gt;&lt;span style="color:#abb2bf"&gt;()&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;&lt;span style="color:#aa89ea"&gt;user&lt;/span&gt; &lt;span style="color:#54b1c7"&gt;:=&lt;/span&gt; &lt;span style="color:#e5c07b"&gt;new&lt;/span&gt;&lt;span style="color:#abb2bf"&gt;(&lt;/span&gt;&lt;span style="color:#aa89ea"&gt;User&lt;/span&gt;&lt;span style="color:#abb2bf"&gt;)&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;&lt;span style="color:#aa89ea"&gt;user&lt;/span&gt;&lt;span style="color:#abb2bf"&gt;.&lt;/span&gt;&lt;span style="color:#aa89ea"&gt;Name&lt;/span&gt; &lt;span style="color:#abb2bf"&gt;=&lt;/span&gt; &lt;span style="color:#98c379"&gt;&amp;#34;slene&amp;#34;&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;&lt;span style="color:#aa89ea"&gt;fmt&lt;/span&gt;&lt;span style="color:#abb2bf"&gt;.&lt;/span&gt;&lt;span style="color:#00b1f7"&gt;Println&lt;/span&gt;&lt;span style="color:#abb2bf"&gt;(&lt;/span&gt;&lt;span style="color:#aa89ea"&gt;o&lt;/span&gt;&lt;span style="color:#abb2bf"&gt;.&lt;/span&gt;&lt;span style="color:#00b1f7"&gt;Insert&lt;/span&gt;&lt;span style="color:#abb2bf"&gt;(&lt;/span&gt;&lt;span style="color:#aa89ea"&gt;user&lt;/span&gt;&lt;span style="color:#abb2bf"&gt;))&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;&lt;span style="color:#aa89ea"&gt;user&lt;/span&gt;&lt;span style="color:#abb2bf"&gt;.&lt;/span&gt;&lt;span style="color:#aa89ea"&gt;Name&lt;/span&gt; &lt;span style="color:#abb2bf"&gt;=&lt;/span&gt; &lt;span style="color:#98c379"&gt;&amp;#34;Your&amp;#34;&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;&lt;span style="color:#aa89ea"&gt;fmt&lt;/span&gt;&lt;span style="color:#abb2bf"&gt;.&lt;/span&gt;&lt;span style="color:#00b1f7"&gt;Println&lt;/span&gt;&lt;span style="color:#abb2bf"&gt;(&lt;/span&gt;&lt;span style="color:#aa89ea"&gt;o&lt;/span&gt;&lt;span style="color:#abb2bf"&gt;.&lt;/span&gt;&lt;span style="color:#00b1f7"&gt;Update&lt;/span&gt;&lt;span style="color:#abb2bf"&gt;(&lt;/span&gt;&lt;span style="color:#aa89ea"&gt;user&lt;/span&gt;&lt;span style="color:#abb2bf"&gt;))&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;&lt;span style="color:#aa89ea"&gt;fmt&lt;/span&gt;&lt;span style="color:#abb2bf"&gt;.&lt;/span&gt;&lt;span style="color:#00b1f7"&gt;Println&lt;/span&gt;&lt;span style="color:#abb2bf"&gt;(&lt;/span&gt;&lt;span style="color:#aa89ea"&gt;o&lt;/span&gt;&lt;span style="color:#abb2bf"&gt;.&lt;/span&gt;&lt;span style="color:#00b1f7"&gt;Read&lt;/span&gt;&lt;span style="color:#abb2bf"&gt;(&lt;/span&gt;&lt;span style="color:#aa89ea"&gt;user&lt;/span&gt;&lt;span style="color:#abb2bf"&gt;))&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;&lt;span style="color:#aa89ea"&gt;fmt&lt;/span&gt;&lt;span style="color:#abb2bf"&gt;.&lt;/span&gt;&lt;span style="color:#00b1f7"&gt;Println&lt;/span&gt;&lt;span style="color:#abb2bf"&gt;(&lt;/span&gt;&lt;span style="color:#aa89ea"&gt;o&lt;/span&gt;&lt;span style="color:#abb2bf"&gt;.&lt;/span&gt;&lt;span style="color:#00b1f7"&gt;Delete&lt;/span&gt;&lt;span style="color:#abb2bf"&gt;(&lt;/span&gt;&lt;span style="color:#aa89ea"&gt;user&lt;/span&gt;&lt;span style="color:#abb2bf"&gt;))&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+&lt;/div&gt;
+&lt;/div&gt;&lt;p&gt;To query the object by conditions see &lt;a href="https://beego.wiki/docs/mvc/model/object/query.md#all"&gt;Query in advance&lt;/a&gt;&lt;/p&gt;</description></item><item><title>高级查询</title><link>https://before80.github.io/go_docs/beego/mvcIntroduction/models/advancedQueries/</link><pubDate>Sun, 04 Feb 2024 10:00:41 +0800</pubDate><guid>https://before80.github.io/go_docs/beego/mvcIntroduction/models/advancedQueries/</guid><description>&lt;blockquote&gt;
+&lt;p&gt;原文：&lt;a href="https://before80.github.io/go_docs/beego/mvcIntroduction/models/advancedQueries/"&gt;https://beego.wiki/docs/mvc/model/query/&lt;/a&gt;&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;h1 id="advanced-queries-高级查询"&gt;Advanced Queries 高级查询&lt;/h1&gt;
+&lt;h2 id="advanced-queries-高级查询-1"&gt;Advanced Queries 高级查询&lt;/h2&gt;
+&lt;p&gt;ORM uses &lt;strong&gt;QuerySeter&lt;/strong&gt; to organize queries. Every method that returns &lt;strong&gt;QuerySeter&lt;/strong&gt; will give you a new &lt;strong&gt;QuerySeter&lt;/strong&gt; object.&lt;/p&gt;
+&lt;p&gt;​	ORM 使用 QuerySeter 来组织查询。每个返回 QuerySeter 的方法都会给你一个新的 QuerySeter 对象。&lt;/p&gt;
+&lt;p&gt;Basic Usage:&lt;/p&gt;
+&lt;p&gt;​	基本用法：&lt;/p&gt;</description></item><item><title>使用原生 SQL 查询</title><link>https://before80.github.io/go_docs/beego/mvcIntroduction/models/rawSQLToQuery/</link><pubDate>Sun, 04 Feb 2024 10:00:58 +0800</pubDate><guid>https://before80.github.io/go_docs/beego/mvcIntroduction/models/rawSQLToQuery/</guid><description>&lt;blockquote&gt;
+&lt;p&gt;原文：&lt;a href="https://before80.github.io/go_docs/beego/mvcIntroduction/models/rawSQLToQuery/"&gt;https://beego.wiki/docs/mvc/model/rawsql/&lt;/a&gt;&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;h1 id="raw-sql-to-query-使用-raw-sql-查询"&gt;Raw SQL to query 使用 Raw SQL 查询&lt;/h1&gt;
+&lt;h2 id="raw-sql-to-query-查询原始-sql"&gt;Raw SQL to query 查询原始 SQL&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;Using Raw SQL to query doesn’t require an ORM definition
+使用 Raw SQL 查询不需要 ORM 定义&lt;/li&gt;
+&lt;li&gt;Multiple databases support &lt;code&gt;?&lt;/code&gt; as placeholders and auto convert.
+多个数据库支持 &lt;code&gt;?&lt;/code&gt; 作为占位符并自动转换。&lt;/li&gt;
+&lt;li&gt;The params of query support Model Struct, Slice and Array
+查询的参数支持模型结构、切片和数组&lt;/li&gt;
+&lt;/ul&gt;
+&lt;div class="highlight"&gt;&lt;div style="color:#b0c4de;background-color:#282c34;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"&gt;
+&lt;table style="border-spacing:0;padding:0;margin:0;border:0;"&gt;&lt;tr&gt;&lt;td style="vertical-align:top;padding:0;margin:0;border:0;"&gt;
+&lt;pre tabindex="0" style="color:#b0c4de;background-color:#282c34;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"&gt;&lt;code&gt;&lt;span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#58626f"&gt;1
+&lt;/span&gt;&lt;span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#58626f"&gt;2
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
+&lt;td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%"&gt;
+&lt;pre tabindex="0" style="color:#b0c4de;background-color:#282c34;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"&gt;&lt;code class="language-go" data-lang="go"&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;&lt;span style="color:#aa89ea"&gt;ids&lt;/span&gt; &lt;span style="color:#54b1c7"&gt;:=&lt;/span&gt; &lt;span style="color:#abb2bf"&gt;[]&lt;/span&gt;&lt;span style="color:#e5c07b"&gt;int&lt;/span&gt;&lt;span style="color:#abb2bf"&gt;{&lt;/span&gt;&lt;span style="color:#d19a66"&gt;1&lt;/span&gt;&lt;span style="color:#abb2bf"&gt;,&lt;/span&gt; &lt;span style="color:#d19a66"&gt;2&lt;/span&gt;&lt;span style="color:#abb2bf"&gt;,&lt;/span&gt; &lt;span style="color:#d19a66"&gt;3&lt;/span&gt;&lt;span style="color:#abb2bf"&gt;}&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;&lt;span style="color:#aa89ea"&gt;p&lt;/span&gt;&lt;span style="color:#abb2bf"&gt;.&lt;/span&gt;&lt;span style="color:#00b1f7"&gt;Raw&lt;/span&gt;&lt;span style="color:#abb2bf"&gt;(&lt;/span&gt;&lt;span style="color:#98c379"&gt;&amp;#34;SELECT name FROM user WHERE id IN (?, ?, ?)&amp;#34;&lt;/span&gt;&lt;span style="color:#abb2bf"&gt;,&lt;/span&gt; &lt;span style="color:#aa89ea"&gt;ids&lt;/span&gt;&lt;span style="color:#abb2bf"&gt;)&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+&lt;/div&gt;
+&lt;/div&gt;&lt;p&gt;Create a &lt;strong&gt;RawSeter&lt;/strong&gt;&lt;/p&gt;</description></item><item><title>查询构建器</title><link>https://before80.github.io/go_docs/beego/mvcIntroduction/models/queryBuilder/</link><pubDate>Sun, 04 Feb 2024 10:01:16 +0800</pubDate><guid>https://before80.github.io/go_docs/beego/mvcIntroduction/models/queryBuilder/</guid><description>&lt;blockquote&gt;
+&lt;p&gt;原文：&lt;a href="https://before80.github.io/go_docs/beego/mvcIntroduction/models/queryBuilder/"&gt;https://beego.wiki/docs/mvc/model/querybuilder/&lt;/a&gt;&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;h1 id="query-builder-查询构建器"&gt;Query Builder 查询构建器&lt;/h1&gt;
+&lt;h2 id="query-builder-查询生成器"&gt;Query Builder 查询生成器&lt;/h2&gt;
+&lt;p&gt;&lt;strong&gt;QueryBuilder&lt;/strong&gt; provides an API for convenient and fluent construction of SQL queries. It consists of a set of methods enabling developers to easily construct SQL queries without compromising readability.&lt;/p&gt;
+&lt;p&gt;​	QueryBuilder 提供了一个 API，用于方便且流畅地构建 SQL 查询。它由一组方法组成，使开发人员能够轻松构建 SQL 查询，而不会影响可读性。&lt;/p&gt;</description></item><item><title>事务</title><link>https://before80.github.io/go_docs/beego/mvcIntroduction/models/transaction/</link><pubDate>Sun, 04 Feb 2024 10:01:37 +0800</pubDate><guid>https://before80.github.io/go_docs/beego/mvcIntroduction/models/transaction/</guid><description>&lt;blockquote&gt;
+&lt;p&gt;原文：&lt;a href="https://before80.github.io/go_docs/beego/mvcIntroduction/models/transaction/"&gt;https://beego.wiki/docs/mvc/model/transaction/&lt;/a&gt;&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;h1 id="transaction-事务"&gt;Transaction 事务&lt;/h1&gt;
+&lt;h2 id="transaction-事务-1"&gt;Transaction 事务&lt;/h2&gt;
+&lt;p&gt;There are two ways to handle transaction in Beego. One is closure:&lt;/p&gt;
+&lt;p&gt;​	在 Beego 中有两种处理事务的方法。一种是闭包：&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;div style="color:#b0c4de;background-color:#282c34;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"&gt;
+&lt;table style="border-spacing:0;padding:0;margin:0;border:0;"&gt;&lt;tr&gt;&lt;td style="vertical-align:top;padding:0;margin:0;border:0;"&gt;
+&lt;pre tabindex="0" style="color:#b0c4de;background-color:#282c34;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"&gt;&lt;code&gt;&lt;span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#58626f"&gt; 1
+&lt;/span&gt;&lt;span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#58626f"&gt; 2
+&lt;/span&gt;&lt;span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#58626f"&gt; 3
+&lt;/span&gt;&lt;span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#58626f"&gt; 4
+&lt;/span&gt;&lt;span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#58626f"&gt; 5
+&lt;/span&gt;&lt;span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#58626f"&gt; 6
+&lt;/span&gt;&lt;span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#58626f"&gt; 7
+&lt;/span&gt;&lt;span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#58626f"&gt; 8
+&lt;/span&gt;&lt;span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#58626f"&gt; 9
+&lt;/span&gt;&lt;span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#58626f"&gt;10
+&lt;/span&gt;&lt;span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#58626f"&gt;11
+&lt;/span&gt;&lt;span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#58626f"&gt;12
+&lt;/span&gt;&lt;span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#58626f"&gt;13
+&lt;/span&gt;&lt;span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#58626f"&gt;14
+&lt;/span&gt;&lt;span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#58626f"&gt;15
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
+&lt;td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%"&gt;
+&lt;pre tabindex="0" style="color:#b0c4de;background-color:#282c34;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"&gt;&lt;code class="language-go" data-lang="go"&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;&lt;span style="color:#8a93a5;font-style:italic"&gt;// Beego will manage the transaction&amp;#39;s lifecycle&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;&lt;span style="color:#8a93a5;font-style:italic"&gt;// if the @param task return error, the transaction will be rollback&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;&lt;span style="color:#8a93a5;font-style:italic"&gt;// or the transaction will be committed&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;&lt;span style="color:#aa89ea"&gt;err&lt;/span&gt; &lt;span style="color:#54b1c7"&gt;:=&lt;/span&gt; &lt;span style="color:#aa89ea"&gt;o&lt;/span&gt;&lt;span style="color:#abb2bf"&gt;.&lt;/span&gt;&lt;span style="color:#00b1f7"&gt;DoTx&lt;/span&gt;&lt;span style="color:#abb2bf"&gt;(&lt;/span&gt;&lt;span style="color:#76a9f9"&gt;func&lt;/span&gt;&lt;span style="color:#abb2bf"&gt;(&lt;/span&gt;&lt;span style="color:#aa89ea"&gt;ctx&lt;/span&gt; &lt;span style="color:#aa89ea"&gt;context&lt;/span&gt;&lt;span style="color:#abb2bf"&gt;.&lt;/span&gt;&lt;span style="color:#aa89ea"&gt;Context&lt;/span&gt;&lt;span style="color:#abb2bf"&gt;,&lt;/span&gt; &lt;span style="color:#aa89ea"&gt;txOrm&lt;/span&gt; &lt;span style="color:#aa89ea"&gt;orm&lt;/span&gt;&lt;span style="color:#abb2bf"&gt;.&lt;/span&gt;&lt;span style="color:#aa89ea"&gt;TxOrmer&lt;/span&gt;&lt;span style="color:#abb2bf"&gt;)&lt;/span&gt; &lt;span style="color:#e5c07b"&gt;error&lt;/span&gt; &lt;span style="color:#abb2bf"&gt;{&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;	&lt;span style="color:#8a93a5;font-style:italic"&gt;// data&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;	&lt;span style="color:#aa89ea"&gt;user&lt;/span&gt; &lt;span style="color:#54b1c7"&gt;:=&lt;/span&gt; &lt;span style="color:#e5c07b"&gt;new&lt;/span&gt;&lt;span style="color:#abb2bf"&gt;(&lt;/span&gt;&lt;span style="color:#aa89ea"&gt;User&lt;/span&gt;&lt;span style="color:#abb2bf"&gt;)&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;	&lt;span style="color:#aa89ea"&gt;user&lt;/span&gt;&lt;span style="color:#abb2bf"&gt;.&lt;/span&gt;&lt;span style="color:#aa89ea"&gt;Name&lt;/span&gt; &lt;span style="color:#abb2bf"&gt;=&lt;/span&gt; &lt;span style="color:#98c379"&gt;&amp;#34;test_transaction&amp;#34;&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;	&lt;span style="color:#8a93a5;font-style:italic"&gt;// insert data&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;	&lt;span style="color:#8a93a5;font-style:italic"&gt;// Using txOrm to execute SQL&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;	&lt;span style="color:#aa89ea"&gt;_&lt;/span&gt;&lt;span style="color:#abb2bf"&gt;,&lt;/span&gt; &lt;span style="color:#aa89ea"&gt;e&lt;/span&gt; &lt;span style="color:#54b1c7"&gt;:=&lt;/span&gt; &lt;span style="color:#aa89ea"&gt;txOrm&lt;/span&gt;&lt;span style="color:#abb2bf"&gt;.&lt;/span&gt;&lt;span style="color:#00b1f7"&gt;Insert&lt;/span&gt;&lt;span style="color:#abb2bf"&gt;(&lt;/span&gt;&lt;span style="color:#aa89ea"&gt;user&lt;/span&gt;&lt;span style="color:#abb2bf"&gt;)&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;	&lt;span style="color:#8a93a5;font-style:italic"&gt;// if e != nil the transaction will be rollback&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;	&lt;span style="color:#8a93a5;font-style:italic"&gt;// or it will be committed&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;	&lt;span style="color:#76a9f9"&gt;return&lt;/span&gt; &lt;span style="color:#aa89ea"&gt;e&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;&lt;span style="color:#abb2bf"&gt;})&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+&lt;/div&gt;
+&lt;/div&gt;&lt;p&gt;In this way, the first parameter is &lt;code&gt;task&lt;/code&gt;, all DB operation should be inside the task.&lt;/p&gt;</description></item><item><title>命令行</title><link>https://before80.github.io/go_docs/beego/mvcIntroduction/models/commandLine/</link><pubDate>Sun, 04 Feb 2024 10:02:08 +0800</pubDate><guid>https://before80.github.io/go_docs/beego/mvcIntroduction/models/commandLine/</guid><description>&lt;blockquote&gt;
+&lt;p&gt;原文：&lt;a href="https://before80.github.io/go_docs/beego/mvcIntroduction/models/commandLine/"&gt;https://beego.wiki/docs/mvc/model/cmd/&lt;/a&gt;&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;h1 id="command-line-命令行"&gt;Command Line 命令行&lt;/h1&gt;
+&lt;h2 id="command-line-命令行-1"&gt;Command Line 命令行&lt;/h2&gt;
+&lt;p&gt;You can call &lt;code&gt;orm.RunCommand()&lt;/code&gt; after you registered models and database(s) as follows:&lt;/p&gt;
+&lt;p&gt;​	在注册模型和数据库后，您可以按如下方式调用 &lt;code&gt;orm.RunCommand()&lt;/code&gt; ：&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;div style="color:#b0c4de;background-color:#282c34;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"&gt;
+&lt;table style="border-spacing:0;padding:0;margin:0;border:0;"&gt;&lt;tr&gt;&lt;td style="vertical-align:top;padding:0;margin:0;border:0;"&gt;
+&lt;pre tabindex="0" style="color:#b0c4de;background-color:#282c34;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"&gt;&lt;code&gt;&lt;span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#58626f"&gt; 1
+&lt;/span&gt;&lt;span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#58626f"&gt; 2
+&lt;/span&gt;&lt;span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#58626f"&gt; 3
+&lt;/span&gt;&lt;span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#58626f"&gt; 4
+&lt;/span&gt;&lt;span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#58626f"&gt; 5
+&lt;/span&gt;&lt;span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#58626f"&gt; 6
+&lt;/span&gt;&lt;span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#58626f"&gt; 7
+&lt;/span&gt;&lt;span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#58626f"&gt; 8
+&lt;/span&gt;&lt;span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#58626f"&gt; 9
+&lt;/span&gt;&lt;span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#58626f"&gt;10
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
+&lt;td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%"&gt;
+&lt;pre tabindex="0" style="color:#b0c4de;background-color:#282c34;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"&gt;&lt;code class="language-go" data-lang="go"&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;&lt;span style="color:#76a9f9"&gt;func&lt;/span&gt; &lt;span style="color:#00b1f7"&gt;main&lt;/span&gt;&lt;span style="color:#abb2bf"&gt;()&lt;/span&gt; &lt;span style="color:#abb2bf"&gt;{&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;	&lt;span style="color:#8a93a5;font-style:italic"&gt;// orm.RegisterModel...&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;	&lt;span style="color:#8a93a5;font-style:italic"&gt;// orm.RegisterDataBase...&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;	&lt;span style="color:#54b1c7"&gt;...&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;	&lt;span style="color:#aa89ea"&gt;orm&lt;/span&gt;&lt;span style="color:#abb2bf"&gt;.&lt;/span&gt;&lt;span style="color:#00b1f7"&gt;RunCommand&lt;/span&gt;&lt;span style="color:#abb2bf"&gt;()&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;&lt;span style="color:#abb2bf"&gt;}&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;&lt;span style="color:#76a9f9"&gt;go&lt;/span&gt; &lt;span style="color:#aa89ea"&gt;build&lt;/span&gt; &lt;span style="color:#aa89ea"&gt;main&lt;/span&gt;&lt;span style="color:#abb2bf"&gt;.&lt;/span&gt;&lt;span style="color:#76a9f9"&gt;go&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;&lt;span style="color:#abb2bf"&gt;.&lt;/span&gt;&lt;span style="color:#54b1c7"&gt;/&lt;/span&gt;&lt;span style="color:#aa89ea"&gt;main&lt;/span&gt; &lt;span style="color:#aa89ea"&gt;orm&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;# &lt;span style="color:#aa89ea"&gt;Get&lt;/span&gt; &lt;span style="color:#aa89ea"&gt;help&lt;/span&gt; &lt;span style="color:#aa89ea"&gt;by&lt;/span&gt; &lt;span style="color:#aa89ea"&gt;just&lt;/span&gt; &lt;span style="color:#aa89ea"&gt;run&lt;/span&gt; &lt;span style="color:#aa89ea"&gt;it&lt;/span&gt;&lt;span style="color:#abb2bf"&gt;.&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;# &lt;span style="color:#aa89ea"&gt;If&lt;/span&gt; &lt;span style="color:#aa89ea"&gt;possible&lt;/span&gt;&lt;span style="color:#abb2bf"&gt;,&lt;/span&gt; &lt;span style="color:#76a9f9"&gt;go&lt;/span&gt; &lt;span style="color:#aa89ea"&gt;run&lt;/span&gt; &lt;span style="color:#aa89ea"&gt;main&lt;/span&gt;&lt;span style="color:#abb2bf"&gt;.&lt;/span&gt;&lt;span style="color:#76a9f9"&gt;go&lt;/span&gt; &lt;span style="color:#aa89ea"&gt;orm&lt;/span&gt; &lt;span style="color:#aa89ea"&gt;has&lt;/span&gt; &lt;span style="color:#aa89ea"&gt;the&lt;/span&gt; &lt;span style="color:#aa89ea"&gt;same&lt;/span&gt; &lt;span style="color:#aa89ea"&gt;result&lt;/span&gt;&lt;span style="color:#abb2bf"&gt;.&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+&lt;/div&gt;
+&lt;/div&gt;&lt;h2 id="database-schema-generation-数据库架构生成"&gt;Database Schema Generation 数据库架构生成&lt;/h2&gt;
+&lt;div class="highlight"&gt;&lt;div style="color:#b0c4de;background-color:#282c34;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"&gt;
+&lt;table style="border-spacing:0;padding:0;margin:0;border:0;"&gt;&lt;tr&gt;&lt;td style="vertical-align:top;padding:0;margin:0;border:0;"&gt;
+&lt;pre tabindex="0" style="color:#b0c4de;background-color:#282c34;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"&gt;&lt;code&gt;&lt;span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#58626f"&gt;1
+&lt;/span&gt;&lt;span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#58626f"&gt;2
+&lt;/span&gt;&lt;span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#58626f"&gt;3
+&lt;/span&gt;&lt;span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#58626f"&gt;4
+&lt;/span&gt;&lt;span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#58626f"&gt;5
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
+&lt;td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%"&gt;
+&lt;pre tabindex="0" style="color:#b0c4de;background-color:#282c34;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"&gt;&lt;code class="language-bash" data-lang="bash"&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;./main orm syncdb -h
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;Usage of orm command: syncdb:
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; -db&lt;span style="color:#54b1c7"&gt;=&lt;/span&gt;&lt;span style="color:#63c381"&gt;&amp;#34;default&amp;#34;&lt;/span&gt;: DataBase &lt;span style="color:#e5c07b"&gt;alias&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; -force&lt;span style="color:#54b1c7"&gt;=&lt;/span&gt;false: drop tables before create
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; -v&lt;span style="color:#54b1c7"&gt;=&lt;/span&gt;false: verbose info
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+&lt;/div&gt;
+&lt;/div&gt;&lt;p&gt;Use the &lt;code&gt;-force=1&lt;/code&gt; flag to force drop tables and re-create.&lt;/p&gt;</description></item><item><title>模型定义</title><link>https://before80.github.io/go_docs/beego/mvcIntroduction/models/modelDefinition/</link><pubDate>Sun, 04 Feb 2024 10:01:55 +0800</pubDate><guid>https://before80.github.io/go_docs/beego/mvcIntroduction/models/modelDefinition/</guid><description>&lt;blockquote&gt;
+&lt;p&gt;原文：&lt;a href="https://before80.github.io/go_docs/beego/mvcIntroduction/models/modelDefinition/"&gt;https://beego.wiki/docs/mvc/model/models/&lt;/a&gt;&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;h1 id="model-definition-模型定义"&gt;Model Definition 模型定义&lt;/h1&gt;
+&lt;h2 id="model-definition-模型定义-1"&gt;Model Definition 模型定义&lt;/h2&gt;
+&lt;p&gt;Model names are used for database data conversion and &lt;a href="https://beego.wiki/docs/mvc/model/models/cmd.md#database-schema-generation"&gt;Database Schema Generation&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;​	模型名称用于数据库数据转换和数据库模式生成&lt;/p&gt;
+&lt;h2 id="naming-conventions-命名约定"&gt;Naming conventions 命名约定&lt;/h2&gt;
+&lt;p&gt;Table name conversion consists in translating camel case used for model names to snake case for table names as follows:&lt;/p&gt;</description></item><item><title>测试用例</title><link>https://before80.github.io/go_docs/beego/mvcIntroduction/models/testCases/</link><pubDate>Sun, 04 Feb 2024 10:02:18 +0800</pubDate><guid>https://before80.github.io/go_docs/beego/mvcIntroduction/models/testCases/</guid><description>&lt;blockquote&gt;
+&lt;p&gt;原文：&lt;a href="https://before80.github.io/go_docs/beego/mvcIntroduction/models/testCases/"&gt;https://beego.wiki/docs/mvc/model/test/&lt;/a&gt;&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;h1 id="test-cases-测试用例"&gt;Test Cases 测试用例&lt;/h1&gt;
+&lt;h2 id="orm-test-orm-测试"&gt;ORM Test ORM 测试&lt;/h2&gt;
+&lt;p&gt;Testing code:
+测试代码：&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;Model definition &lt;a href="https://github.com/beego/beego/blob/develop/client/orm/models_test.go"&gt;models_test.go&lt;/a&gt;
+模型定义 models_test.go&lt;/li&gt;
+&lt;li&gt;Test cases &lt;a href="https://github.com/beego/beego/blob/develop/client/orm/orm_test.go"&gt;orm_test.go&lt;/a&gt;
+测试用例 orm_test.go&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h4 id="mysql"&gt;MySQL&lt;/h4&gt;
+&lt;div class="highlight"&gt;&lt;div style="color:#b0c4de;background-color:#282c34;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"&gt;
+&lt;table style="border-spacing:0;padding:0;margin:0;border:0;"&gt;&lt;tr&gt;&lt;td style="vertical-align:top;padding:0;margin:0;border:0;"&gt;
+&lt;pre tabindex="0" style="color:#b0c4de;background-color:#282c34;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"&gt;&lt;code&gt;&lt;span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#58626f"&gt;1
+&lt;/span&gt;&lt;span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#58626f"&gt;2
+&lt;/span&gt;&lt;span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#58626f"&gt;3
+&lt;/span&gt;&lt;span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#58626f"&gt;4
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
+&lt;td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%"&gt;
+&lt;pre tabindex="0" style="color:#b0c4de;background-color:#282c34;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"&gt;&lt;code class="language-bash" data-lang="bash"&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;mysql -u root -e &lt;span style="color:#98c379"&gt;&amp;#39;create database orm_test;&amp;#39;&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;&lt;span style="color:#e5c07b"&gt;export&lt;/span&gt; &lt;span style="color:#dcaeea"&gt;ORM_DRIVER&lt;/span&gt;&lt;span style="color:#54b1c7"&gt;=&lt;/span&gt;mysql
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;&lt;span style="color:#e5c07b"&gt;export&lt;/span&gt; &lt;span style="color:#dcaeea"&gt;ORM_SOURCE&lt;/span&gt;&lt;span style="color:#54b1c7"&gt;=&lt;/span&gt;&lt;span style="color:#63c381"&gt;&amp;#34;root:@/orm_test?charset=utf8&amp;#34;&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;go &lt;span style="color:#e5c07b"&gt;test&lt;/span&gt; -v github.com/beego/beego/v2/core/client/orm
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+&lt;/div&gt;
+&lt;/div&gt;&lt;h4 id="sqlite3"&gt;Sqlite3&lt;/h4&gt;
+&lt;div class="highlight"&gt;&lt;div style="color:#b0c4de;background-color:#282c34;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"&gt;
+&lt;table style="border-spacing:0;padding:0;margin:0;border:0;"&gt;&lt;tr&gt;&lt;td style="vertical-align:top;padding:0;margin:0;border:0;"&gt;
+&lt;pre tabindex="0" style="color:#b0c4de;background-color:#282c34;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"&gt;&lt;code&gt;&lt;span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#58626f"&gt;1
+&lt;/span&gt;&lt;span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#58626f"&gt;2
+&lt;/span&gt;&lt;span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#58626f"&gt;3
+&lt;/span&gt;&lt;span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#58626f"&gt;4
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
+&lt;td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%"&gt;
+&lt;pre tabindex="0" style="color:#b0c4de;background-color:#282c34;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"&gt;&lt;code class="language-bash" data-lang="bash"&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;touch /path/to/orm_test.db
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;&lt;span style="color:#e5c07b"&gt;export&lt;/span&gt; &lt;span style="color:#dcaeea"&gt;ORM_DRIVER&lt;/span&gt;&lt;span style="color:#54b1c7"&gt;=&lt;/span&gt;sqlite3
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;&lt;span style="color:#e5c07b"&gt;export&lt;/span&gt; &lt;span style="color:#dcaeea"&gt;ORM_SOURCE&lt;/span&gt;&lt;span style="color:#54b1c7"&gt;=&lt;/span&gt;/path/to/orm_test.db
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;go &lt;span style="color:#e5c07b"&gt;test&lt;/span&gt; -v github.com/beego/beego/v2/core/client/orm
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+&lt;/div&gt;
+&lt;/div&gt;&lt;h4 id="postgresql"&gt;PostgreSQL&lt;/h4&gt;
+&lt;div class="highlight"&gt;&lt;div style="color:#b0c4de;background-color:#282c34;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"&gt;
+&lt;table style="border-spacing:0;padding:0;margin:0;border:0;"&gt;&lt;tr&gt;&lt;td style="vertical-align:top;padding:0;margin:0;border:0;"&gt;
+&lt;pre tabindex="0" style="color:#b0c4de;background-color:#282c34;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"&gt;&lt;code&gt;&lt;span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#58626f"&gt;1
+&lt;/span&gt;&lt;span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#58626f"&gt;2
+&lt;/span&gt;&lt;span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#58626f"&gt;3
+&lt;/span&gt;&lt;span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#58626f"&gt;4
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
+&lt;td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%"&gt;
+&lt;pre tabindex="0" style="color:#b0c4de;background-color:#282c34;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"&gt;&lt;code class="language-bash" data-lang="bash"&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;psql -c &lt;span style="color:#98c379"&gt;&amp;#39;create database orm_test;&amp;#39;&lt;/span&gt; -U postgres
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;&lt;span style="color:#e5c07b"&gt;export&lt;/span&gt; &lt;span style="color:#dcaeea"&gt;ORM_DRIVER&lt;/span&gt;&lt;span style="color:#54b1c7"&gt;=&lt;/span&gt;postgres
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;&lt;span style="color:#e5c07b"&gt;export&lt;/span&gt; &lt;span style="color:#dcaeea"&gt;ORM_SOURCE&lt;/span&gt;&lt;span style="color:#54b1c7"&gt;=&lt;/span&gt;&lt;span style="color:#63c381"&gt;&amp;#34;user=postgres dbname=orm_test sslmode=disable&amp;#34;&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;go &lt;span style="color:#e5c07b"&gt;test&lt;/span&gt; -v github.com/beego/beego/v2/core/client/orm
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+&lt;/div&gt;
+&lt;/div&gt;</description></item><item><title>自定义字段</title><link>https://before80.github.io/go_docs/beego/mvcIntroduction/models/customFileds/</link><pubDate>Sun, 04 Feb 2024 10:02:31 +0800</pubDate><guid>https://before80.github.io/go_docs/beego/mvcIntroduction/models/customFileds/</guid><description>&lt;blockquote&gt;
+&lt;p&gt;原文：&lt;a href="https://before80.github.io/go_docs/beego/mvcIntroduction/models/customFileds/"&gt;https://beego.wiki/docs/mvc/model/custom_fields/&lt;/a&gt;&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;h1 id="custom-fields-自定义字段"&gt;Custom Fields 自定义字段&lt;/h1&gt;
+&lt;h2 id="custom-fields-自定义字段-1"&gt;Custom Fields 自定义字段&lt;/h2&gt;
+&lt;div class="highlight"&gt;&lt;div style="color:#b0c4de;background-color:#282c34;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"&gt;
+&lt;table style="border-spacing:0;padding:0;margin:0;border:0;"&gt;&lt;tr&gt;&lt;td style="vertical-align:top;padding:0;margin:0;border:0;"&gt;
+&lt;pre tabindex="0" style="color:#b0c4de;background-color:#282c34;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"&gt;&lt;code&gt;&lt;span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#58626f"&gt; 1
+&lt;/span&gt;&lt;span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#58626f"&gt; 2
+&lt;/span&gt;&lt;span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#58626f"&gt; 3
+&lt;/span&gt;&lt;span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#58626f"&gt; 4
+&lt;/span&gt;&lt;span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#58626f"&gt; 5
+&lt;/span&gt;&lt;span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#58626f"&gt; 6
+&lt;/span&gt;&lt;span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#58626f"&gt; 7
+&lt;/span&gt;&lt;span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#58626f"&gt; 8
+&lt;/span&gt;&lt;span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#58626f"&gt; 9
+&lt;/span&gt;&lt;span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#58626f"&gt;10
+&lt;/span&gt;&lt;span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#58626f"&gt;11
+&lt;/span&gt;&lt;span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#58626f"&gt;12
+&lt;/span&gt;&lt;span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#58626f"&gt;13
+&lt;/span&gt;&lt;span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#58626f"&gt;14
+&lt;/span&gt;&lt;span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#58626f"&gt;15
+&lt;/span&gt;&lt;span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#58626f"&gt;16
+&lt;/span&gt;&lt;span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#58626f"&gt;17
+&lt;/span&gt;&lt;span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#58626f"&gt;18
+&lt;/span&gt;&lt;span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#58626f"&gt;19
+&lt;/span&gt;&lt;span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#58626f"&gt;20
+&lt;/span&gt;&lt;span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#58626f"&gt;21
+&lt;/span&gt;&lt;span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#58626f"&gt;22
+&lt;/span&gt;&lt;span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#58626f"&gt;23
+&lt;/span&gt;&lt;span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#58626f"&gt;24
+&lt;/span&gt;&lt;span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#58626f"&gt;25
+&lt;/span&gt;&lt;span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#58626f"&gt;26
+&lt;/span&gt;&lt;span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#58626f"&gt;27
+&lt;/span&gt;&lt;span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#58626f"&gt;28
+&lt;/span&gt;&lt;span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#58626f"&gt;29
+&lt;/span&gt;&lt;span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#58626f"&gt;30
+&lt;/span&gt;&lt;span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#58626f"&gt;31
+&lt;/span&gt;&lt;span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#58626f"&gt;32
+&lt;/span&gt;&lt;span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#58626f"&gt;33
+&lt;/span&gt;&lt;span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#58626f"&gt;34
+&lt;/span&gt;&lt;span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#58626f"&gt;35
+&lt;/span&gt;&lt;span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#58626f"&gt;36
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
+&lt;td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%"&gt;
+&lt;pre tabindex="0" style="color:#b0c4de;background-color:#282c34;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"&gt;&lt;code class="language-go" data-lang="go"&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;&lt;span style="color:#aa89ea"&gt;TypeBooleanField&lt;/span&gt; &lt;span style="color:#abb2bf"&gt;=&lt;/span&gt; &lt;span style="color:#d19a66"&gt;1&lt;/span&gt; &lt;span style="color:#54b1c7"&gt;&amp;lt;&amp;lt;&lt;/span&gt; &lt;span style="color:#e5c07b"&gt;iota&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;&lt;span style="color:#8a93a5;font-style:italic"&gt;// string&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;&lt;span style="color:#aa89ea"&gt;TypeCharField&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;&lt;span style="color:#8a93a5;font-style:italic"&gt;// string&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;&lt;span style="color:#aa89ea"&gt;TypeTextField&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;&lt;span style="color:#8a93a5;font-style:italic"&gt;// time.Time&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;&lt;span style="color:#aa89ea"&gt;TypeDateField&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;&lt;span style="color:#8a93a5;font-style:italic"&gt;// time.Time&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;&lt;span style="color:#aa89ea"&gt;TypeDateTimeField&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;&lt;span style="color:#8a93a5;font-style:italic"&gt;// int16&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;&lt;span style="color:#aa89ea"&gt;TypeSmallIntegerField&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;&lt;span style="color:#8a93a5;font-style:italic"&gt;// int32&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;&lt;span style="color:#aa89ea"&gt;TypeIntegerField&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;&lt;span style="color:#8a93a5;font-style:italic"&gt;// int64&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;&lt;span style="color:#aa89ea"&gt;TypeBigIntegerField&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;&lt;span style="color:#8a93a5;font-style:italic"&gt;// uint16&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;&lt;span style="color:#aa89ea"&gt;TypePositiveSmallIntegerField&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;&lt;span style="color:#8a93a5;font-style:italic"&gt;// uint32&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;&lt;span style="color:#aa89ea"&gt;TypePositiveIntegerField&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;&lt;span style="color:#8a93a5;font-style:italic"&gt;// uint64&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;&lt;span style="color:#aa89ea"&gt;TypePositiveBigIntegerField&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;&lt;span style="color:#8a93a5;font-style:italic"&gt;// float64&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;&lt;span style="color:#aa89ea"&gt;TypeFloatField&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;&lt;span style="color:#8a93a5;font-style:italic"&gt;// float64&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;&lt;span style="color:#aa89ea"&gt;TypeDecimalField&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;&lt;span style="color:#aa89ea"&gt;RelForeignKey&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;&lt;span style="color:#aa89ea"&gt;RelOneToOne&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;&lt;span style="color:#aa89ea"&gt;RelManyToMany&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;&lt;span style="color:#aa89ea"&gt;RelReverseOne&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;&lt;span style="color:#aa89ea"&gt;RelReverseMany&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+&lt;/div&gt;
+&lt;/div&gt;</description></item><item><title>FAQ</title><link>https://before80.github.io/go_docs/beego/mvcIntroduction/models/faq/</link><pubDate>Sun, 04 Feb 2024 10:02:38 +0800</pubDate><guid>https://before80.github.io/go_docs/beego/mvcIntroduction/models/faq/</guid><description>&lt;blockquote&gt;
+&lt;p&gt;原文：&lt;a href="https://before80.github.io/go_docs/beego/mvcIntroduction/models/faq/"&gt;https://beego.wiki/docs/mvc/model/faq/&lt;/a&gt;&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;h1 id="faq"&gt;FAQ&lt;/h1&gt;
+&lt;h2 id="faq-1"&gt;FAQ&lt;/h2&gt;
+&lt;p&gt;Q: My application need to support multiple database type. How can I check current database type when I am using Raw SQL?&lt;/p&gt;
+&lt;p&gt;​	问：我的应用程序需要支持多种数据库类型。当我使用原始 SQL 时，如何检查当前数据库类型？&lt;/p&gt;
+&lt;p&gt;A: You can check it by Ormer’s &lt;a href="https://beego.wiki/docs/mvc/model/faq/orm.md#driver"&gt;Driver method&lt;/a&gt;&lt;/p&gt;</description></item></channel></rss>

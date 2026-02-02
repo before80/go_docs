@@ -1,31 +1,48 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>快速入门 on Go 中文档集</title><link>https://before80.github.io/go_docs/beego/quickStart/</link><description>Recent content in 快速入门 on Go 中文档集</description><generator>Hugo</generator><language>zh-cn</language><lastBuildDate>Thu, 10 Oct 2024 15:07:50 +0800</lastBuildDate><atom:link href="https://before80.github.io/go_docs/beego/quickStart/index.xml" rel="self" type="application/rss+xml"/><item><title>创建新项目</title><link>https://before80.github.io/go_docs/beego/quickStart/createANewProject/</link><pubDate>Sun, 04 Feb 2024 09:09:54 +0800</pubDate><guid>https://before80.github.io/go_docs/beego/quickStart/createANewProject/</guid><description>&lt;blockquote>
-&lt;p>原文：&lt;a href="https://before80.github.io/go_docs/beego/quickStart/createANewProject/">https://beego.wiki/docs/quickstart/new/&lt;/a>&lt;/p>&lt;/blockquote>
-&lt;h1 id="create-a-new-project-创建新项目">Create a new project 创建新项目&lt;a class="td-heading-self-link" href="#create-a-new-project-%e5%88%9b%e5%bb%ba%e6%96%b0%e9%a1%b9%e7%9b%ae" aria-label="Heading self-link">&lt;/a>&lt;/h1>
-&lt;h2 id="requirements-要求">Requirements 要求&lt;a class="td-heading-self-link" href="#requirements-%e8%a6%81%e6%b1%82" aria-label="Heading self-link">&lt;/a>&lt;/h2>
-&lt;p>Before starting any Beego project make sure that you have installed the &lt;code>bee&lt;/code> tool and the &lt;code>beego&lt;/code> package. If you don’t have them yet please read &lt;a href="https://before80.github.io/go_docs/beego/install/installUpgrade/">Installing beego&lt;/a> and &lt;a href="https://before80.github.io/go_docs/beego/install/beegoToolUsage/">Installing bee tool&lt;/a> before you proceed.&lt;/p>
-&lt;p>​	在启动任何 Beego 项目之前，请确保已安装 &lt;code>bee&lt;/code> 工具和 &lt;code>beego&lt;/code> 包。如果您还没有，请在继续之前阅读安装 beego 和安装 bee 工具。&lt;/p></description></item><item><title>路由设置</title><link>https://before80.github.io/go_docs/beego/quickStart/routingSettings/</link><pubDate>Sun, 04 Feb 2024 09:10:13 +0800</pubDate><guid>https://before80.github.io/go_docs/beego/quickStart/routingSettings/</guid><description>&lt;blockquote>
-&lt;p>原文：&lt;a href="https://before80.github.io/go_docs/beego/quickStart/routingSettings/">https://beego.wiki/docs/quickstart/router/&lt;/a>&lt;/p>&lt;/blockquote>
-&lt;h1 id="routing-settings-路由设置">Routing settings 路由设置&lt;a class="td-heading-self-link" href="#routing-settings-%e8%b7%af%e7%94%b1%e8%ae%be%e7%bd%ae" aria-label="Heading self-link">&lt;/a>&lt;/h1>
-&lt;h2 id="project-routing-settings-项目路由设置">Project routing settings 项目路由设置&lt;a class="td-heading-self-link" href="#project-routing-settings-%e9%a1%b9%e7%9b%ae%e8%b7%af%e7%94%b1%e8%ae%be%e7%bd%ae" aria-label="Heading self-link">&lt;/a>&lt;/h2>
-&lt;p>The previous section covered creating and running a Beego project. This section will investigate the operation of the main file (main.go):&lt;/p>
-&lt;p>​	上一节介绍了如何创建和运行 Beego 项目。本节将研究主文件 (main.go) 的操作：&lt;/p></description></item><item><title>控制器</title><link>https://before80.github.io/go_docs/beego/quickStart/controller/</link><pubDate>Sun, 04 Feb 2024 09:10:26 +0800</pubDate><guid>https://before80.github.io/go_docs/beego/quickStart/controller/</guid><description>&lt;blockquote>
-&lt;p>原文：&lt;a href="https://before80.github.io/go_docs/beego/quickStart/controller/">https://beego.wiki/docs/quickstart/controller/&lt;/a>&lt;/p>&lt;/blockquote>
-&lt;h1 id="controller-控制器">Controller 控制器&lt;a class="td-heading-self-link" href="#controller-%e6%8e%a7%e5%88%b6%e5%99%a8" aria-label="Heading self-link">&lt;/a>&lt;/h1>
-&lt;h2 id="controller-logic-控制器逻辑">Controller logic 控制器逻辑&lt;a class="td-heading-self-link" href="#controller-logic-%e6%8e%a7%e5%88%b6%e5%99%a8%e9%80%bb%e8%be%91" aria-label="Heading self-link">&lt;/a>&lt;/h2>
-&lt;p>The previous section covered user requests to controllers. This section will explain how to write a controller. Let’s start with some code:&lt;/p>
-&lt;p>​	上一节介绍了用户对控制器的请求。本节将说明如何编写控制器。我们从一些代码开始：&lt;/p></description></item><item><title>模型</title><link>https://before80.github.io/go_docs/beego/quickStart/models/</link><pubDate>Sun, 04 Feb 2024 09:10:33 +0800</pubDate><guid>https://before80.github.io/go_docs/beego/quickStart/models/</guid><description>&lt;blockquote>
-&lt;p>原文：&lt;a href="https://before80.github.io/go_docs/beego/quickStart/models/">https://beego.wiki/docs/quickstart/model/&lt;/a>&lt;/p>&lt;/blockquote>
-&lt;h1 id="models-模型">Models 模型&lt;a class="td-heading-self-link" href="#models-%e6%a8%a1%e5%9e%8b" aria-label="Heading self-link">&lt;/a>&lt;/h1>
-&lt;h2 id="creating-models-创建模型">Creating models 创建模型&lt;a class="td-heading-self-link" href="#creating-models-%e5%88%9b%e5%bb%ba%e6%a8%a1%e5%9e%8b" aria-label="Heading self-link">&lt;/a>&lt;/h2>
-&lt;p>Models are normally the best way to handle the numerous databases used in web applications. The &lt;code>bee new&lt;/code> project does not contain an example of models. Demos on implementing and using models can instead be found in &lt;code>bee api&lt;/code> projects.&lt;/p>
-&lt;p>​	模型通常是处理 Web 应用程序中使用的众多数据库的最佳方式。 &lt;code>bee new&lt;/code> 项目不包含模型示例。相反，可以在 &lt;code>bee api&lt;/code> 项目中找到有关实现和使用模型的演示。&lt;/p></description></item><item><title>视图</title><link>https://before80.github.io/go_docs/beego/quickStart/view/</link><pubDate>Sun, 04 Feb 2024 09:10:48 +0800</pubDate><guid>https://before80.github.io/go_docs/beego/quickStart/view/</guid><description>&lt;blockquote>
-&lt;p>原文：&lt;a href="https://before80.github.io/go_docs/beego/quickStart/view/">https://beego.wiki/docs/quickstart/view/&lt;/a>&lt;/p>&lt;/blockquote>
-&lt;h1 id="view-视图">View 视图&lt;a class="td-heading-self-link" href="#view-%e8%a7%86%e5%9b%be" aria-label="Heading self-link">&lt;/a>&lt;/h1>
-&lt;h2 id="creating-views-创建视图">Creating views 创建视图&lt;a class="td-heading-self-link" href="#creating-views-%e5%88%9b%e5%bb%ba%e8%a7%86%e5%9b%be" aria-label="Heading self-link">&lt;/a>&lt;/h2>
-&lt;p>In the previous example, when creating the Controller the line &lt;code>this.TplName = &amp;quot;index.tpl&amp;quot;&lt;/code> was used to declare the template to be rendered. By default &lt;code>beego.Controller&lt;/code> supports &lt;code>tpl&lt;/code> and &lt;code>html&lt;/code> extensions. Other extensions can be added by calling &lt;code>beego.AddTemplateExt&lt;/code>.&lt;/p>
-&lt;p>​	在前面的示例中，创建 Controller 时，使用行 &lt;code>this.TplName = &amp;quot;index.tpl&amp;quot;&lt;/code> 声明要呈现的模板。默认情况下， &lt;code>beego.Controller&lt;/code> 支持 &lt;code>tpl&lt;/code> 和 &lt;code>html&lt;/code> 扩展。可通过调用 &lt;code>beego.AddTemplateExt&lt;/code> 添加其他扩展。&lt;/p></description></item><item><title>静态文件</title><link>https://before80.github.io/go_docs/beego/quickStart/staticFiles/</link><pubDate>Sun, 04 Feb 2024 09:10:59 +0800</pubDate><guid>https://before80.github.io/go_docs/beego/quickStart/staticFiles/</guid><description>&lt;blockquote>
-&lt;p>原文：&lt;a href="https://before80.github.io/go_docs/beego/quickStart/staticFiles/">https://beego.wiki/docs/quickstart/static/&lt;/a>&lt;/p>&lt;/blockquote>
-&lt;h1 id="static-files-静态文件">Static files 静态文件&lt;a class="td-heading-self-link" href="#static-files-%e9%9d%99%e6%80%81%e6%96%87%e4%bb%b6" aria-label="Heading self-link">&lt;/a>&lt;/h1>
-&lt;h2 id="handling-static-files-处理静态文件">Handling static files 处理静态文件&lt;a class="td-heading-self-link" href="#handling-static-files-%e5%a4%84%e7%90%86%e9%9d%99%e6%80%81%e6%96%87%e4%bb%b6" aria-label="Heading self-link">&lt;/a>&lt;/h2>
-&lt;p>Most applications include numerous static files such as images, js, css and more. To support this requirement the Beego project skeleton incorporates folders for these files by default.&lt;/p>
-&lt;p>​	大多数应用程序包含许多静态文件，例如图像、js、css 等。为了支持此要求，Beego 项目框架默认情况下为这些文件合并文件夹。&lt;/p></description></item></channel></rss>
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>快速入门 on Go 中文档集</title><link>https://before80.github.io/go_docs/beego/quickStart/</link><description>Recent content in 快速入门 on Go 中文档集</description><generator>Hugo</generator><language>zh-cn</language><lastBuildDate>Thu, 10 Oct 2024 15:07:50 +0800</lastBuildDate><atom:link href="https://before80.github.io/go_docs/beego/quickStart/index.xml" rel="self" type="application/rss+xml"/><item><title>创建新项目</title><link>https://before80.github.io/go_docs/beego/quickStart/createANewProject/</link><pubDate>Sun, 04 Feb 2024 09:09:54 +0800</pubDate><guid>https://before80.github.io/go_docs/beego/quickStart/createANewProject/</guid><description>&lt;blockquote&gt;
+&lt;p&gt;原文：&lt;a href="https://before80.github.io/go_docs/beego/quickStart/createANewProject/"&gt;https://beego.wiki/docs/quickstart/new/&lt;/a&gt;&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;h1 id="create-a-new-project-创建新项目"&gt;Create a new project 创建新项目&lt;/h1&gt;
+&lt;h2 id="requirements-要求"&gt;Requirements 要求&lt;/h2&gt;
+&lt;p&gt;Before starting any Beego project make sure that you have installed the &lt;code&gt;bee&lt;/code&gt; tool and the &lt;code&gt;beego&lt;/code&gt; package. If you don’t have them yet please read &lt;a href="https://before80.github.io/go_docs/beego/install/installUpgrade/"&gt;Installing beego&lt;/a&gt; and &lt;a href="https://before80.github.io/go_docs/beego/install/beegoToolUsage/"&gt;Installing bee tool&lt;/a&gt; before you proceed.&lt;/p&gt;
+&lt;p&gt;​	在启动任何 Beego 项目之前，请确保已安装 &lt;code&gt;bee&lt;/code&gt; 工具和 &lt;code&gt;beego&lt;/code&gt; 包。如果您还没有，请在继续之前阅读安装 beego 和安装 bee 工具。&lt;/p&gt;</description></item><item><title>路由设置</title><link>https://before80.github.io/go_docs/beego/quickStart/routingSettings/</link><pubDate>Sun, 04 Feb 2024 09:10:13 +0800</pubDate><guid>https://before80.github.io/go_docs/beego/quickStart/routingSettings/</guid><description>&lt;blockquote&gt;
+&lt;p&gt;原文：&lt;a href="https://before80.github.io/go_docs/beego/quickStart/routingSettings/"&gt;https://beego.wiki/docs/quickstart/router/&lt;/a&gt;&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;h1 id="routing-settings-路由设置"&gt;Routing settings 路由设置&lt;/h1&gt;
+&lt;h2 id="project-routing-settings-项目路由设置"&gt;Project routing settings 项目路由设置&lt;/h2&gt;
+&lt;p&gt;The previous section covered creating and running a Beego project. This section will investigate the operation of the main file (main.go):&lt;/p&gt;
+&lt;p&gt;​	上一节介绍了如何创建和运行 Beego 项目。本节将研究主文件 (main.go) 的操作：&lt;/p&gt;
+&lt;pre tabindex="0"&gt;&lt;code&gt;package main
+
+import (
+ _ &amp;#34;quickstart/routers&amp;#34;
+ &amp;#34;github.com/beego/beego/v2/server/web&amp;#34;
+)
+
+func main() {
+ web.Run()
+}
+&lt;/code&gt;&lt;/pre&gt;&lt;p&gt;This code imports the package &lt;code&gt;quickstart/routers&lt;/code&gt;. This file contains the following (routers/router.go):&lt;/p&gt;</description></item><item><title>控制器</title><link>https://before80.github.io/go_docs/beego/quickStart/controller/</link><pubDate>Sun, 04 Feb 2024 09:10:26 +0800</pubDate><guid>https://before80.github.io/go_docs/beego/quickStart/controller/</guid><description>&lt;blockquote&gt;
+&lt;p&gt;原文：&lt;a href="https://before80.github.io/go_docs/beego/quickStart/controller/"&gt;https://beego.wiki/docs/quickstart/controller/&lt;/a&gt;&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;h1 id="controller-控制器"&gt;Controller 控制器&lt;/h1&gt;
+&lt;h2 id="controller-logic-控制器逻辑"&gt;Controller logic 控制器逻辑&lt;/h2&gt;
+&lt;p&gt;The previous section covered user requests to controllers. This section will explain how to write a controller. Let’s start with some code:&lt;/p&gt;
+&lt;p&gt;​	上一节介绍了用户对控制器的请求。本节将说明如何编写控制器。我们从一些代码开始：&lt;/p&gt;</description></item><item><title>模型</title><link>https://before80.github.io/go_docs/beego/quickStart/models/</link><pubDate>Sun, 04 Feb 2024 09:10:33 +0800</pubDate><guid>https://before80.github.io/go_docs/beego/quickStart/models/</guid><description>&lt;blockquote&gt;
+&lt;p&gt;原文：&lt;a href="https://before80.github.io/go_docs/beego/quickStart/models/"&gt;https://beego.wiki/docs/quickstart/model/&lt;/a&gt;&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;h1 id="models-模型"&gt;Models 模型&lt;/h1&gt;
+&lt;h2 id="creating-models-创建模型"&gt;Creating models 创建模型&lt;/h2&gt;
+&lt;p&gt;Models are normally the best way to handle the numerous databases used in web applications. The &lt;code&gt;bee new&lt;/code&gt; project does not contain an example of models. Demos on implementing and using models can instead be found in &lt;code&gt;bee api&lt;/code&gt; projects.&lt;/p&gt;
+&lt;p&gt;​	模型通常是处理 Web 应用程序中使用的众多数据库的最佳方式。 &lt;code&gt;bee new&lt;/code&gt; 项目不包含模型示例。相反，可以在 &lt;code&gt;bee api&lt;/code&gt; 项目中找到有关实现和使用模型的演示。&lt;/p&gt;</description></item><item><title>视图</title><link>https://before80.github.io/go_docs/beego/quickStart/view/</link><pubDate>Sun, 04 Feb 2024 09:10:48 +0800</pubDate><guid>https://before80.github.io/go_docs/beego/quickStart/view/</guid><description>&lt;blockquote&gt;
+&lt;p&gt;原文：&lt;a href="https://before80.github.io/go_docs/beego/quickStart/view/"&gt;https://beego.wiki/docs/quickstart/view/&lt;/a&gt;&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;h1 id="view-视图"&gt;View 视图&lt;/h1&gt;
+&lt;h2 id="creating-views-创建视图"&gt;Creating views 创建视图&lt;/h2&gt;
+&lt;p&gt;In the previous example, when creating the Controller the line &lt;code&gt;this.TplName = &amp;quot;index.tpl&amp;quot;&lt;/code&gt; was used to declare the template to be rendered. By default &lt;code&gt;beego.Controller&lt;/code&gt; supports &lt;code&gt;tpl&lt;/code&gt; and &lt;code&gt;html&lt;/code&gt; extensions. Other extensions can be added by calling &lt;code&gt;beego.AddTemplateExt&lt;/code&gt;.&lt;/p&gt;
+&lt;p&gt;​	在前面的示例中，创建 Controller 时，使用行 &lt;code&gt;this.TplName = &amp;quot;index.tpl&amp;quot;&lt;/code&gt; 声明要呈现的模板。默认情况下， &lt;code&gt;beego.Controller&lt;/code&gt; 支持 &lt;code&gt;tpl&lt;/code&gt; 和 &lt;code&gt;html&lt;/code&gt; 扩展。可通过调用 &lt;code&gt;beego.AddTemplateExt&lt;/code&gt; 添加其他扩展。&lt;/p&gt;</description></item><item><title>静态文件</title><link>https://before80.github.io/go_docs/beego/quickStart/staticFiles/</link><pubDate>Sun, 04 Feb 2024 09:10:59 +0800</pubDate><guid>https://before80.github.io/go_docs/beego/quickStart/staticFiles/</guid><description>&lt;blockquote&gt;
+&lt;p&gt;原文：&lt;a href="https://before80.github.io/go_docs/beego/quickStart/staticFiles/"&gt;https://beego.wiki/docs/quickstart/static/&lt;/a&gt;&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;h1 id="static-files-静态文件"&gt;Static files 静态文件&lt;/h1&gt;
+&lt;h2 id="handling-static-files-处理静态文件"&gt;Handling static files 处理静态文件&lt;/h2&gt;
+&lt;p&gt;Most applications include numerous static files such as images, js, css and more. To support this requirement the Beego project skeleton incorporates folders for these files by default.&lt;/p&gt;
+&lt;p&gt;​	大多数应用程序包含许多静态文件，例如图像、js、css 等。为了支持此要求，Beego 项目框架默认情况下为这些文件合并文件夹。&lt;/p&gt;</description></item></channel></rss>

@@ -1,25 +1,31 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>stacks on Go 中文档集</title><link>https://before80.github.io/go_docs/thirdPkg/gods/stacks/</link><description>Recent content in stacks on Go 中文档集</description><generator>Hugo</generator><language>zh-cn</language><lastBuildDate>Sun, 08 Dec 2024 22:10:00 +0800</lastBuildDate><atom:link href="https://before80.github.io/go_docs/thirdPkg/gods/stacks/index.xml" rel="self" type="application/rss+xml"/><item><title>arraystack</title><link>https://before80.github.io/go_docs/thirdPkg/gods/stacks/arraystack/</link><pubDate>Sat, 07 Dec 2024 11:55:05 +0800</pubDate><guid>https://before80.github.io/go_docs/thirdPkg/gods/stacks/arraystack/</guid><description>&lt;blockquote>
-&lt;p>原文：&lt;a href="https://pkg.go.dev/github.com/emirpasic/gods/v2@v2.0.0-alpha/stacks/arraystack">https://pkg.go.dev/github.com/emirpasic/gods/v2@v2.0.0-alpha/stacks/arraystack&lt;/a>&lt;/p>
-&lt;p>收录该文档时间： &lt;code>2024-12-07T11:55:05+08:00&lt;/code>&lt;/p>&lt;/blockquote>
-&lt;h2 id="overview">Overview&lt;a class="td-heading-self-link" href="#overview" aria-label="Heading self-link">&lt;/a>&lt;/h2>
-&lt;p>Package arraystack implements a stack backed by array list.&lt;/p>
-&lt;p>​	包 &lt;code>arraystack&lt;/code> 实现了一个基于数组列表的栈。&lt;/p>
-&lt;p>Structure is not thread safe.&lt;/p>
-&lt;p>​	该结构不是线程安全的。&lt;/p>
-&lt;p>Reference: &lt;a href="https://en.wikipedia.org/wiki/Stack_(abstract_data_type)#Array">https://en.wikipedia.org/wiki/Stack_%28abstract_data_type%29#Array&lt;/a>&lt;/p>
-&lt;h2 id="常量">常量&lt;a class="td-heading-self-link" href="#%e5%b8%b8%e9%87%8f" aria-label="Heading self-link">&lt;/a>&lt;/h2>
-&lt;p>This section is empty.&lt;/p>
-&lt;h2 id="变量">变量&lt;a class="td-heading-self-link" href="#%e5%8f%98%e9%87%8f" aria-label="Heading self-link">&lt;/a>&lt;/h2>
-&lt;p>This section is empty.&lt;/p></description></item><item><title>linkedliststack</title><link>https://before80.github.io/go_docs/thirdPkg/gods/stacks/linkedliststack/</link><pubDate>Sat, 07 Dec 2024 11:55:20 +0800</pubDate><guid>https://before80.github.io/go_docs/thirdPkg/gods/stacks/linkedliststack/</guid><description>&lt;blockquote>
-&lt;p>原文：&lt;a href="https://pkg.go.dev/github.com/emirpasic/gods/v2@v2.0.0-alpha/stacks/linkedliststack">https://pkg.go.dev/github.com/emirpasic/gods/v2@v2.0.0-alpha/stacks/linkedliststack&lt;/a>&lt;/p>
-&lt;p>收录该文档时间： &lt;code>2024-12-07T11:55:20+08:00&lt;/code>&lt;/p>&lt;/blockquote>
-&lt;h2 id="overview">Overview&lt;a class="td-heading-self-link" href="#overview" aria-label="Heading self-link">&lt;/a>&lt;/h2>
-&lt;p>Package linkedliststack implements a stack backed by a singly-linked list.&lt;/p>
-&lt;p>​	包 &lt;code>linkedliststack&lt;/code> 实现了一个基于单向链表的栈。&lt;/p>
-&lt;p>Structure is not thread safe.&lt;/p>
-&lt;p>​	该结构不是线程安全的。&lt;/p>
-&lt;p>Reference:&lt;a href="https://en.wikipedia.org/wiki/Stack_(abstract_data_type)#Linked_list">https://en.wikipedia.org/wiki/Stack_%28abstract_data_type%29#Linked_list&lt;/a>&lt;/p>
-&lt;h2 id="常量">常量&lt;a class="td-heading-self-link" href="#%e5%b8%b8%e9%87%8f" aria-label="Heading self-link">&lt;/a>&lt;/h2>
-&lt;p>This section is empty.&lt;/p>
-&lt;h2 id="变量">变量&lt;a class="td-heading-self-link" href="#%e5%8f%98%e9%87%8f" aria-label="Heading self-link">&lt;/a>&lt;/h2>
-&lt;p>This section is empty.&lt;/p></description></item></channel></rss>
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>stacks on Go 中文档集</title><link>https://before80.github.io/go_docs/thirdPkg/gods/stacks/</link><description>Recent content in stacks on Go 中文档集</description><generator>Hugo</generator><language>zh-cn</language><lastBuildDate>Sun, 08 Dec 2024 22:10:00 +0800</lastBuildDate><atom:link href="https://before80.github.io/go_docs/thirdPkg/gods/stacks/index.xml" rel="self" type="application/rss+xml"/><item><title>arraystack</title><link>https://before80.github.io/go_docs/thirdPkg/gods/stacks/arraystack/</link><pubDate>Sat, 07 Dec 2024 11:55:05 +0800</pubDate><guid>https://before80.github.io/go_docs/thirdPkg/gods/stacks/arraystack/</guid><description>&lt;blockquote&gt;
+&lt;p&gt;原文：&lt;a href="https://pkg.go.dev/github.com/emirpasic/gods/v2@v2.0.0-alpha/stacks/arraystack"&gt;https://pkg.go.dev/github.com/emirpasic/gods/v2@v2.0.0-alpha/stacks/arraystack&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;收录该文档时间： &lt;code&gt;2024-12-07T11:55:05+08:00&lt;/code&gt;&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;h2 id="overview"&gt;Overview&lt;/h2&gt;
+&lt;p&gt;Package arraystack implements a stack backed by array list.&lt;/p&gt;
+&lt;p&gt;​	包 &lt;code&gt;arraystack&lt;/code&gt; 实现了一个基于数组列表的栈。&lt;/p&gt;
+&lt;p&gt;Structure is not thread safe.&lt;/p&gt;
+&lt;p&gt;​	该结构不是线程安全的。&lt;/p&gt;
+&lt;p&gt;Reference: &lt;a href="https://en.wikipedia.org/wiki/Stack_(abstract_data_type)#Array"&gt;https://en.wikipedia.org/wiki/Stack_%28abstract_data_type%29#Array&lt;/a&gt;&lt;/p&gt;
+&lt;h2 id="常量"&gt;常量&lt;/h2&gt;
+&lt;p&gt;This section is empty.&lt;/p&gt;
+&lt;h2 id="变量"&gt;变量&lt;/h2&gt;
+&lt;p&gt;This section is empty.&lt;/p&gt;
+&lt;h2 id="函数"&gt;函数&lt;/h2&gt;
+&lt;p&gt;This section is empty.&lt;/p&gt;</description></item><item><title>linkedliststack</title><link>https://before80.github.io/go_docs/thirdPkg/gods/stacks/linkedliststack/</link><pubDate>Sat, 07 Dec 2024 11:55:20 +0800</pubDate><guid>https://before80.github.io/go_docs/thirdPkg/gods/stacks/linkedliststack/</guid><description>&lt;blockquote&gt;
+&lt;p&gt;原文：&lt;a href="https://pkg.go.dev/github.com/emirpasic/gods/v2@v2.0.0-alpha/stacks/linkedliststack"&gt;https://pkg.go.dev/github.com/emirpasic/gods/v2@v2.0.0-alpha/stacks/linkedliststack&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;收录该文档时间： &lt;code&gt;2024-12-07T11:55:20+08:00&lt;/code&gt;&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;h2 id="overview"&gt;Overview&lt;/h2&gt;
+&lt;p&gt;Package linkedliststack implements a stack backed by a singly-linked list.&lt;/p&gt;
+&lt;p&gt;​	包 &lt;code&gt;linkedliststack&lt;/code&gt; 实现了一个基于单向链表的栈。&lt;/p&gt;
+&lt;p&gt;Structure is not thread safe.&lt;/p&gt;
+&lt;p&gt;​	该结构不是线程安全的。&lt;/p&gt;
+&lt;p&gt;Reference:&lt;a href="https://en.wikipedia.org/wiki/Stack_(abstract_data_type)#Linked_list"&gt;https://en.wikipedia.org/wiki/Stack_%28abstract_data_type%29#Linked_list&lt;/a&gt;&lt;/p&gt;
+&lt;h2 id="常量"&gt;常量&lt;/h2&gt;
+&lt;p&gt;This section is empty.&lt;/p&gt;
+&lt;h2 id="变量"&gt;变量&lt;/h2&gt;
+&lt;p&gt;This section is empty.&lt;/p&gt;
+&lt;h2 id="函数"&gt;函数&lt;/h2&gt;
+&lt;p&gt;This section is empty.&lt;/p&gt;</description></item></channel></rss>

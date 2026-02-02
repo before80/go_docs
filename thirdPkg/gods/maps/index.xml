@@ -1,37 +1,44 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>maps on Go 中文档集</title><link>https://before80.github.io/go_docs/thirdPkg/gods/maps/</link><description>Recent content in maps on Go 中文档集</description><generator>Hugo</generator><language>zh-cn</language><lastBuildDate>Sun, 08 Dec 2024 22:10:00 +0800</lastBuildDate><atom:link href="https://before80.github.io/go_docs/thirdPkg/gods/maps/index.xml" rel="self" type="application/rss+xml"/><item><title>hashbidimap</title><link>https://before80.github.io/go_docs/thirdPkg/gods/maps/hashbidimap/</link><pubDate>Sat, 07 Dec 2024 11:03:19 +0800</pubDate><guid>https://before80.github.io/go_docs/thirdPkg/gods/maps/hashbidimap/</guid><description>&lt;blockquote>
-&lt;p>原文：&lt;a href="https://pkg.go.dev/github.com/emirpasic/gods/v2@v2.0.0-alpha/maps/hashbidimap">https://pkg.go.dev/github.com/emirpasic/gods/v2@v2.0.0-alpha/maps/hashbidimap&lt;/a>&lt;/p>
-&lt;p>收录该文档时间： &lt;code>2024-12-07T11:03:19+08:00&lt;/code>&lt;/p>&lt;/blockquote>
-&lt;h2 id="overview">Overview&lt;a class="td-heading-self-link" href="#overview" aria-label="Heading self-link">&lt;/a>&lt;/h2>
-&lt;p>Package hashbidimap implements a bidirectional map backed by two hashmaps.&lt;/p>
-&lt;p>​	包 &lt;code>hashbidimap&lt;/code> 实现了一个由两个哈希映射支持的双向映射。&lt;/p>
-&lt;p>A bidirectional map, or hash bag, is an associative data structure in which the (key,value) pairs form a one-to-one correspondence. Thus the binary relation is functional in each direction: value can also act as a key to key. A pair (a,b) thus provides a unique coupling between &amp;lsquo;a&amp;rsquo; and &amp;lsquo;b&amp;rsquo; so that &amp;lsquo;b&amp;rsquo; can be found when &amp;lsquo;a&amp;rsquo; is used as a key and &amp;lsquo;a&amp;rsquo; can be found when &amp;lsquo;b&amp;rsquo; is used as a key.&lt;/p></description></item><item><title>hashmap</title><link>https://before80.github.io/go_docs/thirdPkg/gods/maps/hashmap/</link><pubDate>Sat, 07 Dec 2024 11:03:32 +0800</pubDate><guid>https://before80.github.io/go_docs/thirdPkg/gods/maps/hashmap/</guid><description>&lt;blockquote>
-&lt;p>原文：&lt;a href="https://pkg.go.dev/github.com/emirpasic/gods/v2@v2.0.0-alpha/maps/hashmap">https://pkg.go.dev/github.com/emirpasic/gods/v2@v2.0.0-alpha/maps/hashmap&lt;/a>&lt;/p>
-&lt;p>收录该文档时间： &lt;code>2024-12-07T11:03:32+08:00&lt;/code>&lt;/p>&lt;/blockquote>
-&lt;h2 id="overview">Overview&lt;a class="td-heading-self-link" href="#overview" aria-label="Heading self-link">&lt;/a>&lt;/h2>
-&lt;p>Package hashmap implements a map backed by a hash table.&lt;/p>
-&lt;p>​	包 &lt;code>hashmap&lt;/code> 实现了一个由哈希表支持的映射。&lt;/p>
-&lt;p>Elements are unordered in the map.&lt;/p>
-&lt;p>​	映射中的元素是无序的。&lt;/p>
-&lt;p>Structure is not thread safe.&lt;/p>
-&lt;p>​	结构不是线程安全的。&lt;/p></description></item><item><title>linkedhashmap</title><link>https://before80.github.io/go_docs/thirdPkg/gods/maps/linkedhashmap/</link><pubDate>Sat, 07 Dec 2024 11:03:41 +0800</pubDate><guid>https://before80.github.io/go_docs/thirdPkg/gods/maps/linkedhashmap/</guid><description>&lt;blockquote>
-&lt;p>原文：&lt;a href="https://pkg.go.dev/github.com/emirpasic/gods/v2@v2.0.0-alpha/maps/linkedhashmap">https://pkg.go.dev/github.com/emirpasic/gods/v2@v2.0.0-alpha/maps/linkedhashmap&lt;/a>&lt;/p>
-&lt;p>收录该文档时间： &lt;code>2024-12-07T11:03:41+08:00&lt;/code>&lt;/p>&lt;/blockquote>
-&lt;h2 id="overview">Overview&lt;a class="td-heading-self-link" href="#overview" aria-label="Heading self-link">&lt;/a>&lt;/h2>
-&lt;p>Package linkedhashmap is a map that preserves insertion-order.&lt;/p>
-&lt;p>​	包 &lt;code>linkedhashmap&lt;/code> 实现了一个保留插入顺序的映射。&lt;/p>
-&lt;p>It is backed by a hash table to store values and doubly-linked list to store ordering.&lt;/p>
-&lt;p>​	它由哈希表支持，用于存储值，并且使用双向链表来存储键的顺序。&lt;/p></description></item><item><title>treebidimap</title><link>https://before80.github.io/go_docs/thirdPkg/gods/maps/treebidimap/</link><pubDate>Sat, 07 Dec 2024 11:04:17 +0800</pubDate><guid>https://before80.github.io/go_docs/thirdPkg/gods/maps/treebidimap/</guid><description>&lt;blockquote>
-&lt;p>原文：&lt;a href="https://pkg.go.dev/github.com/emirpasic/gods/v2@v2.0.0-alpha/maps/treebidimap">https://pkg.go.dev/github.com/emirpasic/gods/v2@v2.0.0-alpha/maps/treebidimap&lt;/a>&lt;/p>
-&lt;p>收录该文档时间： &lt;code>2024-12-07T11:04:17+08:00&lt;/code>&lt;/p>&lt;/blockquote>
-&lt;h2 id="overview">Overview&lt;a class="td-heading-self-link" href="#overview" aria-label="Heading self-link">&lt;/a>&lt;/h2>
-&lt;p>Package treebidimap implements a bidirectional map backed by two red-black tree.&lt;/p>
-&lt;p>​	包 &lt;code>treebidimap&lt;/code> 实现了一个双向映射，支持通过两个红黑树来维护映射关系。&lt;/p>
-&lt;p>This structure guarantees that the map will be in both ascending key and value order.&lt;/p></description></item><item><title>treemap</title><link>https://before80.github.io/go_docs/thirdPkg/gods/maps/treemap/</link><pubDate>Sat, 07 Dec 2024 11:04:27 +0800</pubDate><guid>https://before80.github.io/go_docs/thirdPkg/gods/maps/treemap/</guid><description>&lt;blockquote>
-&lt;p>原文：&lt;a href="https://pkg.go.dev/github.com/emirpasic/gods/v2@v2.0.0-alpha/maps/treemap">https://pkg.go.dev/github.com/emirpasic/gods/v2@v2.0.0-alpha/maps/treemap&lt;/a>&lt;/p>
-&lt;p>收录该文档时间： &lt;code>2024-12-07T11:04:27+08:00&lt;/code>&lt;/p>&lt;/blockquote>
-&lt;h2 id="overview">Overview&lt;a class="td-heading-self-link" href="#overview" aria-label="Heading self-link">&lt;/a>&lt;/h2>
-&lt;p>Package treemap implements a map backed by red-black tree.&lt;/p>
-&lt;p>​	包 &lt;code>treemap&lt;/code> 实现了一个由红黑树支持的映射（map）。&lt;/p>
-&lt;p>Elements are ordered by key in the map.&lt;/p>
-&lt;p>​	元素按键在映射中排序。&lt;/p>
-&lt;p>Structure is not thread safe.&lt;/p></description></item></channel></rss>
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>maps on Go 中文档集</title><link>https://before80.github.io/go_docs/thirdPkg/gods/maps/</link><description>Recent content in maps on Go 中文档集</description><generator>Hugo</generator><language>zh-cn</language><lastBuildDate>Sun, 08 Dec 2024 22:10:00 +0800</lastBuildDate><atom:link href="https://before80.github.io/go_docs/thirdPkg/gods/maps/index.xml" rel="self" type="application/rss+xml"/><item><title>hashbidimap</title><link>https://before80.github.io/go_docs/thirdPkg/gods/maps/hashbidimap/</link><pubDate>Sat, 07 Dec 2024 11:03:19 +0800</pubDate><guid>https://before80.github.io/go_docs/thirdPkg/gods/maps/hashbidimap/</guid><description>&lt;blockquote&gt;
+&lt;p&gt;原文：&lt;a href="https://pkg.go.dev/github.com/emirpasic/gods/v2@v2.0.0-alpha/maps/hashbidimap"&gt;https://pkg.go.dev/github.com/emirpasic/gods/v2@v2.0.0-alpha/maps/hashbidimap&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;收录该文档时间： &lt;code&gt;2024-12-07T11:03:19+08:00&lt;/code&gt;&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;h2 id="overview"&gt;Overview&lt;/h2&gt;
+&lt;p&gt;Package hashbidimap implements a bidirectional map backed by two hashmaps.&lt;/p&gt;
+&lt;p&gt;​	包 &lt;code&gt;hashbidimap&lt;/code&gt; 实现了一个由两个哈希映射支持的双向映射。&lt;/p&gt;
+&lt;p&gt;A bidirectional map, or hash bag, is an associative data structure in which the (key,value) pairs form a one-to-one correspondence. Thus the binary relation is functional in each direction: value can also act as a key to key. A pair (a,b) thus provides a unique coupling between &amp;lsquo;a&amp;rsquo; and &amp;lsquo;b&amp;rsquo; so that &amp;lsquo;b&amp;rsquo; can be found when &amp;lsquo;a&amp;rsquo; is used as a key and &amp;lsquo;a&amp;rsquo; can be found when &amp;lsquo;b&amp;rsquo; is used as a key.&lt;/p&gt;</description></item><item><title>hashmap</title><link>https://before80.github.io/go_docs/thirdPkg/gods/maps/hashmap/</link><pubDate>Sat, 07 Dec 2024 11:03:32 +0800</pubDate><guid>https://before80.github.io/go_docs/thirdPkg/gods/maps/hashmap/</guid><description>&lt;blockquote&gt;
+&lt;p&gt;原文：&lt;a href="https://pkg.go.dev/github.com/emirpasic/gods/v2@v2.0.0-alpha/maps/hashmap"&gt;https://pkg.go.dev/github.com/emirpasic/gods/v2@v2.0.0-alpha/maps/hashmap&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;收录该文档时间： &lt;code&gt;2024-12-07T11:03:32+08:00&lt;/code&gt;&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;h2 id="overview"&gt;Overview&lt;/h2&gt;
+&lt;p&gt;Package hashmap implements a map backed by a hash table.&lt;/p&gt;
+&lt;p&gt;​	包 &lt;code&gt;hashmap&lt;/code&gt; 实现了一个由哈希表支持的映射。&lt;/p&gt;
+&lt;p&gt;Elements are unordered in the map.&lt;/p&gt;
+&lt;p&gt;​	映射中的元素是无序的。&lt;/p&gt;
+&lt;p&gt;Structure is not thread safe.&lt;/p&gt;
+&lt;p&gt;​	结构不是线程安全的。&lt;/p&gt;</description></item><item><title>linkedhashmap</title><link>https://before80.github.io/go_docs/thirdPkg/gods/maps/linkedhashmap/</link><pubDate>Sat, 07 Dec 2024 11:03:41 +0800</pubDate><guid>https://before80.github.io/go_docs/thirdPkg/gods/maps/linkedhashmap/</guid><description>&lt;blockquote&gt;
+&lt;p&gt;原文：&lt;a href="https://pkg.go.dev/github.com/emirpasic/gods/v2@v2.0.0-alpha/maps/linkedhashmap"&gt;https://pkg.go.dev/github.com/emirpasic/gods/v2@v2.0.0-alpha/maps/linkedhashmap&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;收录该文档时间： &lt;code&gt;2024-12-07T11:03:41+08:00&lt;/code&gt;&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;h2 id="overview"&gt;Overview&lt;/h2&gt;
+&lt;p&gt;Package linkedhashmap is a map that preserves insertion-order.&lt;/p&gt;
+&lt;p&gt;​	包 &lt;code&gt;linkedhashmap&lt;/code&gt; 实现了一个保留插入顺序的映射。&lt;/p&gt;
+&lt;p&gt;It is backed by a hash table to store values and doubly-linked list to store ordering.&lt;/p&gt;
+&lt;p&gt;​	它由哈希表支持，用于存储值，并且使用双向链表来存储键的顺序。&lt;/p&gt;</description></item><item><title>treebidimap</title><link>https://before80.github.io/go_docs/thirdPkg/gods/maps/treebidimap/</link><pubDate>Sat, 07 Dec 2024 11:04:17 +0800</pubDate><guid>https://before80.github.io/go_docs/thirdPkg/gods/maps/treebidimap/</guid><description>&lt;blockquote&gt;
+&lt;p&gt;原文：&lt;a href="https://pkg.go.dev/github.com/emirpasic/gods/v2@v2.0.0-alpha/maps/treebidimap"&gt;https://pkg.go.dev/github.com/emirpasic/gods/v2@v2.0.0-alpha/maps/treebidimap&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;收录该文档时间： &lt;code&gt;2024-12-07T11:04:17+08:00&lt;/code&gt;&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;h2 id="overview"&gt;Overview&lt;/h2&gt;
+&lt;p&gt;Package treebidimap implements a bidirectional map backed by two red-black tree.&lt;/p&gt;
+&lt;p&gt;​	包 &lt;code&gt;treebidimap&lt;/code&gt; 实现了一个双向映射，支持通过两个红黑树来维护映射关系。&lt;/p&gt;
+&lt;p&gt;This structure guarantees that the map will be in both ascending key and value order.&lt;/p&gt;
+&lt;p&gt;​	这个结构确保映射的键和值都按升序排列。&lt;/p&gt;</description></item><item><title>treemap</title><link>https://before80.github.io/go_docs/thirdPkg/gods/maps/treemap/</link><pubDate>Sat, 07 Dec 2024 11:04:27 +0800</pubDate><guid>https://before80.github.io/go_docs/thirdPkg/gods/maps/treemap/</guid><description>&lt;blockquote&gt;
+&lt;p&gt;原文：&lt;a href="https://pkg.go.dev/github.com/emirpasic/gods/v2@v2.0.0-alpha/maps/treemap"&gt;https://pkg.go.dev/github.com/emirpasic/gods/v2@v2.0.0-alpha/maps/treemap&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;收录该文档时间： &lt;code&gt;2024-12-07T11:04:27+08:00&lt;/code&gt;&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;h2 id="overview"&gt;Overview&lt;/h2&gt;
+&lt;p&gt;Package treemap implements a map backed by red-black tree.&lt;/p&gt;
+&lt;p&gt;​	包 &lt;code&gt;treemap&lt;/code&gt; 实现了一个由红黑树支持的映射（map）。&lt;/p&gt;
+&lt;p&gt;Elements are ordered by key in the map.&lt;/p&gt;
+&lt;p&gt;​	元素按键在映射中排序。&lt;/p&gt;
+&lt;p&gt;Structure is not thread safe.&lt;/p&gt;
+&lt;p&gt;​	该结构不是线程安全的。&lt;/p&gt;</description></item></channel></rss>

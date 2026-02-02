@@ -1,51 +1,54 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>GoDS (Go Data Structures) on Go 中文档集</title><link>https://before80.github.io/go_docs/thirdPkg/gods/</link><description>Recent content in GoDS (Go Data Structures) on Go 中文档集</description><generator>Hugo</generator><language>zh-cn</language><lastBuildDate>Sun, 08 Dec 2024 22:10:00 +0800</lastBuildDate><atom:link href="https://before80.github.io/go_docs/thirdPkg/gods/index.xml" rel="self" type="application/rss+xml"/><item><title>utils</title><link>https://before80.github.io/go_docs/thirdPkg/gods/utils/</link><pubDate>Sat, 07 Dec 2024 11:10:14 +0800</pubDate><guid>https://before80.github.io/go_docs/thirdPkg/gods/utils/</guid><description>&lt;blockquote>
-&lt;p>原文：&lt;a href="https://pkg.go.dev/github.com/emirpasic/gods/v2@v2.0.0-alpha/utils">https://pkg.go.dev/github.com/emirpasic/gods/v2@v2.0.0-alpha/utils&lt;/a>&lt;/p>
-&lt;p>收录该文档时间： &lt;code>2024-12-07T11:10:14+08:00&lt;/code>&lt;/p>&lt;/blockquote>
-&lt;h2 id="overview">Overview&lt;a class="td-heading-self-link" href="#overview" aria-label="Heading self-link">&lt;/a>&lt;/h2>
-&lt;p>Package utils provides common utility functions.&lt;/p>
-&lt;p>​	&lt;code>utils&lt;/code> 包提供了常用的工具函数。&lt;/p>
-&lt;p>Provided functionalities: 提供的功能：&lt;/p>
-&lt;ul>
-&lt;li>sorting 排序&lt;/li>
-&lt;li>comparators 排序&lt;/li>
-&lt;/ul>
-&lt;h2 id="常量">常量&lt;a class="td-heading-self-link" href="#%e5%b8%b8%e9%87%8f" aria-label="Heading self-link">&lt;/a>&lt;/h2>
-&lt;p>This section is empty.&lt;/p>
-&lt;h2 id="变量">变量&lt;a class="td-heading-self-link" href="#%e5%8f%98%e9%87%8f" aria-label="Heading self-link">&lt;/a>&lt;/h2>
-&lt;p>This section is empty.&lt;/p>
-&lt;h2 id="函数">函数&lt;a class="td-heading-self-link" href="#%e5%87%bd%e6%95%b0" aria-label="Heading self-link">&lt;/a>&lt;/h2>
-&lt;h4 id="func-timecomparator">func TimeComparator&lt;a class="td-heading-self-link" href="#func-timecomparator" aria-label="Heading self-link">&lt;/a>&lt;/h4>
-&lt;div class="highlight">&lt;div style="color:#b0c4de;background-color:#282c34;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">
-&lt;table style="border-spacing:0;padding:0;margin:0;border:0;">&lt;tr>&lt;td style="vertical-align:top;padding:0;margin:0;border:0;">
-&lt;pre tabindex="0" style="color:#b0c4de;background-color:#282c34;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code>&lt;span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#58626f">1
-&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
-&lt;td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
-&lt;pre tabindex="0" style="color:#b0c4de;background-color:#282c34;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-go" data-lang="go">&lt;span style="display:flex;">&lt;span>&lt;span style="color:#76a9f9">func&lt;/span> &lt;span style="color:#00b1f7">TimeComparator&lt;/span>&lt;span style="color:#abb2bf">(&lt;/span>&lt;span style="color:#aa89ea">a&lt;/span>&lt;span style="color:#abb2bf">,&lt;/span> &lt;span style="color:#aa89ea">b&lt;/span> &lt;span style="color:#aa89ea">time&lt;/span>&lt;span style="color:#abb2bf">.&lt;/span>&lt;span style="color:#aa89ea">Time&lt;/span>&lt;span style="color:#abb2bf">)&lt;/span> &lt;span style="color:#e5c07b">int&lt;/span>
-&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
-&lt;/div>
-&lt;/div>&lt;p>TimeComparator provides a basic comparison on time.Time&lt;/p></description></item><item><title>testutils</title><link>https://before80.github.io/go_docs/thirdPkg/gods/testutils/</link><pubDate>Sat, 07 Dec 2024 11:08:59 +0800</pubDate><guid>https://before80.github.io/go_docs/thirdPkg/gods/testutils/</guid><description>&lt;blockquote>
-&lt;p>原文：&lt;a href="https://pkg.go.dev/github.com/emirpasic/gods/v2@v2.0.0-alpha/testutils">https://pkg.go.dev/github.com/emirpasic/gods/v2@v2.0.0-alpha/testutils&lt;/a>&lt;/p>
-&lt;p>收录该文档时间： &lt;code>2024-12-07T11:08:59+08:00&lt;/code>&lt;/p>&lt;/blockquote>
-&lt;h2 id="常量">常量&lt;a class="td-heading-self-link" href="#%e5%b8%b8%e9%87%8f" aria-label="Heading self-link">&lt;/a>&lt;/h2>
-&lt;p>This section is empty.&lt;/p>
-&lt;h2 id="变量">变量&lt;a class="td-heading-self-link" href="#%e5%8f%98%e9%87%8f" aria-label="Heading self-link">&lt;/a>&lt;/h2>
-&lt;p>This section is empty.&lt;/p>
-&lt;h2 id="函数">函数&lt;a class="td-heading-self-link" href="#%e5%87%bd%e6%95%b0" aria-label="Heading self-link">&lt;/a>&lt;/h2>
-&lt;h4 id="func-sameelements">func SameElements&lt;a class="td-heading-self-link" href="#func-sameelements" aria-label="Heading self-link">&lt;/a>&lt;/h4>
-&lt;div class="highlight">&lt;div style="color:#b0c4de;background-color:#282c34;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">
-&lt;table style="border-spacing:0;padding:0;margin:0;border:0;">&lt;tr>&lt;td style="vertical-align:top;padding:0;margin:0;border:0;">
-&lt;pre tabindex="0" style="color:#b0c4de;background-color:#282c34;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code>&lt;span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#58626f">1
-&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
-&lt;td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
-&lt;pre tabindex="0" style="color:#b0c4de;background-color:#282c34;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-go" data-lang="go">&lt;span style="display:flex;">&lt;span>&lt;span style="color:#76a9f9">func&lt;/span> &lt;span style="color:#aa89ea">SameElements&lt;/span>&lt;span style="color:#abb2bf">[&lt;/span>&lt;span style="color:#aa89ea">T&lt;/span> &lt;span style="color:#aa89ea">comparable&lt;/span>&lt;span style="color:#abb2bf">](&lt;/span>&lt;span style="color:#aa89ea">t&lt;/span> &lt;span style="color:#54b1c7">*&lt;/span>&lt;span style="color:#aa89ea">testing&lt;/span>&lt;span style="color:#abb2bf">.&lt;/span>&lt;span style="color:#aa89ea">T&lt;/span>&lt;span style="color:#abb2bf">,&lt;/span> &lt;span style="color:#aa89ea">actual&lt;/span>&lt;span style="color:#abb2bf">,&lt;/span> &lt;span style="color:#aa89ea">expected&lt;/span> &lt;span style="color:#abb2bf">[]&lt;/span>&lt;span style="color:#aa89ea">T&lt;/span>&lt;span style="color:#abb2bf">)&lt;/span>
-&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
-&lt;/div>
-&lt;/div>&lt;h2 id="类型">类型&lt;a class="td-heading-self-link" href="#%e7%b1%bb%e5%9e%8b" aria-label="Heading self-link">&lt;/a>&lt;/h2>
-&lt;p>This section is empty.&lt;/p></description></item><item><title>containers</title><link>https://before80.github.io/go_docs/thirdPkg/gods/containers/</link><pubDate>Sat, 07 Dec 2024 11:01:14 +0800</pubDate><guid>https://before80.github.io/go_docs/thirdPkg/gods/containers/</guid><description>&lt;blockquote>
-&lt;p>原文：&lt;a href="https://pkg.go.dev/github.com/emirpasic/gods/v2@v2.0.0-alpha/containers">https://pkg.go.dev/github.com/emirpasic/gods/v2@v2.0.0-alpha/containers&lt;/a>&lt;/p>
-&lt;p>收录该文档时间： &lt;code>2024-12-07T11:01:14+08:00&lt;/code>&lt;/p>&lt;/blockquote>
-&lt;h2 id="overview">Overview&lt;a class="td-heading-self-link" href="#overview" aria-label="Heading self-link">&lt;/a>&lt;/h2>
-&lt;p>Package containers provides core interfaces and functions for data structures.&lt;/p>
-&lt;p>​	&lt;code>containers&lt;/code> 包为数据结构提供了核心接口和功能。&lt;/p>
-&lt;p>Container is the base interface for all data structures to implement.&lt;/p>
-&lt;p>​	&lt;strong>Container&lt;/strong> 是所有数据结构必须实现的基础接口。&lt;/p></description></item></channel></rss>
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>GoDS (Go Data Structures) on Go 中文档集</title><link>https://before80.github.io/go_docs/thirdPkg/gods/</link><description>Recent content in GoDS (Go Data Structures) on Go 中文档集</description><generator>Hugo</generator><language>zh-cn</language><lastBuildDate>Sun, 08 Dec 2024 22:10:00 +0800</lastBuildDate><atom:link href="https://before80.github.io/go_docs/thirdPkg/gods/index.xml" rel="self" type="application/rss+xml"/><item><title>utils</title><link>https://before80.github.io/go_docs/thirdPkg/gods/utils/</link><pubDate>Sat, 07 Dec 2024 11:10:14 +0800</pubDate><guid>https://before80.github.io/go_docs/thirdPkg/gods/utils/</guid><description>&lt;blockquote&gt;
+&lt;p&gt;原文：&lt;a href="https://pkg.go.dev/github.com/emirpasic/gods/v2@v2.0.0-alpha/utils"&gt;https://pkg.go.dev/github.com/emirpasic/gods/v2@v2.0.0-alpha/utils&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;收录该文档时间： &lt;code&gt;2024-12-07T11:10:14+08:00&lt;/code&gt;&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;h2 id="overview"&gt;Overview&lt;/h2&gt;
+&lt;p&gt;Package utils provides common utility functions.&lt;/p&gt;
+&lt;p&gt;​	&lt;code&gt;utils&lt;/code&gt; 包提供了常用的工具函数。&lt;/p&gt;
+&lt;p&gt;Provided functionalities: 提供的功能：&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;sorting 排序&lt;/li&gt;
+&lt;li&gt;comparators 排序&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2 id="常量"&gt;常量&lt;/h2&gt;
+&lt;p&gt;This section is empty.&lt;/p&gt;
+&lt;h2 id="变量"&gt;变量&lt;/h2&gt;
+&lt;p&gt;This section is empty.&lt;/p&gt;
+&lt;h2 id="函数"&gt;函数&lt;/h2&gt;
+&lt;h4 id="func-timecomparator"&gt;func TimeComparator&lt;/h4&gt;
+&lt;div class="highlight"&gt;&lt;div style="color:#b0c4de;background-color:#282c34;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"&gt;
+&lt;table style="border-spacing:0;padding:0;margin:0;border:0;"&gt;&lt;tr&gt;&lt;td style="vertical-align:top;padding:0;margin:0;border:0;"&gt;
+&lt;pre tabindex="0" style="color:#b0c4de;background-color:#282c34;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"&gt;&lt;code&gt;&lt;span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#58626f"&gt;1
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
+&lt;td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%"&gt;
+&lt;pre tabindex="0" style="color:#b0c4de;background-color:#282c34;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"&gt;&lt;code class="language-go" data-lang="go"&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;&lt;span style="color:#76a9f9"&gt;func&lt;/span&gt; &lt;span style="color:#00b1f7"&gt;TimeComparator&lt;/span&gt;&lt;span style="color:#abb2bf"&gt;(&lt;/span&gt;&lt;span style="color:#aa89ea"&gt;a&lt;/span&gt;&lt;span style="color:#abb2bf"&gt;,&lt;/span&gt; &lt;span style="color:#aa89ea"&gt;b&lt;/span&gt; &lt;span style="color:#aa89ea"&gt;time&lt;/span&gt;&lt;span style="color:#abb2bf"&gt;.&lt;/span&gt;&lt;span style="color:#aa89ea"&gt;Time&lt;/span&gt;&lt;span style="color:#abb2bf"&gt;)&lt;/span&gt; &lt;span style="color:#e5c07b"&gt;int&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+&lt;/div&gt;
+&lt;/div&gt;&lt;p&gt;TimeComparator provides a basic comparison on time.Time&lt;/p&gt;</description></item><item><title>testutils</title><link>https://before80.github.io/go_docs/thirdPkg/gods/testutils/</link><pubDate>Sat, 07 Dec 2024 11:08:59 +0800</pubDate><guid>https://before80.github.io/go_docs/thirdPkg/gods/testutils/</guid><description>&lt;blockquote&gt;
+&lt;p&gt;原文：&lt;a href="https://pkg.go.dev/github.com/emirpasic/gods/v2@v2.0.0-alpha/testutils"&gt;https://pkg.go.dev/github.com/emirpasic/gods/v2@v2.0.0-alpha/testutils&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;收录该文档时间： &lt;code&gt;2024-12-07T11:08:59+08:00&lt;/code&gt;&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;h2 id="常量"&gt;常量&lt;/h2&gt;
+&lt;p&gt;This section is empty.&lt;/p&gt;
+&lt;h2 id="变量"&gt;变量&lt;/h2&gt;
+&lt;p&gt;This section is empty.&lt;/p&gt;
+&lt;h2 id="函数"&gt;函数&lt;/h2&gt;
+&lt;h4 id="func-sameelements"&gt;func SameElements&lt;/h4&gt;
+&lt;div class="highlight"&gt;&lt;div style="color:#b0c4de;background-color:#282c34;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"&gt;
+&lt;table style="border-spacing:0;padding:0;margin:0;border:0;"&gt;&lt;tr&gt;&lt;td style="vertical-align:top;padding:0;margin:0;border:0;"&gt;
+&lt;pre tabindex="0" style="color:#b0c4de;background-color:#282c34;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"&gt;&lt;code&gt;&lt;span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#58626f"&gt;1
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
+&lt;td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%"&gt;
+&lt;pre tabindex="0" style="color:#b0c4de;background-color:#282c34;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"&gt;&lt;code class="language-go" data-lang="go"&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;&lt;span style="color:#76a9f9"&gt;func&lt;/span&gt; &lt;span style="color:#aa89ea"&gt;SameElements&lt;/span&gt;&lt;span style="color:#abb2bf"&gt;[&lt;/span&gt;&lt;span style="color:#aa89ea"&gt;T&lt;/span&gt; &lt;span style="color:#aa89ea"&gt;comparable&lt;/span&gt;&lt;span style="color:#abb2bf"&gt;](&lt;/span&gt;&lt;span style="color:#aa89ea"&gt;t&lt;/span&gt; &lt;span style="color:#54b1c7"&gt;*&lt;/span&gt;&lt;span style="color:#aa89ea"&gt;testing&lt;/span&gt;&lt;span style="color:#abb2bf"&gt;.&lt;/span&gt;&lt;span style="color:#aa89ea"&gt;T&lt;/span&gt;&lt;span style="color:#abb2bf"&gt;,&lt;/span&gt; &lt;span style="color:#aa89ea"&gt;actual&lt;/span&gt;&lt;span style="color:#abb2bf"&gt;,&lt;/span&gt; &lt;span style="color:#aa89ea"&gt;expected&lt;/span&gt; &lt;span style="color:#abb2bf"&gt;[]&lt;/span&gt;&lt;span style="color:#aa89ea"&gt;T&lt;/span&gt;&lt;span style="color:#abb2bf"&gt;)&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+&lt;/div&gt;
+&lt;/div&gt;&lt;h2 id="类型"&gt;类型&lt;/h2&gt;
+&lt;p&gt;This section is empty.&lt;/p&gt;</description></item><item><title>containers</title><link>https://before80.github.io/go_docs/thirdPkg/gods/containers/</link><pubDate>Sat, 07 Dec 2024 11:01:14 +0800</pubDate><guid>https://before80.github.io/go_docs/thirdPkg/gods/containers/</guid><description>&lt;blockquote&gt;
+&lt;p&gt;原文：&lt;a href="https://pkg.go.dev/github.com/emirpasic/gods/v2@v2.0.0-alpha/containers"&gt;https://pkg.go.dev/github.com/emirpasic/gods/v2@v2.0.0-alpha/containers&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;收录该文档时间： &lt;code&gt;2024-12-07T11:01:14+08:00&lt;/code&gt;&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;h2 id="overview"&gt;Overview&lt;/h2&gt;
+&lt;p&gt;Package containers provides core interfaces and functions for data structures.&lt;/p&gt;
+&lt;p&gt;​	&lt;code&gt;containers&lt;/code&gt; 包为数据结构提供了核心接口和功能。&lt;/p&gt;
+&lt;p&gt;Container is the base interface for all data structures to implement.&lt;/p&gt;
+&lt;p&gt;​	&lt;strong&gt;Container&lt;/strong&gt; 是所有数据结构必须实现的基础接口。&lt;/p&gt;</description></item></channel></rss>

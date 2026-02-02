@@ -1,24 +1,26 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>html on Go 中文档集</title><link>https://before80.github.io/go_docs/stdLib/html/</link><description>Recent content in html on Go 中文档集</description><generator>Hugo</generator><language>zh-cn</language><lastBuildDate>Wed, 02 Apr 2025 16:27:58 +0800</lastBuildDate><atom:link href="https://before80.github.io/go_docs/stdLib/html/index.xml" rel="self" type="application/rss+xml"/><item><title>html</title><link>https://before80.github.io/go_docs/stdLib/html/html/</link><pubDate>Wed, 17 May 2023 11:11:20 +0800</pubDate><guid>https://before80.github.io/go_docs/stdLib/html/html/</guid><description>&lt;blockquote>
-&lt;p>原文：&lt;a href="https://pkg.go.dev/html@go1.24.2">https://pkg.go.dev/html@go1.24.2&lt;/a>&lt;/p>&lt;/blockquote>
-&lt;p>Package html provides functions for escaping and unescaping HTML text.&lt;/p>
-&lt;p>​	&lt;code>html&lt;/code>包提供了用于转义和反转义HTML文本的函数。&lt;/p>
-&lt;h2 id="常量">常量&lt;a class="td-heading-self-link" href="#%e5%b8%b8%e9%87%8f" aria-label="Heading self-link">&lt;/a>&lt;/h2>
-&lt;p>This section is empty.&lt;/p>
-&lt;h2 id="变量">变量&lt;a class="td-heading-self-link" href="#%e5%8f%98%e9%87%8f" aria-label="Heading self-link">&lt;/a>&lt;/h2>
-&lt;p>This section is empty.&lt;/p>
-&lt;h2 id="函数">函数&lt;a class="td-heading-self-link" href="#%e5%87%bd%e6%95%b0" aria-label="Heading self-link">&lt;/a>&lt;/h2>
-&lt;h3 id="func-escapestring">func EscapeString&lt;a class="td-heading-self-link" href="#func-escapestring" aria-label="Heading self-link">&lt;/a>&lt;/h3>
-&lt;div class="highlight">&lt;div style="color:#b0c4de;background-color:#282c34;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">
-&lt;table style="border-spacing:0;padding:0;margin:0;border:0;">&lt;tr>&lt;td style="vertical-align:top;padding:0;margin:0;border:0;">
-&lt;pre tabindex="0" style="color:#b0c4de;background-color:#282c34;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code>&lt;span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#58626f">1
-&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
-&lt;td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
-&lt;pre tabindex="0" style="color:#b0c4de;background-color:#282c34;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-go" data-lang="go">&lt;span style="display:flex;">&lt;span>&lt;span style="color:#76a9f9">func&lt;/span> &lt;span style="color:#00b1f7">EscapeString&lt;/span>&lt;span style="color:#abb2bf">(&lt;/span>&lt;span style="color:#aa89ea">s&lt;/span> &lt;span style="color:#e5c07b">string&lt;/span>&lt;span style="color:#abb2bf">)&lt;/span> &lt;span style="color:#e5c07b">string&lt;/span>
-&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
-&lt;/div>
-&lt;/div>&lt;p>EscapeString escapes special characters like &amp;ldquo;&lt;code>&amp;lt;&lt;/code>&amp;rdquo; to become &amp;ldquo;&lt;code>&amp;amp;lt;&lt;/code>&amp;rdquo;. It escapes only five such characters: &lt;code>&amp;lt;&lt;/code>, &lt;code>&amp;gt;&lt;/code>, &lt;code>&amp;amp;&lt;/code>, &lt;code>'&lt;/code> and &lt;code>&amp;quot;&lt;/code>. &lt;code>UnescapeString(EscapeString(s)) == s&lt;/code> always holds, but the converse isn&amp;rsquo;t always true.&lt;/p></description></item><item><title>template</title><link>https://before80.github.io/go_docs/stdLib/html/template/</link><pubDate>Wed, 17 May 2023 11:11:20 +0800</pubDate><guid>https://before80.github.io/go_docs/stdLib/html/template/</guid><description>&lt;blockquote>
-&lt;p>原文：&lt;a href="https://pkg.go.dev/html/template@go1.24.2">https://pkg.go.dev/html/template@go1.24.2&lt;/a>&lt;/p>&lt;/blockquote>
-&lt;p>
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>html on Go 中文档集</title><link>https://before80.github.io/go_docs/stdLib/html/</link><description>Recent content in html on Go 中文档集</description><generator>Hugo</generator><language>zh-cn</language><lastBuildDate>Wed, 02 Apr 2025 16:27:58 +0800</lastBuildDate><atom:link href="https://before80.github.io/go_docs/stdLib/html/index.xml" rel="self" type="application/rss+xml"/><item><title>html</title><link>https://before80.github.io/go_docs/stdLib/html/html/</link><pubDate>Wed, 17 May 2023 11:11:20 +0800</pubDate><guid>https://before80.github.io/go_docs/stdLib/html/html/</guid><description>&lt;blockquote&gt;
+&lt;p&gt;原文：&lt;a href="https://pkg.go.dev/html@go1.24.2"&gt;https://pkg.go.dev/html@go1.24.2&lt;/a&gt;&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;Package html provides functions for escaping and unescaping HTML text.&lt;/p&gt;
+&lt;p&gt;​	&lt;code&gt;html&lt;/code&gt;包提供了用于转义和反转义HTML文本的函数。&lt;/p&gt;
+&lt;h2 id="常量"&gt;常量&lt;/h2&gt;
+&lt;p&gt;This section is empty.&lt;/p&gt;
+&lt;h2 id="变量"&gt;变量&lt;/h2&gt;
+&lt;p&gt;This section is empty.&lt;/p&gt;
+&lt;h2 id="函数"&gt;函数&lt;/h2&gt;
+&lt;h3 id="func-escapestring"&gt;func EscapeString&lt;/h3&gt;
+&lt;div class="highlight"&gt;&lt;div style="color:#b0c4de;background-color:#282c34;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"&gt;
+&lt;table style="border-spacing:0;padding:0;margin:0;border:0;"&gt;&lt;tr&gt;&lt;td style="vertical-align:top;padding:0;margin:0;border:0;"&gt;
+&lt;pre tabindex="0" style="color:#b0c4de;background-color:#282c34;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"&gt;&lt;code&gt;&lt;span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#58626f"&gt;1
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
+&lt;td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%"&gt;
+&lt;pre tabindex="0" style="color:#b0c4de;background-color:#282c34;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"&gt;&lt;code class="language-go" data-lang="go"&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;&lt;span style="color:#76a9f9"&gt;func&lt;/span&gt; &lt;span style="color:#00b1f7"&gt;EscapeString&lt;/span&gt;&lt;span style="color:#abb2bf"&gt;(&lt;/span&gt;&lt;span style="color:#aa89ea"&gt;s&lt;/span&gt; &lt;span style="color:#e5c07b"&gt;string&lt;/span&gt;&lt;span style="color:#abb2bf"&gt;)&lt;/span&gt; &lt;span style="color:#e5c07b"&gt;string&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+&lt;/div&gt;
+&lt;/div&gt;&lt;p&gt;EscapeString escapes special characters like &amp;ldquo;&lt;code&gt;&amp;lt;&lt;/code&gt;&amp;rdquo; to become &amp;ldquo;&lt;code&gt;&amp;amp;lt;&lt;/code&gt;&amp;rdquo;. It escapes only five such characters: &lt;code&gt;&amp;lt;&lt;/code&gt;, &lt;code&gt;&amp;gt;&lt;/code&gt;, &lt;code&gt;&amp;amp;&lt;/code&gt;, &lt;code&gt;'&lt;/code&gt; and &lt;code&gt;&amp;quot;&lt;/code&gt;. &lt;code&gt;UnescapeString(EscapeString(s)) == s&lt;/code&gt; always holds, but the converse isn&amp;rsquo;t always true.&lt;/p&gt;</description></item><item><title>template</title><link>https://before80.github.io/go_docs/stdLib/html/template/</link><pubDate>Wed, 17 May 2023 11:11:20 +0800</pubDate><guid>https://before80.github.io/go_docs/stdLib/html/template/</guid><description>&lt;blockquote&gt;
+&lt;p&gt;原文：&lt;a href="https://pkg.go.dev/html/template@go1.24.2"&gt;https://pkg.go.dev/html/template@go1.24.2&lt;/a&gt;&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;
  
  
  
@@ -32,7 +34,7 @@
  &lt;img src="https://before80.github.io/go_docs/stdLib/html/template_img/alert_gm_grey_24dp.svg"
  alt="Alert" data-cur-dir="stdLib/html" data-rg="/template_img/alert_gm_grey_24dp.svg" data-rg1="template_img/alert_gm_grey_24dp.svg" data-rel="/go_docs/template_img/alert_gm_grey_24dp.svg" data-c4my="/go_docs"
  
- />
+ /&gt;
  
  
- &lt;a href="https://pkg.go.dev/vuln/GO-2023-1703">GO-2023-1703&lt;/a>: Templates do not properly consider backticks (`) as Javascript string delimiters, and do not escape them as expected. Backticks are used, since ES6, for JS template literals. If a template contains a Go template action within a Javascript template literal, the contents of the action can be used to terminate the literal, injecting arbitrary Javascript code into the Go template. As ES6 template literals are rather complex, and themselves can do string interpolation, the decision was made to simply disallow Go template actions from being used inside of them (e.g. &amp;ldquo;var a = {{.}}&amp;rdquo;), since there is no obviously safe way to allow this behavior. This takes the same approach as github.com/google/safehtml. With fix, Template.Parse returns an Error when it encounters templates like this, with an ErrorCode of value 12. This ErrorCode is currently unexported, but will be exported in the release of Go 1.21. Users who rely on the previous behavior can re-enable it using the GODEBUG flag jstmpllitinterp=1, with the caveat that backticks will now be escaped. This should be used with caution.&lt;/p></description></item></channel></rss>
+ &lt;a href="https://pkg.go.dev/vuln/GO-2023-1703"&gt;GO-2023-1703&lt;/a&gt;: Templates do not properly consider backticks (`) as Javascript string delimiters, and do not escape them as expected. Backticks are used, since ES6, for JS template literals. If a template contains a Go template action within a Javascript template literal, the contents of the action can be used to terminate the literal, injecting arbitrary Javascript code into the Go template. As ES6 template literals are rather complex, and themselves can do string interpolation, the decision was made to simply disallow Go template actions from being used inside of them (e.g. &amp;ldquo;var a = {{.}}&amp;rdquo;), since there is no obviously safe way to allow this behavior. This takes the same approach as github.com/google/safehtml. With fix, Template.Parse returns an Error when it encounters templates like this, with an ErrorCode of value 12. This ErrorCode is currently unexported, but will be exported in the release of Go 1.21. Users who rely on the previous behavior can re-enable it using the GODEBUG flag jstmpllitinterp=1, with the caveat that backticks will now be escaped. This should be used with caution.&lt;/p&gt;</description></item></channel></rss>

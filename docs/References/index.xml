@@ -1,24 +1,35 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>参考 on Go 中文档集</title><link>https://before80.github.io/go_docs/docs/References/</link><description>Recent content in 参考 on Go 中文档集</description><generator>Hugo</generator><language>zh-cn</language><lastBuildDate>Thu, 10 Oct 2024 15:07:50 +0800</lastBuildDate><atom:link href="https://before80.github.io/go_docs/docs/References/index.xml" rel="self" type="application/rss+xml"/><item><title>Go 内存模型</title><link>https://before80.github.io/go_docs/docs/References/TheGoMemoryModel/</link><pubDate>Wed, 17 May 2023 09:59:21 +0800</pubDate><guid>https://before80.github.io/go_docs/docs/References/TheGoMemoryModel/</guid><description>&lt;h1 id="the-go-memory-model---go-内存模型">The Go Memory Model - Go 内存模型&lt;a class="td-heading-self-link" href="#the-go-memory-model---go-%e5%86%85%e5%ad%98%e6%a8%a1%e5%9e%8b" aria-label="Heading self-link">&lt;/a>&lt;/h1>
-&lt;p>Version of June 6, 2022&lt;/p>
-&lt;p>2022年6月6日版本&lt;/p>
-&lt;blockquote>
-&lt;p>原文：&lt;a href="https://go.dev/ref/mem">https://go.dev/ref/mem&lt;/a>&lt;/p>&lt;/blockquote>
-&lt;h2 id="简介">简介&lt;a class="td-heading-self-link" href="#%e7%ae%80%e4%bb%8b" aria-label="Heading self-link">&lt;/a>&lt;/h2>
-&lt;p>​	Go的内存模型&lt;code>指定了&lt;/code>在一个goroutine中读取一个变量时，可以保证观察到在另一个goroutine中对同一变量进行写入产生的值&lt;code>的条件&lt;/code>。&lt;/p></description></item><item><title>go.mod 文件参考</title><link>https://before80.github.io/go_docs/docs/References/gomodFileReference/</link><pubDate>Wed, 17 May 2023 09:59:21 +0800</pubDate><guid>https://before80.github.io/go_docs/docs/References/gomodFileReference/</guid><description>&lt;h1 id="gomod-file-reference---gomod文件参考">go.mod file reference - go.mod文件参考&lt;a class="td-heading-self-link" href="#gomod-file-reference---gomod%e6%96%87%e4%bb%b6%e5%8f%82%e8%80%83" aria-label="Heading self-link">&lt;/a>&lt;/h1>
-&lt;blockquote>
-&lt;p>原文：&lt;a href="https://go.dev/doc/modules/gomod-ref">https://go.dev/doc/modules/gomod-ref&lt;/a>&lt;/p>&lt;/blockquote>
-&lt;p>​	每个 Go 模块都由一个 &lt;code>go.mod&lt;/code> 文件定义，该文件描述了该模块的属性，包括它对其他模块和 Go 版本的依赖项。&lt;/p>
-&lt;p>​	这些属性包括：&lt;/p></description></item><item><title>Contribution Guide</title><link>https://before80.github.io/go_docs/docs/References/ContributionGuide/</link><pubDate>Wed, 17 May 2023 09:59:21 +0800</pubDate><guid>https://before80.github.io/go_docs/docs/References/ContributionGuide/</guid><description>&lt;h1 id="contribution-guide">Contribution Guide&lt;a class="td-heading-self-link" href="#contribution-guide" aria-label="Heading self-link">&lt;/a>&lt;/h1>
-&lt;blockquote>
-&lt;p>原文：&lt;a href="https://go.dev/doc/contribute">https://go.dev/doc/contribute&lt;/a>&lt;/p>&lt;/blockquote>
-&lt;p>The Go project welcomes all contributors.&lt;/p>
-&lt;p>This document is a guide to help you through the process of contributing to the Go project, which is a little different from that used by other open source projects. We assume you have a basic understanding of Git and Go.&lt;/p>
-&lt;p>In addition to the information here, the Go community maintains a &lt;a href="https://go.dev/wiki/CodeReview">CodeReview&lt;/a> wiki page. Feel free to contribute to the wiki as you learn the review process.&lt;/p></description></item><item><title>Release History</title><link>https://before80.github.io/go_docs/docs/References/ReleaseHistory/</link><pubDate>Wed, 17 May 2023 09:59:21 +0800</pubDate><guid>https://before80.github.io/go_docs/docs/References/ReleaseHistory/</guid><description>&lt;h1 id="release-history">Release History&lt;a class="td-heading-self-link" href="#release-history" aria-label="Heading self-link">&lt;/a>&lt;/h1>
-&lt;blockquote>
-&lt;p>原文：&lt;a href="https://go.dev/doc/devel/release">https://go.dev/doc/devel/release&lt;/a>&lt;/p>&lt;/blockquote>
-&lt;p>本页总结了Go官方稳定版本之间的变化。&lt;a href="https://go.dev/change">变更日志&lt;/a>中有完整的细节。&lt;/p>
-&lt;p>要更新到一个特定的版本，请使用：&lt;/p>
-&lt;pre tabindex="0">&lt;code>git fetch --tags
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>参考 on Go 中文档集</title><link>https://before80.github.io/go_docs/docs/References/</link><description>Recent content in 参考 on Go 中文档集</description><generator>Hugo</generator><language>zh-cn</language><lastBuildDate>Thu, 10 Oct 2024 15:07:50 +0800</lastBuildDate><atom:link href="https://before80.github.io/go_docs/docs/References/index.xml" rel="self" type="application/rss+xml"/><item><title>Go 内存模型</title><link>https://before80.github.io/go_docs/docs/References/TheGoMemoryModel/</link><pubDate>Wed, 17 May 2023 09:59:21 +0800</pubDate><guid>https://before80.github.io/go_docs/docs/References/TheGoMemoryModel/</guid><description>&lt;h1 id="the-go-memory-model---go-内存模型"&gt;The Go Memory Model - Go 内存模型&lt;/h1&gt;
+&lt;p&gt;Version of June 6, 2022&lt;/p&gt;
+&lt;p&gt;2022年6月6日版本&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;原文：&lt;a href="https://go.dev/ref/mem"&gt;https://go.dev/ref/mem&lt;/a&gt;&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;h2 id="简介"&gt;简介&lt;/h2&gt;
+&lt;p&gt;​	Go的内存模型&lt;code&gt;指定了&lt;/code&gt;在一个goroutine中读取一个变量时，可以保证观察到在另一个goroutine中对同一变量进行写入产生的值&lt;code&gt;的条件&lt;/code&gt;。&lt;/p&gt;</description></item><item><title>go.mod 文件参考</title><link>https://before80.github.io/go_docs/docs/References/gomodFileReference/</link><pubDate>Wed, 17 May 2023 09:59:21 +0800</pubDate><guid>https://before80.github.io/go_docs/docs/References/gomodFileReference/</guid><description>&lt;h1 id="gomod-file-reference---gomod文件参考"&gt;go.mod file reference - go.mod文件参考&lt;/h1&gt;
+&lt;blockquote&gt;
+&lt;p&gt;原文：&lt;a href="https://go.dev/doc/modules/gomod-ref"&gt;https://go.dev/doc/modules/gomod-ref&lt;/a&gt;&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;​	每个 Go 模块都由一个 &lt;code&gt;go.mod&lt;/code&gt; 文件定义，该文件描述了该模块的属性，包括它对其他模块和 Go 版本的依赖项。&lt;/p&gt;
+&lt;p&gt;​	这些属性包括：&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;当前模块的&lt;code&gt;模块路径&lt;/code&gt;。这应该是Go工具可以下载该模块的位置，例如模块代码的存储库位置。当与模块的版本号结合时，它可以作为唯一的标识符。它也是该模块中所有包的包路径的前缀。关于Go如何定位模块的更多信息，请参阅&lt;a href="../GoModulesReference/Introduction"&gt;Go模块参考&lt;/a&gt;。&lt;/li&gt;
+&lt;li&gt;当前模块所需的&lt;code&gt;Go的最小版本&lt;/code&gt;。&lt;/li&gt;
+&lt;li&gt;当前模块所需的其他模块的最低版本列表。&lt;/li&gt;
+&lt;li&gt;指令，可选择用其他模块版本或本地目录&lt;code&gt;替换 (replace)&lt;/code&gt;所需模块，或&lt;code&gt;排除 （exclude）&lt;/code&gt;所需模块的特定版本。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;​	当您运行&lt;code&gt;go mod init&lt;/code&gt;命令时，Go会生成一个&lt;code&gt;go.mod&lt;/code&gt;文件。下面的例子创建了一个&lt;code&gt;go.mod&lt;/code&gt;文件，将模块的模块路径设置为&lt;code&gt;example/mymodule&lt;/code&gt;。&lt;/p&gt;</description></item><item><title>Contribution Guide</title><link>https://before80.github.io/go_docs/docs/References/ContributionGuide/</link><pubDate>Wed, 17 May 2023 09:59:21 +0800</pubDate><guid>https://before80.github.io/go_docs/docs/References/ContributionGuide/</guid><description>&lt;h1 id="contribution-guide"&gt;Contribution Guide&lt;/h1&gt;
+&lt;blockquote&gt;
+&lt;p&gt;原文：&lt;a href="https://go.dev/doc/contribute"&gt;https://go.dev/doc/contribute&lt;/a&gt;&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;The Go project welcomes all contributors.&lt;/p&gt;
+&lt;p&gt;This document is a guide to help you through the process of contributing to the Go project, which is a little different from that used by other open source projects. We assume you have a basic understanding of Git and Go.&lt;/p&gt;
+&lt;p&gt;In addition to the information here, the Go community maintains a &lt;a href="https://go.dev/wiki/CodeReview"&gt;CodeReview&lt;/a&gt; wiki page. Feel free to contribute to the wiki as you learn the review process.&lt;/p&gt;</description></item><item><title>Release History</title><link>https://before80.github.io/go_docs/docs/References/ReleaseHistory/</link><pubDate>Wed, 17 May 2023 09:59:21 +0800</pubDate><guid>https://before80.github.io/go_docs/docs/References/ReleaseHistory/</guid><description>&lt;h1 id="release-history"&gt;Release History&lt;/h1&gt;
+&lt;blockquote&gt;
+&lt;p&gt;原文：&lt;a href="https://go.dev/doc/devel/release"&gt;https://go.dev/doc/devel/release&lt;/a&gt;&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;本页总结了Go官方稳定版本之间的变化。&lt;a href="https://go.dev/change"&gt;变更日志&lt;/a&gt;中有完整的细节。&lt;/p&gt;
+&lt;p&gt;要更新到一个特定的版本，请使用：&lt;/p&gt;
+&lt;pre tabindex="0"&gt;&lt;code&gt;git fetch --tags
 git checkout goX.Y.Z
-&lt;/code>&lt;/pre>&lt;h2 id="release-policy-发布政策">Release Policy 发布政策&lt;a class="td-heading-self-link" href="#release-policy-%e5%8f%91%e5%b8%83%e6%94%bf%e7%ad%96" aria-label="Heading self-link">&lt;/a>&lt;/h2>
-&lt;p>​	每个主要的 Go 版本都被支持，直到有两个更新的主要版本。例如，Go 1.5 被支持到 Go 1.7 发布，而 Go 1.6 被支持到 Go 1.8 发布。我们会根据需要通过发布小修订版（例如，Go 1.6.1、Go 1.6.2，等等）来修复支持的版本中的关键问题，包括&lt;a href="https://go.dev/security">关键的安全问题（critical security problems）&lt;/a>。&lt;/p></description></item></channel></rss>
+&lt;/code&gt;&lt;/pre&gt;&lt;h2 id="release-policy-发布政策"&gt;Release Policy 发布政策&lt;/h2&gt;
+&lt;p&gt;​	每个主要的 Go 版本都被支持，直到有两个更新的主要版本。例如，Go 1.5 被支持到 Go 1.7 发布，而 Go 1.6 被支持到 Go 1.8 发布。我们会根据需要通过发布小修订版（例如，Go 1.6.1、Go 1.6.2，等等）来修复支持的版本中的关键问题，包括&lt;a href="https://go.dev/security"&gt;关键的安全问题（critical security problems）&lt;/a&gt;。&lt;/p&gt;</description></item></channel></rss>

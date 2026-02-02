@@ -1,21 +1,24 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>2016 [9篇] on Go 中文档集</title><link>https://before80.github.io/go_docs/goBlog/2016/</link><description>Recent content in 2016 [9篇] on Go 中文档集</description><generator>Hugo</generator><language>zh-cn</language><lastBuildDate>Thu, 10 Oct 2024 15:07:50 +0800</lastBuildDate><atom:link href="https://before80.github.io/go_docs/goBlog/2016/index.xml" rel="self" type="application/rss+xml"/><item><title>参与2016年 Go 用户调查和公司问卷调查</title><link>https://before80.github.io/go_docs/goBlog/2016/ParticipateInThe2016GoUserSurveyAndCompanyQuestionnaire/</link><pubDate>Thu, 18 May 2023 17:03:08 +0800</pubDate><guid>https://before80.github.io/go_docs/goBlog/2016/ParticipateInThe2016GoUserSurveyAndCompanyQuestionnaire/</guid><description>&lt;h1 id="participate-in-the-2016-go-user-survey-and-company-questionnaire---参与2016年-go-用户调查和公司问卷调查">Participate in the 2016 Go User Survey and Company Questionnaire - 参与2016年 Go 用户调查和公司问卷调查&lt;a class="td-heading-self-link" href="#participate-in-the-2016-go-user-survey-and-company-questionnaire---%e5%8f%82%e4%b8%8e2016%e5%b9%b4-go-%e7%94%a8%e6%88%b7%e8%b0%83%e6%9f%a5%e5%92%8c%e5%85%ac%e5%8f%b8%e9%97%ae%e5%8d%b7%e8%b0%83%e6%9f%a5" aria-label="Heading self-link">&lt;/a>&lt;/h1>
-&lt;blockquote>
-&lt;p>原文：&lt;a href="https://go.dev/blog/survey2016">https://go.dev/blog/survey2016&lt;/a>&lt;/p>&lt;/blockquote>
-&lt;p>Steve Francia
-13 December 2016&lt;/p>
-&lt;h2 id="the-go-project-wants-to-hear-from-you-go项目想听听您的意见">The Go project wants to hear from you! Go项目想听听您的意见!&lt;a class="td-heading-self-link" href="#the-go-project-wants-to-hear-from-you-go%e9%a1%b9%e7%9b%ae%e6%83%b3%e5%90%ac%e5%90%ac%e6%82%a8%e7%9a%84%e6%84%8f%e8%a7%81" aria-label="Heading self-link">&lt;/a>&lt;/h2>
-&lt;p>The Go project wants to hear from you! Our goal is to create the best language for developing simple, reliable, scalable software. We are asking you to help by participating in a survey and if applicable, a company questionnaire.&lt;/p></description></item><item><title>Go 字体</title><link>https://before80.github.io/go_docs/goBlog/2016/GoFonts/</link><pubDate>Thu, 18 May 2023 17:03:08 +0800</pubDate><guid>https://before80.github.io/go_docs/goBlog/2016/GoFonts/</guid><description>&lt;h1 id="go-fonts---go-字体">Go fonts - Go 字体&lt;a class="td-heading-self-link" href="#go-fonts---go-%e5%ad%97%e4%bd%93" aria-label="Heading self-link">&lt;/a>&lt;/h1>
-&lt;blockquote>
-&lt;p>原文：&lt;a href="https://go.dev/blog/go-fonts">https://go.dev/blog/go-fonts&lt;/a>&lt;/p>&lt;/blockquote>
-&lt;p>Nigel Tao, Chuck Bigelow, and Rob Pike
-16 November 2016&lt;/p>
-&lt;h2 id="an-announcement-一个公告">An Announcement 一个公告&lt;a class="td-heading-self-link" href="#an-announcement-%e4%b8%80%e4%b8%aa%e5%85%ac%e5%91%8a" aria-label="Heading self-link">&lt;/a>&lt;/h2>
-&lt;p>The experimental user interface toolkit being built at &lt;a href="https://godoc.org/golang.org/x/exp/shiny">&lt;code>golang.org/x/exp/shiny&lt;/code>&lt;/a> includes several text elements, but there is a problem with testing them: What font should be used? Answering this question led us to today’s announcement, the release of a family of high-quality &lt;a href="https://en.wikipedia.org/wiki/Windows_Glyph_List_4">WGL4&lt;/a> TrueType fonts, created by the &lt;a href="http://bigelowandholmes.typepad.com/">Bigelow &amp;amp; Holmes&lt;/a> type foundry specifically for the Go project.&lt;/p></description></item><item><title>Go 7 岁了</title><link>https://before80.github.io/go_docs/goBlog/2016/SevenYearsOfGo/</link><pubDate>Thu, 18 May 2023 17:03:08 +0800</pubDate><guid>https://before80.github.io/go_docs/goBlog/2016/SevenYearsOfGo/</guid><description>&lt;h1 id="seven-years-of-go---go-7-岁了">Seven years of Go - Go 7 岁了&lt;a class="td-heading-self-link" href="#seven-years-of-go---go-7-%e5%b2%81%e4%ba%86" aria-label="Heading self-link">&lt;/a>&lt;/h1>
-&lt;blockquote>
-&lt;p>原文：&lt;a href="https://go.dev/blog/7years">https://go.dev/blog/7years&lt;/a>&lt;/p>&lt;/blockquote>
-&lt;p>The Go Team
-10 November 2016&lt;/p>
-&lt;p>
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>2016 [9篇] on Go 中文档集</title><link>https://before80.github.io/go_docs/goBlog/2016/</link><description>Recent content in 2016 [9篇] on Go 中文档集</description><generator>Hugo</generator><language>zh-cn</language><lastBuildDate>Thu, 10 Oct 2024 15:07:50 +0800</lastBuildDate><atom:link href="https://before80.github.io/go_docs/goBlog/2016/index.xml" rel="self" type="application/rss+xml"/><item><title>参与2016年 Go 用户调查和公司问卷调查</title><link>https://before80.github.io/go_docs/goBlog/2016/ParticipateInThe2016GoUserSurveyAndCompanyQuestionnaire/</link><pubDate>Thu, 18 May 2023 17:03:08 +0800</pubDate><guid>https://before80.github.io/go_docs/goBlog/2016/ParticipateInThe2016GoUserSurveyAndCompanyQuestionnaire/</guid><description>&lt;h1 id="participate-in-the-2016-go-user-survey-and-company-questionnaire---参与2016年-go-用户调查和公司问卷调查"&gt;Participate in the 2016 Go User Survey and Company Questionnaire - 参与2016年 Go 用户调查和公司问卷调查&lt;/h1&gt;
+&lt;blockquote&gt;
+&lt;p&gt;原文：&lt;a href="https://go.dev/blog/survey2016"&gt;https://go.dev/blog/survey2016&lt;/a&gt;&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;Steve Francia
+13 December 2016&lt;/p&gt;
+&lt;h2 id="the-go-project-wants-to-hear-from-you-go项目想听听您的意见"&gt;The Go project wants to hear from you! Go项目想听听您的意见!&lt;/h2&gt;
+&lt;p&gt;The Go project wants to hear from you! Our goal is to create the best language for developing simple, reliable, scalable software. We are asking you to help by participating in a survey and if applicable, a company questionnaire.&lt;/p&gt;</description></item><item><title>Go 字体</title><link>https://before80.github.io/go_docs/goBlog/2016/GoFonts/</link><pubDate>Thu, 18 May 2023 17:03:08 +0800</pubDate><guid>https://before80.github.io/go_docs/goBlog/2016/GoFonts/</guid><description>&lt;h1 id="go-fonts---go-字体"&gt;Go fonts - Go 字体&lt;/h1&gt;
+&lt;blockquote&gt;
+&lt;p&gt;原文：&lt;a href="https://go.dev/blog/go-fonts"&gt;https://go.dev/blog/go-fonts&lt;/a&gt;&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;Nigel Tao, Chuck Bigelow, and Rob Pike
+16 November 2016&lt;/p&gt;
+&lt;h2 id="an-announcement-一个公告"&gt;An Announcement 一个公告&lt;/h2&gt;
+&lt;p&gt;The experimental user interface toolkit being built at &lt;a href="https://godoc.org/golang.org/x/exp/shiny"&gt;&lt;code&gt;golang.org/x/exp/shiny&lt;/code&gt;&lt;/a&gt; includes several text elements, but there is a problem with testing them: What font should be used? Answering this question led us to today’s announcement, the release of a family of high-quality &lt;a href="https://en.wikipedia.org/wiki/Windows_Glyph_List_4"&gt;WGL4&lt;/a&gt; TrueType fonts, created by the &lt;a href="http://bigelowandholmes.typepad.com/"&gt;Bigelow &amp;amp; Holmes&lt;/a&gt; type foundry specifically for the Go project.&lt;/p&gt;</description></item><item><title>Go 7 岁了</title><link>https://before80.github.io/go_docs/goBlog/2016/SevenYearsOfGo/</link><pubDate>Thu, 18 May 2023 17:03:08 +0800</pubDate><guid>https://before80.github.io/go_docs/goBlog/2016/SevenYearsOfGo/</guid><description>&lt;h1 id="seven-years-of-go---go-7-岁了"&gt;Seven years of Go - Go 7 岁了&lt;/h1&gt;
+&lt;blockquote&gt;
+&lt;p&gt;原文：&lt;a href="https://go.dev/blog/7years"&gt;https://go.dev/blog/7years&lt;/a&gt;&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;The Go Team
+10 November 2016&lt;/p&gt;
+&lt;p&gt;
  
  
  
@@ -29,43 +32,51 @@
  &lt;img src="https://before80.github.io/go_docs/goBlog/2016/SevenYearsOfGo_img/gopherbelly300.jpg"
  alt="img" data-cur-dir="goBlog/2016" data-rg="/SevenYearsOfGo_img/gopherbelly300.jpg" data-rg1="SevenYearsOfGo_img/gopherbelly300.jpg" data-rel="/go_docs/SevenYearsOfGo_img/gopherbelly300.jpg" data-c4my="/go_docs"
  
- />
+ /&gt;
  
  
-{ align=left }&lt;/p>
-&lt;p>Today marks seven years since we open-sourced our preliminary sketch of Go. With the help of the open source community, including more than a thousand individual contributors to the Go source repositories, Go has matured into a language used all over the world.&lt;/p></description></item><item><title>介绍一下HTTP追踪</title><link>https://before80.github.io/go_docs/goBlog/2016/IntroducingHTTPTracing/</link><pubDate>Thu, 18 May 2023 17:03:08 +0800</pubDate><guid>https://before80.github.io/go_docs/goBlog/2016/IntroducingHTTPTracing/</guid><description>&lt;h1 id="introducing-http-tracing---介绍一下http追踪">Introducing HTTP Tracing - 介绍一下HTTP追踪&lt;a class="td-heading-self-link" href="#introducing-http-tracing---%e4%bb%8b%e7%bb%8d%e4%b8%80%e4%b8%8bhttp%e8%bf%bd%e8%b8%aa" aria-label="Heading self-link">&lt;/a>&lt;/h1>
-&lt;blockquote>
-&lt;p>原文：&lt;a href="https://go.dev/blog/http-tracing">https://go.dev/blog/http-tracing&lt;/a>&lt;/p>&lt;/blockquote>
-&lt;p>Jaana Burcu Dogan
-4 October 2016&lt;/p>
-&lt;h2 id="introduction-简介">Introduction 简介&lt;a class="td-heading-self-link" href="#introduction-%e7%ae%80%e4%bb%8b" aria-label="Heading self-link">&lt;/a>&lt;/h2>
-&lt;p>In Go 1.7 we introduced HTTP tracing, a facility to gather fine-grained information throughout the lifecycle of an HTTP client request. Support for HTTP tracing is provided by the &lt;a href="https://go.dev/pkg/net/http/httptrace/">&lt;code>net/http/httptrace&lt;/code>&lt;/a> package. The collected information can be used for debugging latency issues, service monitoring, writing adaptive systems, and more.&lt;/p></description></item><item><title>使用子测试和子基准</title><link>https://before80.github.io/go_docs/goBlog/2016/UsingSubtestsAndSub-benchmarks/</link><pubDate>Thu, 18 May 2023 17:03:08 +0800</pubDate><guid>https://before80.github.io/go_docs/goBlog/2016/UsingSubtestsAndSub-benchmarks/</guid><description>&lt;h1 id="using-subtests-and-sub-benchmarks---使用子测试和子基准">Using Subtests and Sub-benchmarks - 使用子测试和子基准&lt;a class="td-heading-self-link" href="#using-subtests-and-sub-benchmarks---%e4%bd%bf%e7%94%a8%e5%ad%90%e6%b5%8b%e8%af%95%e5%92%8c%e5%ad%90%e5%9f%ba%e5%87%86" aria-label="Heading self-link">&lt;/a>&lt;/h1>
-&lt;blockquote>
-&lt;p>原文：&lt;a href="https://go.dev/blog/subtests">https://go.dev/blog/subtests&lt;/a>&lt;/p>&lt;/blockquote>
-&lt;p>Marcel van Lohuizen
-3 October 2016&lt;/p>
-&lt;h2 id="introduction-简介">Introduction 简介&lt;a class="td-heading-self-link" href="#introduction-%e7%ae%80%e4%bb%8b" aria-label="Heading self-link">&lt;/a>&lt;/h2>
-&lt;p>In Go 1.7, the &lt;code>testing&lt;/code> package introduces a Run method on the &lt;a href="https://go.dev/pkg/testing/#T.Run">&lt;code>T&lt;/code>&lt;/a> and &lt;a href="https://go.dev/pkg/testing/#B.Run">&lt;code>B&lt;/code>&lt;/a> types that allows for the creation of subtests and sub-benchmarks. The introduction of subtests and sub-benchmarks enables better handling of failures, fine-grained control of which tests to run from the command line, control of parallelism, and often results in simpler and more maintainable code.&lt;/p></description></item><item><title>更小的 Go 1.7二进制文件</title><link>https://before80.github.io/go_docs/goBlog/2016/SmallerGo1_7Binaries/</link><pubDate>Thu, 18 May 2023 17:03:08 +0800</pubDate><guid>https://before80.github.io/go_docs/goBlog/2016/SmallerGo1_7Binaries/</guid><description>&lt;h1 id="smaller-go-17-binaries---更小的-go-17二进制文件">Smaller Go 1.7 binaries - 更小的 Go 1.7二进制文件&lt;a class="td-heading-self-link" href="#smaller-go-17-binaries---%e6%9b%b4%e5%b0%8f%e7%9a%84-go-17%e4%ba%8c%e8%bf%9b%e5%88%b6%e6%96%87%e4%bb%b6" aria-label="Heading self-link">&lt;/a>&lt;/h1>
-&lt;blockquote>
-&lt;p>原文：&lt;a href="https://go.dev/blog/go1.7-binary-size">https://go.dev/blog/go1.7-binary-size&lt;/a>&lt;/p>&lt;/blockquote>
-&lt;p>David Crawshaw
-18 August 2016&lt;/p>
-&lt;h2 id="introduction-简介">Introduction 简介&lt;a class="td-heading-self-link" href="#introduction-%e7%ae%80%e4%bb%8b" aria-label="Heading self-link">&lt;/a>&lt;/h2>
-&lt;p>Go was designed for writing servers. That is how it is most widely used today, and as a result a lot of work on the runtime and compiler is focused on issues that matter to servers: latency, ease of deployment, precise garbage collection, fast startup time, performance.&lt;/p></description></item><item><title>Go 1.7发布了</title><link>https://before80.github.io/go_docs/goBlog/2016/Go1_7IsReleased/</link><pubDate>Thu, 18 May 2023 17:03:08 +0800</pubDate><guid>https://before80.github.io/go_docs/goBlog/2016/Go1_7IsReleased/</guid><description>&lt;h1 id="go-17-is-released---go-17发布了">Go 1.7 is released - Go 1.7发布了&lt;a class="td-heading-self-link" href="#go-17-is-released---go-17%e5%8f%91%e5%b8%83%e4%ba%86" aria-label="Heading self-link">&lt;/a>&lt;/h1>
-&lt;blockquote>
-&lt;p>原文：&lt;a href="https://go.dev/blog/go1.7">https://go.dev/blog/go1.7&lt;/a>&lt;/p>&lt;/blockquote>
-&lt;p>Chris Broadfoot
-15 August 2016&lt;/p>
-&lt;p>Today we are happy to announce the release of Go 1.7. You can get it from the &lt;a href="https://go.dev/dl/">download page&lt;/a>. There are several significant changes in this release: a port for &lt;a href="https://en.wikipedia.org/wiki/IBM_System_z">Linux on IBM z Systems&lt;/a> (s390x), compiler improvements, the addition of the &lt;a href="https://go.dev/pkg/context/">context&lt;/a> package, and support for &lt;a href="https://go.dev/pkg/testing/#hdr-Subtests_and_Sub_benchmarks">hierarchical tests and benchmarks&lt;/a>.&lt;/p></description></item><item><title>Go 1.6发布了</title><link>https://before80.github.io/go_docs/goBlog/2016/Go1_6IsReleased/</link><pubDate>Thu, 18 May 2023 17:03:08 +0800</pubDate><guid>https://before80.github.io/go_docs/goBlog/2016/Go1_6IsReleased/</guid><description>&lt;h1 id="go-16-is-released---go-16发布了">Go 1.6 is released - Go 1.6发布了&lt;a class="td-heading-self-link" href="#go-16-is-released---go-16%e5%8f%91%e5%b8%83%e4%ba%86" aria-label="Heading self-link">&lt;/a>&lt;/h1>
-&lt;blockquote>
-&lt;p>原文：&lt;a href="https://go.dev/blog/go1.6">https://go.dev/blog/go1.6&lt;/a>&lt;/p>&lt;/blockquote>
-&lt;p>Andrew Gerrand
-17 February 2016&lt;/p>
-&lt;p>Today we release &lt;a href="https://go.dev/doc/go1.6">Go version 1.6&lt;/a>, the seventh major stable release of Go. You can grab it right now from the &lt;a href="https://go.dev/dl/">download page&lt;/a>. Although &lt;a href="https://blog.golang.org/go1.5">the release of Go 1.5&lt;/a> six months ago contained dramatic implementation changes, this release is more incremental.&lt;/p>
-&lt;p>今天我们发布了Go的1.6版本，这是Go的第七个主要稳定版本。您现在就可以从下载页面抓取它。虽然6个月前发布的Go 1.5版本包含了巨大的实现变化，但这个版本更多是增量的。&lt;/p></description></item><item><title>Go 中的语言和地域匹配</title><link>https://before80.github.io/go_docs/goBlog/2016/LanguageAndLocaleMatchingInGo/</link><pubDate>Thu, 18 May 2023 17:03:08 +0800</pubDate><guid>https://before80.github.io/go_docs/goBlog/2016/LanguageAndLocaleMatchingInGo/</guid><description>&lt;h1 id="language-and-locale-matching-in-go---go-中的语言和地域匹配">Language and Locale Matching in Go - Go 中的语言和地域匹配&lt;a class="td-heading-self-link" href="#language-and-locale-matching-in-go---go-%e4%b8%ad%e7%9a%84%e8%af%ad%e8%a8%80%e5%92%8c%e5%9c%b0%e5%9f%9f%e5%8c%b9%e9%85%8d" aria-label="Heading self-link">&lt;/a>&lt;/h1>
-&lt;blockquote>
-&lt;p>原文：&lt;a href="https://go.dev/blog/matchlang">https://go.dev/blog/matchlang&lt;/a>&lt;/p>&lt;/blockquote>
-&lt;p>Marcel van Lohuizen
-9 February 2016&lt;/p>
-&lt;h2 id="introduction-简介">Introduction 简介&lt;a class="td-heading-self-link" href="#introduction-%e7%ae%80%e4%bb%8b" aria-label="Heading self-link">&lt;/a>&lt;/h2>
-&lt;p>Consider an application, such as a web site, with support for multiple languages in its user interface. When a user arrives with a list of preferred languages, the application must decide which language it should use in its presentation to the user. This requires finding the best match between the languages the application supports and those the user prefers. This post explains why this is a difficult decision and how Go can help.&lt;/p></description></item></channel></rss>
+{ align=left }&lt;/p&gt;
+&lt;p&gt;Today marks seven years since we open-sourced our preliminary sketch of Go. With the help of the open source community, including more than a thousand individual contributors to the Go source repositories, Go has matured into a language used all over the world.&lt;/p&gt;
+&lt;p&gt;今天是我们将Go的初步草图开源的七周年。在开源社区的帮助下，包括一千多名Go源码库的个人贡献者，Go已经成熟为一种在世界各地使用的语言。&lt;/p&gt;</description></item><item><title>介绍一下HTTP追踪</title><link>https://before80.github.io/go_docs/goBlog/2016/IntroducingHTTPTracing/</link><pubDate>Thu, 18 May 2023 17:03:08 +0800</pubDate><guid>https://before80.github.io/go_docs/goBlog/2016/IntroducingHTTPTracing/</guid><description>&lt;h1 id="introducing-http-tracing---介绍一下http追踪"&gt;Introducing HTTP Tracing - 介绍一下HTTP追踪&lt;/h1&gt;
+&lt;blockquote&gt;
+&lt;p&gt;原文：&lt;a href="https://go.dev/blog/http-tracing"&gt;https://go.dev/blog/http-tracing&lt;/a&gt;&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;Jaana Burcu Dogan
+4 October 2016&lt;/p&gt;
+&lt;h2 id="introduction-简介"&gt;Introduction 简介&lt;/h2&gt;
+&lt;p&gt;In Go 1.7 we introduced HTTP tracing, a facility to gather fine-grained information throughout the lifecycle of an HTTP client request. Support for HTTP tracing is provided by the &lt;a href="https://go.dev/pkg/net/http/httptrace/"&gt;&lt;code&gt;net/http/httptrace&lt;/code&gt;&lt;/a&gt; package. The collected information can be used for debugging latency issues, service monitoring, writing adaptive systems, and more.&lt;/p&gt;</description></item><item><title>使用子测试和子基准</title><link>https://before80.github.io/go_docs/goBlog/2016/UsingSubtestsAndSub-benchmarks/</link><pubDate>Thu, 18 May 2023 17:03:08 +0800</pubDate><guid>https://before80.github.io/go_docs/goBlog/2016/UsingSubtestsAndSub-benchmarks/</guid><description>&lt;h1 id="using-subtests-and-sub-benchmarks---使用子测试和子基准"&gt;Using Subtests and Sub-benchmarks - 使用子测试和子基准&lt;/h1&gt;
+&lt;blockquote&gt;
+&lt;p&gt;原文：&lt;a href="https://go.dev/blog/subtests"&gt;https://go.dev/blog/subtests&lt;/a&gt;&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;Marcel van Lohuizen
+3 October 2016&lt;/p&gt;
+&lt;h2 id="introduction-简介"&gt;Introduction 简介&lt;/h2&gt;
+&lt;p&gt;In Go 1.7, the &lt;code&gt;testing&lt;/code&gt; package introduces a Run method on the &lt;a href="https://go.dev/pkg/testing/#T.Run"&gt;&lt;code&gt;T&lt;/code&gt;&lt;/a&gt; and &lt;a href="https://go.dev/pkg/testing/#B.Run"&gt;&lt;code&gt;B&lt;/code&gt;&lt;/a&gt; types that allows for the creation of subtests and sub-benchmarks. The introduction of subtests and sub-benchmarks enables better handling of failures, fine-grained control of which tests to run from the command line, control of parallelism, and often results in simpler and more maintainable code.&lt;/p&gt;</description></item><item><title>更小的 Go 1.7二进制文件</title><link>https://before80.github.io/go_docs/goBlog/2016/SmallerGo1_7Binaries/</link><pubDate>Thu, 18 May 2023 17:03:08 +0800</pubDate><guid>https://before80.github.io/go_docs/goBlog/2016/SmallerGo1_7Binaries/</guid><description>&lt;h1 id="smaller-go-17-binaries---更小的-go-17二进制文件"&gt;Smaller Go 1.7 binaries - 更小的 Go 1.7二进制文件&lt;/h1&gt;
+&lt;blockquote&gt;
+&lt;p&gt;原文：&lt;a href="https://go.dev/blog/go1.7-binary-size"&gt;https://go.dev/blog/go1.7-binary-size&lt;/a&gt;&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;David Crawshaw
+18 August 2016&lt;/p&gt;
+&lt;h2 id="introduction-简介"&gt;Introduction 简介&lt;/h2&gt;
+&lt;p&gt;Go was designed for writing servers. That is how it is most widely used today, and as a result a lot of work on the runtime and compiler is focused on issues that matter to servers: latency, ease of deployment, precise garbage collection, fast startup time, performance.&lt;/p&gt;</description></item><item><title>Go 1.7发布了</title><link>https://before80.github.io/go_docs/goBlog/2016/Go1_7IsReleased/</link><pubDate>Thu, 18 May 2023 17:03:08 +0800</pubDate><guid>https://before80.github.io/go_docs/goBlog/2016/Go1_7IsReleased/</guid><description>&lt;h1 id="go-17-is-released---go-17发布了"&gt;Go 1.7 is released - Go 1.7发布了&lt;/h1&gt;
+&lt;blockquote&gt;
+&lt;p&gt;原文：&lt;a href="https://go.dev/blog/go1.7"&gt;https://go.dev/blog/go1.7&lt;/a&gt;&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;Chris Broadfoot
+15 August 2016&lt;/p&gt;
+&lt;p&gt;Today we are happy to announce the release of Go 1.7. You can get it from the &lt;a href="https://go.dev/dl/"&gt;download page&lt;/a&gt;. There are several significant changes in this release: a port for &lt;a href="https://en.wikipedia.org/wiki/IBM_System_z"&gt;Linux on IBM z Systems&lt;/a&gt; (s390x), compiler improvements, the addition of the &lt;a href="https://go.dev/pkg/context/"&gt;context&lt;/a&gt; package, and support for &lt;a href="https://go.dev/pkg/testing/#hdr-Subtests_and_Sub_benchmarks"&gt;hierarchical tests and benchmarks&lt;/a&gt;.&lt;/p&gt;
+&lt;p&gt;今天我们很高兴地宣布Go 1.7的发布。您可以从下载页面获得它。这个版本有几个重要的变化：在IBM z系统（s390x）上的Linux移植，编译器改进，增加了上下文包，并支持分层测试和基准。&lt;/p&gt;</description></item><item><title>Go 1.6发布了</title><link>https://before80.github.io/go_docs/goBlog/2016/Go1_6IsReleased/</link><pubDate>Thu, 18 May 2023 17:03:08 +0800</pubDate><guid>https://before80.github.io/go_docs/goBlog/2016/Go1_6IsReleased/</guid><description>&lt;h1 id="go-16-is-released---go-16发布了"&gt;Go 1.6 is released - Go 1.6发布了&lt;/h1&gt;
+&lt;blockquote&gt;
+&lt;p&gt;原文：&lt;a href="https://go.dev/blog/go1.6"&gt;https://go.dev/blog/go1.6&lt;/a&gt;&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;Andrew Gerrand
+17 February 2016&lt;/p&gt;
+&lt;p&gt;Today we release &lt;a href="https://go.dev/doc/go1.6"&gt;Go version 1.6&lt;/a&gt;, the seventh major stable release of Go. You can grab it right now from the &lt;a href="https://go.dev/dl/"&gt;download page&lt;/a&gt;. Although &lt;a href="https://blog.golang.org/go1.5"&gt;the release of Go 1.5&lt;/a&gt; six months ago contained dramatic implementation changes, this release is more incremental.&lt;/p&gt;
+&lt;p&gt;今天我们发布了Go的1.6版本，这是Go的第七个主要稳定版本。您现在就可以从下载页面抓取它。虽然6个月前发布的Go 1.5版本包含了巨大的实现变化，但这个版本更多是增量的。&lt;/p&gt;</description></item><item><title>Go 中的语言和地域匹配</title><link>https://before80.github.io/go_docs/goBlog/2016/LanguageAndLocaleMatchingInGo/</link><pubDate>Thu, 18 May 2023 17:03:08 +0800</pubDate><guid>https://before80.github.io/go_docs/goBlog/2016/LanguageAndLocaleMatchingInGo/</guid><description>&lt;h1 id="language-and-locale-matching-in-go---go-中的语言和地域匹配"&gt;Language and Locale Matching in Go - Go 中的语言和地域匹配&lt;/h1&gt;
+&lt;blockquote&gt;
+&lt;p&gt;原文：&lt;a href="https://go.dev/blog/matchlang"&gt;https://go.dev/blog/matchlang&lt;/a&gt;&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;Marcel van Lohuizen
+9 February 2016&lt;/p&gt;
+&lt;h2 id="introduction-简介"&gt;Introduction 简介&lt;/h2&gt;
+&lt;p&gt;Consider an application, such as a web site, with support for multiple languages in its user interface. When a user arrives with a list of preferred languages, the application must decide which language it should use in its presentation to the user. This requires finding the best match between the languages the application supports and those the user prefers. This post explains why this is a difficult decision and how Go can help.&lt;/p&gt;</description></item></channel></rss>

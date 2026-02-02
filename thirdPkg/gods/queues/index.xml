@@ -1,38 +1,47 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>queues on Go 中文档集</title><link>https://before80.github.io/go_docs/thirdPkg/gods/queues/</link><description>Recent content in queues on Go 中文档集</description><generator>Hugo</generator><language>zh-cn</language><lastBuildDate>Sun, 08 Dec 2024 22:10:00 +0800</lastBuildDate><atom:link href="https://before80.github.io/go_docs/thirdPkg/gods/queues/index.xml" rel="self" type="application/rss+xml"/><item><title>arrayqueue</title><link>https://before80.github.io/go_docs/thirdPkg/gods/queues/arrayqueue/</link><pubDate>Sat, 07 Dec 2024 11:06:50 +0800</pubDate><guid>https://before80.github.io/go_docs/thirdPkg/gods/queues/arrayqueue/</guid><description>&lt;blockquote>
-&lt;p>原文：&lt;a href="https://pkg.go.dev/github.com/emirpasic/gods/v2@v2.0.0-alpha/queues/arrayqueue">https://pkg.go.dev/github.com/emirpasic/gods/v2@v2.0.0-alpha/queues/arrayqueue&lt;/a>&lt;/p>
-&lt;p>收录该文档时间： &lt;code>2024-12-07T11:06:50+08:00&lt;/code>&lt;/p>&lt;/blockquote>
-&lt;h2 id="overview">Overview&lt;a class="td-heading-self-link" href="#overview" aria-label="Heading self-link">&lt;/a>&lt;/h2>
-&lt;p>Package arrayqueue implements a queue backed by array list.&lt;/p>
-&lt;p>​	包 &lt;code>arrayqueue&lt;/code> 实现了一个基于数组列表的队列。&lt;/p>
-&lt;p>Structure is not thread safe.&lt;/p>
-&lt;p>​	该结构体不是线程安全的。&lt;/p>
-&lt;p>Reference: &lt;a href="https://en.wikipedia.org/wiki/Queue_(abstract_data_type)">https://en.wikipedia.org/wiki/Queue_(abstract_data_type)&lt;/a>&lt;/p>
-&lt;h2 id="常量">常量&lt;a class="td-heading-self-link" href="#%e5%b8%b8%e9%87%8f" aria-label="Heading self-link">&lt;/a>&lt;/h2>
-&lt;p>This section is empty.&lt;/p>
-&lt;h2 id="变量">变量&lt;a class="td-heading-self-link" href="#%e5%8f%98%e9%87%8f" aria-label="Heading self-link">&lt;/a>&lt;/h2>
-&lt;p>This section is empty.&lt;/p></description></item><item><title>circularbuffer</title><link>https://before80.github.io/go_docs/thirdPkg/gods/queues/circularbuffer/</link><pubDate>Sat, 07 Dec 2024 11:07:09 +0800</pubDate><guid>https://before80.github.io/go_docs/thirdPkg/gods/queues/circularbuffer/</guid><description>&lt;blockquote>
-&lt;p>原文：&lt;a href="https://pkg.go.dev/github.com/emirpasic/gods/v2@v2.0.0-alpha/queues/circularbuffer">https://pkg.go.dev/github.com/emirpasic/gods/v2@v2.0.0-alpha/queues/circularbuffer&lt;/a>&lt;/p>
-&lt;p>收录该文档时间： &lt;code>2024-12-07T11:07:09+08:00&lt;/code>&lt;/p>&lt;/blockquote>
-&lt;h2 id="overview">Overview&lt;a class="td-heading-self-link" href="#overview" aria-label="Heading self-link">&lt;/a>&lt;/h2>
-&lt;p>Package circularbuffer implements the circular buffer.&lt;/p>
-&lt;p>​	包 &lt;code>circularbuffer&lt;/code> 实现了循环缓冲区。&lt;/p>
-&lt;p>In computer science, a circular buffer, circular queue, cyclic buffer or ring buffer is a data structure that uses a single, fixed-size buffer as if it were connected end-to-end. This structure lends itself easily to buffering data streams.&lt;/p></description></item><item><title>linkedlistqueue</title><link>https://before80.github.io/go_docs/thirdPkg/gods/queues/linkedlistqueue/</link><pubDate>Sat, 07 Dec 2024 11:07:24 +0800</pubDate><guid>https://before80.github.io/go_docs/thirdPkg/gods/queues/linkedlistqueue/</guid><description>&lt;blockquote>
-&lt;p>原文：&lt;a href="https://pkg.go.dev/github.com/emirpasic/gods/v2@v2.0.0-alpha/queues/linkedlistqueue">https://pkg.go.dev/github.com/emirpasic/gods/v2@v2.0.0-alpha/queues/linkedlistqueue&lt;/a>&lt;/p>
-&lt;p>收录该文档时间： &lt;code>2024-12-07T11:07:24+08:00&lt;/code>&lt;/p>&lt;/blockquote>
-&lt;h2 id="overview">Overview&lt;a class="td-heading-self-link" href="#overview" aria-label="Heading self-link">&lt;/a>&lt;/h2>
-&lt;p>Package linkedlistqueue implements a queue backed by a singly-linked list.&lt;/p>
-&lt;p>​	包 &lt;code>linkedlistqueue&lt;/code> 实现了基于单链表的队列。&lt;/p>
-&lt;p>Structure is not thread safe.&lt;/p>
-&lt;p>​	该结构体不是线程安全的。&lt;/p>
-&lt;p>Reference: &lt;a href="https://en.wikipedia.org/wiki/Queue_(abstract_data_type)">https://en.wikipedia.org/wiki/Queue_(abstract_data_type)&lt;/a>&lt;/p>
-&lt;h2 id="常量">常量&lt;a class="td-heading-self-link" href="#%e5%b8%b8%e9%87%8f" aria-label="Heading self-link">&lt;/a>&lt;/h2>
-&lt;p>This section is empty.&lt;/p>
-&lt;h2 id="变量">变量&lt;a class="td-heading-self-link" href="#%e5%8f%98%e9%87%8f" aria-label="Heading self-link">&lt;/a>&lt;/h2>
-&lt;p>This section is empty.&lt;/p></description></item><item><title>priorityqueue</title><link>https://before80.github.io/go_docs/thirdPkg/gods/queues/priorityqueue/</link><pubDate>Sat, 07 Dec 2024 11:07:42 +0800</pubDate><guid>https://before80.github.io/go_docs/thirdPkg/gods/queues/priorityqueue/</guid><description>&lt;blockquote>
-&lt;p>原文：&lt;a href="https://pkg.go.dev/github.com/emirpasic/gods/v2@v2.0.0-alpha/queues/priorityqueue">https://pkg.go.dev/github.com/emirpasic/gods/v2@v2.0.0-alpha/queues/priorityqueue&lt;/a>&lt;/p>
-&lt;p>收录该文档时间： &lt;code>2024-12-07T11:07:42+08:00&lt;/code>&lt;/p>&lt;/blockquote>
-&lt;h2 id="overview">Overview&lt;a class="td-heading-self-link" href="#overview" aria-label="Heading self-link">&lt;/a>&lt;/h2>
-&lt;p>Package priorityqueue implements a priority queue backed by binary queue.&lt;/p>
-&lt;p>​	包 &lt;code>priorityqueue&lt;/code> 实现了基于二叉队列的优先队列。&lt;/p>
-&lt;p>An unbounded priority queue based on a priority queue. The elements of the priority queue are ordered by a comparator provided at queue construction time.&lt;/p>
-&lt;p>​	这是一个无界优先队列，基于优先级队列实现。优先队列的元素按照队列构造时提供的比较器排序。&lt;/p></description></item></channel></rss>
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>queues on Go 中文档集</title><link>https://before80.github.io/go_docs/thirdPkg/gods/queues/</link><description>Recent content in queues on Go 中文档集</description><generator>Hugo</generator><language>zh-cn</language><lastBuildDate>Sun, 08 Dec 2024 22:10:00 +0800</lastBuildDate><atom:link href="https://before80.github.io/go_docs/thirdPkg/gods/queues/index.xml" rel="self" type="application/rss+xml"/><item><title>arrayqueue</title><link>https://before80.github.io/go_docs/thirdPkg/gods/queues/arrayqueue/</link><pubDate>Sat, 07 Dec 2024 11:06:50 +0800</pubDate><guid>https://before80.github.io/go_docs/thirdPkg/gods/queues/arrayqueue/</guid><description>&lt;blockquote&gt;
+&lt;p&gt;原文：&lt;a href="https://pkg.go.dev/github.com/emirpasic/gods/v2@v2.0.0-alpha/queues/arrayqueue"&gt;https://pkg.go.dev/github.com/emirpasic/gods/v2@v2.0.0-alpha/queues/arrayqueue&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;收录该文档时间： &lt;code&gt;2024-12-07T11:06:50+08:00&lt;/code&gt;&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;h2 id="overview"&gt;Overview&lt;/h2&gt;
+&lt;p&gt;Package arrayqueue implements a queue backed by array list.&lt;/p&gt;
+&lt;p&gt;​	包 &lt;code&gt;arrayqueue&lt;/code&gt; 实现了一个基于数组列表的队列。&lt;/p&gt;
+&lt;p&gt;Structure is not thread safe.&lt;/p&gt;
+&lt;p&gt;​	该结构体不是线程安全的。&lt;/p&gt;
+&lt;p&gt;Reference: &lt;a href="https://en.wikipedia.org/wiki/Queue_(abstract_data_type)"&gt;https://en.wikipedia.org/wiki/Queue_(abstract_data_type)&lt;/a&gt;&lt;/p&gt;
+&lt;h2 id="常量"&gt;常量&lt;/h2&gt;
+&lt;p&gt;This section is empty.&lt;/p&gt;
+&lt;h2 id="变量"&gt;变量&lt;/h2&gt;
+&lt;p&gt;This section is empty.&lt;/p&gt;
+&lt;h2 id="函数"&gt;函数&lt;/h2&gt;
+&lt;p&gt;This section is empty.&lt;/p&gt;</description></item><item><title>circularbuffer</title><link>https://before80.github.io/go_docs/thirdPkg/gods/queues/circularbuffer/</link><pubDate>Sat, 07 Dec 2024 11:07:09 +0800</pubDate><guid>https://before80.github.io/go_docs/thirdPkg/gods/queues/circularbuffer/</guid><description>&lt;blockquote&gt;
+&lt;p&gt;原文：&lt;a href="https://pkg.go.dev/github.com/emirpasic/gods/v2@v2.0.0-alpha/queues/circularbuffer"&gt;https://pkg.go.dev/github.com/emirpasic/gods/v2@v2.0.0-alpha/queues/circularbuffer&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;收录该文档时间： &lt;code&gt;2024-12-07T11:07:09+08:00&lt;/code&gt;&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;h2 id="overview"&gt;Overview&lt;/h2&gt;
+&lt;p&gt;Package circularbuffer implements the circular buffer.&lt;/p&gt;
+&lt;p&gt;​	包 &lt;code&gt;circularbuffer&lt;/code&gt; 实现了循环缓冲区。&lt;/p&gt;
+&lt;p&gt;In computer science, a circular buffer, circular queue, cyclic buffer or ring buffer is a data structure that uses a single, fixed-size buffer as if it were connected end-to-end. This structure lends itself easily to buffering data streams.&lt;/p&gt;
+&lt;p&gt;​	在计算机科学中，循环缓冲区（也称为循环队列、环形缓冲区或环形队列）是一种数据结构，其使用一个固定大小的缓冲区，模拟为首尾相连的结构。这种结构非常适合用于缓冲数据流。&lt;/p&gt;</description></item><item><title>linkedlistqueue</title><link>https://before80.github.io/go_docs/thirdPkg/gods/queues/linkedlistqueue/</link><pubDate>Sat, 07 Dec 2024 11:07:24 +0800</pubDate><guid>https://before80.github.io/go_docs/thirdPkg/gods/queues/linkedlistqueue/</guid><description>&lt;blockquote&gt;
+&lt;p&gt;原文：&lt;a href="https://pkg.go.dev/github.com/emirpasic/gods/v2@v2.0.0-alpha/queues/linkedlistqueue"&gt;https://pkg.go.dev/github.com/emirpasic/gods/v2@v2.0.0-alpha/queues/linkedlistqueue&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;收录该文档时间： &lt;code&gt;2024-12-07T11:07:24+08:00&lt;/code&gt;&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;h2 id="overview"&gt;Overview&lt;/h2&gt;
+&lt;p&gt;Package linkedlistqueue implements a queue backed by a singly-linked list.&lt;/p&gt;
+&lt;p&gt;​	包 &lt;code&gt;linkedlistqueue&lt;/code&gt; 实现了基于单链表的队列。&lt;/p&gt;
+&lt;p&gt;Structure is not thread safe.&lt;/p&gt;
+&lt;p&gt;​	该结构体不是线程安全的。&lt;/p&gt;
+&lt;p&gt;Reference: &lt;a href="https://en.wikipedia.org/wiki/Queue_(abstract_data_type)"&gt;https://en.wikipedia.org/wiki/Queue_(abstract_data_type)&lt;/a&gt;&lt;/p&gt;
+&lt;h2 id="常量"&gt;常量&lt;/h2&gt;
+&lt;p&gt;This section is empty.&lt;/p&gt;
+&lt;h2 id="变量"&gt;变量&lt;/h2&gt;
+&lt;p&gt;This section is empty.&lt;/p&gt;
+&lt;h2 id="函数"&gt;函数&lt;/h2&gt;
+&lt;p&gt;This section is empty.&lt;/p&gt;</description></item><item><title>priorityqueue</title><link>https://before80.github.io/go_docs/thirdPkg/gods/queues/priorityqueue/</link><pubDate>Sat, 07 Dec 2024 11:07:42 +0800</pubDate><guid>https://before80.github.io/go_docs/thirdPkg/gods/queues/priorityqueue/</guid><description>&lt;blockquote&gt;
+&lt;p&gt;原文：&lt;a href="https://pkg.go.dev/github.com/emirpasic/gods/v2@v2.0.0-alpha/queues/priorityqueue"&gt;https://pkg.go.dev/github.com/emirpasic/gods/v2@v2.0.0-alpha/queues/priorityqueue&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;收录该文档时间： &lt;code&gt;2024-12-07T11:07:42+08:00&lt;/code&gt;&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;h2 id="overview"&gt;Overview&lt;/h2&gt;
+&lt;p&gt;Package priorityqueue implements a priority queue backed by binary queue.&lt;/p&gt;
+&lt;p&gt;​	包 &lt;code&gt;priorityqueue&lt;/code&gt; 实现了基于二叉队列的优先队列。&lt;/p&gt;
+&lt;p&gt;An unbounded priority queue based on a priority queue. The elements of the priority queue are ordered by a comparator provided at queue construction time.&lt;/p&gt;
+&lt;p&gt;​	这是一个无界优先队列，基于优先级队列实现。优先队列的元素按照队列构造时提供的比较器排序。&lt;/p&gt;</description></item></channel></rss>
