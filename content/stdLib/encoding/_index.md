@@ -6,4 +6,5 @@ type = "docs"
 description = ""
 isCJKLanguage = true
 draft = false
+sidebar_root_for= "self"
 +++
